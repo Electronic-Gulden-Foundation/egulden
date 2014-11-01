@@ -13,20 +13,16 @@
 SplashScreen::SplashScreen(const QPixmap &pixmap, Qt::WindowFlags f) :
     QSplashScreen(pixmap, f)
 {
-    // set reference point, paddings
-    int paddingLeftCol2         = 230;
-    int paddingTopCol2          = 376;
-    int line1 = 0;
-    int line2 = 13;
-    int line3 = 26;
+    const int splashWidth  = 397;
+    const int splashHeight = 397;
 
+    // set reference point, paddings
     float fontFactor            = 1.0;
 
     // define text to place
     QString titleText       = QString(QApplication::applicationName()).replace(QString("-testnet"), QString(""), Qt::CaseSensitive); // cut of testnet, place it as single object further down
-    QString versionText     = QString("Version %1 ").arg(QString::fromStdString(FormatFullVersion()));
-    QString copyrightText1   = QChar(0xA9)+QString(" 2009-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The Bitcoin developers"));
-    QString copyrightText2   = QChar(0xA9)+QString(" 2011-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The Litecoin developers"));
+    QString splashTitle     = QString("e-Gulden Core");
+    QString versionText     = QString("%1").arg(QString::fromStdString(FormatFullVersion()));
 
     QString font            = "Arial";
 
@@ -42,13 +38,11 @@ SplashScreen::SplashScreen(const QPixmap &pixmap, Qt::WindowFlags f) :
     QPainter pixPaint(&newPixmap);
     pixPaint.setPen(QColor(70,70,70));
 
-    pixPaint.setFont(QFont(font, 9*fontFactor));
-    pixPaint.drawText(paddingLeftCol2,paddingTopCol2+line3,versionText);
+    pixPaint.setFont(QFont(font, 18 * fontFactor));
+    pixPaint.drawText(0, 20,      splashWidth, 25, Qt::AlignCenter, splashTitle);
 
-    // draw copyright stuff
-    pixPaint.setFont(QFont(font, 9*fontFactor));
-    pixPaint.drawText(paddingLeftCol2,paddingTopCol2+line1,copyrightText1);
-    pixPaint.drawText(paddingLeftCol2,paddingTopCol2+line2,copyrightText2);
+    pixPaint.setFont(QFont(font, 8 * fontFactor));
+    pixPaint.drawText(0, 20 + 25, splashWidth, 20, Qt::AlignCenter, versionText);
 
     pixPaint.end();
 

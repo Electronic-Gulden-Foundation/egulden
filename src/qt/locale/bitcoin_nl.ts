@@ -4,13 +4,13 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
-        <source>About Litecoin</source>
-        <translation>Over Litecoin</translation>
+        <source>About e-Gulden</source>
+        <translation>Over e-Gulden</translation>
     </message>
     <message>
         <location line="+39"/>
-        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
-        <translation>&lt;b&gt;Litecoin&lt;/b&gt; versie</translation>
+        <source>&lt;b&gt;e-Gulden&lt;/b&gt; version</source>
+        <translation>&lt;b&gt;e-Gulden&lt;/b&gt; versie</translation>
     </message>
     <message>
         <location line="+57"/>
@@ -34,8 +34,8 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     </message>
     <message>
         <location line="+0"/>
-        <source>The Litecoin developers</source>
-        <translation>De Litecoin-ontwikkelaars</translation>
+        <source>The e-Gulden developers</source>
+        <translation>De e-Gulden-ontwikkelaars</translation>
     </message>
 </context>
 <context>
@@ -67,8 +67,8 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     </message>
     <message>
         <location filename="../addressbookpage.cpp" line="+63"/>
-        <source>These are your Litecoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation>Dit zijn uw Litecoinadressen om betalingen mee te ontvangen. U kunt er voor kiezen om een uniek adres aan te maken voor elke afzender. Op deze manier kunt u bijhouden wie al aan u betaald heeft.</translation>
+        <source>These are your e-Gulden addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+        <translation>Dit zijn uw e-Guldenadressen om betalingen mee te ontvangen. U kunt er voor kiezen om een uniek adres aan te maken voor elke afzender. Op deze manier kunt u bijhouden wie al aan u betaald heeft.</translation>
     </message>
     <message>
         <location filename="../forms/addressbookpage.ui" line="+14"/>
@@ -82,8 +82,8 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     </message>
     <message>
         <location line="+11"/>
-        <source>Sign a message to prove you own a Litecoin address</source>
-        <translation>Onderteken een bericht om te bewijzen dat u een bepaald Litecoinadres bezit</translation>
+        <source>Sign a message to prove you own a e-Gulden address</source>
+        <translation>Onderteken een bericht om te bewijzen dat u een bepaald e-Guldenadres bezit</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -107,8 +107,8 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     </message>
     <message>
         <location line="-44"/>
-        <source>Verify a message to ensure it was signed with a specified Litecoin address</source>
-        <translation>Controleer een bericht om te verifiëren dat het gespecificeerde Litecoinadres het bericht heeft ondertekend.</translation>
+        <source>Verify a message to ensure it was signed with a specified e-Gulden address</source>
+        <translation>Controleer een bericht om te verifiëren dat het gespecificeerde e-Guldenadres het bericht heeft ondertekend.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -122,8 +122,8 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     </message>
     <message>
         <location filename="../addressbookpage.cpp" line="-5"/>
-        <source>These are your Litecoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Dit zijn uw Litecoinadressen om betalingen mee te verzenden. Check altijd het bedrag en het ontvangende adres voordat u uw litecoins verzendt.</translation>
+        <source>These are your e-Gulden addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Dit zijn uw e-Guldenadressen om betalingen mee te verzenden. Controleer altijd het bedrag en het ontvangende adres voordat u uw e-Guldens verzendt.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -143,7 +143,7 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     <message>
         <location line="+260"/>
         <source>Export Address Book Data</source>
-        <translation>Exporteer Gegevens van het Adresboek</translation>
+        <translation>Exporteer gegevens van het adresboek</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -158,7 +158,7 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     <message>
         <location line="+0"/>
         <source>Could not write to file %1.</source>
-        <translation>Kon niet schrijven naar bestand %1.</translation>
+        <translation>Kon niet naar bestand schrijven %1.</translation>
     </message>
 </context>
 <context>
@@ -184,7 +184,7 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     <message>
         <location filename="../forms/askpassphrasedialog.ui" line="+26"/>
         <source>Passphrase Dialog</source>
-        <translation>Wachtwoorddialoogscherm</translation>
+        <translation>Wachtwoord dialoogscherm</translation>
     </message>
     <message>
         <location line="+21"/>
@@ -204,7 +204,7 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     <message>
         <location filename="../askpassphrasedialog.cpp" line="+33"/>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
-        <translation>Vul een nieuw wachtwoord in voor uw portemonnee. &lt;br/&gt; Gebruik een wachtwoord van &lt;b&gt;10 of meer lukrake karakters&lt;/b&gt;, of &lt;b&gt; acht of meer woorden&lt;/b&gt; . </translation>
+        <translation>Vul een nieuw wachtwoord in voor uw portemonnee in. &lt;br/&gt; Gebruik een wachtwoord van &lt;b&gt;10 of meer lukrake karakters&lt;/b&gt;, of &lt;b&gt; acht of meer woorden&lt;/b&gt; . </translation>
     </message>
     <message>
         <location line="+1"/>
@@ -239,7 +239,7 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     <message>
         <location line="+1"/>
         <source>Enter the old and new passphrase to the wallet.</source>
-        <translation>Vul uw oude en nieuwe portemonneewachtwoord in.</translation>
+        <translation>Vul uw oude en het nieuwe portemonneewachtwoord in.</translation>
     </message>
     <message>
         <location line="+46"/>
@@ -248,8 +248,8 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     </message>
     <message>
         <location line="+1"/>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR LITECOINS&lt;/b&gt;!</source>
-        <translation>Waarschuwing: Als u uw portemonnee versleutelt en uw wachtwoord vergeet, zult u &lt;b&gt;AL UW LITECOINS VERLIEZEN&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR e-GuldenS&lt;/b&gt;!</source>
+        <translation>Waarschuwing: Als u uw portemonnee versleutelt en uw wachtwoord vergeet, zult u &lt;b&gt;AL UW e-Guldens KWIJTRAKEN&lt;/b&gt;!</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -259,7 +259,7 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     <message>
         <location line="+15"/>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
-        <translation>BELANGRIJK: Elke eerder gemaakte backup van uw portemonneebestand dient u te vervangen door het nieuw gegenereerde, versleutelde portemonneebestand. Om veiligheidsredenen zullen eerdere backups van het niet-versleutelde portemonneebestand onbruikbaar worden zodra u uw nieuwe, versleutelde, portemonnee begint te gebruiken.</translation>
+        <translation>BELANGRIJK: Elke eerder gemaakte backup van uw portemonneebestand dient u te vervangen door het nieuw gegenereerde, versleutelde portemonneebestand. Om veiligheidsredenen zullen eerdere backups van het niet-versleutelde portemonneebestand onbruikbaar worden zodra u uw nieuwe, versleutelde, portemonnee gaat gebruiken.</translation>
     </message>
     <message>
         <location line="+100"/>
@@ -275,8 +275,8 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     </message>
     <message>
         <location line="-56"/>
-        <source>Litecoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your litecoins from being stolen by malware infecting your computer.</source>
-        <translation>Litecoin zal nu afsluiten om het versleutelingsproces te voltooien. Onthoud dat het versleutelen van uw portemonnee u niet volledig kan beschermen: Malware kan uw computer infecteren en uw litecoins stelen.</translation>
+        <source>e-Gulden will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your e-Guldens from being stolen by malware infecting your computer.</source>
+        <translation>e-Gulden zal nu afsluiten om het versleutelingsproces te voltooien. Onthoud dat het versleutelen van uw portemonnee u niet volledig kan beschermen: Malware kan uw computer infecteren en mogelijk uw e-Guldens stelen.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -374,8 +374,8 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     </message>
     <message>
         <location line="+4"/>
-        <source>Show information about Litecoin</source>
-        <translation>Laat informatie zien over Litecoin</translation>
+        <source>Show information about e-Gulden</source>
+        <translation>Toon informatie over e-Gulden</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -410,22 +410,22 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     <message>
         <location line="+285"/>
         <source>Importing blocks from disk...</source>
-        <translation>Blokken aan het importeren vanaf harde schijf...</translation>
+        <translation>Bezig met blokken te importeren vanaf harde schijf...</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Reindexing blocks on disk...</source>
-        <translation>Bezig met herindexeren van blokken op harde schijf...</translation>
+        <translation>Bezig met het herindexeren van blokken op harde schijf...</translation>
     </message>
     <message>
         <location line="-347"/>
-        <source>Send coins to a Litecoin address</source>
-        <translation>Verstuur munten naar een Litecoinadres</translation>
+        <source>Send coins to a e-Gulden address</source>
+        <translation>Verstuur munten naar een e-Guldenadres</translation>
     </message>
     <message>
         <location line="+49"/>
-        <source>Modify configuration options for Litecoin</source>
-        <translation>Wijzig instellingen van Litecoin</translation>
+        <source>Modify configuration options for e-Gulden</source>
+        <translation>Wijzig de e-Gulden instellingen</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -440,12 +440,12 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     <message>
         <location line="+6"/>
         <source>&amp;Debug window</source>
-        <translation>&amp;Debugscherm</translation>
+        <translation>&amp;Fout opsporingsscherm</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Open debugging and diagnostic console</source>
-        <translation>Open debugging en diagnostische console</translation>
+        <translation>Open foutopsporing en diagnostische console</translation>
     </message>
     <message>
         <location line="-4"/>
@@ -455,8 +455,8 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     <message>
         <location line="-165"/>
         <location line="+530"/>
-        <source>Litecoin</source>
-        <translation>Litecoin</translation>
+        <source>e-Gulden</source>
+        <translation>e-Gulden</translation>
     </message>
     <message>
         <location line="-530"/>
@@ -480,8 +480,8 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     </message>
     <message>
         <location line="+22"/>
-        <source>&amp;About Litecoin</source>
-        <translation>&amp;Over Litecoin</translation>
+        <source>&amp;About e-Gulden</source>
+        <translation>&amp;Over e-Gulden</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -500,13 +500,13 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     </message>
     <message>
         <location line="+7"/>
-        <source>Sign messages with your Litecoin addresses to prove you own them</source>
-        <translation>Onderteken berichten met uw Litecoinadressen om te bewijzen dat u deze adressen bezit</translation>
+        <source>Sign messages with your e-Gulden addresses to prove you own them</source>
+        <translation>Onderteken berichten met uw e-Guldenadressen om te bewijzen dat u deze adressen bezit</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Verify messages to ensure they were signed with specified Litecoin addresses</source>
-        <translation>Verifiëer handtekeningen om zeker te zijn dat de berichten zijn ondertekend met de gespecificeerde Litecoinadressen</translation>
+        <source>Verify messages to ensure they were signed with specified e-Gulden addresses</source>
+        <translation>Verifiëer handtekeningen om zeker te zijn dat de berichten zijn ondertekend met de gespecificeerde e-Guldenadressen</translation>
     </message>
     <message>
         <location line="+28"/>
@@ -526,7 +526,7 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     <message>
         <location line="+9"/>
         <source>Tabs toolbar</source>
-        <translation>Tab-werkbalk</translation>
+        <translation>Tab werkbalk</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -536,13 +536,13 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     </message>
     <message>
         <location line="+47"/>
-        <source>Litecoin client</source>
-        <translation>Litecoin client</translation>
+        <source>e-Gulden client</source>
+        <translation>e-Gulden client</translation>
     </message>
     <message numerus="yes">
         <location line="+141"/>
-        <source>%n active connection(s) to Litecoin network</source>
-        <translation><numerusform>%n actieve connectie naar Litecoinnetwerk</numerusform><numerusform>%n actieve connecties naar Litecoinnetwerk</numerusform></translation>
+        <source>%n active connection(s) to e-Gulden network</source>
+        <translation><numerusform>%n actieve verbinding(en) met het e-Guldennetwerk</numerusform><numerusform>%n actieve verbinding(en) met het e-Guldennetwerk</numerusform></translation>
     </message>
     <message>
         <location line="+22"/>
@@ -552,12 +552,12 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     <message>
         <location line="+12"/>
         <source>Processed %1 of %2 (estimated) blocks of transaction history.</source>
-        <translation>%1 van %2 (geschat) blokken van de transactiehistorie verwerkt.</translation>
+        <translation>%1 van %2 (geschat) blokken van de transactiegeschiedenis verwerkt.</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Processed %1 blocks of transaction history.</source>
-        <translation>%1 blokken van transactiehistorie verwerkt.</translation>
+        <translation>%1 blokken van transactiegeschiedenis verwerkt.</translation>
     </message>
     <message numerus="yes">
         <location line="+20"/>
@@ -607,7 +607,7 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     <message>
         <location line="+70"/>
         <source>This transaction is over the size limit. You can still send it for a fee of %1, which goes to the nodes that process your transaction and helps to support the network. Do you want to pay the fee?</source>
-        <translation>Deze transactie overschrijdt de groottelimiet. Om de transactie alsnog te versturen kunt u transactiekosten betalen van %1. Deze transactiekosten gaan naar de nodes die uw transactie verwerken en het helpt op deze manier bij het ondersteunen van het Litecoinnetwerk. Wilt u de transactiekosten betalen?</translation>
+        <translation>Deze transactie overschrijdt de groottelimiet. Om de transactie alsnog te versturen dient u transactiekosten betalen van %1. Deze transactiekosten gaan naar de nodes die uw transactie verwerken en op deze manier wordt het  e-Guldennetwerk ondersteund. Wilt u de transactiekosten betalen?</translation>
     </message>
     <message>
         <location line="-140"/>
@@ -627,7 +627,7 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     <message>
         <location line="+8"/>
         <source>Sent transaction</source>
-        <translation>Verzonden transactie</translation>
+        <translation>Transactie verzonden</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -651,13 +651,13 @@ Adres: %4
         <location line="+33"/>
         <location line="+23"/>
         <source>URI handling</source>
-        <translation>URI-behandeling</translation>
+        <translation>URI behandeling</translation>
     </message>
     <message>
         <location line="-23"/>
         <location line="+23"/>
-        <source>URI can not be parsed! This can be caused by an invalid Litecoin address or malformed URI parameters.</source>
-        <translation>URI kan niet worden geïnterpreteerd. Dit kan komen door een ongeldig Litecoinadres of misvormde URI-parameters.</translation>
+        <source>URI can not be parsed! This can be caused by an invalid e-Gulden address or malformed URI parameters.</source>
+        <translation>URI kan niet worden geïnterpreteerd. Dit kan komen door een ongeldig e-Guldenadres of misvormde URI parameters.</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -671,8 +671,8 @@ Adres: %4
     </message>
     <message>
         <location filename="../bitcoin.cpp" line="+111"/>
-        <source>A fatal error occurred. Litecoin can no longer continue safely and will quit.</source>
-        <translation>Er is een fatale fout opgetreden. Litecoin kan niet meer veilig doorgaan en zal nu afgesloten worden.</translation>
+        <source>A fatal error occurred. e-Gulden can no longer continue safely and will quit.</source>
+        <translation>Er is een fatale fout opgetreden. e-Gulden kan niet meer veilig doorgaan en zal nu afsluiten.</translation>
     </message>
 </context>
 <context>
@@ -708,7 +708,7 @@ Adres: %4
     <message>
         <location line="+10"/>
         <source>The address associated with this address book entry. This can only be modified for sending addresses.</source>
-        <translation>Het adres dat geassocieerd is met deze inschrijving in het adresboek. Dit kan alleen worden veranderd voor zend-adressen.</translation>
+        <translation>Het adres dat geassocieerd is met deze inschrijving in het adresboek. Dit kan alleen worden veranderd voor zend adressen.</translation>
     </message>
     <message>
         <location filename="../editaddressdialog.cpp" line="+21"/>
@@ -733,12 +733,12 @@ Adres: %4
     <message>
         <location line="+76"/>
         <source>The entered address &quot;%1&quot; is already in the address book.</source>
-        <translation>Het opgegeven adres &quot;%1&quot; bestaat al in uw adresboek.</translation>
+        <translation>Het opgegeven adres &quot;%1&quot; staat al in uw adresboek.</translation>
     </message>
     <message>
         <location line="-5"/>
-        <source>The entered address &quot;%1&quot; is not a valid Litecoin address.</source>
-        <translation>Het opgegeven adres &quot;%1&quot; is een ongeldig Litecoinadres</translation>
+        <source>The entered address &quot;%1&quot; is not a valid e-Gulden address.</source>
+        <translation>Het opgegeven adres &quot;%1&quot; is een ongeldig e-Guldenadres</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -756,8 +756,8 @@ Adres: %4
     <message>
         <location filename="../guiutil.cpp" line="+424"/>
         <location line="+12"/>
-        <source>Litecoin-Qt</source>
-        <translation>Litecoin-Qt</translation>
+        <source>e-Gulden-Qt</source>
+        <translation>e-Gulden-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -772,12 +772,12 @@ Adres: %4
     <message>
         <location line="+1"/>
         <source>command-line options</source>
-        <translation>commandoregel-opties</translation>
+        <translation>commandoregel opties</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>UI options</source>
-        <translation>gebruikersinterfaceopties</translation>
+        <translation>gebruikersinterface opties</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -792,7 +792,7 @@ Adres: %4
     <message>
         <location line="+1"/>
         <source>Show splash screen on startup (default: 1)</source>
-        <translation>Laat laadscherm zien bij het opstarten. (standaard: 1)</translation>
+        <translation>Laat starticoonscherm zien bij het opstarten. (standaard: 1)</translation>
     </message>
 </context>
 <context>
@@ -810,7 +810,7 @@ Adres: %4
     <message>
         <location line="+6"/>
         <source>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are 1 kB.</source>
-        <translation>Optionele transactiekosten per kB. Transactiekosten helpen ervoor te zorgen dat uw transacties snel verwerkt worden. De meeste transacties zijn 1kB.</translation>
+        <translation>Optionele transactiekosten per kB. Transactiekosten helpen ervoor te zorgen dat uw transacties snel verwerkt worden. De meeste transacties zijn 1kB groot.</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -819,13 +819,13 @@ Adres: %4
     </message>
     <message>
         <location line="+31"/>
-        <source>Automatically start Litecoin after logging in to the system.</source>
-        <translation>Start Litecoin automatisch na inloggen in het systeem</translation>
+        <source>Automatically start e-Gulden after logging in to the system.</source>
+        <translation>Start e-Gulden automatisch na inloggen in het systeem</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Start Litecoin on system login</source>
-        <translation>Start &amp;Litecoin bij het inloggen in het systeem</translation>
+        <source>&amp;Start e-Gulden on system login</source>
+        <translation>Start &amp;e-Gulden bij het inloggen in het systeem</translation>
     </message>
     <message>
         <location line="+35"/>
@@ -844,8 +844,8 @@ Adres: %4
     </message>
     <message>
         <location line="+6"/>
-        <source>Automatically open the Litecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Open de Litecoin-poort automatisch op de router. Dit werkt alleen als de router UPnP ondersteunt en het aanstaat.</translation>
+        <source>Automatically open the e-Gulden client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Open de e-Gulden poort automatisch op de router. Dit werkt alleen als de router UPnP ondersteunt en het aanstaat.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -854,13 +854,13 @@ Adres: %4
     </message>
     <message>
         <location line="+7"/>
-        <source>Connect to the Litecoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
-        <translation>Verbind met het Litecoin-netwerk via een SOCKS-proxy (bijv. wanneer u via Tor wilt verbinden)</translation>
+        <source>Connect to the e-Gulden network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+        <translation>Verbind met het e-Gulden netwerk via een SOCKS proxy (bijv. wanneer u via Tor wilt verbinden)</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>&amp;Connect through SOCKS proxy:</source>
-        <translation>&amp;Verbind via een SOCKS-proxy</translation>
+        <translation>&amp;Verbind via een SOCKS proxy</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -900,7 +900,7 @@ Adres: %4
     <message>
         <location line="+6"/>
         <source>Show only a tray icon after minimizing the window.</source>
-        <translation>Laat alleen een systeemvak-icoon zien wanneer het venster geminimaliseerd is</translation>
+        <translation>Laat alleen een systeemvak icoon zien wanneer het venster geminimaliseerd is</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -910,7 +910,7 @@ Adres: %4
     <message>
         <location line="+7"/>
         <source>Minimize instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Quit in the menu.</source>
-        <translation>Minimaliseer het venster in de plaats van de applicatie af te sluiten als het venster gesloten wordt. Wanneer deze optie aan staan, kan de applicatie alleen worden afgesloten door Afsluiten te kiezen in het menu.</translation>
+        <translation>Minimaliseer het venster in plaats van de applicatie af te sluiten wanneer het venster gesloten wordt. Wanneer deze optie aan staan, kan de applicatie alleen worden afgesloten door Afsluiten te kiezen in het menu.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -929,8 +929,8 @@ Adres: %4
     </message>
     <message>
         <location line="+13"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting Litecoin.</source>
-        <translation>De taal van de gebruikersinterface kan hier ingesteld worden. Deze instelling zal pas van kracht worden nadat Litecoin herstart wordt.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting e-Gulden.</source>
+        <translation>De taal van de gebruikersinterface kan hier ingesteld worden. Deze instelling zal pas van kracht worden nadat het e-Gulden opnieuw wordt gestart.</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -940,17 +940,17 @@ Adres: %4
     <message>
         <location line="+13"/>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Kies de standaard onderverdelingseenheid om weer te geven in uw programma, en voor het versturen van munten</translation>
+        <translation>Kies de standaard onderverdelingseenheid om weer te geven in uw programma, en voor het versturen van e-Guldens</translation>
     </message>
     <message>
         <location line="+9"/>
-        <source>Whether to show Litecoin addresses in the transaction list or not.</source>
-        <translation>Of Litecoinadressen getoond worden in de transactielijst</translation>
+        <source>Whether to show e-Gulden addresses in the transaction list or not.</source>
+        <translation>Of e-Guldenadressen getoond worden in de transactielijst</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>&amp;Display addresses in transaction list</source>
-        <translation>Toon a&amp;dressen in de transactielijst</translation>
+        <translation>&amp;Toon adressen in de transactielijst</translation>
     </message>
     <message>
         <location line="+71"/>
@@ -960,7 +960,7 @@ Adres: %4
     <message>
         <location line="+7"/>
         <source>&amp;Cancel</source>
-        <translation>Ann&amp;uleren</translation>
+        <translation>&amp;Annuleren</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -975,7 +975,7 @@ Adres: %4
     <message>
         <location line="+130"/>
         <source>Confirm options reset</source>
-        <translation>Bevestig reset opties</translation>
+        <translation>Bevestig resetten van opties</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -996,8 +996,8 @@ Adres: %4
     <message>
         <location line="-9"/>
         <location line="+9"/>
-        <source>This setting will take effect after restarting Litecoin.</source>
-        <translation>Deze instelling zal pas van kracht worden na het herstarten van Litecoin.</translation>
+        <source>This setting will take effect after restarting e-Gulden.</source>
+        <translation>Deze instelling zal pas van kracht worden na het herstarten van het e-Gulden programma.</translation>
     </message>
     <message>
         <location line="+29"/>
@@ -1010,13 +1010,13 @@ Adres: %4
     <message>
         <location filename="../forms/overviewpage.ui" line="+14"/>
         <source>Form</source>
-        <translation>Vorm</translation>
+        <translation>Formulier</translation>
     </message>
     <message>
         <location line="+50"/>
         <location line="+166"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Litecoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>De weergegeven informatie kan verouderd zijn. Uw portemonnee synchroniseert automaticsh met het Litecoinnetwerk nadat een verbinding is gelegd, maar dit proces is nog niet voltooid.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the e-Gulden network after a connection is established, but this process has not completed yet.</source>
+        <translation>De weergegeven informatie kan verouderd zijn. Uw portemonnee synchroniseert automatisch met het e-Gulden netwerk nadat een verbinding is gelegd, maar dit proces is nog niet voltooid.</translation>
     </message>
     <message>
         <location line="-124"/>
@@ -1036,12 +1036,12 @@ Adres: %4
     <message>
         <location line="+107"/>
         <source>Immature:</source>
-        <translation>Immatuur:</translation>
+        <translation>Onvolwassen:</translation>
     </message>
     <message>
         <location line="+13"/>
         <source>Mined balance that has not yet matured</source>
-        <translation>Gedolven saldo dat nog niet tot wasdom is gekomen</translation>
+        <translation>Gemijnd saldo dat nog niet tot wasdom is gekomen</translation>
     </message>
     <message>
         <location line="+46"/>
@@ -1056,7 +1056,7 @@ Adres: %4
     <message>
         <location line="+29"/>
         <source>Total of transactions that have yet to be confirmed, and do not yet count toward the current balance</source>
-        <translation>Totaal van de transacties die nog moeten worden bevestigd en nog niet zijn meegeteld in uw huidige saldo </translation>
+        <translation>Totaal van de transacties die nog moeten worden bevestigd en dus nog niet zijn meegeteld in uw huidige saldo </translation>
     </message>
     <message>
         <location filename="../overviewpage.cpp" line="+116"/>
@@ -1069,8 +1069,8 @@ Adres: %4
     <name>PaymentServer</name>
     <message>
         <location filename="../paymentserver.cpp" line="+107"/>
-        <source>Cannot start litecoin: click-to-pay handler</source>
-        <translation>Kan litecoin niet starten: click-to-pay handler</translation>
+        <source>Cannot start e-Gulden: click-to-pay handler</source>
+        <translation>Kan e-Gulden niet starten: click-to-pay handler</translation>
     </message>
 </context>
 <context>
@@ -1078,7 +1078,7 @@ Adres: %4
     <message>
         <location filename="../forms/qrcodedialog.ui" line="+14"/>
         <source>QR Code Dialog</source>
-        <translation>QR-codescherm</translation>
+        <translation>QR codescherm</translation>
     </message>
     <message>
         <location line="+59"/>
@@ -1108,22 +1108,22 @@ Adres: %4
     <message>
         <location filename="../qrcodedialog.cpp" line="+62"/>
         <source>Error encoding URI into QR Code.</source>
-        <translation>Fout tijdens encoderen URI in QR-code</translation>
+        <translation>Fout tijdens encoderen URI naar QR code</translation>
     </message>
     <message>
         <location line="+40"/>
         <source>The entered amount is invalid, please check.</source>
-        <translation>Het opgegeven bedrag is ongeldig, controleer het s.v.p.</translation>
+        <translation>Het opgegeven bedrag is ongeldig, controleer dit a.u.b.</translation>
     </message>
     <message>
         <location line="+23"/>
         <source>Resulting URI too long, try to reduce the text for label / message.</source>
-        <translation>Resulterende URI te lang, probeer de tekst korter te maken voor het label/bericht.</translation>
+        <translation>Resulterende URI te lang, maak de tekst korter voor het label / bericht.</translation>
     </message>
     <message>
         <location line="+25"/>
         <source>Save QR Code</source>
-        <translation>Sla QR-code op</translation>
+        <translation>Sla QR code op</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -1136,7 +1136,7 @@ Adres: %4
     <message>
         <location filename="../forms/rpcconsole.ui" line="+46"/>
         <source>Client name</source>
-        <translation>Clientnaam</translation>
+        <translation>Client naam</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1155,7 +1155,7 @@ Adres: %4
     <message>
         <location line="-217"/>
         <source>Client version</source>
-        <translation>Clientversie</translation>
+        <translation>Client versie</translation>
     </message>
     <message>
         <location line="-45"/>
@@ -1180,17 +1180,17 @@ Adres: %4
     <message>
         <location line="+7"/>
         <source>Number of connections</source>
-        <translation>Aantal connecties</translation>
+        <translation>Aantal verbindingen</translation>
     </message>
     <message>
         <location line="+23"/>
         <source>On testnet</source>
-        <translation>Op testnet</translation>
+        <translation>Op test net</translation>
     </message>
     <message>
         <location line="+23"/>
         <source>Block chain</source>
-        <translation>Blokketen</translation>
+        <translation>Blok keten</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1215,12 +1215,12 @@ Adres: %4
     <message>
         <location line="+16"/>
         <source>Command-line options</source>
-        <translation>Commandoregel-opties</translation>
+        <translation>Commandoregel opties</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the Litecoin-Qt help message to get a list with possible Litecoin command-line options.</source>
-        <translation>Toon het LitecoinQt-hulpbericht voor een lijst met mogelijke Litecoin commandoregel-opties.</translation>
+        <source>Show the e-Gulden-Qt help message to get a list with possible e-Gulden command-line options.</source>
+        <translation>Toon het e-GuldenQt hulpbericht voor een lijst met mogelijke e-Gulden commandoregel opties.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1235,27 +1235,27 @@ Adres: %4
     <message>
         <location line="-260"/>
         <source>Build date</source>
-        <translation>Bouwdatum</translation>
+        <translation>Bouw datum</translation>
     </message>
     <message>
         <location line="-104"/>
-        <source>Litecoin - Debug window</source>
-        <translation>Litecoin-debugscherm</translation>
+        <source>e-Gulden - Debug window</source>
+        <translation>e-Gulden foutopsporingsscherm</translation>
     </message>
     <message>
         <location line="+25"/>
-        <source>Litecoin Core</source>
-        <translation>Litecoin Kern</translation>
+        <source>e-Gulden Core</source>
+        <translation>e-Gulden Kern</translation>
     </message>
     <message>
         <location line="+279"/>
         <source>Debug log file</source>
-        <translation>Debug-logbestand</translation>
+        <translation>Foutopsporings logbestand</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Open the Litecoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Open het Litecoindebug-logbestand van de huidige datamap. Dit kan een aantal seconden duren voor grote logbestanden.</translation>
+        <source>Open the e-Gulden debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Open het e-Gulden foutopsporingslogbestand van de huidige datamap. Dit kan enige tijd in beslag nemen voor grote logbestanden.</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -1264,8 +1264,8 @@ Adres: %4
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-30"/>
-        <source>Welcome to the Litecoin RPC console.</source>
-        <translation>Welkom bij de Litecoin RPC-console.</translation>
+        <source>Welcome to the e-Gulden RPC console.</source>
+        <translation>Welkom bij de e-Gulden RPC console.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1295,7 +1295,7 @@ Adres: %4
     <message>
         <location line="+50"/>
         <source>Send to multiple recipients at once</source>
-        <translation>Verstuur aan verschillende ontvangers ineens</translation>
+        <translation>Verstuur aan meerdere ontvangers ineens</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1325,7 +1325,7 @@ Adres: %4
     <message>
         <location line="+31"/>
         <source>Confirm the send action</source>
-        <translation>Bevestig de verstuuractie</translation>
+        <translation>Bevestig de verstuur actie</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1345,7 +1345,7 @@ Adres: %4
     <message>
         <location line="+1"/>
         <source>Are you sure you want to send %1?</source>
-        <translation>Weet u zeker dat u %1 wil versturen?</translation>
+        <translation>Weet u zeker dat u %1 wilt versturen?</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -1360,7 +1360,7 @@ Adres: %4
     <message>
         <location line="+5"/>
         <source>The amount to pay must be larger than 0.</source>
-        <translation>Het ingevoerde bedrag moet groter zijn dan 0.</translation>
+        <translation>Het te betalen bedrag moet groter zijn dan 0.</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -1375,7 +1375,7 @@ Adres: %4
     <message>
         <location line="+6"/>
         <source>Duplicate address found, can only send to each address once per send operation.</source>
-        <translation>Dubbel adres gevonden, u kunt slechts eenmaal naar een bepaald adres verzenden per verstuurtransactie</translation>
+        <translation>Dubbel adres gevonden, u kunt slechts eenmaal naar een bepaald adres versturen per verstuur transactie</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -1385,7 +1385,7 @@ Adres: %4
     <message>
         <location line="+5"/>
         <source>Error: The transaction was rejected. This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>Fout: De transactie was afgewezen. Dit kan gebeuren als u eerder uitgegeven munten opnieuw wilt versturen, zoals wanneer u een kopie van uw portemonneebestand (wallet.dat) heeft gebruikt en in de kopie deze munten zijn uitgegeven, maar in de huidige portemonnee deze nog niet als zodanig zijn gemarkeerd.</translation>
+        <translation>Fout: De transactie was afgewezen. Dit kan gebeuren wanneer u eerder uitgegeven munten opnieuw wilt versturen, bijvoorbeeld wanneer u een kopie van uw portemonneebestand (wallet.dat) heeft gebruikt en in de kopie deze munten al zijn uitgegeven, maar in de huidige portemonnee deze nog niet als zodanig zijn gemarkeerd.</translation>
     </message>
 </context>
 <context>
@@ -1393,7 +1393,7 @@ Adres: %4
     <message>
         <location filename="../forms/sendcoinsentry.ui" line="+14"/>
         <source>Form</source>
-        <translation>Vorm</translation>
+        <translation>Formulier</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -1408,13 +1408,13 @@ Adres: %4
     <message>
         <location line="+34"/>
         <source>The address to send the payment to (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
-        <translation>Het adres waaraan u wilt betalen  (bijv. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+        <translation>Het adres waar u de betaling naar toe wilt sturen  (bijv. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
     </message>
     <message>
         <location line="+60"/>
         <location filename="../sendcoinsentry.cpp" line="+26"/>
         <source>Enter a label for this address to add it to your address book</source>
-        <translation>Vul een label in voor dit adres om het toe te voegen aan uw adresboek</translation>
+        <translation>Vul een label in voor dit adres om het aan uw adresboek toe te voegen</translation>
     </message>
     <message>
         <location line="-78"/>
@@ -1448,8 +1448,8 @@ Adres: %4
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a Litecoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
-        <translation>Vul een Litecoinadres in (bijv. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+        <source>Enter a e-Gulden address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
+        <translation>Vul een e-Guldenadres in (bijv. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
     </message>
 </context>
 <context>
@@ -1462,7 +1462,7 @@ Adres: %4
     <message>
         <location line="+13"/>
         <source>&amp;Sign Message</source>
-        <translation>O&amp;nderteken Bericht</translation>
+        <translation>&amp;Onderteken Bericht</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -1485,7 +1485,7 @@ Adres: %4
         <location line="+213"/>
         <source>Alt+A</source>
         <translation>Alt+A</translation>
-    </message>
+    </message  >
     <message>
         <location line="-203"/>
         <source>Paste address from clipboard</source>
@@ -1513,8 +1513,8 @@ Adres: %4
     </message>
     <message>
         <location line="+21"/>
-        <source>Sign the message to prove you own this Litecoin address</source>
-        <translation>Onderteken een bericht om te bewijzen dat u een bepaald Litecoinadres bezit</translation>
+        <source>Sign the message to prove you own this e-Gulden address</source>
+        <translation>Onderteken een bericht om te bewijzen dat u een bepaald e-Guldenadres bezit</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1540,7 +1540,7 @@ Adres: %4
     <message>
         <location line="+6"/>
         <source>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</source>
-        <translation>Voer het ondertekenende adres, bericht en handtekening hieronder in (let erop dat u nieuwe regels, spaties en tabs juist overneemt) om de handtekening te verifiëren. Let erop dat u niet meer uit het bericht interpreteert dan er daadwerkelijk staat,  om te voorkomen dat u wordt misleid in een man-in-the-middle-aanval.</translation>
+        <translation>Voer het ondertekenende adres, bericht en handtekening hieronder in (let erop dat u nieuwe regels, spaties en tabs correct overneemt) om de handtekening te verifiëren. Let erop dat u niet meer uit het bericht opmaakt dan er daadwerkelijk staat,  om te voorkomen dat u wordt misleid door een man-in-the-middle-aanval.</translation>
     </message>
     <message>
         <location line="+21"/>
@@ -1549,8 +1549,8 @@ Adres: %4
     </message>
     <message>
         <location line="+40"/>
-        <source>Verify the message to ensure it was signed with the specified Litecoin address</source>
-        <translation>Controleer een bericht om te verifiëren dat het gespecificeerde Litecoinadres het bericht heeft ondertekend.</translation>
+        <source>Verify the message to ensure it was signed with the specified e-Gulden address</source>
+        <translation>Controleer het bericht om te verifiëren dat het gespecificeerde e-Guldenadres het bericht heeft ondertekend.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1565,8 +1565,8 @@ Adres: %4
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
-        <source>Enter a Litecoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
-        <translation>Vul een Litecoinadres in (bijv. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+        <source>Enter a e-Gulden address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
+        <translation>Vul een e-Gulden adres in (bijv. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
     </message>
     <message>
         <location line="-2"/>
@@ -1575,8 +1575,8 @@ Adres: %4
     </message>
     <message>
         <location line="+3"/>
-        <source>Enter Litecoin signature</source>
-        <translation>Voer Litecoin-handtekening in</translation>
+        <source>Enter e-Gulden signature</source>
+        <translation>Voer e-Gulden handtekening in</translation>
     </message>
     <message>
         <location line="+82"/>
@@ -1590,7 +1590,7 @@ Adres: %4
         <location line="+73"/>
         <location line="+8"/>
         <source>Please check the address and try again.</source>
-        <translation>Controleer s.v.p. het adres en probeer het opnieuw.</translation>
+        <translation>Controleer a.u.b. het adres en probeer het opnieuw.</translation>
     </message>
     <message>
         <location line="-81"/>
@@ -1601,7 +1601,7 @@ Adres: %4
     <message>
         <location line="-73"/>
         <source>Wallet unlock was cancelled.</source>
-        <translation>Portemonnee-ontsleuteling is geannuleerd</translation>
+        <translation>Portemonnee ontsleuteling is geannuleerd</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -1627,7 +1627,7 @@ Adres: %4
         <location line="+0"/>
         <location line="+13"/>
         <source>Please check the signature and try again.</source>
-        <translation>Controleer s.v.p. de handtekening en probeer het opnieuw.</translation>
+        <translation>Controleer a.u.b. de handtekening en probeer het opnieuw.</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -1637,25 +1637,25 @@ Adres: %4
     <message>
         <location line="+7"/>
         <source>Message verification failed.</source>
-        <translation>Berichtverificatie mislukt.</translation>
+        <translation>Bericht verificatie mislukt.</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Message verified.</source>
-        <translation>Bericht correct geverifiëerd.</translation>
+        <translation>Bericht geverifiëerd.</translation>
     </message>
 </context>
 <context>
     <name>SplashScreen</name>
     <message>
         <location filename="../splashscreen.cpp" line="+22"/>
-        <source>The Litecoin developers</source>
-        <translation>De Litecoin-ontwikkelaars</translation>
+        <source>The e-Gulden developers</source>
+        <translation>De e-Gulden ontwikkelaars</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>[testnet]</source>
-        <translation>[testnetwerk]</translation>
+        <translation>[test netwerk]</translation>
     </message>
 </context>
 <context>
@@ -1784,12 +1784,12 @@ Adres: %4
     <message>
         <location line="+3"/>
         <source>Generated coins must mature 120 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to &quot;not accepted&quot; and it won&apos;t be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
-        <translation>Gegeneerde munten moeten 120 blokken wachten voordat ze tot wasdom komen en kunnen worden uitgegeven. Uw net gegenereerde blok is uitgezonden aan het netwerk om te worden toegevoegd aan de blokketen. Als het niet wordt geaccepteerd in de keten, zal het blok als &quot;niet geaccepteerd&quot; worden aangemerkt en kan het niet worden uitgegeven. Dit kan soms gebeuren als een andere node net iets sneller een blok heeft gegenereerd; een paar seconden voor het uwe.</translation>
+        <translation>Gegeneerde munten komen na 120 blokken wachten tot wasdom en kunnen dan worden uitgegeven. Uw net gegenereerde blok is naar het netwerk gezonden om te worden toegevoegd aan de blokketen. Als het blok niet wordt geaccepteerd in de keten, zal het blok als &quot;niet geaccepteerd&quot; worden aangemerkt en kan het niet worden uitgegeven. Dit kan soms gebeuren als een andere node net iets sneller een blok heeft gegenereerd; een paar seconden voor het uwe.</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Debug information</source>
-        <translation>Debug-informatie</translation>
+        <translation>Foutopsporings informatie</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -1814,12 +1814,12 @@ Adres: %4
     <message>
         <location line="+0"/>
         <source>false</source>
-        <translation>onwaar</translation>
+        <translation>niet waar</translation>
     </message>
     <message>
         <location line="-209"/>
         <source>, has not been successfully broadcast yet</source>
-        <translation>, is nog niet met succes uitgezonden</translation>
+        <translation>, is nog niet met succes verzonden</translation>
     </message>
     <message numerus="yes">
         <location line="-35"/>
@@ -1837,7 +1837,7 @@ Adres: %4
     <message>
         <location filename="../forms/transactiondescdialog.ui" line="+14"/>
         <source>Transaction details</source>
-        <translation>Transactiedetails</translation>
+        <translation>Transactie details</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -1895,7 +1895,7 @@ Adres: %4
     <message numerus="yes">
         <location line="+8"/>
         <source>Mined balance will be available when it matures in %n more block(s)</source>
-        <translation><numerusform>Gedolven saldo zal beschikbaar komen als het tot wasdom komt na %n blok</numerusform><numerusform>Gedolven saldo zal beschikbaar komen als het tot wasdom komt na %n blokken</numerusform></translation>
+        <translation><numerusform>Gedolven saldo zal beschikbaar komen als het tot wasdom komt na %n blok</numerusform><numerusform>Gemijnd saldo zal beschikbaar zijn als het tot wasdom komt na %n blokken</numerusform></translation>
     </message>
     <message>
         <location line="+5"/>
@@ -1930,7 +1930,7 @@ Adres: %4
     <message>
         <location line="+2"/>
         <source>Mined</source>
-        <translation>Gedolven</translation>
+        <translation>Gemijnd</translation>
     </message>
     <message>
         <location line="+38"/>
@@ -1940,7 +1940,7 @@ Adres: %4
     <message>
         <location line="+199"/>
         <source>Transaction status. Hover over this field to show number of confirmations.</source>
-        <translation>Transactiestatus. Houd de muiscursor boven dit veld om het aantal bevestigingen te laten zien.</translation>
+        <translation>Transactiestatus. Houd de muiscursor boven dit veld om het aantal bevestigingen te tonen.</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -2019,7 +2019,7 @@ Adres: %4
     <message>
         <location line="+1"/>
         <source>Mined</source>
-        <translation>Gedolven</translation>
+        <translation>Gemijnd</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2064,12 +2064,12 @@ Adres: %4
     <message>
         <location line="+1"/>
         <source>Show transaction details</source>
-        <translation>Toon transactiedetails</translation>
+        <translation>Toon transactie details</translation>
     </message>
     <message>
         <location line="+139"/>
         <source>Export Transaction Data</source>
-        <translation>Exporteer transactiegegevens</translation>
+        <translation>Exporteer transactie gegevens</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2119,7 +2119,7 @@ Adres: %4
     <message>
         <location line="+0"/>
         <source>Could not write to file %1.</source>
-        <translation>Kon niet schrijven naar bestand %1.</translation>
+        <translation>Kon niet naar bestand schrijven %1.</translation>
     </message>
     <message>
         <location line="+100"/>
@@ -2155,12 +2155,12 @@ Adres: %4
     <message>
         <location line="+193"/>
         <source>Backup Wallet</source>
-        <translation>Portomonnee backuppen</translation>
+        <translation>Backup van Portemonnee maken</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Wallet Data (*.dat)</source>
-        <translation>Portemonnee-data (*.dat)</translation>
+        <translation>Portemonnee data (*.dat)</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2170,7 +2170,7 @@ Adres: %4
     <message>
         <location line="+0"/>
         <source>There was an error trying to save the wallet data to the new location.</source>
-        <translation>Er is een fout opgetreden bij het wegschrijven van de portemonnee-data naar de nieuwe locatie.</translation>
+        <translation>Er is een fout opgetreden bij het wegschrijven van de portemonnee data naar de nieuwe locatie.</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -2180,15 +2180,15 @@ Adres: %4
     <message>
         <location line="+0"/>
         <source>The wallet data was successfully saved to the new location.</source>
-        <translation>De portemonneedata is succesvol opgeslagen op de nieuwe locatie.</translation>
+        <translation>De portemonnee data is succesvol opgeslagen op de nieuwe locatie.</translation>
     </message>
 </context>
 <context>
     <name>bitcoin-core</name>
     <message>
         <location filename="../bitcoinstrings.cpp" line="+94"/>
-        <source>Litecoin version</source>
-        <translation>Litecoinversie</translation>
+        <source>e-Gulden version</source>
+        <translation>e-Gulden versie</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -2197,8 +2197,8 @@ Adres: %4
     </message>
     <message>
         <location line="-29"/>
-        <source>Send command to -server or litecoind</source>
-        <translation>Stuur commando naar -server of litecoind</translation>
+        <source>Send command to -server or e-Guldend</source>
+        <translation>Stuur commando naar -server of e-Guldend</translation>
     </message>
     <message>
         <location line="-23"/>
@@ -2217,25 +2217,25 @@ Adres: %4
     </message>
     <message>
         <location line="+24"/>
-        <source>Specify configuration file (default: litecoin.conf)</source>
-        <translation>Specificeer configuratiebestand (standaard: litecoin.conf)
+        <source>Specify configuration file (default: e-Gulden.conf)</source>
+        <translation>Specificeer configuratiebestand (standaard: e-Gulden.conf)
 </translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: litecoind.pid)</source>
-        <translation>Specificeer pid-bestand (standaard: litecoind.pid)
+        <source>Specify pid file (default: e-Guldend.pid)</source>
+        <translation>Specificeer pid bestand (standaard: e-Guldend.pid)
 </translation>
     </message>
     <message>
         <location line="-1"/>
         <source>Specify data directory</source>
-        <translation>Stel datamap in</translation>
+        <translation>Stel datafolder in</translation>
     </message>
     <message>
         <location line="-9"/>
         <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>Stel databankcachegrootte in in megabytes (standaard: 25)</translation>
+        <translation>Stel databank cache grootte in megabytes in(standaard: 25)</translation>
     </message>
     <message>
         <location line="-28"/>
@@ -2260,7 +2260,7 @@ Adres: %4
     <message>
         <location line="+3"/>
         <source>Threshold for disconnecting misbehaving peers (default: 100)</source>
-        <translation>Drempel om verbinding te verbreken naar zich misdragende peers (standaard: 100)</translation>
+        <translation>Drempel om verbinding te verbreken met zich misdragende peers (standaard: 100)</translation>
     </message>
     <message>
         <location line="-134"/>
@@ -2270,7 +2270,7 @@ Adres: %4
     <message>
         <location line="-29"/>
         <source>An error occurred while setting up the RPC port %u for listening on IPv4: %s</source>
-        <translation>Er is een fout opgetreden tijdens het instellen van de inkomende RPC-poort %u op IPv4: %s</translation>
+        <translation>Er is een fout opgetreden tijdens het instellen van de inkomende RPC poort %u op IPv4: %s</translation>
     </message>
     <message>
         <location line="+27"/>
@@ -2280,17 +2280,17 @@ Adres: %4
     <message>
         <location line="+37"/>
         <source>Accept command line and JSON-RPC commands</source>
-        <translation>Aanvaard commandoregel- en JSON-RPC-commando&apos;s</translation>
+        <translation>Accepteer commandoregel en JSON-RPC commando&apos;s</translation>
     </message>
     <message>
         <location line="+76"/>
         <source>Run in the background as a daemon and accept commands</source>
-        <translation>Draai in de achtergrond als daemon en aanvaard commando&apos;s</translation>
+        <translation>Draai in de achtergrond als daemon en accepteer commando&apos;s</translation>
     </message>
     <message>
         <location line="+37"/>
         <source>Use the test network</source>
-        <translation>Gebruik het testnetwerk</translation>
+        <translation>Gebruik het test netwerk</translation>
     </message>
     <message>
         <location line="-112"/>
@@ -2302,43 +2302,43 @@ Adres: %4
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=litecoinrpc
+rpcuser=e-Guldenrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;Litecoin Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;e-Gulden Alert&quot; admin@foo.com
 </source>
-        <translation>%s, u moet een RPC-wachtwoord instellen in het configuratiebestand: %s
+        <translation>%s, u moet een RPC wachtwoord instellen in het configuratiebestand: %s
 U wordt aangeraden het volgende willekeurige wachtwoord te gebruiken:
-rpcuser=litecoinrpc
+rpcuser=e-Guldenrpc
 rpcpassword=%s
 (u hoeft dit wachtwoord niet te onthouden)
 De gebruikersnaam en wachtwoord mogen niet hetzelfde zijn.
-Als het bestand niet bestaat, make hem dan aan met leesrechten voor enkel de eigenaar.
-Het is ook aan te bevelen &quot;alertnotify&quot; in te stellen zodat u op de hoogte gesteld wordt van problemen;
-for example: alertnotify=echo %%s | mail -s &quot;Litecoin Alert&quot; admin@foo.com</translation>
+Als het bestand niet bestaat, maak dit dan aan met leesrechten voor uitsluitend de eigenaar.
+Het is ook aan te bevelen &quot;alertnotify&quot; in te stellen zodat u op de hoogte gesteld wordt van eventuele problemen;
+bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;e-Gulden Alert&quot; admin@foo.com</translation>
     </message>
     <message>
         <location line="+17"/>
         <source>An error occurred while setting up the RPC port %u for listening on IPv6, falling back to IPv4: %s</source>
-        <translation>Er is een fout opgetreden tijdens het instellen van de inkomende RPC-poort %u op IPv6, terugval naar IPv4: %s</translation>
+        <translation>Er is een fout opgetreden tijdens het instellen van de inkomende RPC poort %u op IPv6, schakelt terug naar IPv4: %s</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
-        <translation>Bind aan opgegeven adres en luister er altijd op. Gebruik [host]:port notatie voor IPv6</translation>
+        <translation>Bind aan opgegeven adres en luister er altijd op. Gebruik [host]:poort notatie voor IPv6</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Cannot obtain a lock on data directory %s. Litecoin is probably already running.</source>
-        <translation>Kan geen lock op de datamap %s verkrijgen. Litecoin draait vermoedelijk reeds.</translation>
+        <source>Cannot obtain a lock on data directory %s. e-Gulden is probably already running.</source>
+        <translation>Kan geen lock op de datafolder %s verkrijgen. e-Gulden draait vermoedelijk reeds.</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>Fout: De transactie was afgewezen! Dit kan gebeuren als sommige munten in uw portemonnee al eerder uitgegeven zijn, zoals wanneer u een kopie van uw wallet.dat heeft gebruikt en in de kopie deze munten zijn uitgegeven, maar in deze portemonnee die munten nog niet als zodanig zijn gemarkeerd.</translation>
+        <translation>Fout: De transactie was afgewezen! Dit kan gebeuren als sommige munten in uw portemonnee al eerder uitgegeven zijn, bijvoorbeeld wanneer u een kopie van uw wallet.dat heeft gebruikt en in de kopie deze munten al zijn uitgegeven, maar in de huidige portemonnee die munten nog niet als zodanig zijn gemarkeerd.</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -2353,17 +2353,17 @@ for example: alertnotify=echo %%s | mail -s &quot;Litecoin Alert&quot; admin@foo
     <message>
         <location line="+3"/>
         <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
-        <translation>Voer opdracht uit zodra een portemonneetransactie verandert (%s in cmd wordt vervangen door TxID)</translation>
+        <translation>Voer opdracht uit zodra een portemonnee transactie verandert (%s in cmd wordt vervangen door TxID)</translation>
     </message>
     <message>
         <location line="+11"/>
         <source>Set maximum size of high-priority/low-fee transactions in bytes (default: 27000)</source>
-        <translation>Stel maximumgrootte in in bytes voor hoge-prioriteits-/lage-transactiekosten-transacties (standaard: 27000)</translation>
+        <translation>Stel maximumgrootte in in bytes voor hoge-prioriteits-/lage kosten transacties (standaard: 27000)</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
-        <translation>Dit is een pre-release testversie - gebruik op eigen risico! Gebruik deze niet voor het delven van munten of handelsdoeleinden</translation>
+        <translation>Dit is een pre-release testversie - gebruik op eigen risico! Gebruik deze niet voor het mijnen van munten of handelsdoeleinden</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -2377,18 +2377,18 @@ for example: alertnotify=echo %%s | mail -s &quot;Litecoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+3"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Litecoin will not work properly.</source>
-        <translation>Waarschuwing: Controleer dat de datum en tijd op uw computer correct zijn ingesteld. Als uw klok fout staat zal Litecoin niet correct werken.</translation>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong e-Gulden will not work properly.</source>
+        <translation>Waarschuwing: Controleer dat de datum en tijd op uw computer correct zijn ingesteld. Als uw klok fout is ingesteld zal e-Gulden niet correct werken.</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Warning: error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
-        <translation>Waarschuwing: Fout bij het lezen van wallet.dat! Alle sleutels zijn in goede orde uitgelezen, maar transactiedata of adresboeklemma&apos;s zouden kunnen ontbreken of fouten bevatten.</translation>
+        <translation>Waarschuwing: Fout bij het lezen van wallet.dat! Alle sleutels zijn in goede orde uitgelezen, maar transactie data of adresboeklemma&apos;s ontbreken mogelijk of bevatten fouten.</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Warning: wallet.dat corrupt, data salvaged! Original wallet.dat saved as wallet.{timestamp}.bak in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
-        <translation>Waarschuwing: wallet.dat is corrupt, data is veiliggesteld! Originele wallet.dat is opgeslagen als wallet.{tijdstip}.bak in %s; als uw balans of transacties incorrect zijn dient u een backup terug te zetten.</translation>
+        <translation>Waarschuwing: wallet.dat is corrupt, data is veilig gesteld! Originele wallet.dat is opgeslagen als wallet.{tijdstip}.bak in %s; als uw balans of transacties niet correct zijn dan dient u een backup terug te zetten.</translation>
     </message>
     <message>
         <location line="+14"/>
@@ -2398,7 +2398,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Litecoin Alert&quot; admin@foo
     <message>
         <location line="+2"/>
         <source>Block creation options:</source>
-        <translation>Blokcreatie-opties:</translation>
+        <translation>Blok creatie opties:</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -2408,7 +2408,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Litecoin Alert&quot; admin@foo
     <message>
         <location line="+3"/>
         <source>Corrupted block database detected</source>
-        <translation>Corrupte blokkendatabase gedetecteerd</translation>
+        <translation>Corrupte blokken database gedetecteerd</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2418,27 +2418,27 @@ for example: alertnotify=echo %%s | mail -s &quot;Litecoin Alert&quot; admin@foo
     <message>
         <location line="+1"/>
         <source>Do you want to rebuild the block database now?</source>
-        <translation>Wilt u de blokkendatabase nu herbouwen?</translation>
+        <translation>Wilt u de blokken database nu herbouwen?</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Error initializing block database</source>
-        <translation>Fout bij intialisatie blokkendatabase</translation>
+        <translation>Fout bij intialisatie blokken database</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Error initializing wallet database environment %s!</source>
-        <translation>Probleem met initializeren van de database-omgeving %s!</translation>
+        <translation>Probleem met initializeren van de potemonnee database omgeving %s!</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Error loading block database</source>
-        <translation>Fout bij het laden van blokkendatabase</translation>
+        <translation>Fout bij het laden van blokken database</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Error opening block database</source>
-        <translation>Fout bij openen blokkendatabase</translation>
+        <translation>Fout bij openen blokken database</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -2448,7 +2448,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Litecoin Alert&quot; admin@foo
     <message>
         <location line="+1"/>
         <source>Error: Wallet locked, unable to create transaction!</source>
-        <translation>Fout: Portemonnee vergrendeld, aanmaak transactie niet mogelijk!</translation>
+        <translation>Fout: Portemonnee vergrendeld, aanmaken transactie niet mogelijk!</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2458,12 +2458,12 @@ for example: alertnotify=echo %%s | mail -s &quot;Litecoin Alert&quot; admin@foo
     <message>
         <location line="+1"/>
         <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
-        <translation>Mislukt om op welke poort dan ook te luisteren. Gebruik -listen=0 as u dit wilt.</translation>
+        <translation>Mislukt om op enige poort dan ook te luisteren. Gebruik -listen=0 as u dit wilt.</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Failed to read block info</source>
-        <translation>Lezen van blokinformatie mislukt</translation>
+        <translation>Lezen van blok informatie mislukt</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2473,17 +2473,17 @@ for example: alertnotify=echo %%s | mail -s &quot;Litecoin Alert&quot; admin@foo
     <message>
         <location line="+1"/>
         <source>Failed to sync block index</source>
-        <translation>Synchroniseren van blokindex mislukt</translation>
+        <translation>Synchroniseren van blok index mislukt</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Failed to write block index</source>
-        <translation>Schrijven van blokindex mislukt</translation>
+        <translation>Schrijven van blok index mislukt</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Failed to write block info</source>
-        <translation>Schrijven van blokinformatie mislukt</translation>
+        <translation>Schrijven van blok informatie mislukt</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2493,27 +2493,27 @@ for example: alertnotify=echo %%s | mail -s &quot;Litecoin Alert&quot; admin@foo
     <message>
         <location line="+1"/>
         <source>Failed to write file info</source>
-        <translation>Schrijven van bestandsinformatie mislukt</translation>
+        <translation>Schrijven van bestands informatie mislukt</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Failed to write to coin database</source>
-        <translation>Schrijven naar coindatabase mislukt</translation>
+        <translation>Schrijven naar munt database mislukt</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Failed to write transaction index</source>
-        <translation>Schrijven van transactieindex mislukt</translation>
+        <translation>Schrijven van transactie index mislukt</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Failed to write undo data</source>
-        <translation>Schrijven van undo-data mislukt</translation>
+        <translation>Schrijven van undo data mislukt</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Find peers using DNS lookup (default: 1 unless -connect)</source>
-        <translation>Vind andere nodes d.m.v. DNS-naslag (standaard: 1 tenzij -connect)</translation>
+        <translation>Vind andere nodes d.m.v. DNS lookup (standaard: 1 tenzij -connect)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2528,7 +2528,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Litecoin Alert&quot; admin@foo
     <message>
         <location line="+1"/>
         <source>How thorough the block verification is (0-4, default: 3)</source>
-        <translation>Hoe grondig de blokverificatie is (0-4, standaard: 3)</translation>
+        <translation>Hoe diepgaand de blok verificatie is (0-4, standaard: 3)</translation>
     </message>
     <message>
         <location line="+19"/>
@@ -2538,12 +2538,12 @@ for example: alertnotify=echo %%s | mail -s &quot;Litecoin Alert&quot; admin@foo
     <message>
         <location line="+8"/>
         <source>Rebuild block chain index from current blk000??.dat files</source>
-        <translation>Blokketen opnieuw opbouwen van huidige blk000??.dat-bestanden</translation>
+        <translation>Blok keten opnieuw opbouwen van huidige blk000??.dat-bestanden</translation>
     </message>
     <message>
         <location line="+16"/>
         <source>Set the number of threads to service RPC calls (default: 4)</source>
-        <translation>Stel het aantal threads in om RPC-aanvragen mee te bedienen (standaard: 4)</translation>
+        <translation>Stel het aantal threads in om RPC aanvragen mee te bedienen (standaard: 4)</translation>
     </message>
     <message>
         <location line="+26"/>
@@ -2553,7 +2553,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Litecoin Alert&quot; admin@foo
     <message>
         <location line="+1"/>
         <source>Verifying wallet...</source>
-        <translation>Portomonnee aan het controleren...</translation>
+        <translation>Portemonnee aan het controleren...</translation>
     </message>
     <message>
         <location line="-69"/>
@@ -2563,7 +2563,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Litecoin Alert&quot; admin@foo
     <message>
         <location line="-76"/>
         <source>Set the number of script verification threads (up to 16, 0 = auto, &lt;0 = leave that many cores free, default: 0)</source>
-        <translation>Stel het aantal threads voor scriptverificatie in (max 16, 0 = auto, &lt;0 = laat zoveel cores vrij, standaard: 0)</translation>
+        <translation>Stel het aantal threads voor script verificatie in (max 16, 0 = auto, &lt;0 = laat zoveel cores vrij, standaard: 0)</translation>
     </message>
     <message>
         <location line="+77"/>
@@ -2588,22 +2588,22 @@ for example: alertnotify=echo %%s | mail -s &quot;Litecoin Alert&quot; admin@foo
     <message>
         <location line="+8"/>
         <source>Maintain a full transaction index (default: 0)</source>
-        <translation>Onderhoud een volledige transactieindex (standaard: 0)</translation>
+        <translation>Onderhoud een volledige transactie index (standaard: 0)</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: 5000)</source>
-        <translation>Maximum per-connectie ontvangstbuffer, &lt;n&gt;*1000 bytes (standaard: 5000)</translation>
+        <translation>Maximum per verbinding ontvangstbuffer, &lt;n&gt;*1000 bytes (standaard: 5000)</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: 1000)</source>
-        <translation>Maximum per-connectie zendbuffer, &lt;n&gt;*1000 bytes (standaard: 1000)</translation>
+        <translation>Maximum per verbinding zendbuffer, &lt;n&gt;*1000 bytes (standaard: 1000)</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Only accept block chain matching built-in checkpoints (default: 1)</source>
-        <translation>Accepteer alleen blokketen die overeenkomt met de ingebouwde checkpoints (standaard: 1)</translation>
+        <translation>Accepteer alleen een blok keten die overeenkomt met de ingebouwde checkpoints (standaard: 1)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2613,22 +2613,22 @@ for example: alertnotify=echo %%s | mail -s &quot;Litecoin Alert&quot; admin@foo
     <message>
         <location line="+2"/>
         <source>Output extra debugging information. Implies all other -debug* options</source>
-        <translation>Output extra debugginginformatie. Impliceert alle andere -debug* opties</translation>
+        <translation>Output extra foutopsporings informatie. Impliceert alle andere -debug* opties</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Output extra network debugging information</source>
-        <translation>Output extra netwerk-debugginginformatie</translation>
+        <translation>Output extra netwerk foutopsporings informatie</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Prepend debug output with timestamp</source>
-        <translation>Voorzie de debuggingsuitvoer van een tijdsaanduiding</translation>
+        <translation>Voorzie de foutopsporingsuitvoer van een tijdsaanduiding</translation>
     </message>
     <message>
         <location line="+5"/>
-        <source>SSL options: (see the Litecoin Wiki for SSL setup instructions)</source>
-        <translation>SSL-opties: (zie de Litecoin wiki voor SSL-instructies)</translation>
+        <source>SSL options: (see the e-Gulden Wiki for SSL setup instructions)</source>
+        <translation>SSL-opties: (zie de e-Gulden wiki voor SSL-instructies)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2648,12 +2648,12 @@ for example: alertnotify=echo %%s | mail -s &quot;Litecoin Alert&quot; admin@foo
     <message>
         <location line="+5"/>
         <source>Set maximum block size in bytes (default: 250000)</source>
-        <translation>Stel maximum blokgrootte in in bytes (standaard: 250000)</translation>
+        <translation>Stel maximum blok grootte in in bytes (standaard: 250000)</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Set minimum block size in bytes (default: 0)</source>
-        <translation>Stel minimum blokgrootte in in bytes (standaard: 0)</translation>
+        <translation>Stel minimum blok grootte in in bytes (standaard: 0)</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -2668,7 +2668,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Litecoin Alert&quot; admin@foo
     <message>
         <location line="+2"/>
         <source>Specify connection timeout in milliseconds (default: 5000)</source>
-        <translation>Specificeer de time-outtijd in milliseconden (standaard: 5000)</translation>
+        <translation>Specificeer de time-out tijd in milliseconden (standaard: 5000)</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -2678,12 +2678,12 @@ for example: alertnotify=echo %%s | mail -s &quot;Litecoin Alert&quot; admin@foo
     <message>
         <location line="+4"/>
         <source>Transaction amount too small</source>
-        <translation>Transactiebedrag te klein</translation>
+        <translation>Transactie bedrag te klein</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Transaction amounts must be positive</source>
-        <translation>Transactiebedragen moeten positief zijn</translation>
+        <translation>Transactie bedragen moeten positief zijn</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2708,7 +2708,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Litecoin Alert&quot; admin@foo
     <message>
         <location line="+2"/>
         <source>Username for JSON-RPC connections</source>
-        <translation>Gebruikersnaam voor JSON-RPC-verbindingen</translation>
+        <translation>Gebruikersnaam voor JSON-RPC verbindingen</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -2733,7 +2733,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Litecoin Alert&quot; admin@foo
     <message>
         <location line="-50"/>
         <source>Password for JSON-RPC connections</source>
-        <translation>Wachtwoord voor JSON-RPC-verbindingen</translation>
+        <translation>Wachtwoord voor JSON-RPC verbindingen</translation>
     </message>
     <message>
         <location line="-67"/>
@@ -2753,27 +2753,27 @@ for example: alertnotify=echo %%s | mail -s &quot;Litecoin Alert&quot; admin@foo
     <message>
         <location line="+147"/>
         <source>Upgrade wallet to latest format</source>
-        <translation>Vernieuw portemonnee naar nieuwste versie</translation>
+        <translation>Update portemonnee naar nieuwste versie</translation>
     </message>
     <message>
         <location line="-21"/>
         <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Stel sleutelpoelgrootte in op &lt;n&gt; (standaard: 100)</translation>
+        <translation>Stel key pool size in op &lt;n&gt; (standaard: 100)</translation>
     </message>
     <message>
         <location line="-12"/>
         <source>Rescan the block chain for missing wallet transactions</source>
-        <translation>Doorzoek de blokketen op ontbrekende portemonnee-transacties</translation>
+        <translation>Doorzoek de blok keten op ontbrekende portemonnee transacties</translation>
     </message>
     <message>
         <location line="+35"/>
         <source>Use OpenSSL (https) for JSON-RPC connections</source>
-        <translation>Gebruik OpenSSL (https) voor JSON-RPC-verbindingen</translation>
+        <translation>Gebruik OpenSSL (https) voor JSON-RPC verbindingen</translation>
     </message>
     <message>
         <location line="-26"/>
         <source>Server certificate file (default: server.cert)</source>
-        <translation>Certificaat-bestand voor server (standaard: server.cert)</translation>
+        <translation>Certificaat bestand voor server (standaard: server.cert)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2803,7 +2803,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Litecoin Alert&quot; admin@foo
     <message>
         <location line="-10"/>
         <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
-        <translation>Sta DNS-naslag toe voor -addnode, -seednode en -connect</translation>
+        <translation>Sta DNS lookup toe voor -addnode, -seednode en -connect</translation>
     </message>
     <message>
         <location line="+55"/>
@@ -2817,13 +2817,13 @@ for example: alertnotify=echo %%s | mail -s &quot;Litecoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+1"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
-        <translation>Fout bij laden wallet.dat: Portemonnee vereist een nieuwere versie van Litecoin</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of e-Gulden</source>
+        <translation>Fout bij laden wallet.dat: Portemonnee vereist een nieuwere versie van e-Gulden</translation>
     </message>
     <message>
         <location line="+93"/>
-        <source>Wallet needed to be rewritten: restart Litecoin to complete</source>
-        <translation>Portemonnee moest herschreven worden: Herstart Litecoin om te voltooien</translation>
+        <source>Wallet needed to be rewritten: restart e-Gulden to complete</source>
+        <translation>Portemonnee moest herschreven worden: Herstart e-Gulden om te voltooien</translation>
     </message>
     <message>
         <location line="-95"/>
@@ -2873,7 +2873,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Litecoin Alert&quot; admin@foo
     <message>
         <location line="+10"/>
         <source>Loading block index...</source>
-        <translation>Blokindex aan het laden...</translation>
+        <translation>Blok index aan het laden...</translation>
     </message>
     <message>
         <location line="-57"/>
@@ -2882,8 +2882,8 @@ for example: alertnotify=echo %%s | mail -s &quot;Litecoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="-25"/>
-        <source>Unable to bind to %s on this computer. Litecoin is probably already running.</source>
-        <translation>Niet in staat om aan %s te binden op deze computer. Litecoin draait vermoedelijk reeds.</translation>
+        <source>Unable to bind to %s on this computer. e-Gulden is probably already running.</source>
+        <translation>Niet in staat om aan %s te binden op deze computer. e-Gulden draait vermoedelijk reeds.</translation>
     </message>
     <message>
         <location line="+64"/>
@@ -2903,12 +2903,12 @@ for example: alertnotify=echo %%s | mail -s &quot;Litecoin Alert&quot; admin@foo
     <message>
         <location line="+3"/>
         <source>Cannot write default address</source>
-        <translation>Kan standaardadres niet schrijven</translation>
+        <translation>Kan standaard adres niet schrijven</translation>
     </message>
     <message>
         <location line="+64"/>
         <source>Rescanning...</source>
-        <translation>Blokketen aan het doorzoeken...</translation>
+        <translation>Blok keten aan het doorzoeken...</translation>
     </message>
     <message>
         <location line="-57"/>
@@ -2932,7 +2932,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Litecoin Alert&quot; admin@foo
 If the file does not exist, create it with owner-readable-only file permissions.</source>
         <translation>U dient rpcpassword=&lt;wachtwoord&gt; in te stellen in het configuratiebestand:
 %s
-Als het bestand niet bestaat, maak het dan aan, met een alleen-lezen-permissie.</translation>
+Als het bestand niet bestaat, maak het dan aan, met een alleen-lezen permissie.</translation>
     </message>
 </context>
 </TS>
