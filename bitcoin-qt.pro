@@ -1,7 +1,7 @@
 TEMPLATE = app
 TARGET = egulden-qt
 macx:TARGET = "Egulden-Qt"
-VERSION = 1.2.0.0
+VERSION = 1.2.0.1
 INCLUDEPATH += src src/json src/qt
 QT += core gui network
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -433,7 +433,7 @@ macx:HEADERS += src/qt/macdockiconhandler.h src/qt/macnotificationhandler.h
 macx:OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm src/qt/macnotificationhandler.mm
 macx:LIBS += -framework Foundation -framework ApplicationServices -framework AppKit -framework CoreServices
 macx:DEFINES += MAC_OSX MSG_NOSIGNAL=0
-macx:ICON = src/qt/res/icons/bitcoin.icns
+macx:ICON = src/qt/res/icons/egulden.icns
 macx:QMAKE_CFLAGS_THREAD += -pthread
 macx:QMAKE_LFLAGS_THREAD += -pthread
 macx:QMAKE_CXXFLAGS_THREAD += -pthread
