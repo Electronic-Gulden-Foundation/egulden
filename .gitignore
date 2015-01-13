@@ -16,6 +16,7 @@ src/test_egulden
 Makefile
 egulden-qt
 Egulden-Qt.app
+Egulden-Qt.dmg
 
 # Unit-tests
 Makefile.test
