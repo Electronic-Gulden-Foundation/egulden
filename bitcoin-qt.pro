@@ -1,7 +1,7 @@
 TEMPLATE = app
 TARGET = egulden-qt
 macx:TARGET = "Egulden-Qt"
-VERSION = 1.2.0.3
+VERSION = 1.2.0.2
 INCLUDEPATH += src src/json src/qt
 QT += core gui network
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
