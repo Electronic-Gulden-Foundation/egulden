@@ -617,8 +617,6 @@ void WalletModel::unlockCoin(COutPoint& output)
 
 void WalletModel::listLockedCoins(std::vector<COutPoint>& vOutpts)
 {
-    wallet->ListLockedCoins(vOutpts);
-}
     LOCK2(cs_main, wallet->cs_wallet);
     wallet->ListLockedCoins(vOutpts);
 }

@@ -12,6 +12,9 @@
 #include "uint256.h"
 #include "util.h"
 
+
+#include <stdlib.h>
+
 unsigned int KimotoGravityWell(const CBlockIndex* pindexLast, const CBlockHeader* pblock, uint64_t TargetBlockSpacingSeconds, uint64_t PastBlocksMin, uint64_t PastBlocksMax)
 {
 	const CBlockIndex *BlockLastSolved = pindexLast;
@@ -72,10 +75,10 @@ unsigned int KimotoGravityWell(const CBlockIndex* pindexLast, const CBlockHeader
 	if(bnNew > Params().ProofOfWorkLimit()) { bnNew = Params().ProofOfWorkLimit(); }
 
 	// Debug
-	// printf("Difficulty Retarget - Kimoto Gravity Well\n");
-	// printf("PastRateAdjustmentRatio = %g\n", PastRateAdjustmentRatio);
-	// printf("Before: %08x %s\n", BlockLastSolved->nBits, CBigNum().SetCompact(BlockLastSolved->nBits).getuint256().ToString().c_str());
-	// printf("After:  %08x %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString().c_str());
+	// LogPrint("KGW", "Difficulty Retarget - Kimoto Gravity Well\n");
+	// LogPrint("KGW", "PastRateAdjustmentRatio = %g\n", PastRateAdjustmentRatio);
+	// LogPrint("KGW", "Before: %08x %s\n", BlockLastSolved->nBits, uint256().SetCompact(BlockLastSolved->nBits).ToString().c_str());
+	// LogPrint("KGW", "After:  %08x %s\n", bnNew.GetCompact(), bnNew.ToString().c_str());
 
 	return bnNew.GetCompact();
 }

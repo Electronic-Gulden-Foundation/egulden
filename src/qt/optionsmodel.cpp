@@ -306,12 +306,6 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
                 setRestartRequired(true);
             }
             break;
-        case CoinControlFeatures: {
-            fCoinControlFeatures = value.toBool();
-            settings.setValue("fCoinControlFeatures", fCoinControlFeatures);
-            emit coinControlFeaturesChanged(fCoinControlFeatures);
-        }
-        break;
         default:
             break;
         }
@@ -363,9 +357,3 @@ bool OptionsModel::isRestartRequired()
     QSettings settings;
     return settings.value("fRestartRequired", false).toBool();
 }
-
-bool OptionsModel::getCoinControlFeatures()
-{
-    return fCoinControlFeatures;
-}
-

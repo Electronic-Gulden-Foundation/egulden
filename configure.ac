@@ -6,7 +6,7 @@ define(_CLIENT_VERSION_REVISION, 2)
 define(_CLIENT_VERSION_BUILD, 2)
 define(_CLIENT_VERSION_IS_RELEASE, true)
 define(_COPYRIGHT_YEAR, 2015)
-AC_INIT([Litecoin Core],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION._CLIENT_VERSION_BUILD],[info@litecoin.org],[litecoin])
+AC_INIT([e-Gulden Core],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION._CLIENT_VERSION_BUILD],[foundation@egulden.org],[egulden])
 AC_CONFIG_SRCDIR([src/main.cpp])
 AC_CONFIG_HEADERS([src/config/bitcoin-config.h])
 AC_CONFIG_AUX_DIR([build-aux])
@@ -146,7 +146,7 @@ AC_ARG_ENABLE([glibc-back-compat],
 
 AC_ARG_WITH([protoc-bindir],[AS_HELP_STRING([--with-protoc-bindir=BIN_DIR],[specify protoc bin path])], [protoc_bin_path=$withval], [])
 
-# Enable debug 
+# Enable debug
 AC_ARG_ENABLE([debug],
     [AS_HELP_STRING([--enable-debug],
                     [use debug compiler flags and macros (default is no)])],
@@ -157,11 +157,11 @@ if test "x$enable_debug" = xyes; then
     if test "x$GCC" = xyes; then
         CFLAGS="-g3 -O0 -DDEBUG"
     fi
-    
+
     if test "x$GXX" = xyes; then
         CXXFLAGS="-g3 -O0 -DDEBUG"
     fi
-fi 
+fi
 
 ## TODO: Remove these hard-coded paths and flags. They are here for the sake of
 ##       compatibility with the legacy buildsystem.
@@ -173,7 +173,7 @@ CPPFLAGS="$CPPFLAGS -DBOOST_SPIRIT_THREADSAFE -DHAVE_BUILD_INFO -D__STDC_FORMAT_
 
 AC_ARG_WITH([utils],
   [AS_HELP_STRING([--with-utils],
-  [build litecoin-cli litecoin-tx (default=yes)])],
+  [build egulden-cli egulden-tx (default=yes)])],
   [build_bitcoin_utils=$withval],
   [build_bitcoin_utils=yes])
 
@@ -719,11 +719,11 @@ LIBS="$LIBS_TEMP"
 
 BITCOIN_QT_PATH_PROGS([PROTOC], [protoc],$protoc_bin_path)
 
-AC_MSG_CHECKING([whether to build litecoind])
+AC_MSG_CHECKING([whether to build eguldend])
 AM_CONDITIONAL([BUILD_BITCOIND], [test x$build_bitcoind = xyes])
 AC_MSG_RESULT($build_bitcoind)
 
-AC_MSG_CHECKING([whether to build utils (litecoin-cli litecoin-tx)])
+AC_MSG_CHECKING([whether to build utils (egulden-cli egulden-tx)])
 AM_CONDITIONAL([BUILD_BITCOIN_UTILS], [test x$build_bitcoin_utils = xyes])
 AC_MSG_RESULT($build_bitcoin_utils)
 

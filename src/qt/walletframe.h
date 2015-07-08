@@ -47,8 +47,6 @@ private:
 
     WalletView *currentWalletView();
 
-    WalletView *currentWalletView();
-
 public slots:
     /** Switch to overview (home) page */
     void gotoOverviewPage();

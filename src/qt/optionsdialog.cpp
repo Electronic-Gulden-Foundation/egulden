@@ -167,10 +167,6 @@ void OptionsDialog::setMapper()
     mapper->addMapping(ui->spendZeroConfChange, OptionsModel::SpendZeroConfChange);
     mapper->addMapping(ui->coinControlFeatures, OptionsModel::CoinControlFeatures);
 
-    /* Wallet */
-    mapper->addMapping(ui->transactionFee, OptionsModel::Fee);
-    mapper->addMapping(ui->spendZeroConfChange, OptionsModel::SpendZeroConfChange);
-
     /* Network */
     mapper->addMapping(ui->mapPortUpnp, OptionsModel::MapPortUPnP);
     mapper->addMapping(ui->allowIncoming, OptionsModel::Listen);
