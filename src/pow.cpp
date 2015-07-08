@@ -4,6 +4,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "pow.h"
+#include "math.h"
 
 #include "chain.h"
 #include "chainparams.h"
@@ -11,28 +12,21 @@
 #include "uint256.h"
 #include "util.h"
 
-
-// TODO: These values are from original source
-static int64 nTargetTimespan = 270000; // 3.125 days to difficulty retarget
-static int64 nTargetSpacing = 60;       // 1 minute between blocks
-static int64 nInterval = nTargetTimespan / nTargetSpacing;
-
-// TODO: This stuff must all be changed to int64_t and so forth
-unsigned int static KimotoGravityWell(const CBlockIndex* pindexLast, const CBlockHeader* pblock, uint64 TargetBlockSpacingSeconds, uint64 PastBlocksMin, uint64 PastBlocksMax)
+unsigned int KimotoGravityWell(const CBlockIndex* pindexLast, const CBlockHeader* pblock, uint64_t TargetBlockSpacingSeconds, uint64_t PastBlocksMin, uint64_t PastBlocksMax)
 {
 	const CBlockIndex *BlockLastSolved = pindexLast;
 	const CBlockIndex *BlockReading    = pindexLast;
 
-	uint64 PastBlocksMass          = 0;
-	int64  PastRateActualSeconds   = 0;
-	int64  PastRateTargetSeconds   = 0;
+	uint64_t PastBlocksMass          = 0;
+	int64_t  PastRateActualSeconds   = 0;
+	int64_t  PastRateTargetSeconds   = 0;
 	double PastRateAdjustmentRatio = double(1);
 
-	CBigNum PastDifficultyAverage, PastDifficultyAveragePrev;
+	uint256 PastDifficultyAverage, PastDifficultyAveragePrev;
 	double  EventHorizonDeviation, EventHorizonDeviationFast, EventHorizonDeviationSlow;
 
-	if(BlockLastSolved == NULL || BlockLastSolved->nHeight == 0 || (uint64) BlockLastSolved->nHeight < PastBlocksMin)
-		return bnProofOfWorkLimit.GetCompact();
+	if(BlockLastSolved == NULL || BlockLastSolved->nHeight == 0 || (uint64_t) BlockLastSolved->nHeight < PastBlocksMin)
+		return Params().ProofOfWorkLimit().GetCompact();
 
 	for(unsigned int i = 1; BlockReading && BlockReading->nHeight > 0; i++)
 	{
@@ -43,7 +37,7 @@ unsigned int static KimotoGravityWell(const CBlockIndex* pindexLast, const CBloc
 
 		PastDifficultyAverage = (i == 0)
 			? PastDifficultyAverage.SetCompact(BlockReading->nBits)
-			: PastDifficultyAverage = ((CBigNum().SetCompact(BlockReading->nBits) - PastDifficultyAveragePrev) / i) + PastDifficultyAveragePrev;
+			: PastDifficultyAverage = ((uint256().SetCompact(BlockReading->nBits) - PastDifficultyAveragePrev) / i) + PastDifficultyAveragePrev;
 
 		PastDifficultyAveragePrev = PastDifficultyAverage;
 
@@ -68,14 +62,14 @@ unsigned int static KimotoGravityWell(const CBlockIndex* pindexLast, const CBloc
 		BlockReading = BlockReading->pprev;
 	}
 
-	CBigNum bnNew(PastDifficultyAverage);
+	uint256 bnNew(PastDifficultyAverage);
 	if(PastRateActualSeconds != 0 && PastRateTargetSeconds != 0)
 	{
 		bnNew *= PastRateActualSeconds;
 		bnNew /= PastRateTargetSeconds;
 	}
 
-	if(bnNew > bnProofOfWorkLimit) { bnNew = bnProofOfWorkLimit; }
+	if(bnNew > Params().ProofOfWorkLimit()) { bnNew = Params().ProofOfWorkLimit(); }
 
 	// Debug
 	// printf("Difficulty Retarget - Kimoto Gravity Well\n");
@@ -94,17 +88,17 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
     if (pindexLast == NULL)
         return nProofOfWorkLimit;
 
-    if(pindexLast->nHeight >= 45000 || fTestNet)
+    if(pindexLast->nHeight >= 45000 || Params().NetworkIDString() != "main")
     {
-        nTargetTimespan = 61440;                      // ~0.711111 days difficulty retarget
-        nTargetSpacing = 60 * 2;                      // 2 minutes between blocks
-        nInterval = nTargetTimespan / nTargetSpacing; // 512 blocks difficulty retarget
+        uint64_t nTargetTimespan = 61440;                      // ~0.711111 days difficulty retarget
+        uint64_t nTargetSpacing = 60 * 2;                      // 2 minutes between blocks
+        uint64_t nInterval = nTargetTimespan / nTargetSpacing; // 512 blocks difficulty retarget
 
         unsigned int TimeDaySeconds = 60 * 60 * 24;
-        uint64       PastSecondsMin = TimeDaySeconds * 0.25;
-        uint64       PastSecondsMax = TimeDaySeconds * 7;
-        uint64       PastBlocksMin  = PastSecondsMin / nInterval;
-        uint64       PastBlocksMax  = PastSecondsMax / nInterval;
+        uint64_t     PastSecondsMin = TimeDaySeconds * 0.25;
+        uint64_t     PastSecondsMax = TimeDaySeconds * 7;
+        uint64_t     PastBlocksMin  = PastSecondsMin / nInterval;
+        uint64_t     PastBlocksMax  = PastSecondsMax / nInterval;
 
         return KimotoGravityWell(pindexLast, pblock, nTargetSpacing, PastBlocksMin, PastBlocksMax);
     }
