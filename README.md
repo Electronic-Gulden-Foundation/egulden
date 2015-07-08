@@ -3,9 +3,9 @@ Egulden integration/staging tree
 
 http://www.egulden.org
 
-Copyright (c) 2009-2014 Bitcoin Developers
-Copyright (c) 2011-2014 Litecoin Developers
-Copyright (c) 2014-2014 e-Gulden Developers
+Copyright (c) 2009-2015 Bitcoin Developers
+Copyright (c) 2011-2015 Litecoin Developers
+Copyright (c) 2014-2015 e-Gulden Developers
 
 What is Egulden?
 ----------------
@@ -20,10 +20,27 @@ Egulden is a lite version of Bitcoin using scrypt as a proof-of-work algorithm.
 For more information, as well as an immediately useable, binary version of
 the Egulden client sofware, see http://www.egulden.org.
 
+e-Gulden Core integration/staging tree
+======================================
+
+https://egulden.org
+
+What is e-Gulden?
+----------------
+
+e-Gulden is an experimental new digital currency that enables instant payments to
+anyone, anywhere in the world. e-Gulden uses peer-to-peer technology to operate
+with no central authority: managing transactions and issuing money are carried
+out collectively by the network. e-Gulden Core is the name of open source
+software which enables the use of this currency.
+
+For more information, as well as an immediately useable, binary version of
+the e-Gulden Core software, see https://egulden.org
+
 License
 -------
 
-Egulden is released under the terms of the MIT license. See `COPYING` for more
+e-Gulden Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
 information or see http://opensource.org/licenses/MIT.
 
 Development process
@@ -32,7 +49,7 @@ Development process
 Developers work in their own trees, then submit pull requests when they think
 their feature or bug fix is ready.
 
-If it is a simple/trivial/non-controversial change, then one of the Egulden
+If it is a simple/trivial/non-controversial change, then one of the e-Gulden
 development team members simply pulls it.
 
 If it is a *more complicated or potentially controversial* change, then the patch
@@ -40,7 +57,7 @@ submitter will be asked to start a discussion with the devs and community.
 
 The patch will be accepted if there is broad consensus that it is a good thing.
 Developers should expect to rework and resubmit patches if the code doesn't
-match the project's coding conventions (see `doc/coding.txt`) or are
+match the project's coding conventions (see [doc/coding.md](doc/coding.md)) or are
 controversial.
 
 The `master` branch is regularly built and tested, but is not guaranteed to be
@@ -51,22 +68,56 @@ Testing
 -------
 
 Testing and code review is the bottleneck for development; we get more pull
-requests than we can review and test. Please be patient and help out, and
-remember this is a security-critical project where any mistake might cost people
+requests than we can review and test on short notice. Please be patient and help out by testing
+other people's pull requests, and remember this is a security-critical project where any mistake might cost people
 lots of money.
 
-### Automated Testing
+### Manual Quality Assurance (QA) Testing
 
-Developers are strongly encouraged to write unit tests for new code, and to
-submit new unit tests for old code.
+Large changes should have a test plan, and should be tested by somebody other
+than the developer who wrote the code.
+See https://github.com/bitcoin/QA/ for how to create a test plan.
 
-Unit tests for the core code are in `src/test/`. To compile and run them:
+Translations
+------------
 
-    cd src; make -f makefile.unix test
+**Important**: We do not accept translation changes as GitHub pull requests because the next
+pull from Transifex would automatically overwrite them again.
 
-Unit tests for the GUI code are in `src/qt/test/`. To compile and run them:
+We only accept translation fixes that are submitted through [Bitcoin Core's Transifex page](https://www.transifex.com/projects/p/bitcoin/).
+Translations are converted to e-Gulden periodically.
 
-    qmake BITCOIN_QT_TEST=1 -o Makefile.test bitcoin-qt.pro
-    make -f Makefile.test
-    ./egulden-qt_test
+Development tips and tricks
+---------------------------
 
+**compiling for debugging**
+
+Run configure with the --enable-debug option, then make. Or run configure with
+CXXFLAGS="-g -ggdb -O0" or whatever debug flags you need.
+
+**debug.log**
+
+If the code is behaving strangely, take a look in the debug.log file in the data directory;
+error and debugging messages are written there.
+
+The -debug=... command-line option controls debugging; running with just -debug will turn
+on all categories (and give you a very large debug.log file).
+
+The Qt code routes qDebug() output to debug.log under category "qt": run with -debug=qt
+to see it.
+
+**testnet and regtest modes**
+
+Run with the -testnet option to run with "play eguldens" on the test network, if you
+are testing multi-machine code that needs to operate across the internet.
+
+If you are testing something that can run on one machine, run with the -regtest option.
+In regression test mode, blocks can be created on-demand; see qa/rpc-tests/ for tests
+that run in -regtest mode.
+
+**DEBUG_LOCKORDER**
+
+e-Gulden Core is a multithreaded application, and deadlocks or other multithreading bugs
+can be very difficult to track down. Compiling with -DDEBUG_LOCKORDER (configure
+CXXFLAGS="-DDEBUG_LOCKORDER -g") inserts run-time checks to keep track of which locks
+are held, and adds warnings to the debug.log file if inconsistencies are detected.
