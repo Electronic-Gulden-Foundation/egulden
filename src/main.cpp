@@ -1411,7 +1411,6 @@ void static InvalidBlockFound(CBlockIndex *pindex, const CValidationState &state
 
 void UpdateCoins(const CTransaction& tx, CValidationState &state, CCoinsViewCache &inputs, CTxUndo &txundo, int nHeight)
 {
-    bool ret;
     // mark inputs spent
     if (!tx.IsCoinBase()) {
         txundo.vprevout.reserve(tx.vin.size());
@@ -3515,12 +3514,6 @@ void static ProcessGetData(CNode* pfrom)
         if (pfrom->nSendSize >= SendBufferSize())
             break;
 
-        // Don't waste work on slow peers until they catch up on the blocks we
-        // give them. 80 bytes is just the size of a block header - obviously
-        // the minimum we might return.
-        if (pfrom->nBlocksRequested * 80 > pfrom->nSendBytes)
-            break;
-
         const CInv &inv = *it;
         {
             boost::this_thread::interruption_point();
@@ -4363,16 +4356,6 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         }
     }
 
-
-    else if (!fBloomFilters &&
-             (strCommand == "filterload" ||
-              strCommand == "filteradd" ||
-              strCommand == "filterclear"))
-    {
-        pfrom->CloseSocketDisconnect();
-        return error("peer %s attempted to set a bloom filter even though we do not advertise that service",
-                     pfrom->addr.ToString().c_str());
-    }
 
     else if (strCommand == "filterload")
     {
