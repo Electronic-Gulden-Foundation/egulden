@@ -115,14 +115,14 @@ bool AppInit(int argc, char* argv[])
 
         if (fCommandLine)
         {
-            fprintf(stderr, "Error: There is no RPC client functionality in litecoind anymore. Use the litecoin-cli utility instead.\n");
+            fprintf(stderr, "Error: There is no RPC client functionality in eguldend anymore. Use the egulden-cli utility instead.\n");
             exit(1);
         }
 #ifndef WIN32
         fDaemon = GetBoolArg("-daemon", false);
         if (fDaemon)
         {
-            fprintf(stdout, "Litecoin server starting\n");
+            fprintf(stdout, "e-Gulden server starting\n");
 
             // Daemonize
             pid_t pid = fork();
