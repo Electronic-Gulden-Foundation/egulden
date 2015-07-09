@@ -82,6 +82,9 @@ public:
 
     // Litecoin: Height to enforce v2 block
     int EnforceV2AfterHeight() const { return nEnforceV2AfterHeight; }
+
+    // e-Gulden: Enforce KGW on height
+    int KGWStartHeight() const { return nKGWStartHeight; }
 protected:
     CChainParams() {}
 
@@ -115,9 +118,12 @@ protected:
 
     // Litecoin: Height to enforce v2 blocks
     int nEnforceV2AfterHeight;
+
+    // e-Gulden: Enforce KGW on height
+    int nKGWStartHeight;
 };
 
-/** 
+/**
  * Modifiable parameters interface is used by test cases to adapt the parameters in order
  * to test specific features more easily. Test cases should always restore the previous
  * values after finalization.

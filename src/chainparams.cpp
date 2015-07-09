@@ -119,8 +119,8 @@ public:
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 0;
-        nTargetTimespan = 3.5 * 24 * 60 * 60; // 3.5 days
-        nTargetSpacing = 2.5 * 60; // 2.5 minutes
+        nTargetTimespan = 270000; // 3.125 days
+        nTargetSpacing = 60; // 1 minute
 
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
@@ -182,6 +182,8 @@ public:
 
         // e-Gulden: Mainnet v2 enforced as of block 400k
         nEnforceV2AfterHeight = 400000;
+
+        nKGWStartHeight = 45000;
     }
 
     const Checkpoints::CCheckpointData& Checkpoints() const
@@ -209,8 +211,8 @@ public:
         nRejectBlockOutdatedMajority = 75;
         nToCheckBlockUpgradeMajority = 100;
         nMinerThreads = 0;
-        nTargetTimespan = 3.5 * 24 * 60 * 60; // 3.5 days
-        nTargetSpacing = 2.5 * 60; // 2.5 minutes
+        nTargetTimespan = 270000; // 3.125 days
+        nTargetSpacing = 60; // 1 minute
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nTime = 1317798646;
@@ -240,6 +242,8 @@ public:
 
         // Litecoin: Testnet v2 enforced as of block 400k
         nEnforceV2AfterHeight = 400000;
+
+        nKGWStartHeight = 1;
     }
     const Checkpoints::CCheckpointData& Checkpoints() const
     {
@@ -265,8 +269,10 @@ public:
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 1;
-        nTargetTimespan = 3.5 * 24 * 60 * 60; // 3.5 days
-        nTargetSpacing = 2.5 * 60; // 2.5 minutes
+
+        nTargetTimespan = 270000; // 3.125 days
+        nTargetSpacing = 60; // 1 minute
+
         bnProofOfWorkLimit = ~uint256(0) >> 1;
         genesis.nTime = 1296688602;
         genesis.nBits = 0x207fffff;
@@ -289,6 +295,8 @@ public:
 
         // Litecoin: v2 enforced using Bitcoin's supermajority rule
         nEnforceV2AfterHeight = -1;
+
+        nKGWStartHeight = 2;
     }
     const Checkpoints::CCheckpointData& Checkpoints() const
     {

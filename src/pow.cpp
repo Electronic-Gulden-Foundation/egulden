@@ -23,7 +23,7 @@ unsigned int KimotoGravityWell(const CBlockIndex* pindexLast, const CBlockHeader
 	uint64_t PastBlocksMass          = 0;
 	int64_t  PastRateActualSeconds   = 0;
 	int64_t  PastRateTargetSeconds   = 0;
-	double PastRateAdjustmentRatio = double(1);
+	double   PastRateAdjustmentRatio = double(1);
 
 	uint256 PastDifficultyAverage, PastDifficultyAveragePrev;
 	double  EventHorizonDeviation, EventHorizonDeviationFast, EventHorizonDeviationSlow;
@@ -75,10 +75,10 @@ unsigned int KimotoGravityWell(const CBlockIndex* pindexLast, const CBlockHeader
 	if(bnNew > Params().ProofOfWorkLimit()) { bnNew = Params().ProofOfWorkLimit(); }
 
 	// Debug
-	// LogPrint("KGW", "Difficulty Retarget - Kimoto Gravity Well\n");
-	// LogPrint("KGW", "PastRateAdjustmentRatio = %g\n", PastRateAdjustmentRatio);
-	// LogPrint("KGW", "Before: %08x %s\n", BlockLastSolved->nBits, uint256().SetCompact(BlockLastSolved->nBits).ToString().c_str());
-	// LogPrint("KGW", "After:  %08x %s\n", bnNew.GetCompact(), bnNew.ToString().c_str());
+	LogPrintf("Difficulty Retarget - Kimoto Gravity Well\n");
+	LogPrintf("PastRateAdjustmentRatio = %g\n", PastRateAdjustmentRatio);
+	LogPrintf("Before: %08x %s\n", pindexLast->nBits, uint256().SetCompact(pindexLast->nBits).ToString());
+	LogPrintf("After:  %08x %s\n", bnNew.GetCompact(), bnNew.ToString());
 
 	return bnNew.GetCompact();
 }
@@ -91,11 +91,11 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
     if (pindexLast == NULL)
         return nProofOfWorkLimit;
 
-    if(pindexLast->nHeight >= 45000 || Params().NetworkIDString() != "main")
+    if(pindexLast->nHeight >= Params().KGWStartHeight())
     {
-        uint64_t nTargetTimespan = 61440;                      // ~0.711111 days difficulty retarget
-        uint64_t nTargetSpacing = 60 * 2;                      // 2 minutes between blocks
-        uint64_t nInterval = nTargetTimespan / nTargetSpacing; // 512 blocks difficulty retarget
+        int64_t nTargetTimespan = 61440;                      // ~0.711111 days difficulty retarget
+        int64_t nTargetSpacing = 60 * 2;                      // 2 minutes between blocks
+        int64_t nInterval = nTargetTimespan / nTargetSpacing; // 512 blocks difficulty retarget
 
         unsigned int TimeDaySeconds = 60 * 60 * 24;
         uint64_t     PastSecondsMin = TimeDaySeconds * 0.25;

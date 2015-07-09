@@ -2530,6 +2530,9 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
 
     int nHeight = pindexPrev->nHeight+1;
 
+	LogPrintf("nHeight: %d\n", nHeight);
+	LogPrintf("Got block with nbits: %08x %s\n", pindexPrev->nBits, uint256().SetCompact(pindexPrev->nBits).ToString());
+
     // Check proof of work
     if ((!Params().SkipProofOfWorkCheck()) &&
        (block.nBits != GetNextWorkRequired(pindexPrev, &block)))
