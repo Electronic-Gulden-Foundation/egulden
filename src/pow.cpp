@@ -4,6 +4,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "pow.h"
+
 #include "math.h"
 
 #include "chain.h"
@@ -12,10 +13,7 @@
 #include "uint256.h"
 #include "util.h"
 
-
-#include <stdlib.h>
-
-unsigned int KimotoGravityWell(const CBlockIndex* pindexLast, const CBlockHeader* pblock, uint64_t TargetBlockSpacingSeconds, uint64_t PastBlocksMin, uint64_t PastBlocksMax)
+unsigned int KimotoGravityWell(const CBlockIndex* pindexLast, uint64_t TargetBlockSpacingSeconds, uint64_t PastBlocksMin, uint64_t PastBlocksMax)
 {
 	const CBlockIndex *BlockLastSolved = pindexLast;
 	const CBlockIndex *BlockReading    = pindexLast;
@@ -103,7 +101,7 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
         uint64_t     PastBlocksMin  = PastSecondsMin / nInterval;
         uint64_t     PastBlocksMax  = PastSecondsMax / nInterval;
 
-        return KimotoGravityWell(pindexLast, pblock, nTargetSpacing, PastBlocksMin, PastBlocksMax);
+        return KimotoGravityWell(pindexLast, nTargetSpacing, PastBlocksMin, PastBlocksMax);
     }
 
     // Only change once per interval
