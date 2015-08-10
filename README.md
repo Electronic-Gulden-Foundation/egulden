@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Electronic-Gulden-Foundation/egulden.svg?branch=pull-upstream-litecoin)](https://travis-ci.org/Electronic-Gulden-Foundation/egulden)
+
 Egulden integration/staging tree
 ================================
 
@@ -77,7 +79,7 @@ lots of money.
 Large changes should have a test plan, and should be tested by somebody other
 than the developer who wrote the code.
 Creating a thread in the [Litecoin discussion forum](https://litecointalk.org/index.php?board=2.0) will allow the Litecoin
-development team members to review your proposal and to provide assistance with creating a test plan. 
+development team members to review your proposal and to provide assistance with creating a test plan.
 
 
 Translations
