@@ -217,11 +217,11 @@ public:
         nTargetSpacing = 60; // 1 minute
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1317798646;
+        genesis.nTime = 1439194000;
         genesis.nNonce = 385270584;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x5546a271ddd885c2765edf7518926f385ed0f26499de96e93971a725d5ce33b6"));
+        assert(hashGenesisBlock == uint256("0xcaf3a57da0fe763a2fdb99132ec1f8791019dc3b439078d9490cf890c40e9b92"));
 
         vFixedSeeds.clear();
         vSeeds.clear(); vSeeds.push_back(CDNSSeedData("testnetseed1", "testnetseed1.egulden.org"));
@@ -243,7 +243,7 @@ public:
         fTestnetToBeDeprecatedFieldRPC = true;
 
         // egulden: Testnet v2 enforced as of block 0
-        nEnforceV2AfterHeight = 0;
+        nEnforceV2AfterHeight = 1;
 
         nKGWStartHeight = 1;
     }
@@ -262,10 +262,10 @@ public:
     CRegTestParams() {
         networkID = CBaseChainParams::REGTEST;
         strNetworkID = "regtest";
-        pchMessageStart[0] = 0xfa;
-        pchMessageStart[1] = 0xbf;
-        pchMessageStart[2] = 0xb5;
-        pchMessageStart[3] = 0xda;
+        pchMessageStart[0] = 0x80; // €
+        pchMessageStart[1] = 0x83; // ƒ
+        pchMessageStart[2] = 0x4c; // L
+        pchMessageStart[3] = 0x32; // 2
         nSubsidyHalvingInterval = 150;
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
@@ -276,13 +276,13 @@ public:
         nTargetSpacing = 60; // 1 minute
 
         bnProofOfWorkLimit = ~uint256(0) >> 1;
-        genesis.nTime = 1296688602;
+        genesis.nTime = 1439194624;
         genesis.nBits = 0x207fffff;
         genesis.nNonce = 0;
         hashGenesisBlock = genesis.GetHash();
 
         nDefaultPort = 5755;
-        assert(hashGenesisBlock == uint256("0xfc7f3d796556e062d91716cbcf9b0058adf7295a16d4c765dbd4b6751526f759"));
+        assert(hashGenesisBlock == uint256("0xf156a27abe68ca5d6396c6e5c6f0ec6d6b253c795894f087232970c24e32d6ec"));
 
         vFixedSeeds.clear(); //! Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();  //! Regtest mode doesn't have any DNS seeds.
@@ -295,10 +295,9 @@ public:
         fMineBlocksOnDemand = true;
         fTestnetToBeDeprecatedFieldRPC = false;
 
-        // Litecoin: v2 enforced using Bitcoin's supermajority rule
-        nEnforceV2AfterHeight = -1;
+        nEnforceV2AfterHeight = 1;
 
-        nKGWStartHeight = 2;
+        nKGWStartHeight = 100;
     }
     const Checkpoints::CCheckpointData& Checkpoints() const
     {
