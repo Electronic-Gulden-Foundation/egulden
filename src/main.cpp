@@ -2530,9 +2530,6 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
 
     int nHeight = pindexPrev->nHeight+1;
 
-	LogPrintf("nHeight: %d\n", nHeight);
-	LogPrintf("Got block with nbits: %08x %s\n", pindexPrev->nBits, uint256().SetCompact(pindexPrev->nBits).ToString());
-
     // Check proof of work
     if ((!Params().SkipProofOfWorkCheck()) &&
        (block.nBits != GetNextWorkRequired(pindexPrev, &block)))
@@ -2554,29 +2551,10 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
     if (pcheckpoint && nHeight < pcheckpoint->nHeight)
         return state.DoS(100, error("%s : forked chain older than last checkpoint (height %d)", __func__, nHeight));
 
-    // Litecoin: Reject block.nVersion=1 blocks (mainnet >= 710000, testnet >= 400000, regtest uses supermajority)
-    bool enforceV2 = false;
+    // e-Gulden: Always reject nVersion < 2 blocks
     if (block.nVersion < 2)
-    {
-        if (Params().EnforceV2AfterHeight() != -1)
-        {
-            // Mainnet 710k, Testnet 400k
-            if (nHeight >= Params().EnforceV2AfterHeight())
-                enforceV2 = true;
-        }
-        else
-        {
-            // Regtest and Unittest: use Bitcoin's supermajority rule
-            if (CBlockIndex::IsSuperMajority(2, pindexPrev, Params().RejectBlockOutdatedMajority()))
-                enforceV2 = true;
-        }
-    }
-
-    if (enforceV2)
-    {
         return state.Invalid(error("%s : rejected nVersion=1 block", __func__),
                              REJECT_OBSOLETE, "bad-version");
-    }
 
     // Reject block.nVersion=2 blocks when 95% (75% on testnet) of the network has upgraded:
     if (block.nVersion < 3 && CBlockIndex::IsSuperMajority(3, pindexPrev, Params().RejectBlockOutdatedMajority()))
@@ -2598,7 +2576,7 @@ bool ContextualCheckBlock(const CBlock& block, CValidationState& state, CBlockIn
             return state.DoS(10, error("%s : contains a non-final transaction", __func__), REJECT_INVALID, "bad-txns-nonfinal");
         }
 
-    // Litecoin: (mainnet >= 710000, testnet >= 400000, regtest uses supermajority)
+    // e-Gulden: (mainnet >= 0, testnet >= 0, regtest uses supermajority)
     // Enforce block.nVersion=2 rule that the coinbase starts with serialized block height
     // if 750 of the last 1,000 blocks are version 2 or greater (51/100 if testnet):
     bool checkHeightMismatch = false;
@@ -2606,7 +2584,7 @@ bool ContextualCheckBlock(const CBlock& block, CValidationState& state, CBlockIn
     {
         if (Params().EnforceV2AfterHeight() != -1)
         {
-            // Mainnet 710k, Testnet 400k
+            // Mainnet 0, Testnet 0
             if (nHeight >= Params().EnforceV2AfterHeight())
                 checkHeightMismatch = true;
         }

@@ -66,13 +66,15 @@ static Checkpoints::MapCheckpoints mapCheckpoints =
         ( 200000, uint256("0x856d56f908ecde89d24ed216978f5b9898000defc15f8dcfac83a3a6eaeea9b9"))
         ( 225000, uint256("0x1ab99f5f8ea110de1a57e128e883b760152dba409c2c1130353edcea67643277"))
         ( 250000, uint256("0x0086da045fd362f346d1e7dcc12fe41e7eca4dc6bcd2515bdec7b7a1383c0ec9"))
+        ( 300000, uint256("0x33c0d8ea44fefa9ade4aee0032e0784e7e58ecac562129a7c0a5904472745863"))
+        ( 350000, uint256("0x1235b66a56c1c01c51902fd9bf7849e6bdf859ea2e21befa6a04cfcf0f398acf"))
         ;
 static const Checkpoints::CCheckpointData data = {
         &mapCheckpoints,
-        1422681363, // * UNIX timestamp of last checkpoint block
-        5502192,   // * total number of transactions between genesis and last checkpoint
+        1433088881, // * UNIX timestamp of last checkpoint block
+        5502192,    // * total number of transactions between genesis and last checkpoint
                     //   (the tx=... number in the SetBestChain debug.log lines)
-        5500.0     // * estimated number of transactions per day after checkpoint
+        5500.0      // * estimated number of transactions per day after checkpoint
     };
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
@@ -180,8 +182,8 @@ public:
         fSkipProofOfWorkCheck = false;
         fTestnetToBeDeprecatedFieldRPC = false;
 
-        // e-Gulden: Mainnet v2 enforced as of block 400k
-        nEnforceV2AfterHeight = 400000;
+        // e-Gulden: Mainnet v2 enforced as of block 0
+        nEnforceV2AfterHeight = 0;
 
         nKGWStartHeight = 45000;
     }
@@ -240,8 +242,8 @@ public:
         fMineBlocksOnDemand = false;
         fTestnetToBeDeprecatedFieldRPC = true;
 
-        // Litecoin: Testnet v2 enforced as of block 400k
-        nEnforceV2AfterHeight = 400000;
+        // egulden: Testnet v2 enforced as of block 0
+        nEnforceV2AfterHeight = 0;
 
         nKGWStartHeight = 1;
     }
