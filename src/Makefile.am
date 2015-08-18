@@ -98,6 +98,7 @@ BITCOIN_CORE_H = \
   init.h \
   key.h \
   keystore.h \
+  kgw.h \
   leveldbwrapper.h \
   limitedmap.h \
   main.h \
@@ -168,6 +169,7 @@ libbitcoin_server_a_SOURCES = \
   checkpoints.cpp \
   init.cpp \
   leveldbwrapper.cpp \
+  kgw.cpp \
   main.cpp \
   merkleblock.cpp \
   miner.cpp \

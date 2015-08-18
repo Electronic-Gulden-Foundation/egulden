@@ -2533,7 +2533,7 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
     // Check proof of work
     if ((!Params().SkipProofOfWorkCheck()) &&
        (block.nBits != GetNextWorkRequired(pindexPrev, &block)))
-        return state.DoS(100, error("%s : incorrect proof of work", __func__),
+        return state.DoS(100, error("%s : incorrect proof of work on block %d", __func__, pindexPrev->nHeight + 1),
                          REJECT_INVALID, "bad-diffbits");
 
     // Check timestamp against prev
