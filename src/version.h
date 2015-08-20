@@ -26,6 +26,8 @@ extern const std::string CLIENT_DATE;
 //
 
 static const int PROTOCOL_VERSION = 70002;
+// Alerts disabled below
+static const int ALERT_VERSION = 70003;
 
 // intial proto version, to be increased after version/verack negotiation
 static const int INIT_PROTO_VERSION = 209;
