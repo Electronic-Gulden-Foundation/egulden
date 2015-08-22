@@ -77,6 +77,13 @@ int64 nHPSTimerStart = 0;
 int64 nTransactionFee = 0;
 int64 nMinimumInputValue = DUST_HARD_LIMIT;
 
+// Accepted client versions
+const char* vvalidClients[] = {
+	"/Satoshi:1.1.0.1/",
+	"/Satoshi:1.1.0.2/",
+	"/Satoshi:1.1.0.3/", NULL};
+const char* vvalid_client_name = "Christiaan Huygens:";
+
 
 //////////////////////////////////////////////////////////////////////////////
 //
@@ -3100,6 +3107,7 @@ string GetWarnings(string strFor)
     }
 
     // Alerts
+    if (PROTOCOL_VERSION>=ALERT_VERSION)
     {
         LOCK(cs_mapAlerts);
         BOOST_FOREACH(PAIRTYPE(const uint256, CAlert)& item, mapAlerts)
@@ -3344,6 +3352,15 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         if (!vRecv.empty()) {
             vRecv >> pfrom->strSubVer;
             pfrom->cleanSubVer = SanitizeString(pfrom->strSubVer);
+			std::size_t iClient=pfrom->cleanSubVer.find(vvalid_client_name);
+			for (int i=0; vvalidClients[i] != NULL;  i++) {
+				if (pfrom->cleanSubVer==vvalidClients[i]) {iClient=1;}
+			}
+			if (iClient==std::string::npos) {
+				printf("Disconnect version mismatch : %s : peer=%s\n",pfrom->cleanSubVer.c_str(),pfrom->addr.ToString().c_str());
+				pfrom->fDisconnect = true;
+      			return true;
+			}		
         }
         if (!vRecv.empty())
             vRecv >> pfrom->nStartingHeight;
@@ -3404,7 +3421,9 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         }
 
         // Relay alerts
+		if (PROTOCOL_VERSION>=ALERT_VERSION)
         {
+	
             LOCK(cs_mapAlerts);
             BOOST_FOREACH(PAIRTYPE(const uint256, CAlert)& item, mapAlerts)
                 item.second.RelayTo(pfrom);
@@ -3800,7 +3819,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
     }
 
 
-    else if (strCommand == "alert")
+    else if ((strCommand == "alert") && (PROTOCOL_VERSION>=ALERT_VERSION))
     {
         CAlert alert;
         vRecv >> alert;
