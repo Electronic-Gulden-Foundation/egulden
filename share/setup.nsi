@@ -5,7 +5,7 @@ SetCompressor /SOLID lzma
 
 # General Symbol Definitions
 !define REGKEY "SOFTWARE\$(^Name)"
-!define VERSION 1.2.0.2
+!define VERSION 1.2.0.3
 !define COMPANY "e-Gulden project"
 !define URL http://www.egulden.org/
 
