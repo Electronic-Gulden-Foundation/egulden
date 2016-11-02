@@ -29,14 +29,18 @@ unsigned int KimotoGravityWell(const CBlockIndex* pindexLast, uint64_t TargetBlo
 
 	for(unsigned int i = 1; BlockReading && BlockReading->nHeight > 0; i++)
 	{
-		if(PastBlocksMax > 0 && i > PastBlocksMax)
-			break;
-
+		if(PastBlocksMax > 0 && i > PastBlocksMax) break;
 		PastBlocksMass++;
 
-		PastDifficultyAverage = (i == 0)
-			? PastDifficultyAverage.SetCompact(BlockReading->nBits)
-			: PastDifficultyAverage = ((uint256().SetCompact(BlockReading->nBits) - PastDifficultyAveragePrev) / i) + PastDifficultyAveragePrev;
+        PastDifficultyAverage.SetCompact(BlockReading->nBits);
+
+        if(i > 1) {
+            if(PastDifficultyAverage >= PastDifficultyAveragePrev) {
+                PastDifficultyAverage = ((PastDifficultyAverage - PastDifficultyAveragePrev) / i) + PastDifficultyAveragePrev;
+            } else {
+                PastDifficultyAverage = PastDifficultyAveragePrev - ((PastDifficultyAveragePrev - PastDifficultyAverage) / i);
+            }
+        }
 
 		PastDifficultyAveragePrev = PastDifficultyAverage;
 
@@ -72,10 +76,12 @@ unsigned int KimotoGravityWell(const CBlockIndex* pindexLast, uint64_t TargetBlo
 	if(bnNew > Params().ProofOfWorkLimit()) { bnNew = Params().ProofOfWorkLimit(); }
 
 	// Debug
-	LogPrintf("Difficulty Retarget - Kimoto Gravity Well\n");
+    /*
+	LogPrintf("Difficulty Retarget - Kimoto Gravity Well [Block: %d]\n", pindexLast->nHeight);
 	LogPrintf("PastRateAdjustmentRatio = %g\n", PastRateAdjustmentRatio);
 	LogPrintf("Before: %08x %s\n", pindexLast->nBits, uint256().SetCompact(pindexLast->nBits).ToString().c_str());
 	LogPrintf("After:  %08x %s\n", bnNew.GetCompact(), bnNew.ToString().c_str());
+    */
 
 	return bnNew.GetCompact();
 }
