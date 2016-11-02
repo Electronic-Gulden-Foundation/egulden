@@ -101,7 +101,7 @@ BOOST_AUTO_TEST_CASE(bloom_create_insert_key)
     CDataStream stream(SER_NETWORK, PROTOCOL_VERSION);
     filter.Serialize(stream, SER_NETWORK, PROTOCOL_VERSION);
 
-    vector<unsigned char> vch = ParseHex("0322ed23080000000000000001");
+    vector<unsigned char> vch = ParseHex("038fc16b080000000000000001");
     vector<char> expected(vch.size());
 
     for (unsigned int i = 0; i < vch.size(); i++)
