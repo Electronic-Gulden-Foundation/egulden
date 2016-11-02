@@ -8,14 +8,11 @@ CURDIR=$(cd $(dirname "$0"); pwd)
 export BITCOINCLI=${BUILDDIR}/qa/pull-tester/run-bitcoin-cli
 export BITCOIND=${REAL_BITCOIND}
 
-if [ "x${EXEEXT}" = "x.exe" ]; then
-  echo "Win tests currently disabled"
-  exit 0
-fi
-
 #Run the tests
 
 if [ "x${ENABLE_BITCOIND}${ENABLE_UTILS}${ENABLE_WALLET}" = "x111" ]; then
+  ${BUILDDIR}/qa/rpc-tests/bip65-cltv-p2p.py --srcdir "${BUILDDIR}/src"
+  ${BUILDDIR}/qa/rpc-tests/bip65-cltv.py --srcdir "${BUILDDIR}/src"
   ${BUILDDIR}/qa/rpc-tests/wallet.py --srcdir "${BUILDDIR}/src"
   ${BUILDDIR}/qa/rpc-tests/listtransactions.py --srcdir "${BUILDDIR}/src"
   ${BUILDDIR}/qa/rpc-tests/mempool_resurrect_test.py --srcdir "${BUILDDIR}/src"

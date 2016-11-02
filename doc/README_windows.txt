@@ -1,5 +1,4 @@
-e-Gulden Core 0.10.2
-=====================
+e-Gulden Core 1.3.0
 
 Intro
 -----

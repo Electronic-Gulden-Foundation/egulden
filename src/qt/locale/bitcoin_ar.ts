@@ -67,11 +67,11 @@
     </message>
     <message>
         <source>These are your e-Gulden addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>هذه هي عناوين Bitcion التابعة لك من أجل إرسال الدفعات. تحقق دائما من المبلغ و عنوان المرسل المستقبل قبل إرسال العملات</translation>
+        <translation>هذه هي عناوين e-Gulden التابعة لك من أجل إرسال الدفعات. تحقق دائما من المبلغ و عنوان المرسل المستقبل قبل إرسال العملات</translation>
     </message>
     <message>
         <source>These are your e-Gulden addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>هذه هي عناوين Bitcion التابعة لك من أجل إستقبال الدفعات. ينصح استخدام عنوان جديد من أجل كل صفقة</translation>
+        <translation>هذه هي عناوين e-Gulden التابعة لك من أجل إستقبال الدفعات. ينصح استخدام عنوان جديد من أجل كل صفقة</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
@@ -292,7 +292,7 @@
     </message>
     <message>
         <source>e-Gulden Core client</source>
-        <translation>عميل bitcion core</translation>
+        <translation>عميل e-Gulden core</translation>
     </message>
     <message>
         <source>Importing blocks from disk...</source>
@@ -304,7 +304,7 @@
     </message>
     <message>
         <source>Send coins to a e-Gulden address</source>
-        <translation>ارسل عملات الى عنوان بيتكوين</translation>
+        <translation>ارسل عملات الى عنوان e-Gulden</translation>
     </message>
     <message>
         <source>Modify configuration options for e-Gulden</source>
@@ -340,7 +340,7 @@
     </message>
     <message>
         <source>Show information about e-Gulden Core</source>
-        <translation>  اظهار معلومات حول bitcion core</translation>
+        <translation>  اظهار معلومات حول e-Gulden core</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
@@ -1151,10 +1151,6 @@
     <message>
         <source>Copy change</source>
         <translation>نسخ التعديل</translation>
-    </message>
-    <message>
-        <source>Total Amount %1 (= %2)</source>
-        <translation>مجموع المبلغ %1 (= %2)</translation>
     </message>
     <message>
         <source>or</source>

@@ -1,4 +1,4 @@
-e-Gulden Core 0.10.2
+e-Gulden Core 1.3.0
 =====================
 
 Setup
@@ -7,11 +7,7 @@ Setup
 
 Running
 ---------------------
-Litecoin is a free open source peer-to-peer electronic cash system that is
-completely decentralized, without the need for a central server or trusted
-parties.  Users hold the crypto keys to their own money and transact directly
-with each other, with the help of a P2P network to check for double-spending.
-The following are some helpful notes on how to run e-Gulden on your native platform.
+The following are some helpful notes on how to run Bitcoin on your native platform.
 
 ### Unix
 
@@ -29,7 +25,7 @@ Unpack the files into a directory and run:
 
 Unpack the files into a directory, and then run bitcoin-qt.exe.
 
-### OSX
+### OS X
 
 Drag Egulden-Qt to your applications folder, and then run Egulden-Qt.
 
@@ -44,7 +40,7 @@ Building
 ---------------------
 The following are developer notes on how to build e-Gulden on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
-- [OSX Build Notes](build-osx.md)
+- [OS X Build Notes](build-osx.md)
 - [Unix Build Notes](build-unix.md)
 
 Development

@@ -13,8 +13,8 @@ built-in one is located in `/Applications/Utilities`.
 Preparation
 -----------
 
-You need to install XCode with all the options checked so that the compiler
-and everything is available in /usr not just /Developer. XCode should be
+You need to install Xcode with all the options checked so that the compiler
+and everything is available in /usr not just /Developer. Xcode should be
 available on your OS X installation media, but if not, you can get the
 current version from https://developer.apple.com/xcode/. If you install
 Xcode 4.3 or later, you'll need to install its command line tools. This can
@@ -65,7 +65,7 @@ After exiting, you'll get a warning that the install is keg-only, which means it
 
 ### Building `eguldend`
 
-1. Clone the github tree to get the source code and go into the directory.
+1. Clone the GitHub tree to get the source code and go into the directory.
 
         git clone https://github.com/Electronic-Gulden-Foundation/egulden.git
         cd egulden
@@ -89,7 +89,11 @@ Use Qt Creator as IDE
 You can use Qt Creator as IDE, for debugging and for manipulating forms, etc.
 Download Qt Creator from http://www.qt.io/download/. Download the "community edition" and only install Qt Creator (uncheck the rest during the installation process).
 
+<<<<<<< HEAD
 1. Make sure you installed everything through homebrew mentioned above
+=======
+1. Make sure you installed everything through Homebrew mentioned above
+>>>>>>> 699bfd0f6e8fa940d696b7df1afee5a8a045f8db
 2. Do a proper ./configure --with-gui=qt5 --enable-debug
 3. In Qt Creator do "New Project" -> Import Project -> Import Existing Project
 4. Enter "egulden-qt" as project name, enter src/qt as location
