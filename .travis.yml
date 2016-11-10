@@ -16,6 +16,7 @@ env:
     - CCACHE_COMPRESS=1
     - BASE_OUTDIR=$TRAVIS_BUILD_DIR/out
     - SDK_URL=https://bitcoincore.org/depends-sources/sdks
+    - BINARY_SUFFIX=""
 cache:
   apt: true
   directories:
@@ -36,9 +37,9 @@ matrix:
     - compiler: ": Cross-Mac"
       env: HOST=x86_64-apple-darwin11 PACKAGES="cmake libcap-dev libz-dev libbz2-dev" OSX_SDK=10.9 GOAL="deploy"
     - compiler: ": Win64"
-      env: HOST=x86_64-w64-mingw32 PACKAGES="nsis gcc-mingw-w64-x86-64 g++-mingw-w64-x86-64 binutils-mingw-w64-x86-64 mingw-w64-dev wine bc" RUN_TESTS=true GOAL="deploy" BITCOIN_CONFIG="--enable-gui" MAKEJOBS="-j2"
+      env: HOST=x86_64-w64-mingw32 PACKAGES="nsis gcc-mingw-w64-x86-64 g++-mingw-w64-x86-64 binutils-mingw-w64-x86-64 mingw-w64-dev wine bc" RUN_TESTS=true GOAL="deploy" BITCOIN_CONFIG="--enable-gui" MAKEJOBS="-j2" BINARY_SUFFIX=".exe"
     - compiler: ": Win32"
-      env: HOST=i686-w64-mingw32 PACKAGES="nsis gcc-mingw-w64-i686 g++-mingw-w64-i686 binutils-mingw-w64-i686 mingw-w64-dev wine bc" RUN_TESTS=true GOAL="deploy" BITCOIN_CONFIG="--enable-gui" MAKEJOBS="-j2"
+      env: HOST=i686-w64-mingw32 PACKAGES="nsis gcc-mingw-w64-i686 g++-mingw-w64-i686 binutils-mingw-w64-i686 mingw-w64-dev wine bc" RUN_TESTS=true GOAL="deploy" BITCOIN_CONFIG="--enable-gui" MAKEJOBS="-j2" BINARY_SUFFIX=".exe"
   exclude:
     - compiler: gcc
 install:
@@ -65,7 +66,7 @@ script:
     - export LD_LIBRARY_PATH=$TRAVIS_BUILD_DIR/depends/$HOST/lib
     - if [ "$RUN_TESTS" = "true" ]; then make check || true; fi
     - if [ "$RUN_TESTS" = "true" ]; then qa/pull-tester/rpc-tests.sh || true; fi
-    - zip release-$HOST.zip src/egulden-cli src/egulden-tx src/eguldend src/qt/egulden-qt
+    - zip release-$HOST.zip src/egulden-cli$BINARY_SUFFIX src/egulden-tx$BINARY_SUFFIX src/eguldend$BINARY_SUFFIX src/qt/egulden-qt$BINARY_SUFFIX
 after_script:
     - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then (echo "Upload goes here. Something like: scp -r $BASE_OUTDIR server" || echo "upload failed"); fi
 deploy:
