@@ -18,17 +18,17 @@
 #include <QApplication>
 #include <QCloseEvent>
 #include <QDesktopWidget>
+#include <QRectF>
 #include <QPainter>
 
 SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) :
     QWidget(0, f), curAlignment(0)
 {
     // set reference point, paddings
-    int paddingRight            = 190;
-    int paddingRightCopyright   = 220;
-    int paddingTop              = 170;
-    int paddingCopyrightTop     = 70;
-    int titleCopyrightVSpace    = 14;
+    int paddingLeftCopyRight = 10;
+    int paddingTop           = 325;
+    int paddingTopCopyRight  = 355;
+    int titleCopyrightVSpace = 9;
 
     // set reference point, paddings
     float fontFactor            = 1.0;
@@ -36,7 +36,8 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
     // define text to place
     QString versionText     = QString("Version %1").arg(QString::fromStdString(FormatFullVersion()));
     QString copyrightText1   = QChar(0xA9)+QString(" 2009-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The Bitcoin Core developers"));
-    QString copyrightText2   = QChar(0xA9)+QString(" 2011-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The e-Gulden Core developers"));
+    QString copyrightText2   = QChar(0xA9)+QString(" 2011-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The Litecoin Core developers"));
+    QString copyrightText3   = QChar(0xA9)+QString(" 2014-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The e-Gulden Core developers"));
     QString titleAddText    = networkStyle->getTitleAddText();
     QString font            = QApplication::font().toString();
 
@@ -50,12 +51,14 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
     QFontMetrics fm = pixPaint.fontMetrics();
 
     // draw version
-    pixPaint.drawText(pixmap.width()-paddingRight+2,paddingTop,versionText);
+    QRectF versionRect = QRectF(0, paddingTop, pixmap.width(), 10);
+    pixPaint.drawText(versionRect,Qt::AlignCenter,versionText);
 
     // draw copyright stuff
-    pixPaint.setFont(QFont(font, 8*fontFactor));
-    pixPaint.drawText(pixmap.width()-paddingRightCopyright,paddingTop+paddingCopyrightTop,copyrightText1);
-    pixPaint.drawText(pixmap.width()-paddingRightCopyright,paddingTop+paddingCopyrightTop+titleCopyrightVSpace,copyrightText2);
+    pixPaint.setFont(QFont(font, 6*fontFactor));
+    pixPaint.drawText(paddingLeftCopyRight,paddingTopCopyRight,copyrightText1);
+    pixPaint.drawText(paddingLeftCopyRight,paddingTopCopyRight+titleCopyrightVSpace,copyrightText2);
+    pixPaint.drawText(paddingLeftCopyRight,paddingTopCopyRight+titleCopyrightVSpace*2,copyrightText3);
 
     // draw additional text if special network
     if(!titleAddText.isEmpty()) {
