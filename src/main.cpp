@@ -913,7 +913,7 @@ CAmount GetMinRelayFee(const CTransaction& tx, unsigned int nBytes, bool fAllowF
             return 0;
     }
 
-    // Litecoin
+    // e-Gulden
     // To limit dust spam, add 1000 byte penalty for each output smaller than DUST_THRESHOLD
     BOOST_FOREACH(const CTxOut& txout, tx.vout)
         if (txout.nValue < DUST_THRESHOLD)
@@ -1651,7 +1651,7 @@ bool FindUndoPos(CValidationState &state, int nFile, CDiskBlockPos &pos, unsigne
 static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck() {
-    RenameThread("litecoin-scriptch");
+    RenameThread("egulden-scriptch");
     scriptcheckqueue.Thread();
 }
 

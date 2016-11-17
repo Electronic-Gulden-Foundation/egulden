@@ -106,7 +106,7 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
 #if QT_VERSION >= 0x040700
     // We don't want translators to use own addresses in translations
     // and this is the only place, where this address is supplied.
-    widget->setPlaceholderText(QObject::tr("Enter a Litecoin address (e.g. %1)").arg("Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2"));
+    widget->setPlaceholderText(QObject::tr("Enter a e-Gulden address (e.g. %1)").arg("Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2"));
 #endif
     widget->setValidator(new BitcoinAddressEntryValidator(parent));
     widget->setCheckValidator(new BitcoinAddressCheckValidator(parent));
@@ -198,7 +198,7 @@ bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 
 QString formatBitcoinURI(const SendCoinsRecipient &info)
 {
-    QString ret = QString("litecoin:%1").arg(info.address);
+    QString ret = QString("egulden:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)

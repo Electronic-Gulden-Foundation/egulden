@@ -616,7 +616,7 @@ Address: %4
     </message>
     <message>
         <source>Confirm send coins</source>
-        <translation>تایید ارسال Litecoins</translation>
+        <translation>تایید ارسال e-Guldens</translation>
     </message>
     <message>
         <source>Copy amount</source>
@@ -681,8 +681,8 @@ Address: %4
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>Litecoin Core is shutting down...</source>
-        <translation>هسته Litecoin در حال خاموش شدن است...</translation>
+        <source>e-Gulden Core is shutting down...</source>
+        <translation>هسته e-Gulden در حال خاموش شدن است...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>

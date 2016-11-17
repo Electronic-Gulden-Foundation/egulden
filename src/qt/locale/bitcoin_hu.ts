@@ -882,8 +882,8 @@ Cím: %4
         <translation>Üdvözlünk a e-Gulden Core-ban.</translation>
     </message>
     <message>
-        <source>Litecoin Core will download and store a copy of the Litecoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>A Litecoin Core le fogja tölteni és tárolni fogja a Litecoin blokklánc egy másolatát. Legalább %1GB adat lesz tárolva ebben a mappában, és ez folyamatosan nőni fog. A tárca szintén itt lesz tárolva.</translation>
+        <source>e-Gulden Core will download and store a copy of the e-Gulden block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>A e-Gulden Core le fogja tölteni és tárolni fogja a e-Gulden blokklánc egy másolatát. Legalább %1GB adat lesz tárolva ebben a mappában, és ez folyamatosan nőni fog. A tárca szintén itt lesz tárolva.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -996,8 +996,8 @@ Cím: %4
         <translation>&amp;UPnP port-feltérképezés</translation>
     </message>
     <message>
-        <source>Connect to the Litecoin network through a SOCKS5 proxy.</source>
-        <translation>Csatlakozás a Litecoin hálózatához SOCKS5 proxyn keresztül</translation>
+        <source>Connect to the e-Gulden network through a SOCKS5 proxy.</source>
+        <translation>Csatlakozás a e-Gulden hálózatához SOCKS5 proxyn keresztül</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -1176,8 +1176,8 @@ Cím: %4
         <translation>Összeg</translation>
     </message>
     <message>
-        <source>Enter a Litecoin address (e.g. %1)</source>
-        <translation>Ad meg egy Litecoin címet (pl: %1)</translation>
+        <source>Enter a e-Gulden address (e.g. %1)</source>
+        <translation>Ad meg egy e-Gulden címet (pl: %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1742,8 +1742,8 @@ Cím: %4
         <translation>Többször szerepel ugyanaz a cím. Egy küldési műveletben egy címre csak egyszer lehet küldeni.</translation>
     </message>
     <message>
-        <source>Warning: Invalid Litecoin address</source>
-        <translation>Figyelmeztetés: Érvénytelen Litecoin cím</translation>
+        <source>Warning: Invalid e-Gulden address</source>
+        <translation>Figyelmeztetés: Érvénytelen e-Gulden cím</translation>
     </message>
     <message>
         <source>(no label)</source>

@@ -63,7 +63,7 @@
     </message>
     <message>
         <source>These are your e-Gulden addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>این‌ها نشانی‌های Litecoin شما برای ارسال وجود هستند. همیشه قبل از ارسال سکه‌ها، نشانی دریافت‌کننده و مقدار ارسالی را بررسی کنید.</translation>
+        <translation>این‌ها نشانی‌های e-Gulden شما برای ارسال وجود هستند. همیشه قبل از ارسال سکه‌ها، نشانی دریافت‌کننده و مقدار ارسالی را بررسی کنید.</translation>
     </message>
     <message>
         <source>These are your e-Gulden addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
@@ -180,8 +180,8 @@
         <translation>رمز جدید کیف پول خود را وارد کنید.&lt;br/&gt;از رمز عبوری استفاده کنید که&lt;b&gt; حداقل 10  کاراکتر تصادفی &lt;/b&gt; و یا &lt;b&gt; حداقل 8 حرف داشته باشد.&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>e-Gulden will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your litecoins from being stolen by malware infecting your computer.</source>
-        <translation>e-Gulden هم اکنون بسته می‌شود تا فرایند رمزگذاری را تمام کند. به خاطر داشته باشید که رمزگذاری کردن کیف پول‌تان نمی‌تواند به طور کامل Litecoin‌های شما را در برابر دزدیده شدن توسط بدافزارهایی که احتمالاً رایانهٔ شما را آلوده می‌کنند، محافظت نماید.</translation>
+        <source>e-Gulden will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your eguldens from being stolen by malware infecting your computer.</source>
+        <translation>e-Gulden هم اکنون بسته می‌شود تا فرایند رمزگذاری را تمام کند. به خاطر داشته باشید که رمزگذاری کردن کیف پول‌تان نمی‌تواند به طور کامل e-Gulden‌های شما را در برابر دزدیده شدن توسط بدافزارهایی که احتمالاً رایانهٔ شما را آلوده می‌کنند، محافظت نماید.</translation>
     </message>
     <message>
         <source>Wallet encryption failed</source>
@@ -296,7 +296,7 @@
     </message>
     <message>
         <source>Send coins to a e-Gulden address</source>
-        <translation>ارسال وجه به نشانی Litecoin</translation>
+        <translation>ارسال وجه به نشانی e-Gulden</translation>
     </message>
     <message>
         <source>Modify configuration options for e-Gulden</source>
@@ -339,8 +339,8 @@
         <translation>&amp;دریافت</translation>
     </message>
     <message>
-        <source>Show information about Litecoin Core</source>
-        <translation>نمایش اطلاعات در مورد Litecoin</translation>
+        <source>Show information about e-Gulden Core</source>
+        <translation>نمایش اطلاعات در مورد e-Gulden</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
@@ -360,7 +360,7 @@
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified e-Gulden addresses</source>
-        <translation>برای حصول اطمینان از اینکه پیام با نشانی Litecoin مشخص شده امضا است یا خیر، پیام را شناسایی کنید</translation>
+        <translation>برای حصول اطمینان از اینکه پیام با نشانی e-Gulden مشخص شده امضا است یا خیر، پیام را شناسایی کنید</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -383,8 +383,8 @@
         <translation> هسته e-Gulden </translation>
     </message>
     <message>
-        <source>&amp;About Litecoin Core</source>
-        <translation>درباره هسته ی Litecoin</translation>
+        <source>&amp;About e-Gulden Core</source>
+        <translation>درباره هسته ی e-Gulden</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -706,8 +706,8 @@ Address: %4
         <translation>نسخه</translation>
     </message>
     <message>
-        <source>About Litecoin Core</source>
-        <translation>درباره هسته ی Litecoin</translation>
+        <source>About e-Gulden Core</source>
+        <translation>درباره هسته ی e-Gulden</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -749,11 +749,11 @@ Address: %4
         <translation>خوش‌آمدید</translation>
     </message>
     <message>
-        <source>Welcome to Litecoin Core.</source>
-        <translation>به هسته Litecoin خوش آمدید.</translation>
+        <source>Welcome to e-Gulden Core.</source>
+        <translation>به هسته e-Gulden خوش آمدید.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where Litecoin Core will store its data.</source>
+        <source>As this is the first time the program is launched, you can choose where e-Gulden Core will store its data.</source>
         <translation>از آنجایی که این اولین اجرای برنامه است، شما می‌توانید مسیر ذخیرهٔ داده‌ها را انتخاب کنید.</translation>
     </message>
     <message>
@@ -1316,8 +1316,8 @@ Address: %4
         <translation>این یک پرداخت عادی است</translation>
     </message>
     <message>
-        <source>The Litecoin address to send the payment to</source>
-        <translation>نشانی Litecoin برای ارسال پرداخت به آن</translation>
+        <source>The e-Gulden address to send the payment to</source>
+        <translation>نشانی e-Gulden برای ارسال پرداخت به آن</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -1358,8 +1358,8 @@ Address: %4
         <translation>برای احراز اینکه پیام‌ها از جانب شما هستند، می‌توانید آن‌ها را با نشانی خودتان امضا کنید. مراقب باشید چیزی که بدان اطمینان ندارید را امضا نکنید زیرا حملات فیشینگ ممکن است بخواهند از.پیامی با امضای شما سوءاستفاده کنند. تنها مواردی را که حاوی اطلاعات دقیق و قابل قبول برای شما هستند امضا کنید.</translation>
     </message>
     <message>
-        <source>The Litecoin address to sign the message with</source>
-        <translation>نشانی Litecoin برای امضاء پیغام با آن</translation>
+        <source>The e-Gulden address to sign the message with</source>
+        <translation>نشانی e-Gulden برای امضاء پیغام با آن</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1991,8 +1991,8 @@ Address: %4
         <translation>در حال بازبینی کیف پول...</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Litecoin Core will not work properly.</source>
-        <translation>هشدار: تاریخ و ساعت کامپیوتر خود را بررسی کنید. اگر ساعت درست نباشد هسته Litecoin به درستی کار نخواهد کرد.</translation>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong e-Gulden Core will not work properly.</source>
+        <translation>هشدار: تاریخ و ساعت کامپیوتر خود را بررسی کنید. اگر ساعت درست نباشد هسته e-Gulden به درستی کار نخواهد کرد.</translation>
     </message>
     <message>
         <source>Information</source>

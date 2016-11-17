@@ -184,7 +184,7 @@
         <translation>La monujo estas ĉifrita</translation>
     </message>
     <message>
-        <source>e-Gulden will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your litecoins from being stolen by malware infecting your computer.</source>
+        <source>e-Gulden will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your eguldens from being stolen by malware infecting your computer.</source>
         <translation>e-Gulden nun fermiĝos por fini la ĉifradon. Memoru, ke eĉ ĉifrado ne protektas kontraŭ ĉiu atako, ekz. se viruso infektus vian komputilon.</translation>
     </message>
     <message>
@@ -347,8 +347,8 @@
         <translation>&amp;Ricevi</translation>
     </message>
     <message>
-        <source>Show information about Litecoin Core</source>
-        <translation>Vidigi informon pri Litecoin Kerno</translation>
+        <source>Show information about e-Gulden Core</source>
+        <translation>Vidigi informon pri e-Gulden Kerno</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
@@ -388,7 +388,7 @@
     </message>
     <message>
         <source>e-Gulden Core</source>
-        <translation>Kerno de Litecoin</translation>
+        <translation>Kerno de e-Gulden</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and e-gulden: URIs)</source>
@@ -861,8 +861,8 @@ Adreso: %4
         <translation>Dum tiu ĉi unua uzo de la programo, vi povas elekti lokon, kie e-Gulden Core stokos siajn datumojn.</translation>
     </message>
     <message>
-        <source>e-Gulden Core will download and store a copy of the Litecoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>e-Gulden Core elŝutos kaj konservos kopion de la Litecoin blokĉeno. Almenaŭ %1GB da datumoj konserviĝos en tiu loko, kaj tio poiome kreskos. Ankaŭ via monujo konserviĝos en tiu dosierujo.</translation>
+        <source>e-Gulden Core will download and store a copy of the e-Gulden block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>e-Gulden Core elŝutos kaj konservos kopion de la e-Gulden blokĉeno. Almenaŭ %1GB da datumoj konserviĝos en tiu loko, kaj tio poiome kreskos. Ankaŭ via monujo konserviĝos en tiu dosierujo.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1004,7 +1004,7 @@ Adreso: %4
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Elekti la defaŭltan manieron por montri Litecoin sumojn en la interfaco, kaj kiam vi sendos litecoins.</translation>
+        <translation>Elekti la defaŭltan manieron por montri e-Gulden sumojn en la interfaco, kaj kiam vi sendos eguldens.</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1510,7 +1510,7 @@ Adreso: %4
     </message>
     <message>
         <source>Confirm send coins</source>
-        <translation>Konfirmi sendon de litecoin</translation>
+        <translation>Konfirmi sendon de egulden</translation>
     </message>
     <message>
         <source>%1 to %2</source>
@@ -2178,7 +2178,7 @@ Adreso: %4
     <name>WalletModel</name>
     <message>
         <source>Send Coins</source>
-        <translation>Sendi Litecoin</translation>
+        <translation>Sendi e-Gulden</translation>
     </message>
 </context>
 <context>

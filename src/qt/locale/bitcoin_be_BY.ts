@@ -403,16 +403,16 @@
         <translation>Паказаць спіс адрасоў і метак для прымання</translation>
     </message>
     <message>
-        <source>Open a litecoin: URI or payment request</source>
-        <translation>Адкрыць litecoin: URI ці запыт плацяжу</translation>
+        <source>Open a egulden: URI or payment request</source>
+        <translation>Адкрыць egulden: URI ці запыт плацяжу</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>Опцыі каманднага радка</translation>
     </message>
     <message>
-        <source>Show the Litecoin Core help message to get a list with possible Litecoin command-line options</source>
-        <translation>Паказваць даведку Litecoin Core каб атрымаць спіс магчымых опцый каманднага радка</translation>
+        <source>Show the e-Gulden Core help message to get a list with possible e-Gulden command-line options</source>
+        <translation>Паказваць даведку e-Gulden Core каб атрымаць спіс магчымых опцый каманднага радка</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to e-Gulden network</source>
@@ -742,8 +742,8 @@ Address: %4
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>Litecoin Core</source>
-        <translation>Litecoin Core</translation>
+        <source>e-Gulden Core</source>
+        <translation>e-Gulden Core</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
@@ -781,8 +781,8 @@ Address: %4
         <translation>Вітаем у e-Gulden Core.</translation>
     </message>
     <message>
-        <source>Litecoin Core</source>
-        <translation>Litecoin Core</translation>
+        <source>e-Gulden Core</source>
+        <translation>e-Gulden Core</translation>
     </message>
     <message>
         <source>Error</source>
@@ -1033,8 +1033,8 @@ Address: %4
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>Litecoin Core</source>
-        <translation>Litecoin Core</translation>
+        <source>e-Gulden Core</source>
+        <translation>e-Gulden Core</translation>
     </message>
     <message>
         <source>The Bitcoin Core developers</source>

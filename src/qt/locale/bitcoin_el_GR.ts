@@ -1022,7 +1022,7 @@ Address: %4
     </message>
     <message>
         <source>Automatically open the e-Gulden client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Αυτόματο άνοιγμα των θυρών Litecoin στον δρομολογητή. Λειτουργεί μόνο αν ο δρομολογητής σας υποστηρίζει τη λειτουργία UPnP.</translation>
+        <translation>Αυτόματο άνοιγμα των θυρών e-Gulden στον δρομολογητή. Λειτουργεί μόνο αν ο δρομολογητής σας υποστηρίζει τη λειτουργία UPnP.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1958,8 +1958,8 @@ Address: %4
         <translation>Αυτή είναι μια απλή πληρωμή.</translation>
     </message>
     <message>
-        <source>The Litecoin address to send the payment to</source>
-        <translation>Η διεύθυνση Litecoin που θα σταλεί η πληρωμή</translation>
+        <source>The e-Gulden address to send the payment to</source>
+        <translation>Η διεύθυνση e-Gulden που θα σταλεί η πληρωμή</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -2797,8 +2797,8 @@ Address: %4
         <translation>Αδυναμία κλειδώματος του φακέλου δεδομένων %s. Πιθανώς το e-Gulden να είναι ήδη ενεργό.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Litecoin Core will not work properly.</source>
-        <translation>Προειδοποίηση: Παρακαλώ ελέγξτε ότι η ημερομηνία και ώρα του υπολογιστή σας είναι σωστά ρυθμισμένες! Εάν το ρολόι σας είναι λάθος το Litecoin Core δεν θα λειτουργήσει σωστά. </translation>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong e-Gulden Core will not work properly.</source>
+        <translation>Προειδοποίηση: Παρακαλώ ελέγξτε ότι η ημερομηνία και ώρα του υπολογιστή σας είναι σωστά ρυθμισμένες! Εάν το ρολόι σας είναι λάθος το e-Gulden Core δεν θα λειτουργήσει σωστά. </translation>
     </message>
     <message>
         <source>Connect through SOCKS5 proxy</source>
@@ -2825,8 +2825,8 @@ Address: %4
         <translation>Πληροφορία</translation>
     </message>
     <message>
-        <source>Initialization sanity check failed. Litecoin Core is shutting down.</source>
-        <translation>Η εκκίνηση ελέγχου ορθότητας απέτυχε.  Γίνεται τερματισμός του Litecoin Core.</translation>
+        <source>Initialization sanity check failed. e-Gulden Core is shutting down.</source>
+        <translation>Η εκκίνηση ελέγχου ορθότητας απέτυχε.  Γίνεται τερματισμός του e-Gulden Core.</translation>
     </message>
     <message>
         <source>Invalid amount for -minrelaytxfee=&lt;amount&gt;: '%s'</source>

@@ -1264,8 +1264,8 @@ Endereço: %4</translation>
         <translation>URL de cobrança é inválida: %1</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid Litecoin address or malformed URI parameters.</source>
-        <translation>URI não pode ser analisado ! Isto pode ser causado por um endereço Litecoin inválido ou parâmetros URI informados incorretamente.</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid e-Gulden address or malformed URI parameters.</source>
+        <translation>URI não pode ser analisado ! Isto pode ser causado por um endereço e-Gulden inválido ou parâmetros URI informados incorretamente.</translation>
     </message>
     <message>
         <source>Payment request file handling</source>
@@ -2561,7 +2561,7 @@ Endereço: %4</translation>
     </message>
     <message>
         <source>Whether or not a watch-only address is involved in this transaction.</source>
-        <translation>Mostrar ou não endereços Litecoin na lista de transações.</translation>
+        <translation>Mostrar ou não endereços e-Gulden na lista de transações.</translation>
     </message>
     <message>
         <source>Destination address of transaction.</source>

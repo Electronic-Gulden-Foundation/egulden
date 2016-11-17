@@ -81,7 +81,7 @@ public:
     const std::vector<CAddress>& FixedSeeds() const { return vFixedSeeds; }
     virtual const Checkpoints::CCheckpointData& Checkpoints() const = 0;
 
-    // Litecoin: Height to enforce v2 block
+    // e-Gulden: Height to enforce v2 block
     int EnforceV2AfterHeight() const { return nEnforceV2AfterHeight; }
 
     // e-Gulden: Enforce KGW on height
@@ -118,7 +118,7 @@ protected:
     bool fSkipProofOfWorkCheck;
     bool fTestnetToBeDeprecatedFieldRPC;
 
-    // Litecoin: Height to enforce v2 blocks
+    // e-Gulden: Height to enforce v2 blocks
     int nEnforceV2AfterHeight;
 
     // e-Gulden: Enforce KGW on height

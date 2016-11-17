@@ -3092,7 +3092,7 @@ rpcpassword=%s
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s "Litecoin Alert" admin@foo.com
+for example: alertnotify=echo %%s | mail -s "e-Gulden Alert" admin@foo.com
 </source>
         <translation>K používání eguldend nebo volby -server u egulden-qt musíš nastavit rpcpassword v konfiguračním souboru:
 %s
@@ -3103,7 +3103,7 @@ rpcpassword=%s
 rpcuser a rpcpassword NESMÍ být stejné.
 Pokud konfigurační soubor ještě neexistuje, vytvoř ho tak, aby ho mohl číst pouze vlastník.
 Je také doporučeno si nastavit alertnotify, abys byl upozorněn na případné problémy;
-například: alertnotify=echo %%s | mail -s "Litecoin Alert" admin@foo.com
+například: alertnotify=echo %%s | mail -s "e-Gulden Alert" admin@foo.com
 </translation>
     </message>
     <message>

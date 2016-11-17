@@ -381,10 +381,10 @@ void PrintExceptionContinue(std::exception* pex, const char* pszThread)
 boost::filesystem::path GetDefaultDataDir()
 {
     namespace fs = boost::filesystem;
-    // Windows < Vista: C:\Documents and Settings\Username\Application Data\Litecoin
-    // Windows >= Vista: C:\Users\Username\AppData\Roaming\Litecoin
-    // Mac: ~/Library/Application Support/Litecoin
-    // Unix: ~/.litecoin
+    // Windows < Vista: C:\Documents and Settings\Username\Application Data\e-Gulden
+    // Windows >= Vista: C:\Users\Username\AppData\Roaming\e-Gulden
+    // Mac: ~/Library/Application Support/e-Gulden
+    // Unix: ~/.egulden
 #ifdef WIN32
     // Windows
     return GetSpecialFolderPath(CSIDL_APPDATA) / "Egulden";
@@ -461,14 +461,14 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 {
     boost::filesystem::ifstream streamConfig(GetConfigFile());
     if (!streamConfig.good())
-        return; // No litecoin.conf file is OK
+        return; // No egulden.conf file is OK
 
     set<string> setOptions;
     setOptions.insert("*");
 
     for (boost::program_options::detail::config_file_iterator it(streamConfig, setOptions), end; it != end; ++it)
     {
-        // Don't overwrite existing settings so command line settings override litecoin.conf
+        // Don't overwrite existing settings so command line settings override egulden.conf
         string strKey = string("-") + it->string_key;
         if (mapSettingsRet.count(strKey) == 0)
         {

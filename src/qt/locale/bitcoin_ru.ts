@@ -304,7 +304,7 @@
     </message>
     <message>
         <source>Send coins to a e-Gulden address</source>
-        <translation>Отправить монеты на адрес Litecoin</translation>
+        <translation>Отправить монеты на адрес e-Gulden</translation>
     </message>
     <message>
         <source>Modify configuration options for e-Gulden</source>
@@ -458,15 +458,15 @@
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>Litecoin Core</source>
-        <translation>Litecoin Core</translation>
+        <source>e-Gulden Core</source>
+        <translation>e-Gulden Core</translation>
     </message>
     </context>
 <context>
     <name>Intro</name>
     <message>
-        <source>Litecoin Core</source>
-        <translation>Litecoin Core</translation>
+        <source>e-Gulden Core</source>
+        <translation>e-Gulden Core</translation>
     </message>
     </context>
 <context>
@@ -553,8 +553,8 @@
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>Litecoin Core</source>
-        <translation>Litecoin Core</translation>
+        <source>e-Gulden Core</source>
+        <translation>e-Gulden Core</translation>
     </message>
     </context>
 <context>

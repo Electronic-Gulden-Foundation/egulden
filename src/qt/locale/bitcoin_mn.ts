@@ -62,12 +62,12 @@
         <translation>Хүлээн авах хаяг</translation>
     </message>
     <message>
-        <source>These are your Litecoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Эдгээр Litecoin хаягууд нь илгээх хаягууд. Хүлээн авах хаяг болон тоо хэмжээг илгээхээсээ өмнө сайн нягталж үзэж байна уу</translation>
+        <source>These are your e-Gulden addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Эдгээр e-Gulden хаягууд нь илгээх хаягууд. Хүлээн авах хаяг болон тоо хэмжээг илгээхээсээ өмнө сайн нягталж үзэж байна уу</translation>
     </message>
     <message>
-        <source>These are your Litecoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Эдгээр Litecoin хаягууд нь хүлээн авах хаягууд. Гүйлгээ болгонд шинээр хаяг үүсгэхийг бид санал болгож байна.</translation>
+        <source>These are your e-Gulden addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Эдгээр e-Gulden хаягууд нь хүлээн авах хаягууд. Гүйлгээ болгонд шинээр хаяг үүсгэхийг бид санал болгож байна.</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
@@ -152,8 +152,8 @@
         <translation>Түрүйвч цоожлогдлоо</translation>
     </message>
     <message>
-        <source>e-Gulden will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your litecoins from being stolen by malware infecting your computer.</source>
-        <translation>Цоожлолтын процесыг дуусгахын тулд Litecoin одоо хаагдана. Ѳѳрийн түрүйвчийг цоожлох нь таны litecoinsуудыг компьютерийн вирус хулгайлахаас бүрэн сэргийлж чадахгүй гэдгийг санаарай.</translation>
+        <source>e-Gulden will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your eguldens from being stolen by malware infecting your computer.</source>
+        <translation>Цоожлолтын процесыг дуусгахын тулд e-Gulden одоо хаагдана. Ѳѳрийн түрүйвчийг цоожлох нь таны eguldensуудыг компьютерийн вирус хулгайлахаас бүрэн сэргийлж чадахгүй гэдгийг санаарай.</translation>
     </message>
     <message>
         <source>Wallet encryption failed</source>
@@ -272,7 +272,7 @@
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to e-Gulden network</source>
-        <translation><numerusform>e-Guldenы сүлжээрүү %n идэвхитэй холболт байна </numerusform><numerusform>Litecoinы сүлжээрүү %n идэвхитэй холболтууд байна </numerusform></translation>
+        <translation><numerusform>e-Guldenы сүлжээрүү %n идэвхитэй холболт байна </numerusform><numerusform>e-Guldenы сүлжээрүү %n идэвхитэй холболтууд байна </numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n hour(s)</source>

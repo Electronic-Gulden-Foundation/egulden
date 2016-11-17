@@ -62,12 +62,12 @@
         <translation>Saņemšanas adreses</translation>
     </message>
     <message>
-        <source>These are your Litecoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Šīs ir jūsu Litecoin adreses maksājumu sūtīšanai. Vienmēr  pārbaudiet summu un saņēmēja adresi pirms monētu sūtīšanas.</translation>
+        <source>These are your e-Gulden addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Šīs ir jūsu e-Gulden adreses maksājumu sūtīšanai. Vienmēr  pārbaudiet summu un saņēmēja adresi pirms monētu sūtīšanas.</translation>
     </message>
     <message>
-        <source>These are your Litecoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Šīs ir jūsu Litecoin adreses maksājumu saņemšanai. Ir ieteicams katram darījumam izmantot jaunu saņemšanas adresi.</translation>
+        <source>These are your e-Gulden addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Šīs ir jūsu e-Gulden adreses maksājumu saņemšanai. Ir ieteicams katram darījumam izmantot jaunu saņemšanas adresi.</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
@@ -180,8 +180,8 @@
         <translation>Maciņš nošifrēts</translation>
     </message>
     <message>
-        <source>e-Gulden will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your litecoins from being stolen by malware infecting your computer.</source>
-        <translation>e-Gulden aizvērsies, lai pabeigtu šifrēšanu. Atcerieties, ka maciņa šifrēšana nevar pilnībā novērst litecoins zādzību, ko veic datorā ieviesušās kaitīgas programmas.</translation>
+        <source>e-Gulden will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your eguldens from being stolen by malware infecting your computer.</source>
+        <translation>e-Gulden aizvērsies, lai pabeigtu šifrēšanu. Atcerieties, ka maciņa šifrēšana nevar pilnībā novērst eguldens zādzību, ko veic datorā ieviesušās kaitīgas programmas.</translation>
     </message>
     <message>
         <source>Wallet encryption failed</source>
@@ -956,7 +956,7 @@ Adrese: %4
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Izvēlēties dalījuma vienību pēc noklusēšanas, ko izmantot interfeisā un nosūtot litecoins.</translation>
+        <translation>Izvēlēties dalījuma vienību pēc noklusēšanas, ko izmantot interfeisā un nosūtot eguldens.</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1386,7 +1386,7 @@ Adrese: %4
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Sūtīt Litecoins</translation>
+        <translation>Sūtīt e-Guldens</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -1466,7 +1466,7 @@ Adrese: %4
     </message>
     <message>
         <source>Confirm send coins</source>
-        <translation>Apstiprināt litecoin sūtīšanu</translation>
+        <translation>Apstiprināt egulden sūtīšanu</translation>
     </message>
     <message>
         <source>%1 to %2</source>
@@ -2138,7 +2138,7 @@ Adrese: %4
     <name>WalletModel</name>
     <message>
         <source>Send Coins</source>
-        <translation>Sūtīt Litecoins</translation>
+        <translation>Sūtīt e-Guldens</translation>
     </message>
 </context>
 <context>
@@ -2376,7 +2376,7 @@ Adrese: %4
     </message>
     <message>
         <source>Insufficient funds</source>
-        <translation>Nepietiek litecoins</translation>
+        <translation>Nepietiek eguldens</translation>
     </message>
     <message>
         <source>Loading block index...</source>

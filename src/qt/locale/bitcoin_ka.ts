@@ -1685,7 +1685,7 @@ Address: %4
     </message>
     <message>
         <source>A message that was attached to the e-gulden: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the e-Gulden network.</source>
-        <translation>მესიჯი, რომელიც თან ერთვის მონეტებს:  URI, რომელიც შეინახება ტრანსაქციასთან ერთად თქვენთვის. შენიშვნა: მესიჯი არ გაყვება გადახდას litecoin ქსელში.</translation>
+        <translation>მესიჯი, რომელიც თან ერთვის მონეტებს:  URI, რომელიც შეინახება ტრანსაქციასთან ერთად თქვენთვის. შენიშვნა: მესიჯი არ გაყვება გადახდას egulden ქსელში.</translation>
     </message>
     <message>
         <source>This is an unverified payment request.</source>

@@ -184,7 +184,7 @@
         <translation>Vnesite novo geslo. Prosimo, da uporabite geslo sestavljeno iz &lt;b&gt;deset ali več&lt;/b&gt; naključnih znakov, ali &lt;b&gt;osem ali več&lt;/b&gt; besed.</translation>
     </message>
     <message>
-        <source>e-Gulden will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your litecoins from being stolen by malware infecting your computer.</source>
+        <source>e-Gulden will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your eguldens from being stolen by malware infecting your computer.</source>
         <translation>Program se bo zaprl, da dokonča proces šifriranja. Zapomnite si, da šifriranje ne more popolnoma zaščititi vašo denarnico pred krajami in zlonamernimi programi, ki bi lahko bili nameščeni na vašem računalniku.</translation>
     </message>
     <message>
@@ -411,7 +411,7 @@
         <translation>Opcije &amp;ukazne vrstice</translation>
     </message>
     <message>
-        <source>Show the Litecoin Core help message to get a list with possible Litecoin command-line options</source>
+        <source>Show the e-Gulden Core help message to get a list with possible e-Gulden command-line options</source>
         <translation>Prikaže seznam vseh opcij pri zagonu programa in kratek opis</translation>
     </message>
     <message numerus="yes">
@@ -1023,7 +1023,7 @@ Naslov: %4
         <translation>Naslavljanje vrat z uporabo &amp;UPnP</translation>
     </message>
     <message>
-        <source>Connect to the Litecoin network through a SOCKS5 proxy.</source>
+        <source>Connect to the e-Gulden network through a SOCKS5 proxy.</source>
         <translation>Povezava v omrežje s pomočjo SOCKS5 posrednika.</translation>
     </message>
     <message>
@@ -1225,16 +1225,16 @@ Naslov: %4
         <translation>Napaka pri zahtevi plačila</translation>
     </message>
     <message>
-        <source>Cannot start litecoin: click-to-pay handler</source>
-        <translation>Ni mogoče zagnati upravitelja plačil na klik tipa litecoin:.</translation>
+        <source>Cannot start egulden: click-to-pay handler</source>
+        <translation>Ni mogoče zagnati upravitelja plačil na klik tipa egulden:.</translation>
     </message>
     <message>
         <source>Payment request fetch URL is invalid: %1</source>
         <translation>Naslov URL za pridobitev zahtevka za plačilo ni veljaven: %1</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid Litecoin address or malformed URI parameters.</source>
-        <translation>Naslov URL je neprepoznaven! Razlog je lahko neveljaven naslov Litecoin ali  napačni parametri v URI.</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid e-Gulden address or malformed URI parameters.</source>
+        <translation>Naslov URL je neprepoznaven! Razlog je lahko neveljaven naslov e-Gulden ali  napačni parametri v URI.</translation>
     </message>
     <message>
         <source>Payment request file handling</source>
@@ -1299,8 +1299,8 @@ Naslov: %4
         <translation>Količina</translation>
     </message>
     <message>
-        <source>Enter a Litecoin address (e.g. %1)</source>
-        <translation>Vnesite naslov Litecoin (npr. %1):</translation>
+        <source>Enter a e-Gulden address (e.g. %1)</source>
+        <translation>Vnesite naslov e-Gulden (npr. %1):</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1596,8 +1596,8 @@ Naslov: %4
         <translation>P&amp;onovno uporabite obstoječ naslov za prejemanje. (Ni priporočeno.)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Litecoin network.</source>
-        <translation>Neobvezno sporočilo kot priponka zahtevku za plačilo, ki bo prikazano, ko bo zahtevek odprt. Opomba: Opravljeno plačilo.prek omrežja Litecoin tega sporočila ne bo vsebovalo.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the e-Gulden network.</source>
+        <translation>Neobvezno sporočilo kot priponka zahtevku za plačilo, ki bo prikazano, ko bo zahtevek odprt. Opomba: Opravljeno plačilo.prek omrežja e-Gulden tega sporočila ne bo vsebovalo.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1825,7 +1825,7 @@ Naslov: %4
         <translation>skupno vsaj</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for litecoin transactions than the network can process.</source>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for egulden transactions than the network can process.</source>
         <translation>Dokler bo v blokih še dovolj prostora za vse nastajajoče transakcije, je dovolj tudi plačilo samo minimalne provizije. Ko pa se bo količina vseh transakcij povečala do meja zmogljivosti omrežja, se lahko zgodi, da vaša transakcija brez večje provizije nikoli ne bo potrjena.</translation>
     </message>
     <message>
@@ -2012,8 +2012,8 @@ Naslov: %4
         <translation>Plačilo je navadne vrste.</translation>
     </message>
     <message>
-        <source>The Litecoin address to send the payment to</source>
-        <translation>Naslov Litecoin, na katerega bo plačilo poslano</translation>
+        <source>The e-Gulden address to send the payment to</source>
+        <translation>Naslov e-Gulden, na katerega bo plačilo poslano</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -2040,8 +2040,8 @@ Naslov: %4
         <translation>Vnesite oznako za ta naslov, ki bo shranjena v seznam uporabljenih naslovov</translation>
     </message>
     <message>
-        <source>A message that was attached to the litecoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Litecoin network.</source>
-        <translation>Sporočilo, ki ste ga pripeli na URI litecoin: in bo shranjeno skupaj s podatki o transakciji. Opomba: Sporočilo ne bo poslano preko omrežja Litecoin.</translation>
+        <source>A message that was attached to the egulden: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the e-Gulden network.</source>
+        <translation>Sporočilo, ki ste ga pripeli na URI egulden: in bo shranjeno skupaj s podatki o transakciji. Opomba: Sporočilo ne bo poslano preko omrežja e-Gulden.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -2055,8 +2055,8 @@ Naslov: %4
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>Litecoin Core is shutting down...</source>
-        <translation>Litecoin Core se ustavlja...</translation>
+        <source>e-Gulden Core is shutting down...</source>
+        <translation>e-Gulden Core se ustavlja...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -2074,8 +2074,8 @@ Naslov: %4
         <translation>&amp;Podpiši sporočilo</translation>
     </message>
     <message>
-        <source>The Litecoin address to sign the message with</source>
-        <translation>Naslov Litecoin, s katerim podpisujete sporočilo</translation>
+        <source>The e-Gulden address to sign the message with</source>
+        <translation>Naslov e-Gulden, s katerim podpisujete sporočilo</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2106,7 +2106,7 @@ Naslov: %4
         <translation>Kopiranje trenutnega podpisa na sistemsko odložišče.</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Litecoin address</source>
+        <source>Sign the message to prove you own this e-Gulden address</source>
         <translation>Podpišite sporočilo, da dokažete lastništvo nad zgornjim naslovom.</translation>
     </message>
     <message>
@@ -2126,12 +2126,12 @@ Naslov: %4
         <translation>&amp;Preveri sporočilo</translation>
     </message>
     <message>
-        <source>The Litecoin address the message was signed with</source>
-        <translation>Naslov Litecoin, s katerim je bilo sporočilo podpisano</translation>
+        <source>The e-Gulden address the message was signed with</source>
+        <translation>Naslov e-Gulden, s katerim je bilo sporočilo podpisano</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Litecoin address</source>
-        <translation>Preverite, ali je bilo sporočilo v resnici podpisano z navedenim naslovom Litecoin.</translation>
+        <source>Verify the message to ensure it was signed with the specified e-Gulden address</source>
+        <translation>Preverite, ali je bilo sporočilo v resnici podpisano z navedenim naslovom e-Gulden.</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -2720,11 +2720,11 @@ Naslov: %4
     </message>
     <message>
         <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
-        <translation>To je preizkusna verzija - uporaba na lastno odgovornost - ne uporabljajte je za rudarjenje litecoinov ali za trgovske aplikacije</translation>
+        <translation>To je preizkusna verzija - uporaba na lastno odgovornost - ne uporabljajte je za rudarjenje eguldenov ali za trgovske aplikacije</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. Litecoin Core is probably already running.</source>
-        <translation>Na tem računalniku se ni bilo mogoče povezati na %s. Odjemalec Litecoin Core je verjetno že zagnan.</translation>
+        <source>Unable to bind to %s on this computer. e-Gulden Core is probably already running.</source>
+        <translation>Na tem računalniku se ni bilo mogoče povezati na %s. Odjemalec e-Gulden Core je verjetno že zagnan.</translation>
     </message>
     <message>
         <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
@@ -2891,8 +2891,8 @@ Naslov: %4
         <translation>Veži dani naslov in sprejemaj povezave na JSON-RPC. Za naslove protokola IPv6 uporabite zapis [gostitelj]:vrata. To opcijo lahko navedete večkrat. (privzeto: veži vse omrežne vmesnike)</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. Litecoin Core is probably already running.</source>
-        <translation>Ne morem zakleniti podatkovne mape %s. Litecoin Core je verjetno že zagnan.</translation>
+        <source>Cannot obtain a lock on data directory %s. e-Gulden Core is probably already running.</source>
+        <translation>Ne morem zakleniti podatkovne mape %s. e-Gulden Core je verjetno že zagnan.</translation>
     </message>
     <message>
         <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
@@ -2919,8 +2919,8 @@ Naslov: %4
         <translation>Če opcija -paytxfee ni nastavljena, nastavi znesek provizije tako visoko, da bodo transakcije potrjene v povprečno n blokih. (privzeto: %u)</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Litecoin Core will not work properly.</source>
-        <translation>Opozorilo: Preverite, če sta datum in ura na vašem računalniku točna! Litecoin Core ne bo dobro deloval, če je nastavljeni čas nepravilen.</translation>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong e-Gulden Core will not work properly.</source>
+        <translation>Opozorilo: Preverite, če sta datum in ura na vašem računalniku točna! e-Gulden Core ne bo dobro deloval, če je nastavljeni čas nepravilen.</translation>
     </message>
     <message>
         <source>Cannot resolve -whitebind address: '%s'</source>

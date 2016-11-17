@@ -206,7 +206,7 @@ template <typename Callable> void LoopForever(const char* name,  Callable func, 
  */
 template <typename Callable> void TraceThread(const char* name,  Callable func)
 {
-    std::string s = strprintf("litecoin-%s", name);
+    std::string s = strprintf("egulden-%s", name);
     RenameThread(s.c_str());
     try
     {

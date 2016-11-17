@@ -1163,8 +1163,8 @@ Address: %4
         <translation>Миқдори</translation>
     </message>
     <message>
-        <source>Enter a Litecoin address (e.g. %1)</source>
-        <translation>Litecoin манзилини киритинг (масалан.  %1)</translation>
+        <source>Enter a e-Gulden address (e.g. %1)</source>
+        <translation>e-Gulden манзилини киритинг (масалан.  %1)</translation>
     </message>
     <message>
         <source>%1 m</source>

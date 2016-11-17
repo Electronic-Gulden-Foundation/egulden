@@ -188,8 +188,8 @@
         <translation>Wprowadź nowe hasło do portfela.&lt;br/&gt;Proszę używać hasła złożonego z &lt;b&gt;10 lub więcej losowych znaków&lt;/b&gt; lub &lt;b&gt;ośmiu lub więcej słów.&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>e-Gulden will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your litecoins from being stolen by malware infecting your computer.</source>
-        <translation>Program e-Gulden zamknie się aby dokończyć proces szyfrowania. Pamiętaj, że szyfrowanie portfela nie zabezpiecza w pełni Twoich litecoinów przed kradzieżą przez wirusy mogące zainfekować Twój komputer.</translation>
+        <source>e-Gulden will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your eguldens from being stolen by malware infecting your computer.</source>
+        <translation>Program e-Gulden zamknie się aby dokończyć proces szyfrowania. Pamiętaj, że szyfrowanie portfela nie zabezpiecza w pełni Twoich eguldenów przed kradzieżą przez wirusy mogące zainfekować Twój komputer.</translation>
     </message>
     <message>
         <source>Wallet encryption failed</source>
@@ -1269,8 +1269,8 @@ Adres: %4
         <translation>URL pobrania żądania zapłaty jest nieprawidłowe: %1</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid Litecoin address or malformed URI parameters.</source>
-        <translation>URI nie może zostać przetworzony! Może to być spowodowane nieprawidłowym adresem Litecoin lub uszkodzonymi parametrami URI.</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid e-Gulden address or malformed URI parameters.</source>
+        <translation>URI nie może zostać przetworzony! Może to być spowodowane nieprawidłowym adresem e-Gulden lub uszkodzonymi parametrami URI.</translation>
     </message>
     <message>
         <source>Payment request file handling</source>
@@ -1644,8 +1644,8 @@ Adres: %4
         <translation>Użyj jednego z poprzednio użytych adresów odbiorczych. Podczas ponownego używania adresów występują problemy z bezpieczeństwem i prywatnością. Nie korzystaj z tej opcji, chyba że odtwarzasz żądanie płatności wykonane już wcześniej.</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Litecoin network.</source>
-        <translation>Opcjonalna wiadomość do dołączenia do żądania płatności, która będzie wyświetlana, gdy żądanie zostanie otwarte. Uwaga: wiadomość ta nie zostanie wysłana wraz z płatnością w sieci Litecoin.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the e-Gulden network.</source>
+        <translation>Opcjonalna wiadomość do dołączenia do żądania płatności, która będzie wyświetlana, gdy żądanie zostanie otwarte. Uwaga: wiadomość ta nie zostanie wysłana wraz z płatnością w sieci e-Gulden.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1881,8 +1881,8 @@ Adres: %4
         <translation>razem przynajmniej</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for litecoin transactions than the network can process.</source>
-        <translation>Zapłacenie tylko minimalnej opłaty jest nadal wystarczające, dopóki jest mniejszy wolumen transakcji niż miejsca w blokach. Należy jednak mieć świadomość, że może skończyć się to niezatwierdzeniem nigdy transakcji, gdy jest większe zapotrzebowanie na transakcje litecoina niż sieć może przetworzyć.</translation>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for egulden transactions than the network can process.</source>
+        <translation>Zapłacenie tylko minimalnej opłaty jest nadal wystarczające, dopóki jest mniejszy wolumen transakcji niż miejsca w blokach. Należy jednak mieć świadomość, że może skończyć się to niezatwierdzeniem nigdy transakcji, gdy jest większe zapotrzebowanie na transakcje eguldena niż sieć może przetworzyć.</translation>
     </message>
     <message>
         <source>(read the tooltip)</source>
@@ -2084,8 +2084,8 @@ Adres: %4
         <translation>To jest standardowa płatność</translation>
     </message>
     <message>
-        <source>The Litecoin address to send the payment to</source>
-        <translation>Adres Litecoin gdzie wysłać płatność</translation>
+        <source>The e-Gulden address to send the payment to</source>
+        <translation>Adres e-Gulden gdzie wysłać płatność</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -2116,8 +2116,8 @@ Adres: %4
         <translation>Wprowadź etykietę dla tego adresu by dodać go do listy użytych adresów</translation>
     </message>
     <message>
-        <source>A message that was attached to the litecoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Litecoin network.</source>
-        <translation>Wiadomość, która została dołączona do URI litecoin:, która będzie przechowywana wraz z transakcją w celach informacyjnych. Uwaga: Ta wiadomość nie będzie rozsyłana w sieci Litecoin.</translation>
+        <source>A message that was attached to the egulden: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the e-Gulden network.</source>
+        <translation>Wiadomość, która została dołączona do URI egulden:, która będzie przechowywana wraz z transakcją w celach informacyjnych. Uwaga: Ta wiadomość nie będzie rozsyłana w sieci e-Gulden.</translation>
     </message>
     <message>
         <source>This is an unverified payment request.</source>
@@ -2158,8 +2158,8 @@ Adres: %4
         <translation>Możesz podpisywać wiadomości swoimi adresami aby udowodnić, że jesteś ich właścicielem. Uważaj, aby nie podpisywać niczego co wzbudza Twoje podejrzenia, ponieważ ktoś może stosować phishing próbując nakłonić Cię do ich podpisania. Akceptuj i podpisuj tylko w pełni zrozumiałe komunikaty i wiadomości.</translation>
     </message>
     <message>
-        <source>The Litecoin address to sign the message with</source>
-        <translation>Adres Litecoin, za pomocą którego podpisać wiadomość</translation>
+        <source>The e-Gulden address to sign the message with</source>
+        <translation>Adres e-Gulden, za pomocą którego podpisać wiadomość</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -3087,27 +3087,27 @@ Adres: %4
         <translation>Program ten zawiera oprogramowanie stworzone przez OpenSSL Project do użycia w OpensSSL Toolkit &lt;https://www.openssl.org/&gt;, oprogramowanie kryptograficzne napisane przez Eric Young oraz oprogramowanie UPnP napisane przez Thomas Bernard.</translation>
     </message>
     <message>
-        <source>To use litecoind, or the -server option to litecoin-qt, you must set an rpcpassword in the configuration file:
+        <source>To use eguldend, or the -server option to egulden-qt, you must set an rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=litecoinrpc
+rpcuser=eguldenrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s "Litecoin Alert" admin@foo.com
+for example: alertnotify=echo %%s | mail -s "e-Gulden Alert" admin@foo.com
 </source>
-        <translation>Aby korzystać z litecoind, lub opcji -server w litecoin-qt, musisz ustawić opcję rpcpassword w pliku konfiguracyjnym:
+        <translation>Aby korzystać z eguldend, lub opcji -server w egulden-qt, musisz ustawić opcję rpcpassword w pliku konfiguracyjnym:
 %s
 Zalecane jest użycie poniższego losowego hasła:
-rpcuser=litecoinrpc
+rpcuser=eguldenrpc
 rpcpassword=%s
 (nie musisz pamiętać tego hasła)
 Nazwa użytkownika i hasło NIE MOGĄ być takie same.
 Jeżeli ten plik nie istnieje, utwórz go z uprawnieniami tylko-do-odczytu przez właściciela.
 Zalecane jest także ustawienie opcji alertnotify, dzięki której będziesz powiadamiany o problemach;
-na przykład: alertnotify=echo %%s | mail -s "Alarm Litecoin" admin@foo.com
+na przykład: alertnotify=echo %%s | mail -s "Alarm e-Gulden" admin@foo.com
 </translation>
     </message>
     <message>
@@ -3115,8 +3115,8 @@ na przykład: alertnotify=echo %%s | mail -s "Alarm Litecoin" admin@foo.com
         <translation>Ostrzeżenie: -matxfee jest ustawione bardzo wysokie! Tak wysokie opłaty mogą być zapłacone w jednej transakcji.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Litecoin Core will not work properly.</source>
-        <translation>Ostrzeżenie: Proszę sprawdzić czy data i czas na Twoim komputerze są poprawne! Jeżeli ustawienia zegara będą złe, Litecoin Core nie będzie działał prawidłowo.</translation>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong e-Gulden Core will not work properly.</source>
+        <translation>Ostrzeżenie: Proszę sprawdzić czy data i czas na Twoim komputerze są poprawne! Jeżeli ustawienia zegara będą złe, e-Gulden Core nie będzie działał prawidłowo.</translation>
     </message>
     <message>
         <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
@@ -3143,8 +3143,8 @@ na przykład: alertnotify=echo %%s | mail -s "Alarm Litecoin" admin@foo.com
         <translation>Nie można przetworzyć wartości -rpcbind %s jako adresu sieciowego</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin Core</source>
-        <translation>Błąd ładowania wallet.dat: Portfel wymaga nowszej wersji Litecoin Core</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of e-Gulden Core</source>
+        <translation>Błąd ładowania wallet.dat: Portfel wymaga nowszej wersji e-Gulden Core</translation>
     </message>
     <message>
         <source>Error reading from database, shutting down.</source>
