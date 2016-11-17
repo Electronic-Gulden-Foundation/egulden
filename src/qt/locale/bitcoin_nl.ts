@@ -2297,6 +2297,14 @@ Adres: %4
         <translation>De Bitcoin Core ontwikkelaars</translation>
     </message>
     <message>
+        <source>The Litecoin Core developers</source>
+        <translation>De Litecoin Core ontwikkelaars</translation>
+    </message>
+    <message>
+        <source>The e-Gulden Core developers</source>
+        <translation>De e-Gulden Core ontwikkelaars</translation>
+    </message>
+    <message>
         <source>[testnet]</source>
         <translation>[testnetwerk]</translation>
     </message>
@@ -3109,11 +3117,11 @@ for example: alertnotify=echo %%s | mail -s "e-Gulden Alert" admin@foo.com
 </source>
         <translation>Om eguldend of de -server optie naar egulden-gt te gebruiken, dient u een rpcwachtwoord in te stellen in het configuratiebestand:
  %s
-Wij raden u aan om het volgende wachtwoord willekeurig te gebruiken: 
-rpcuser=eguldenrpc 
-rpcpassword=%s 
+Wij raden u aan om het volgende wachtwoord willekeurig te gebruiken:
+rpcuser=eguldenrpc
+rpcpassword=%s
 (u hoeft dit wachtwoord niet te onthouden)
-De gebruikersnaam en het wachtwoorden moeten NIET hetzelfde zijn. 
+De gebruikersnaam en het wachtwoorden moeten NIET hetzelfde zijn.
 Indien het bestand niet bestaat, maak het bestand aan met bestandsrechten: alleen lezen voor eigenaar.
 Het is ook aan te raden om een alarmnotificatie in te stellen, zodat u op de hoogte bent van de problemen;
 Voorbeeld: alertnotify=echo %%s | mail -s "e-Gulden Alert" admin@foo.com
@@ -3146,6 +3154,14 @@ Voorbeeld: alertnotify=echo %%s | mail -s "e-Gulden Alert" admin@foo.com
     <message>
         <source>Copyright (C) 2009-%i The Bitcoin Core Developers</source>
         <translation>Auteursrecht (C) 2009-%i De Bitcoin Core Ontwikkelaars</translation>
+    </message>
+    <message>
+        <source>Copyright (C) 2011-%i The Litecoin Core Developers</source>
+        <translation>Auteursrecht (C) 2009-%i De Litecoin Core Ontwikkelaars</translation>
+    </message>
+    <message>
+        <source>Copyright (C) 2014-%i The e-Gulden Core Developers</source>
+        <translation>Auteursrecht (C) 2009-%i De e-Gulden Core Ontwikkelaars</translation>
     </message>
     <message>
         <source>Could not parse -rpcbind value %s as network address</source>
