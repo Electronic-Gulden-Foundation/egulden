@@ -200,11 +200,8 @@ private Q_SLOTS:
     void aboutClicked();
     /** Show debug window */
     void showDebugWindow();
-<<<<<<< HEAD
-=======
     /** Show debug window and set focus to the console */
     void showDebugWindowActivateConsole();
->>>>>>> 182d361d62d5afbb9893e90c73b684bd391a85d1
     /** Show help message dialog */
     void showHelpMessageClicked();
 #ifndef Q_OS_MAC
@@ -222,7 +219,7 @@ private Q_SLOTS:
 
     /** Show progress dialog e.g. for verifychain */
     void showProgress(const QString &title, int nProgress);
-    
+
     /** When hideTrayIcon setting is changed in OptionsModel hide or show the icon accordingly. */
     void setTrayIconVisible(bool);
 };

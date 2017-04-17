@@ -1735,7 +1735,6 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
     if (halvings >= 64)
         return 0;
 
-    CAmount nSubsidy = 50 * COIN;
     // Subsidy is cut in half every 210,000 blocks which will occur approximately every 4 years.
     nSubsidy >>= halvings;
     return nSubsidy;
@@ -2694,10 +2693,7 @@ bool static FlushStateToDisk(CValidationState &state, FlushStateMode mode) {
         nLastSetChain = nNow;
     }
     } catch (const std::runtime_error& e) {
-        return AbortNode(state, std::string("System error while flushing: ") + e.what());
-    }
-    } catch (const std::runtime_error& e) {
-        return state.Abort(std::string("System error while flushing: ") + e.what());
+        return AbortNode(std::string("System error while flushing: ") + e.what());
     }
     return true;
 }
@@ -4765,13 +4761,6 @@ std::string GetWarnings(const std::string& strFor)
 }
 
 
-void static RelayAlerts(CNode* pfrom)
-{
-    LOCK(cs_mapAlerts);
-    BOOST_FOREACH(PAIRTYPE(const uint256, CAlert)& item, mapAlerts)
-        item.second.RelayTo(pfrom);
-}
-
 
 
 
@@ -5047,8 +5036,6 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
 
         if (pfrom->nVersion < MIN_PEER_PROTO_VERSION)
         {
-            // relay alerts prior to disconnection
-            RelayAlerts(pfrom);
             // disconnect from peers older than this proto version
             LogPrintf("peer=%d using obsolete version %i; disconnecting\n", pfrom->id, pfrom->nVersion);
             pfrom->PushMessage(NetMsgType::REJECT, strCommand, REJECT_OBSOLETE,

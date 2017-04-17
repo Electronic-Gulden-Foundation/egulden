@@ -93,7 +93,7 @@ CMessageHeader::CMessageHeader(const MessageStartChars& pchMessageStartIn, const
 
 std::string CMessageHeader::GetCommand() const
 {
-    return std::string(pchCommand, pchCommand + strnlen_int(pchCommand, COMMAND_SIZE));
+    return std::string(pchCommand, pchCommand + strnlen(pchCommand, COMMAND_SIZE));
 }
 
 bool CMessageHeader::IsValid(const MessageStartChars& pchMessageStartIn) const

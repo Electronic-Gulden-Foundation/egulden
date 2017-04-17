@@ -9,6 +9,7 @@
 
 #include "arith_uint256.h"
 #include "chain.h"
+#include "chainparams.h"
 #include "primitives/block.h"
 #include "uint256.h"
 #include "util.h"
@@ -33,7 +34,7 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
         uint64_t     PastBlocksMin  = PastSecondsMin / nInterval;
         uint64_t     PastBlocksMax  = PastSecondsMax / nInterval;
 
-        return KimotoGravityWell(pindexLast, nTargetSpacing, PastBlocksMin, PastBlocksMax);
+        return KimotoGravityWell(pindexLast, nTargetSpacing, PastBlocksMin, PastBlocksMax, params);
     }
 
     // Only change once per difficulty adjustment interval
@@ -57,12 +58,6 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
         }
         return pindexLast->nBits;
     }
-
-    // e-Gulden: This fixes an issue where a 51% attack can change difficulty at will.
-    // Go back the full period unless it's the first retarget after genesis. Code courtesy of Art Forz
-    int blockstogoback = Params().Interval()-1;
-    if ((pindexLast->nHeight+1) != Params().Interval())
-        blockstogoback = Params().Interval();
 
     // Go back by what we want to be 14 days worth of blocks
     // Litecoin: This fixes an issue where a 51% attack can change difficulty at will.

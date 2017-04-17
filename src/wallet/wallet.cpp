@@ -2223,7 +2223,6 @@ bool CWallet::CreateTransaction(const vector<CRecipient>& vecSend, CWalletTx& wt
                 if (nSubtractFeeFromAmount == 0)
                     nValueToSelect += nFeeRet;
                 double dPriority = 0;
-                unsigned int nBytesPenalty = 0;
                 // vouts to the payees
                 BOOST_FOREACH (const CRecipient& recipient, vecSend)
                 {
@@ -2252,10 +2251,6 @@ bool CWallet::CreateTransaction(const vector<CRecipient>& vecSend, CWalletTx& wt
                         else
                             strFailReason = _("Transaction amount too small");
                         return false;
-                    }
-                    if (txout.nValue < DUST_THRESHOLD)
-                    {
-                        nBytesPenalty += 1000;
                     }
                     txNew.vout.push_back(txout);
                 }
@@ -2343,7 +2338,7 @@ bool CWallet::CreateTransaction(const vector<CRecipient>& vecSend, CWalletTx& wt
 
                     // Never create dust outputs; if we would, just
                     // add the dust to the fee.
-                    if (newTxOut.nValue < DUST_THRESHOLD)
+                    if (newTxOut.IsDust(::minRelayTxFee))
                     {
                         nChangePosInOut = -1;
                         nFeeRet += nChange;

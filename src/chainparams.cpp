@@ -155,29 +155,29 @@ public:
         nEnforceV2AfterHeight = 0;
 
         nKGWStartHeight = 45000;
-    }
 
-    checkpointData = (CCheckpointData) {
-        boost::assign::map_list_of
-            ( 0,      uint256("0x6d39f28ad01a7edd3e2374b355cf8c7f8dbc1c5e4596ad3642fa6d10c2599217"))
-            ( 25000,  uint256("0x99ffd2f7230224586c61deb459fa1cde94bda2876aed8bb791f4e3b5d485ef59"))
-            ( 40000,  uint256("0xbec732146705189352bb0007c4a26345a3ddf0eac1e8721e2fbb121b7d7c04b6"))
-            ( 50000,  uint256("0x08ac154d59f223c3c6912a03ba44487bedabd27147e0da05a7aa339fcc84e011"))
-            ( 75000,  uint256("0xd5e057b7a45fe9eb72326b5e7d7caaf31e0fd8f016425e41d8f88c9c196417c5"))
-            ( 100000, uint256("0xde49a9254ea2f01287a8b2f9d97438a52809cfd78d3c5bcc13fa529a07989083"))
-            ( 125000, uint256("0x8f817d3fdeb7fbb338d29dc8587a127c34d98617acadfd4248e4f9dfd23fd672"))
-            ( 150000, uint256("0x14eac37f76d8be510df10526e3ff053aa472d7f2e507ea3562a74b60e7174961"))
-            ( 175000, uint256("0x9d7d7db04e9dc15aa06abb45346b9a96a9136c76b6d52465eea5c3f01f861ad7"))
-            ( 200000, uint256("0x856d56f908ecde89d24ed216978f5b9898000defc15f8dcfac83a3a6eaeea9b9"))
-            ( 225000, uint256("0x1ab99f5f8ea110de1a57e128e883b760152dba409c2c1130353edcea67643277"))
-            ( 250000, uint256("0x0086da045fd362f346d1e7dcc12fe41e7eca4dc6bcd2515bdec7b7a1383c0ec9"))
-            ( 300000, uint256("0x33c0d8ea44fefa9ade4aee0032e0784e7e58ecac562129a7c0a5904472745863"))
-            ( 350000, uint256("0x1235b66a56c1c01c51902fd9bf7849e6bdf859ea2e21befa6a04cfcf0f398acf"))
-            1433088881, // * UNIX timestamp of last checkpoint block
-            5502192,    // * total number of transactions between genesis and last checkpoint
-            //   (the tx=... number in the SetBestChain debug.log lines)
-            5500.0      // * estimated number of transactions per day after checkpoint
-    };
+        checkpointData = (CCheckpointData) {
+            boost::assign::map_list_of
+                ( 0,      uint256S("0x6d39f28ad01a7edd3e2374b355cf8c7f8dbc1c5e4596ad3642fa6d10c2599217"))
+                ( 25000,  uint256S("0x99ffd2f7230224586c61deb459fa1cde94bda2876aed8bb791f4e3b5d485ef59"))
+                ( 40000,  uint256S("0xbec732146705189352bb0007c4a26345a3ddf0eac1e8721e2fbb121b7d7c04b6"))
+                ( 50000,  uint256S("0x08ac154d59f223c3c6912a03ba44487bedabd27147e0da05a7aa339fcc84e011"))
+                ( 75000,  uint256S("0xd5e057b7a45fe9eb72326b5e7d7caaf31e0fd8f016425e41d8f88c9c196417c5"))
+                ( 100000, uint256S("0xde49a9254ea2f01287a8b2f9d97438a52809cfd78d3c5bcc13fa529a07989083"))
+                ( 125000, uint256S("0x8f817d3fdeb7fbb338d29dc8587a127c34d98617acadfd4248e4f9dfd23fd672"))
+                ( 150000, uint256S("0x14eac37f76d8be510df10526e3ff053aa472d7f2e507ea3562a74b60e7174961"))
+                ( 175000, uint256S("0x9d7d7db04e9dc15aa06abb45346b9a96a9136c76b6d52465eea5c3f01f861ad7"))
+                ( 200000, uint256S("0x856d56f908ecde89d24ed216978f5b9898000defc15f8dcfac83a3a6eaeea9b9"))
+                ( 225000, uint256S("0x1ab99f5f8ea110de1a57e128e883b760152dba409c2c1130353edcea67643277"))
+                ( 250000, uint256S("0x0086da045fd362f346d1e7dcc12fe41e7eca4dc6bcd2515bdec7b7a1383c0ec9"))
+                ( 300000, uint256S("0x33c0d8ea44fefa9ade4aee0032e0784e7e58ecac562129a7c0a5904472745863"))
+                ( 350000, uint256S("0x1235b66a56c1c01c51902fd9bf7849e6bdf859ea2e21befa6a04cfcf0f398acf")),
+                1433088881, // * UNIX timestamp of last checkpoint block
+                5502192,    // * total number of transactions between genesis and last checkpoint
+                //   (the tx=... number in the SetBestChain debug.log lines)
+                5500.0      // * estimated number of transactions per day after checkpoint
+        };
+    }
 };
 static CMainParams mainParams;
 
@@ -228,8 +228,9 @@ public:
 
         genesis = CreateGenesisBlock(1439194000, 385270584, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
+
         assert(consensus.hashGenesisBlock == uint256S("0xcaf3a57da0fe763a2fdb99132ec1f8791019dc3b439078d9490cf890c40e9b92"));
-        assert(genesis.hashMerkleRoot == uint256S("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
+        assert(genesis.hashMerkleRoot == uint256S("0xdf5d4cddc97c45da161f81032af08c18a6b7caecf0fb13d416108d61872cb618zsh"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -305,8 +306,9 @@ public:
 
         genesis = CreateGenesisBlock(1439194624, 0, 0x207fffff, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
+
         assert(consensus.hashGenesisBlock == uint256S("0xf156a27abe68ca5d6396c6e5c6f0ec6d6b253c795894f087232970c24e32d6ec"));
-        assert(genesis.hashMerkleRoot == uint256S("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
+        assert(genesis.hashMerkleRoot == uint256S("0xdf5d4cddc97c45da161f81032af08c18a6b7caecf0fb13d416108d61872cb618zsh"));
 
         vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();      //!< Regtest mode doesn't have any DNS seeds.
