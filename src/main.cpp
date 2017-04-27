@@ -161,7 +161,6 @@ namespace {
     /** Dirty block file entries. */
     set<int> setDirtyFileInfo;
 } // anon namespace
->>>>>>> pull-upstream-litecoin
 
 //////////////////////////////////////////////////////////////////////////////
 //
