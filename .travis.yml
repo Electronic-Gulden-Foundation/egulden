@@ -1,0 +1,80 @@
+# errata:
+# - A travis bug causes caches to trample eachother when using the same
+#   compiler key (which we don't use anyway). This is worked around for now by
+#   replacing the "compilers" with a build name prefixed by the no-op ":"
+#   command. See: https://github.com/travis-ci/casher/issues/6
+
+os: linux
+language: cpp
+compiler: gcc
+env:
+  global:
+    - MAKEJOBS=-j3
+    - RUN_TESTS=false
+    - CCACHE_SIZE=100M
+    - CCACHE_TEMPDIR=/tmp/.ccache-temp
+    - CCACHE_COMPRESS=1
+    - BASE_OUTDIR=$TRAVIS_BUILD_DIR/out
+    - SDK_URL=https://bitcoincore.org/depends-sources/sdks
+    - BINARY_SUFFIX=""
+cache:
+  apt: true
+  directories:
+  - depends/built
+  - depends/sdk-sources
+  - $HOME/.ccache
+matrix:
+  fast_finish: true
+  include:
+    - compiler: ": ARM"
+      env: HOST=arm-linux-gnueabihf PACKAGES="g++-arm-linux-gnueabihf" DEP_OPTS="NO_QT=1" GOAL="install" BITCOIN_CONFIG="--enable-glibc-back-compat"
+    - compiler: ": bitcoind"
+      env: HOST=x86_64-unknown-linux-gnu PACKAGES="bc" DEP_OPTS="NO_QT=1 NO_UPNP=1 DEBUG=1" RUN_TESTS=true GOAL="install" BITCOIN_CONFIG="--enable-glibc-back-compat CPPFLAGS=-DDEBUG_LOCKORDER"
+    - compiler: ": No wallet"
+      env: HOST=x86_64-unknown-linux-gnu DEP_OPTS="NO_WALLET=1" RUN_TESTS=true GOAL="install" BITCOIN_CONFIG="--enable-glibc-back-compat"
+    - compiler: ": 32-bit + dash"
+      env: HOST=i686-pc-linux-gnu PACKAGES="g++-multilib bc" RUN_TESTS=true GOAL="install" BITCOIN_CONFIG="--enable-glibc-back-compat" USE_SHELL="/bin/dash"
+    - compiler: ": Cross-Mac"
+      env: HOST=x86_64-apple-darwin11 PACKAGES="cmake libcap-dev libz-dev libbz2-dev" OSX_SDK=10.9 GOAL="deploy"
+    - compiler: ": Win64"
+      env: HOST=x86_64-w64-mingw32 PACKAGES="nsis gcc-mingw-w64-x86-64 g++-mingw-w64-x86-64 binutils-mingw-w64-x86-64 mingw-w64-dev wine bc" RUN_TESTS=true GOAL="deploy" BITCOIN_CONFIG="--enable-gui" MAKEJOBS="-j2" BINARY_SUFFIX=".exe"
+    - compiler: ": Win32"
+      env: HOST=i686-w64-mingw32 PACKAGES="nsis gcc-mingw-w64-i686 g++-mingw-w64-i686 binutils-mingw-w64-i686 mingw-w64-dev wine bc" RUN_TESTS=true GOAL="deploy" BITCOIN_CONFIG="--enable-gui" MAKEJOBS="-j2" BINARY_SUFFIX=".exe"
+  exclude:
+    - compiler: gcc
+install:
+    - if [ -n "$PACKAGES" ]; then travis_retry sudo apt-get update; fi
+    - if [ -n "$PACKAGES" ]; then travis_retry sudo apt-get install --no-install-recommends --no-upgrade -qq $PACKAGES; fi
+before_script:
+    - unset CC; unset CXX
+    - mkdir -p depends/SDKs depends/sdk-sources
+    - if [ -n "$OSX_SDK" -a ! -f depends/sdk-sources/MacOSX${OSX_SDK}.sdk.tar.gz ]; then wget $SDK_URL/MacOSX${OSX_SDK}.sdk.tar.gz -O depends/sdk-sources/MacOSX${OSX_SDK}.sdk.tar.gz; fi
+    - if [ -n "$OSX_SDK" -a -f depends/sdk-sources/MacOSX${OSX_SDK}.sdk.tar.gz ]; then tar -C depends/SDKs -xf depends/sdk-sources/MacOSX${OSX_SDK}.sdk.tar.gz; fi
+    - make $MAKEJOBS -C depends HOST=$HOST $DEP_OPTS
+script:
+    - if [ -n "$USE_SHELL" ]; then export CONFIG_SHELL="$USE_SHELL"; fi
+    - OUTDIR=$BASE_OUTDIR/$TRAVIS_PULL_REQUEST/$TRAVIS_JOB_NUMBER-$HOST
+    - BITCOIN_CONFIG_ALL="--disable-dependency-tracking --prefix=$TRAVIS_BUILD_DIR/depends/$HOST --bindir=$OUTDIR/bin --libdir=$OUTDIR/lib"
+    - depends/$HOST/native/bin/ccache --max-size=$CCACHE_SIZE
+    - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then export CCACHE_READONLY=1; fi
+    - test -n "$USE_SHELL" && eval '"$USE_SHELL" -c "./autogen.sh"' || ./autogen.sh
+    - ./configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
+    - make distdir PACKAGE=bitcoin VERSION=$HOST
+    - cd bitcoin-$HOST
+    - ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
+    - make $MAKEJOBS $GOAL || ( echo "Build failure. Verbose build follows." && make $GOAL V=1 ; false )
+    - export LD_LIBRARY_PATH=$TRAVIS_BUILD_DIR/depends/$HOST/lib
+    - if [ "$RUN_TESTS" = "true" ]; then make check || true; fi
+    - if [ "$RUN_TESTS" = "true" ]; then qa/pull-tester/rpc-tests.sh || true; fi
+    - zip release-$HOST.zip src/egulden-cli$BINARY_SUFFIX src/egulden-tx$BINARY_SUFFIX src/eguldend$BINARY_SUFFIX src/qt/egulden-qt$BINARY_SUFFIX
+after_script:
+    - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then (echo "Upload goes here. Something like: scp -r $BASE_OUTDIR server" || echo "upload failed"); fi
+deploy:
+  provider: releases
+  api_key:
+    secure: "S9h/gaYOxOBcWYesnsefr6MmbkusqqBQ74a1ONMVP6e5u3aOd1n4LHMlSW5bXUPUeQTnkuhqdukPWKewf5L2Pr6bSlUtZTfoNsbJ5iOTkKi2Ah2IqyWhdLj+4N2VrcuUAYtg2r3mxiqrCG7ZIjAT4swQ99WHKclDumT0Cp81XaNMo//hFYTTAjS0smtfdaX+3KnUILq+lF0y7QJEcFp+nI88fxvIAraOVIDsnqt/doTsNOEJlBOxVxEy4WmGbRRrXfK5LYtuEXkEaGc/2vgdDQ3XZxgSP6s1DUKakBtwzQ8JJScZQvjGjy8FI80hZqSJkYup0z+sQjsGs3vPg0ke19+1FWZffwlOF1N1ViV4RpIuJnYpGS51xz2cxkUu4W1z5qbnJv/ABoVfwQ6qcOYpxtgmGWpAg2n7B9tOzT0q+TdnCacFji1j40fCVDyD36yX4WdaASTmdwMN2yi3PuB4kKO2QVryDMtX54Ibk0C/0UmJWEqk5JshJyWA5hIrpOQhbv0TUZQpdSLXKnKj25ovChn0IsPE7NVzydKm9dGoXE4yjDgUxbXPpjj2Hm398+E+suY3cvpVyrDnaRGF2IU18jXXvHujliMbbOt7kAxNEDFEHGpxUiZHDAuHJrPrNTZIJxDd4Zs0zZ9BPo4HZma4t00oJnZCkaTYtHp31Efh1Tc="
+  file: "release-$HOST.zip"
+  skip_cleanup: true
+  on:
+    tags: true
+    branch: pull-upstream-litecoin

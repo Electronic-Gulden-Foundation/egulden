@@ -1,6 +1,11 @@
+// Copyright (c) 2009-2014 The Bitcoin developers
+// Distributed under the MIT software license, see the accompanying
+// file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
 #include "uritests.h"
-#include "../guiutil.h"
-#include "../walletmodel.h"
+
+#include "guiutil.h"
+#include "walletmodel.h"
 
 #include <QUrl>
 
@@ -46,13 +51,13 @@ void URITests::uriTests()
     QVERIFY(rv.address == QString("LQDPC5rbjDB72fGFVHu4enYhxGAZuRiFh9"));
     QVERIFY(rv.label == QString());
 
-    QVERIFY(GUIUtil::parseBitcoinURI("egulden://LQDPC5rbjDB72fGFVHu4enYhxGAZuRiFh9?message=Wikipedia Example Address", &rv));
+    QVERIFY(GUIUtil::parseBitcoinURI("egulden:LQDPC5rbjDB72fGFVHu4enYhxGAZuRiFh9?message=Wikipedia Example Address", &rv));
     QVERIFY(rv.address == QString("LQDPC5rbjDB72fGFVHu4enYhxGAZuRiFh9"));
     QVERIFY(rv.label == QString());
 
     // We currently don't implement the message parameter (ok, yea, we break spec...)
     uri.setUrl(QString("egulden:LQDPC5rbjDB72fGFVHu4enYhxGAZuRiFh9?req-message=Wikipedia Example Address"));
-    QVERIFY(!GUIUtil::parseBitcoinURI(uri, &rv));
+    QVERIFY(GUIUtil::parseBitcoinURI(uri, &rv));
 
     uri.setUrl(QString("egulden:LQDPC5rbjDB72fGFVHu4enYhxGAZuRiFh9?amount=1,000&label=Wikipedia Example"));
     QVERIFY(!GUIUtil::parseBitcoinURI(uri, &rv));
