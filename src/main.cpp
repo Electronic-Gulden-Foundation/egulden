@@ -3444,7 +3444,6 @@ string GetWarnings(string strFor)
     }
 
     // Alerts
-    if (PROTOCOL_VERSION>=ALERT_VERSION)
     {
         LOCK(cs_mapAlerts);
         BOOST_FOREACH(PAIRTYPE(const uint256, CAlert)& item, mapAlerts)
