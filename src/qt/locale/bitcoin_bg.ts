@@ -166,8 +166,8 @@
         <translation>Повторно индексиране на блоковете на диска...</translation>
     </message>
     <message>
-        <source>Send coins to a Litecoin address</source>
-        <translation>Изпращане към Litecoin адрес</translation>
+        <source>Send coins to a e-Gulden address</source>
+        <translation>Изпращане към e-Gulden адрес</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -191,7 +191,7 @@
     </message>
     <message>
         <source>Bitcoin</source>
-        <translation>Litecoin</translation>
+        <translation>e-Gulden</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -218,12 +218,12 @@
         <translation>Шифроване на личните ключове,които принадлежат на портфейла Ви.</translation>
     </message>
     <message>
-        <source>Sign messages with your Litecoin addresses to prove you own them</source>
-        <translation>Пишете съобщения със своя Litecoin адрес за да докажете,че е ваш.</translation>
+        <source>Sign messages with your e-Gulden addresses to prove you own them</source>
+        <translation>Пишете съобщения със своя e-Gulden адрес за да докажете,че е ваш.</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Litecoin addresses</source>
-        <translation>Потвърждаване на съобщения  за да се знае,че са написани с дадените Litecoin адреси.</translation>
+        <source>Verify messages to ensure they were signed with specified e-Gulden addresses</source>
+        <translation>Потвърждаване на съобщения  за да се знае,че са написани с дадените e-Gulden адреси.</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -242,8 +242,8 @@
         <translation>Раздели</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and litecoin: URIs)</source>
-        <translation>Изискване на плащания(генерира QR кодове и Litecoin: URIs)</translation>
+        <source>Request payments (generates QR codes and e-Gulden: URIs)</source>
+        <translation>Изискване на плащания(генерира QR кодове и e-Gulden: URIs)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -254,16 +254,16 @@
         <translation>Покажи списък с използваните адреси и имена.</translation>
     </message>
     <message>
-        <source>Open a litecoin: URI or payment request</source>
-        <translation>Отворете Litecoin: URI  или заявка за плащане</translation>
+        <source>Open a e-Gulden: URI or payment request</source>
+        <translation>Отворете e-Gulden: URI  или заявка за плащане</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>&amp;Налични команди</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Litecoin network</source>
-        <translation><numerusform>%n активна връзка към Litecoin мрежата</numerusform><numerusform>%n активни връзки към Litecoin мрежата</numerusform></translation>
+        <source>%n active connection(s) to e-Gulden network</source>
+        <translation><numerusform>%n активна връзка към e-Gulden мрежата</numerusform><numerusform>%n активни връзки към e-Gulden мрежата</numerusform></translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -330,8 +330,8 @@
         <translation>Синхронизиран</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible Litecoin command-line options</source>
-        <translation>Покажи %1 помощно съобщение за да получиш лист с възможни Litecoin команди</translation>
+        <source>Show the %1 help message to get a list with possible e-Gulden command-line options</source>
+        <translation>Покажи %1 помощно съобщение за да получиш лист с възможни e-Gulden команди</translation>
     </message>
     <message>
         <source>%1 client</source>
@@ -681,16 +681,16 @@
         <translation>&amp;Похарчете непотвърденото ресто</translation>
     </message>
     <message>
-        <source>Automatically open the Litecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Автоматично отваряне на входящия Litecoin порт. Работи само с рутери поддържащи UPnP.</translation>
+        <source>Automatically open the e-Gulden client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Автоматично отваряне на входящия e-Gulden порт. Работи само с рутери поддържащи UPnP.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
         <translation>Отваряне на входящия порт чрез &amp;UPnP</translation>
     </message>
     <message>
-        <source>Connect to the Litecoin network through a SOCKS5 proxy.</source>
-        <translation>Свързване с Litecoin мрежата чрез SOCKS5  прокси.</translation>
+        <source>Connect to the e-Gulden network through a SOCKS5 proxy.</source>
+        <translation>Свързване с e-Gulden мрежата чрез SOCKS5  прокси.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -784,8 +784,8 @@
         <translation>Формуляр</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Litecoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Текущата информация на екрана може да не е актуална. Вашият портфейл ще се синхронизира автоматично с мрежата на Litecoin, щом поне една връзката с нея се установи; този процес все още не е приключил.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the e-Gulden network after a connection is established, but this process has not completed yet.</source>
+        <translation>Текущата информация на екрана може да не е актуална. Вашият портфейл ще се синхронизира автоматично с мрежата на e-Gulden, щом поне една връзката с нея се установи; този процес все още не е приключил.</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -853,8 +853,8 @@
         <translation>Сума</translation>
     </message>
     <message>
-        <source>Enter a Litecoin address (e.g. %1)</source>
-        <translation>Въведете Litecoin адрес (например: %1)</translation>
+        <source>Enter a e-Gulden address (e.g. %1)</source>
+        <translation>Въведете e-Gulden адрес (например: %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1367,7 +1367,7 @@
         <translation>Копиране на текущия подпис</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Litecoin address</source>
+        <source>Sign the message to prove you own this e-Gulden address</source>
         <translation>Подпишете съобщение като доказателство, че притежавате определен адрес</translation>
     </message>
     <message>
@@ -1383,8 +1383,8 @@
         <translation>&amp;Провери</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Litecoin address</source>
-        <translation>Проверете съобщение, за да сте сигурни че е подписано с определен Litecoin адрес</translation>
+        <source>Verify the message to ensure it was signed with the specified e-Gulden address</source>
+        <translation>Проверете съобщение, за да сте сигурни че е подписано с определен e-Gulden адрес</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -1434,7 +1434,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>litecoin-core</name>
+    <name>e-Gulden-core</name>
     <message>
         <source>Options:</source>
         <translation>Опции:</translation>
@@ -1457,7 +1457,7 @@
     </message>
     <message>
         <source>Bitcoin Core</source>
-        <translation>Litecoin ядро</translation>
+        <translation>e-Gulden ядро</translation>
     </message>
     <message>
         <source>Whitelist peers connecting from the given netmask or IP address. Can be specified multiple times.</source>

@@ -62,12 +62,12 @@
         <translation>Vastuvõtvad aadressid</translation>
     </message>
     <message>
-        <source>These are your Litecoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Need on sinu Litecoin aadressid maksete saatmiseks. Ennem müntide saatmist kontrolli alati summat ja makse saaja aadressi.</translation>
+        <source>These are your e-Gulden addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Need on sinu e-Gulden aadressid maksete saatmiseks. Ennem müntide saatmist kontrolli alati summat ja makse saaja aadressi.</translation>
     </message>
     <message>
-        <source>These are your Litecoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Need on sinu Litecoin aadressid sisenevate maksete vastu võtmiseks. Soovitav on iga tehingu tarbeks kasutada uut aadressi.</translation>
+        <source>These are your e-Gulden addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Need on sinu e-Gulden aadressid sisenevate maksete vastu võtmiseks. Soovitav on iga tehingu tarbeks kasutada uut aadressi.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -286,8 +286,8 @@
         <translation>Kettal olevate blokkide re-indekseerimine...</translation>
     </message>
     <message>
-        <source>Send coins to a Litecoin address</source>
-        <translation>Saada münte Litecoini aadressile</translation>
+        <source>Send coins to a e-Gulden address</source>
+        <translation>Saada münte e-Guldeni aadressile</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -310,8 +310,8 @@
         <translation>&amp;Kontrolli sõnumit...</translation>
     </message>
     <message>
-        <source>Litecoin</source>
-        <translation>Litecoin</translation>
+        <source>e-Gulden</source>
+        <translation>e-Gulden</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -338,12 +338,12 @@
         <translation>Krüpteeri oma rahakoti privaatvõtmed</translation>
     </message>
     <message>
-        <source>Sign messages with your Litecoin addresses to prove you own them</source>
-        <translation>Omandi tõestamiseks allkirjasta sõnumid oma Litecoini aadressiga</translation>
+        <source>Sign messages with your e-Gulden addresses to prove you own them</source>
+        <translation>Omandi tõestamiseks allkirjasta sõnumid oma e-Guldeni aadressiga</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Litecoin addresses</source>
-        <translation>Kinnita sõnumid kindlustamaks et need allkirjastati määratud Litecoini aadressiga</translation>
+        <source>Verify messages to ensure they were signed with specified e-Gulden addresses</source>
+        <translation>Kinnita sõnumid kindlustamaks et need allkirjastati määratud e-Guldeni aadressiga</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -362,20 +362,20 @@
         <translation>Vahelehe tööriistariba</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and litecoin: URIs)</source>
-        <translation>Loo maksepäring (genereerib QR koodid ja litecoini: URId)</translation>
+        <source>Request payments (generates QR codes and e-Gulden: URIs)</source>
+        <translation>Loo maksepäring (genereerib QR koodid ja e-Guldeni: URId)</translation>
     </message>
     <message>
-        <source>Open a litecoin: URI or payment request</source>
-        <translation>Ava litecoini: URI või maksepäring</translation>
+        <source>Open a e-Gulden: URI or payment request</source>
+        <translation>Ava e-Guldeni: URI või maksepäring</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>Käsurea valikud</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Litecoin network</source>
-        <translation><numerusform>%n aktiivne ühendus Litecoini võrku</numerusform><numerusform>%n aktiivset ühendust Litecoini võrku</numerusform></translation>
+        <source>%n active connection(s) to e-Gulden network</source>
+        <translation><numerusform>%n aktiivne ühendus e-Guldeni võrku</numerusform><numerusform>%n aktiivset ühendust e-Guldeni võrku</numerusform></translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -710,8 +710,8 @@
         <translation>Muuda saatvat aadressi</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Litecoin address.</source>
-        <translation>Sisestatud aadress "%1" ei ole korrektne Litecoin aadress.</translation>
+        <source>The entered address "%1" is not a valid e-Gulden address.</source>
+        <translation>Sisestatud aadress "%1" ei ole korrektne e-Gulden aadress.</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -825,8 +825,8 @@
         <translation>Ekspert</translation>
     </message>
     <message>
-        <source>Automatically open the Litecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Litecoini kliendi pordi automaatne avamine ruuteris. Toimib, kui sinu ruuter aktsepteerib UPnP ühendust.</translation>
+        <source>Automatically open the e-Gulden client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>e-Guldeni kliendi pordi automaatne avamine ruuteris. Toimib, kui sinu ruuter aktsepteerib UPnP ühendust.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -908,7 +908,7 @@
         <translation>Vorm</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Litecoin network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the e-Gulden network after a connection is established, but this process has not completed yet.</source>
         <translation>Kuvatav info ei pruugi olla ajakohane. Ühenduse loomisel süngitakse sinu rahakott automaatselt Bitconi võrgustikuga, kuid see toiming on hetkel lõpetamata.</translation>
     </message>
     <message>
@@ -1375,8 +1375,8 @@
         <translation>Maksepäring aegunud.</translation>
     </message>
     <message>
-        <source>Warning: Invalid Litecoin address</source>
-        <translation>Hoiatus: Ebakorrektne Litecoin aadress</translation>
+        <source>Warning: Invalid e-Gulden address</source>
+        <translation>Hoiatus: Ebakorrektne e-Gulden aadress</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1455,8 +1455,8 @@
         <translation>&amp;Allkirjastamise teade</translation>
     </message>
     <message>
-        <source>The Litecoin address to sign the message with</source>
-        <translation>Litecoin aadress millega sõnum allkirjastada</translation>
+        <source>The e-Gulden address to sign the message with</source>
+        <translation>e-Gulden aadress millega sõnum allkirjastada</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1487,8 +1487,8 @@
         <translation>Kopeeri praegune signatuur vahemällu</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Litecoin address</source>
-        <translation>Allkirjasta sõnum Litecoini aadressi sulle kuulumise tõestamiseks</translation>
+        <source>Sign the message to prove you own this e-Gulden address</source>
+        <translation>Allkirjasta sõnum e-Guldeni aadressi sulle kuulumise tõestamiseks</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1507,12 +1507,12 @@
         <translation>&amp;Kinnita Sõnum</translation>
     </message>
     <message>
-        <source>The Litecoin address the message was signed with</source>
-        <translation>Litecoin aadress millega sõnum on allkirjastatud</translation>
+        <source>The e-Gulden address the message was signed with</source>
+        <translation>e-Gulden aadress millega sõnum on allkirjastatud</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Litecoin address</source>
-        <translation>Kinnita sõnum tõestamaks selle allkirjastatust määratud Litecoin aadressiga.</translation>
+        <source>Verify the message to ensure it was signed with the specified e-Gulden address</source>
+        <translation>Kinnita sõnum tõestamaks selle allkirjastatust määratud e-Gulden aadressiga.</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -1800,8 +1800,8 @@
         <translation>Luba välisühendusi (vaikeväärtus: 1 kui puudub -proxy või -connect)</translation>
     </message>
     <message>
-        <source>Litecoin Core</source>
-        <translation>Litecoini tuumik</translation>
+        <source>e-Gulden Core</source>
+        <translation>e-Guldeni tuumik</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>

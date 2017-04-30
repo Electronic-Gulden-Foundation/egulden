@@ -114,8 +114,8 @@
         <translation>Recreans indicem frustorum in disco...</translation>
     </message>
     <message>
-        <source>Send coins to a Litecoin address</source>
-        <translation>Mitte nummos ad inscriptionem Litecoin</translation>
+        <source>Send coins to a e-Gulden address</source>
+        <translation>Mitte nummos ad inscriptionem e-Gulden</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -138,8 +138,8 @@
         <translation>&amp;Verifica nuntium...</translation>
     </message>
     <message>
-        <source>Litecoin</source>
-        <translation>Litecoin</translation>
+        <source>e-Gulden</source>
+        <translation>e-Gulden</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -166,12 +166,12 @@
         <translation>Cifra claves privatas quae cassidili tui sunt</translation>
     </message>
     <message>
-        <source>Sign messages with your Litecoin addresses to prove you own them</source>
-        <translation>Signa nuntios cum tuis inscriptionibus Litecoin ut demonstres te eas possidere</translation>
+        <source>Sign messages with your e-Gulden addresses to prove you own them</source>
+        <translation>Signa nuntios cum tuis inscriptionibus e-Gulden ut demonstres te eas possidere</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Litecoin addresses</source>
-        <translation>Verifica nuntios ut certus sis eos signatos esse cum specificatis inscriptionibus Litecoin</translation>
+        <source>Verify messages to ensure they were signed with specified e-Gulden addresses</source>
+        <translation>Verifica nuntios ut certus sis eos signatos esse cum specificatis inscriptionibus e-Gulden</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -339,8 +339,8 @@
         <translation>Cassidile</translation>
     </message>
     <message>
-        <source>Automatically open the Litecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Aperi per se portam clientis Litecoin in itineratore.  Hoc tantum effectivum est si itineratrum tuum supportat UPnP et id activum est.</translation>
+        <source>Automatically open the e-Gulden client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Aperi per se portam clientis e-Gulden in itineratore.  Hoc tantum effectivum est si itineratrum tuum supportat UPnP et id activum est.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -418,8 +418,8 @@
         <translation>Schema</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Litecoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Monstrata informatio fortasse non recentissima est.  Tuum cassidile per se synchronizat cum rete Litecoin postquam conexio constabilita est, sed hoc actio nondum perfecta est.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the e-Gulden network after a connection is established, but this process has not completed yet.</source>
+        <translation>Monstrata informatio fortasse non recentissima est.  Tuum cassidile per se synchronizat cum rete e-Gulden postquam conexio constabilita est, sed hoc actio nondum perfecta est.</translation>
     </message>
     <message>
         <source>Immature:</source>
@@ -661,8 +661,8 @@
         <translation>Copia signationem in latibulum systematis</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Litecoin address</source>
-        <translation>Signa nuntium ut demonstres hanc inscriptionem Litecoin a te possessa esse</translation>
+        <source>Sign the message to prove you own this e-Gulden address</source>
+        <translation>Signa nuntium ut demonstres hanc inscriptionem e-Gulden a te possessa esse</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -681,8 +681,8 @@
         <translation>&amp;Verifica Nuntium</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Litecoin address</source>
-        <translation>Verifica nuntium ut cures signatum esse cum specifica inscriptione Litecoin</translation>
+        <source>Verify the message to ensure it was signed with the specified e-Gulden address</source>
+        <translation>Verifica nuntium ut cures signatum esse cum specifica inscriptione e-Gulden</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -762,8 +762,8 @@
         <translation>Accipe conexiones externas (praedefinitum: 1 nisi -proxy neque -connect)</translation>
     </message>
     <message>
-        <source>Litecoin Core</source>
-        <translation>Litecoin Nucleus</translation>
+        <source>e-Gulden Core</source>
+        <translation>e-Gulden Nucleus</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
