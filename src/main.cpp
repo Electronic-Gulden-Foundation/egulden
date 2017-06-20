@@ -3439,6 +3439,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, const Consensus::P
     // First transaction must be coinbase, the rest must not be
     if (block.vtx.empty() || !block.vtx[0].IsCoinBase())
         return state.DoS(100, false, REJECT_INVALID, "bad-cb-missing", false, "first tx is not coinbase");
+
     for (unsigned int i = 1; i < block.vtx.size(); i++)
         if (block.vtx[i].IsCoinBase())
             return state.DoS(100, false, REJECT_INVALID, "bad-cb-multiple", false, "more than one coinbase");
@@ -3680,6 +3681,13 @@ bool ContextualCheckBlock(const CBlock& block, CValidationState& state, CBlockIn
     // failed).
     if (GetBlockWeight(block) > MAX_BLOCK_WEIGHT) {
         return state.DoS(100, error("ContextualCheckBlock(): weight limit failed"), REJECT_INVALID, "bad-blk-weight");
+    }
+
+    // Check for valid oerubase
+    if (block.IsOeruIdentified(strMessageMagic, nHeight)) {
+        LogPrint("ContextualCheckBlock", "Block %d is OERU identified", nHeight);
+    } else {
+        LogPrint("ContextualCheckBlock", "Block %d is not OERU identified", nHeight);
     }
 
     return true;

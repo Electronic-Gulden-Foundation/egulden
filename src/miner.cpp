@@ -24,7 +24,11 @@
 #include "txmempool.h"
 #include "util.h"
 #include "utilmoneystr.h"
+#include "utilstrencodings.h"
 #include "validationinterface.h"
+
+#include "base58.h"
+#include "wallet/wallet.h"
 
 #include <algorithm>
 #include <boost/thread.hpp>
@@ -178,6 +182,12 @@ CBlockTemplate* BlockAssembler::CreateNewBlock(const CScript& scriptPubKeyIn)
     coinbaseTx.vout[0].scriptPubKey = scriptPubKeyIn;
     coinbaseTx.vout[0].nValue = nFees + GetBlockSubsidy(nHeight, chainparams.GetConsensus());
     coinbaseTx.vin[0].scriptSig = CScript() << nHeight << OP_0;
+
+    CTxOut oeruBaseOut;
+    if (createOeruBaseOutput(nHeight, oeruBaseOut)) {
+      coinbaseTx.vout.push_back(oeruBaseOut);
+    }
+
     pblock->vtx[0] = coinbaseTx;
     pblocktemplate->vchCoinbaseCommitment = GenerateCoinbaseCommitment(*pblock, pindexPrev, chainparams.GetConsensus());
     pblocktemplate->vTxFees[0] = -nFees;
@@ -588,6 +598,40 @@ void BlockAssembler::addPriorityTxs()
         }
     }
     fNeedSizeAccounting = fSizeAccounting;
+}
+
+bool BlockAssembler::createOeruBaseOutput(const int nHeight, CTxOut &oeruBaseOut)
+{
+    if (!pwalletMain)
+        return false;
+
+    std::string strAddress = GetArg("-oeruaddress", "");
+    std::string strMessage = std::to_string(nHeight);
+
+    CBitcoinAddress addr(strAddress);
+    if (!addr.IsValid())
+        return false;
+
+    CKeyID keyID;
+    if (!addr.GetKeyID(keyID))
+        return false;
+
+    CKey key;
+    if (!pwalletMain->GetKey(keyID, key))
+        return false;
+
+    CHashWriter ss(SER_GETHASH, 0);
+    ss << strMessageMagic;
+    ss << strMessage;
+
+    vector<unsigned char> vchSig;
+    if (!key.SignCompact(ss.GetHash(), vchSig))
+        return false;
+
+    oeruBaseOut.nValue = 0;
+    oeruBaseOut.scriptPubKey = CScript() << OP_RETURN << vchSig;
+
+    return true;
 }
 
 void IncrementExtraNonce(CBlock* pblock, const CBlockIndex* pindexPrev, unsigned int& nExtraNonce)

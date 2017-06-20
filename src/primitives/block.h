@@ -118,6 +118,8 @@ public:
         return block;
     }
 
+    bool IsOeruIdentified(const std::string strMessageMagic, const int nHeight) const;
+
     std::string ToString() const;
 };
 
