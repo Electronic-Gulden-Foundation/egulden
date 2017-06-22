@@ -81,6 +81,12 @@ uint64_t nPruneTarget = 0;
 int64_t nMaxTipAge = DEFAULT_MAX_TIP_AGE;
 bool fEnableReplacement = DEFAULT_ENABLE_REPLACEMENT;
 
+// Accepted client versions
+const char* vvalidClients[] = {
+    "/Satoshi:1.1.0.1/",
+    "/Satoshi:1.1.0.2/",
+    "/Satoshi:1.1.0.3/", NULL};
+const char* vvalidClientName = "Christiaan Huygens:";
 
 CFeeRate minRelayTxFee = CFeeRate(DEFAULT_MIN_RELAY_TX_FEE);
 CAmount maxTxFee = DEFAULT_TRANSACTION_MAXFEE;
@@ -3685,9 +3691,9 @@ bool ContextualCheckBlock(const CBlock& block, CValidationState& state, CBlockIn
 
     // Check for valid oerubase
     if (block.IsOeruIdentified(strMessageMagic, nHeight)) {
-        LogPrint("ContextualCheckBlock", "Block %d is OERU identified", nHeight);
+        LogPrint("ContextualCheckBlock", "Block %d is OERU identified\n", nHeight);
     } else {
-        LogPrint("ContextualCheckBlock", "Block %d is not OERU identified", nHeight);
+        LogPrint("ContextualCheckBlock", "Block %d is not OERU identified\n", nHeight);
     }
 
     return true;
@@ -5059,6 +5065,18 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         if (!vRecv.empty()) {
             vRecv >> LIMITED_STRING(pfrom->strSubVer, MAX_SUBVERSION_LENGTH);
             pfrom->cleanSubVer = SanitizeString(pfrom->strSubVer);
+
+            std::size_t iClient = pfrom->cleanSubVer.find(vvalidClientName);
+            for (int i = 0; vvalidClients[i] != NULL; i++) {
+                if (pfrom->cleanSubVer == vvalidClients[i]) {
+                    iClient = 1;
+                }
+            }
+            if (iClient == std::string::npos) {
+                LogPrint("net", "Disconnect version mismatch : %s : peer=%s\n", pfrom->cleanSubVer.c_str(), pfrom->addr.ToString().c_str());
+                pfrom->fDisconnect = true;
+                return true;
+           }
         }
         if (!vRecv.empty()) {
             vRecv >> pfrom->nStartingHeight;
