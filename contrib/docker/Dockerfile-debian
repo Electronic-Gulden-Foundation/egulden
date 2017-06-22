@@ -1,0 +1,10 @@
+FROM debian:jessie
+
+RUN apt-get update && apt-get install -y build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
+RUN apt-get install -y libdb++-dev
+RUN apt-get install -y libboost-all-dev
+
+RUN mkdir /build
+WORKDIR /build
+
+CMD ./autogen.sh && ./configure --with-incompatible-bdb && make -j4
