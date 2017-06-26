@@ -18,6 +18,8 @@
 #include "init.h"
 #include "merkleblock.h"
 #include "net.h"
+#include "oerushield/oerudb.h"
+#include "oerushield/oerushield.h"
 #include "policy/fees.h"
 #include "policy/policy.h"
 #include "pow.h"
@@ -3689,12 +3691,14 @@ bool ContextualCheckBlock(const CBlock& block, CValidationState& state, CBlockIn
         return state.DoS(100, error("ContextualCheckBlock(): weight limit failed"), REJECT_INVALID, "bad-blk-weight");
     }
 
-    // Check for valid oerubase
-    if (block.IsOeruIdentified(strMessageMagic, nHeight)) {
-        LogPrint("ContextualCheckBlock", "Block %d is OERU identified\n", nHeight);
-    } else {
-        LogPrint("ContextualCheckBlock", "Block %d is not OERU identified\n", nHeight);
-    }
+    // TODO: OeruDB should be global somewhere
+    COeruShield oeruShield(poeruDBMain);
+
+    LogPrint("ContextualCheckBlock", "OERU @ Block %d:\n\t- Active: %d\n\t- Identified: %d\n\t- Certified: %d\n",
+            nHeight,
+            oeruShield.IsActive(),
+            oeruShield.IsBlockIdentified(block, strMessageMagic, nHeight),
+            oeruShield.IsBlockCertified(block, strMessageMagic, nHeight));
 
     return true;
 }

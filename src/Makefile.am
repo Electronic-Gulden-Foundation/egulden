@@ -112,6 +112,8 @@ BITCOIN_CORE_H = \
   net.h \
   netbase.h \
   noui.h \
+  oerushield/oerudb.h \
+  oerushield/oerushield.h \
   policy/fees.h \
   policy/policy.h \
   policy/rbf.h \
@@ -182,6 +184,8 @@ libbitcoin_server_a_SOURCES = \
   miner.cpp \
   net.cpp \
   noui.cpp \
+  oerushield/oerudb.cpp \
+  oerushield/oerushield.cpp \
   policy/fees.cpp \
   policy/policy.cpp \
   pow.cpp \

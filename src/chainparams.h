@@ -77,6 +77,9 @@ public:
     // e-Gulden: Enforce KGW on height
     int KGWStartHeight() const { return nKGWStartHeight; }
 
+    // OeruShield minimum number of certified addresses
+    int OeruShieldMinCertifiedAddresses() const { return nOeruShieldMinCertifiedAddresses; }
+
     const std::vector<SeedSpec6>& FixedSeeds() const { return vFixedSeeds; }
     const CCheckpointData& Checkpoints() const { return checkpointData; }
 protected:
@@ -104,6 +107,7 @@ protected:
     // e-Gulden: Enforce KGW on height
     int nKGWStartHeight;
 
+    int nOeruShieldMinCertifiedAddresses;
 };
 
 /**

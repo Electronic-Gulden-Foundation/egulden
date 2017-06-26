@@ -155,6 +155,7 @@ public:
         nEnforceV2AfterHeight = 0;
 
         nKGWStartHeight = 45000;
+        nOeruShieldMinCertifiedAddresses = 2;
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
@@ -262,6 +263,7 @@ public:
         fTestnetToBeDeprecatedFieldRPC = true;
 
         nKGWStartHeight = 1;
+        nOeruShieldMinCertifiedAddresses = 1;
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
@@ -330,6 +332,7 @@ public:
         fTestnetToBeDeprecatedFieldRPC = false;
 
         nKGWStartHeight = 100;
+        nOeruShieldMinCertifiedAddresses = 1;
 
         checkpointData = (CCheckpointData){
             boost::assign::map_list_of

@@ -22,6 +22,7 @@
 #include "main.h"
 #include "miner.h"
 #include "net.h"
+#include "oerushield/oerudb.h"
 #include "policy/policy.h"
 #include "rpc/server.h"
 #include "rpc/register.h"
@@ -1246,6 +1247,10 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
     }
 
     // ********************************************************* Step 7: load block chain
+
+    // Initialize OeruDB
+    boost::filesystem::path oeruDBPath = GetDataDir() / GetArg("-oerudb", "oeru.db");
+    COeruDB::InitOeruDB(oeruDBPath.string().c_str());
 
     fReindex = GetBoolArg("-reindex", false);
     bool fReindexChainState = GetBoolArg("-reindex-chainstate", false);

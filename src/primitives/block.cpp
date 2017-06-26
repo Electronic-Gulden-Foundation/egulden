@@ -26,60 +26,6 @@ uint256 CBlockHeader::GetPoWHash() const
     return thash;
 }
 
-bool CBlock::IsOeruIdentified(const std::string strMessageMagic, const int nHeight) const
-{
-    if (vtx.size() < 1)
-        return false;
-
-    CTransaction coinbaseTx = vtx[0];
-
-    if (!coinbaseTx.IsCoinBase())
-        return false;
-
-    if (coinbaseTx.vout.size() < 2)
-        return false;
-
-    CTxOut coinbase = coinbaseTx.vout[0];
-    CTxOut oeruTXOut = coinbaseTx.vout[1];
-
-    CTxDestination coinbaseDest;
-    if (!ExtractDestination(coinbase.scriptPubKey, coinbaseDest))
-        return false;
-
-    CBitcoinAddress coinbaseAddress(coinbaseDest);
-    if (!coinbaseAddress.IsValid())
-        return false;
-
-    CKeyID keyID;
-    if (!coinbaseAddress.GetKeyID(keyID))
-        return false;
-
-    std::vector<unsigned char> vchSig;
-    CScript::const_iterator pc = oeruTXOut.scriptPubKey.begin();
-    while (pc < oeruTXOut.scriptPubKey.end())
-    {
-        opcodetype opcode;
-        if (!oeruTXOut.scriptPubKey.GetOp(pc, opcode, vchSig))
-            break;
-
-        if (opcode != OP_RETURN)
-            continue;
-    }
-
-    std::string strMessage = std::to_string(nHeight);
-
-    CHashWriter ss(SER_GETHASH, 0);
-    ss << strMessageMagic;
-    ss << strMessage;
-
-    CPubKey pubkey;
-    if (!pubkey.RecoverCompact(ss.GetHash(), vchSig))
-        return false;
-
-    return (pubkey.GetID() == keyID);
-}
-
-
 std::string CBlock::ToString() const
 {
     std::stringstream s;
