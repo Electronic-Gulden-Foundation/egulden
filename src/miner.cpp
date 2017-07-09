@@ -19,6 +19,7 @@
 #include "policy/policy.h"
 #include "pow.h"
 #include "primitives/transaction.h"
+#include "oerushield/oerushield.h"
 #include "script/standard.h"
 #include "timedata.h"
 #include "txmempool.h"
@@ -628,8 +629,14 @@ bool BlockAssembler::createOeruBaseOutput(const int nHeight, CTxOut &oeruBaseOut
     if (!key.SignCompact(ss.GetHash(), vchSig))
         return false;
 
+    // Combine OERU bytes and signature
+    vector<unsigned char> data;
+    data.reserve(COeruShield::OERU_BYTES.size() + vchSig.size());
+    data.insert(data.end(), COeruShield::OERU_BYTES.begin(), COeruShield::OERU_BYTES.end());
+    data.insert(data.end(), vchSig.begin(), vchSig.end());
+
     oeruBaseOut.nValue = 0;
-    oeruBaseOut.scriptPubKey = CScript() << OP_RETURN << vchSig;
+    oeruBaseOut.scriptPubKey = CScript() << OP_RETURN << data;
 
     return true;
 }
