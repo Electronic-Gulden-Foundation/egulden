@@ -4,11 +4,13 @@
 
 #include "oerushield/oerudb.h"
 #include "oerushield/oerushield.h"
+#include "oerushield/oerutx.h"
 #include "test/test_bitcoin.h"
 
 #include "base58.h"
 
 #include <boost/test/unit_test.hpp>
+#include <string>
 
 BOOST_FIXTURE_TEST_SUITE(oerushield_tests, BasicTestingSetup)
 
@@ -107,6 +109,35 @@ BOOST_AUTO_TEST_CASE (oerushield_read_write_dbfile)
         CBitcoinAddress toCheck("LWkdEB9SHUfuBiTvZofK2LqYE4RTTtUcqi");
         BOOST_CHECK(readOeruDB.IsAddressCertified(toCheck) == true);
     }
+}
+
+BOOST_AUTO_TEST_CASE (oerumasterdata_parsing_invalid)
+{
+    std::vector<unsigned char> data = ParseHex("");
+    COeruMasterData masterData(&data);
+
+    BOOST_CHECK(masterData.IsValid() == false);
+}
+
+BOOST_AUTO_TEST_CASE (oerumasterdata_parsing_valid)
+{
+    std::vector<unsigned char> data = ParseHex("01000f4240203fb6ba2a53b41cba97a2ddbaddb52a5b942dd450b6873d8ca633a07eee74820004ce88a1a2eca319a8f02189e82c3ce186d5cc015e60e12e266017ac02c623a8");
+    COeruMasterData masterData(&data);
+
+    BOOST_CHECK(masterData.IsValid() == true);
+
+    bool enable;
+    BOOST_CHECK(masterData.GetEnable(enable) == true);
+    BOOST_CHECK(enable == true);
+
+    uint64_t height;
+    BOOST_CHECK(masterData.GetHeight(height) == true);
+
+    BOOST_CHECK(height == 1000000);
+
+    std::vector<unsigned char> sig;
+    BOOST_CHECK(masterData.GetSignature(sig) == true);
+    BOOST_CHECK(sig.size() == 65);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

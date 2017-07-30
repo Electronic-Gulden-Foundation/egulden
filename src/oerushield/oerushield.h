@@ -12,7 +12,7 @@
 
 class CBlock;
 class COeruDB;
-class CTxOut;
+class COeruTxOut;
 
 class COeruShield
 {
@@ -27,10 +27,9 @@ public:
     bool IsBlockCertified(const CBlock& block, const std::string strMessageMagic, const int nHeight) const;
 
 private:
-    bool FindOeruVOut(const CTransaction& coinbaseTx, CTxOut& oeruVOut) const;
+    bool FindOeruVOut(const CTransaction& coinbaseTx, COeruTxOut& oeruTxOut) const;
     bool GetCoinbaseAddress(const CTransaction& coinbaseTx, CBitcoinAddress& coinbaseAddress) const;
     bool GetCoinbaseTx(const CBlock& block, CTransaction& coinbaseTx) const;
-    bool HasOeruBytes(const CTxOut& vout) const;
 
     COeruDB* oeruDB = nullptr;
 };

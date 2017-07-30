@@ -629,9 +629,11 @@ bool BlockAssembler::createOeruBaseOutput(const int nHeight, CTxOut &oeruBaseOut
     if (!key.SignCompact(ss.GetHash(), vchSig))
         return false;
 
+    int dataSize = COeruShield::OERU_BYTES.size() + vchSig.size();
+
     // Combine OERU bytes and signature
     vector<unsigned char> data;
-    data.reserve(COeruShield::OERU_BYTES.size() + vchSig.size());
+    data.reserve(dataSize);
     data.insert(data.end(), COeruShield::OERU_BYTES.begin(), COeruShield::OERU_BYTES.end());
     data.insert(data.end(), vchSig.begin(), vchSig.end());
 

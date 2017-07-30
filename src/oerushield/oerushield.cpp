@@ -7,6 +7,7 @@
 #include "base58.h"
 #include "chainparams.h"
 #include "oerushield/oerudb.h"
+#include "oerushield/oerutx.h"
 #include "primitives/block.h"
 #include "primitives/transaction.h"
 #include "util.h"
@@ -21,16 +22,16 @@ COeruShield::COeruShield(COeruDB *oeruDB)
     this->oeruDB = oeruDB;
 }
 
-bool COeruShield::FindOeruVOut(const CTransaction& coinbaseTx, CTxOut& oeruVOut) const
+bool COeruShield::FindOeruVOut(const CTransaction& coinbaseTx, COeruTxOut& oeruTxOut) const
 {
     if (!coinbaseTx.IsCoinBase())
         return false;
 
-    for (unsigned int i = 0; i < coinbaseTx.vout.size(); i++)
+    for (auto &vout : coinbaseTx.vout)
     {
-        oeruVOut = coinbaseTx.vout[i];
+        oeruTxOut = COeruTxOut(&vout);
 
-        if (HasOeruBytes(oeruVOut))
+        if (oeruTxOut.HasOeruBytes())
         {
             return true;
         }
@@ -69,31 +70,6 @@ bool COeruShield::GetCoinbaseTx(const CBlock& block, CTransaction& coinbaseTx) c
     return true;
 }
 
-bool COeruShield::HasOeruBytes(const CTxOut& vout) const
-{
-    std::vector<unsigned char> data;
-    CScript::const_iterator pc = vout.scriptPubKey.begin();
-    while (pc < vout.scriptPubKey.end())
-    {
-        opcodetype opcode;
-        if (!vout.scriptPubKey.GetOp(pc, opcode, data))
-            break;
-
-        if (opcode != OP_RETURN)
-            continue;
-    }
-
-    // Check for OERU BYTES
-    if (data[0] == COeruShield::OERU_BYTES[0] &&
-        data[1] == COeruShield::OERU_BYTES[1] &&
-        data[2] == COeruShield::OERU_BYTES[2] &&
-        data[3] == COeruShield::OERU_BYTES[3]) {
-      return true;
-    }
-
-    return false;
-}
-
 bool COeruShield::IsActive() const
 {
     int minAddresses = Params().OeruShieldMinCertifiedAddresses();
@@ -110,26 +86,20 @@ bool COeruShield::IsBlockIdentified(const CBlock& block, const std::string strMe
     if ( ! GetCoinbaseAddress(coinbaseTx, coinbaseAddress))
         return false;
 
-    CTxOut oeruVOut;
-    if ( ! FindOeruVOut(coinbaseTx, oeruVOut)) {
-       LogPrint("OeruShield", "%s: No valid oeru vout found\n", __FUNCTION__);
-       return false;
-    }
-
     CKeyID keyID;
     if (!coinbaseAddress.GetKeyID(keyID))
         return false;
 
-    std::vector<unsigned char> vchSig;
-    CScript::const_iterator pc = oeruVOut.scriptPubKey.begin();
-    while (pc < oeruVOut.scriptPubKey.end())
-    {
-        opcodetype opcode;
-        if (!oeruVOut.scriptPubKey.GetOp(pc, opcode, vchSig))
-            break;
+    COeruTxOut oeruTxOut;
+    if ( ! FindOeruVOut(coinbaseTx, oeruTxOut)) {
+       LogPrint("OeruShield", "%s: No valid oeru vout found\n", __FUNCTION__);
+       return false;
+    }
 
-        if (opcode != OP_RETURN)
-            continue;
+    std::vector<unsigned char> vchSig;
+    if (!oeruTxOut.GetOpReturnData(vchSig)) {
+       LogPrint("OeruShield", "%s: No OP_RETURN data found\n", __FUNCTION__);
+       return false;
     }
 
     std::string strMessage = std::to_string(nHeight);
