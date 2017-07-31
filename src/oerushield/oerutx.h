@@ -6,8 +6,10 @@
 #define BITCOIN_OERUSHIELD_OERUTX_H
 
 #include <stdint.h>
+#include <string>
 #include <vector>
 
+class CBitcoinAddress;
 class CTxOut;
 
 class COeruMasterData
@@ -18,7 +20,10 @@ public:
 
     bool GetEnable(bool &out) const;
     bool GetHeight(uint64_t &out) const;
+    bool GetRawMessage(std::string &out) const;
     bool GetSignature(std::vector<unsigned char> &vchSig) const;
+
+    bool HasValidSignature(CBitcoinAddress address) const;
 
     bool IsValid() const;
 private:

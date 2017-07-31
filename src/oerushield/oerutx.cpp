@@ -5,11 +5,13 @@
 #include "oerushield/oerutx.h"
 
 #include "oerushield/oerushield.h"
+#include "oerushield/signaturechecker.h"
 #include "primitives/transaction.h"
 #include "util.h"
 #include "utilstrencodings.h"
 
 #include <vector>
+#include <boost/format.hpp>
 
 COeruTxOut::COeruTxOut()
 {
@@ -120,6 +122,26 @@ bool COeruMasterData::GetHeight(uint64_t &out) const
     return true;
 }
 
+bool COeruMasterData::GetRawMessage(std::string &out) const
+{
+    if (!IsValid()) return false;
+
+    bool enable;
+    if (!GetEnable(enable))
+        return false;
+
+    uint64_t height;
+    if (!GetHeight(height))
+        return false;
+
+    std::stringstream ss;
+    ss << boost::format("%02x%08x") % enable % height;
+
+    out = ss.str();
+
+    return true;
+}
+
 bool COeruMasterData::GetSignature(std::vector<unsigned char> &vchSig) const
 {
     if (!IsValid()) return false;
@@ -131,6 +153,22 @@ bool COeruMasterData::GetSignature(std::vector<unsigned char> &vchSig) const
     );
 
     return true;
+}
+
+bool COeruMasterData::HasValidSignature(CBitcoinAddress address) const
+{
+    if (!IsValid()) return false;
+
+    std::vector<unsigned char> vchSig;
+    if (!GetSignature(vchSig))
+        return false;
+
+    std::string rawMessage;
+    if (!GetRawMessage(rawMessage))
+        return false;
+
+    CSignatureChecker sigChecker;
+    return sigChecker.VerifySignature(rawMessage, vchSig, address);
 }
 
 bool COeruMasterData::IsValid() const

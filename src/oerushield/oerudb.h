@@ -18,7 +18,7 @@ public:
     COeruDB(std::string oeruDBFileName);
 
     void AddCertifiedAddress(CBitcoinAddress addr);
-    bool IsAddressCertified(CBitcoinAddress& addr) const;
+    bool IsAddressCertified(CBitcoinAddress addr) const;
     int NumCertifiedAddresses();
     void RemoveCertifiedAddress(CBitcoinAddress addr);
 

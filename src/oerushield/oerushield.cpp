@@ -8,6 +8,7 @@
 #include "chainparams.h"
 #include "oerushield/oerudb.h"
 #include "oerushield/oerutx.h"
+#include "oerushield/signaturechecker.h"
 #include "primitives/block.h"
 #include "primitives/transaction.h"
 #include "util.h"
@@ -76,7 +77,7 @@ bool COeruShield::IsActive() const
     return oeruDB->NumCertifiedAddresses() >= minAddresses;
 }
 
-bool COeruShield::IsBlockIdentified(const CBlock& block, const std::string strMessageMagic, const int nHeight) const
+bool COeruShield::IsBlockIdentified(const CBlock& block, const int nHeight) const
 {
     CTransaction coinbaseTx;
     if ( ! GetCoinbaseTx(block, coinbaseTx))
@@ -84,10 +85,6 @@ bool COeruShield::IsBlockIdentified(const CBlock& block, const std::string strMe
 
     CBitcoinAddress coinbaseAddress;
     if ( ! GetCoinbaseAddress(coinbaseTx, coinbaseAddress))
-        return false;
-
-    CKeyID keyID;
-    if (!coinbaseAddress.GetKeyID(keyID))
         return false;
 
     COeruTxOut oeruTxOut;
@@ -104,15 +101,8 @@ bool COeruShield::IsBlockIdentified(const CBlock& block, const std::string strMe
 
     std::string strMessage = std::to_string(nHeight);
 
-    CHashWriter ss(SER_GETHASH, 0);
-    ss << strMessageMagic;
-    ss << strMessage;
-
-    CPubKey pubkey;
-    if (!pubkey.RecoverCompact(ss.GetHash(), vchSig))
-        return false;
-
-    if (pubkey.GetID() == keyID) {
+    CSignatureChecker signatureChecker;
+    if (signatureChecker.VerifySignature(strMessage, vchSig, coinbaseAddress)) {
         LogPrint("OeruShield", "%s: Valid OERU signature\n", __FUNCTION__);
         return true;
     } else {
@@ -121,9 +111,9 @@ bool COeruShield::IsBlockIdentified(const CBlock& block, const std::string strMe
     }
 }
 
-bool COeruShield::IsBlockCertified(const CBlock& block, const std::string strMessageMagic, const int nHeight) const
+bool COeruShield::IsBlockCertified(const CBlock& block, const int nHeight) const
 {
-    if ( ! IsBlockIdentified(block, strMessageMagic, nHeight))
+    if ( ! IsBlockIdentified(block, nHeight))
         return false;
 
     CTransaction coinbaseTx;

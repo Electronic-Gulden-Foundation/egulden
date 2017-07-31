@@ -3697,8 +3697,8 @@ bool ContextualCheckBlock(const CBlock& block, CValidationState& state, CBlockIn
     LogPrint("ContextualCheckBlock", "OERU @ Block %d:\n\t- Active: %d\n\t- Identified: %d\n\t- Certified: %d\n",
             nHeight,
             oeruShield.IsActive(),
-            oeruShield.IsBlockIdentified(block, strMessageMagic, nHeight),
-            oeruShield.IsBlockCertified(block, strMessageMagic, nHeight));
+            oeruShield.IsBlockIdentified(block, nHeight),
+            oeruShield.IsBlockCertified(block, nHeight));
 
     return true;
 }

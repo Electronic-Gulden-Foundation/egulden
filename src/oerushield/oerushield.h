@@ -23,8 +23,8 @@ public:
 
     bool IsActive() const;
 
-    bool IsBlockIdentified(const CBlock& block, const std::string strMessageMagic, const int nHeight) const;
-    bool IsBlockCertified(const CBlock& block, const std::string strMessageMagic, const int nHeight) const;
+    bool IsBlockIdentified(const CBlock& block, const int nHeight) const;
+    bool IsBlockCertified(const CBlock& block, const int nHeight) const;
 
 private:
     bool FindOeruVOut(const CTransaction& coinbaseTx, COeruTxOut& oeruTxOut) const;

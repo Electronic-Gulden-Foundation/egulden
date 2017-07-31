@@ -30,7 +30,7 @@ void COeruDB::AddCertifiedAddress(CBitcoinAddress addr)
     vOeruCertifiedAddresses.insert(addr);
 }
 
-bool COeruDB::IsAddressCertified(CBitcoinAddress& addr) const
+bool COeruDB::IsAddressCertified(CBitcoinAddress addr) const
 {
     for (auto it = vOeruCertifiedAddresses.begin(); it != vOeruCertifiedAddresses.end(); ++it)
     {
