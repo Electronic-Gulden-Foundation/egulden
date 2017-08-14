@@ -19,7 +19,7 @@ public:
 
     void AddCertifiedAddress(CBitcoinAddress addr);
     bool IsAddressCertified(CBitcoinAddress addr) const;
-    int NumCertifiedAddresses();
+    int NumCertifiedAddresses() const;
     void RemoveCertifiedAddress(CBitcoinAddress addr);
 
     // Reads the data from the file

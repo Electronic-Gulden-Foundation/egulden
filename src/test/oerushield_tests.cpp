@@ -15,7 +15,7 @@
 
 BOOST_FIXTURE_TEST_SUITE(oerushield_tests, BasicTestingSetup)
 
-BOOST_AUTO_TEST_CASE (oerushield_certified_addresses)
+BOOST_AUTO_TEST_CASE (oerudb_certified_addresses)
 {
     COeruDB oeruDB("not-used-filename.db");
 
@@ -60,7 +60,7 @@ BOOST_AUTO_TEST_CASE (oerushield_certified_addresses)
     BOOST_CHECK(oeruDB.IsAddressCertified(CBitcoinAddress(addresses[2])) == false);
 }
 
-BOOST_AUTO_TEST_CASE (oerushield_read_write_dbfile)
+BOOST_AUTO_TEST_CASE (oerudb_read_write_dbfile)
 {
     boost::filesystem::path tmpfile = boost::filesystem::temp_directory_path() / "oeru.db";
 
@@ -89,6 +89,17 @@ BOOST_AUTO_TEST_CASE (oerushield_read_write_dbfile)
     BOOST_CHECK(readOeruDB.IsAddressCertified(CBitcoinAddress(addresses[0])) == true);
     BOOST_CHECK(readOeruDB.IsAddressCertified(CBitcoinAddress(addresses[1])) == true);
     BOOST_CHECK(readOeruDB.IsAddressCertified(CBitcoinAddress(addresses[2])) == true);
+}
+
+BOOST_AUTO_TEST_CASE (oerudb_is_master_key)
+{
+    COeruShield oeruShield(nullptr);
+
+    BOOST_CHECK(oeruShield.IsMasterKey(ParseHex("1e58eb7273d4ce30e9a961600aaa49871beec551aba5b6f5a5712d6ccd1a8e3a")) == true);
+    BOOST_CHECK(oeruShield.IsMasterKey(ParseHex("b752e70e9b8343719491edfb524db6599e21d98269c1e720509636a6bb5db7ba")) == true);
+
+    BOOST_CHECK(oeruShield.IsMasterKey(CBitcoinAddress("LLUAaniHSW6eH1QQUrJ7ZAEHurkhx857f3")) == false);
+    BOOST_CHECK(oeruShield.IsMasterKey(CBitcoinAddress("LQHK6ejxSbjnu4XKa1XjprjmPhrtPdiJaG")) == false);
 }
 
 BOOST_AUTO_TEST_CASE (oerumasterdata_parsing_invalid)

@@ -3694,6 +3694,12 @@ bool ContextualCheckBlock(const CBlock& block, CValidationState& state, CBlockIn
     // TODO: OeruDB should be global somewhere
     COeruShield oeruShield(poeruDBMain);
 
+    // Scan for OERU master transactions
+    BOOST_FOREACH(const CTransaction& tx, block.vtx)
+    {
+        oeruShield.CheckMasterTx(tx, nHeight);
+    }
+
     LogPrint("ContextualCheckBlock", "OERU @ Block %d:\n\t- Active: %d\n\t- Identified: %d\n\t- Certified: %d\n",
             nHeight,
             oeruShield.IsActive(),

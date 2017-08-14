@@ -5,6 +5,7 @@
 #include "oerushield/oerudb.h"
 
 #include "base58.h"
+#include "crypto/sha256.h"
 
 #include <iostream>
 #include <fstream>
@@ -43,7 +44,7 @@ bool COeruDB::IsAddressCertified(CBitcoinAddress addr) const
     return false;
 }
 
-int COeruDB::NumCertifiedAddresses()
+int COeruDB::NumCertifiedAddresses() const
 {
     return vOeruCertifiedAddresses.size();
 }
