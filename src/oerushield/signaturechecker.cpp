@@ -20,7 +20,7 @@ bool CSignatureChecker::VerifySignature(const std::string strMessage, const std:
 
     CPubKey pubkey;
     if (!pubkey.RecoverCompact(ss.GetHash(), vchSig)) {
-        std::cout << "Unable to RecoverCompact" << std::endl;
+        LogPrint("OeruShield", "%s: Unable to RecoverCompact\n", __FUNCTION__);
         return false;
     }
 
@@ -31,7 +31,6 @@ bool CSignatureChecker::VerifySignature(const std::string strMessage, const std:
 {
     CKeyID keyID;
     if (!address.GetKeyID(keyID)) {
-        std::cout << "Unable to get KeyID from " << address.ToString() << std::endl;
         LogPrint("OeruShield", "%s: Unable to get KeyID\n", __FUNCTION__);
         return false;
     }
