@@ -189,6 +189,9 @@ void Shutdown()
     RenameThread("egulden-shutoff");
     mempool.AddTransactionsUpdated(1);
 
+    // Write oeru DB data
+    poeruDBMain->WriteFile();
+
     StopHTTPRPC();
     StopREST();
     StopRPC();
