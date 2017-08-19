@@ -159,12 +159,13 @@ bool COeruShield::IsBlockIdentified(const CBlock& block, const int nHeight) cons
        return false;
     }
 
-    std::vector<unsigned char> vchSig;
-    if (!oeruTxOut.GetOpReturnData(vchSig)) {
+    std::vector<unsigned char> vchData;
+    if (!oeruTxOut.GetOpReturnData(vchData)) {
        LogPrint("OeruShield", "%s: No OP_RETURN data found\n", __FUNCTION__);
        return false;
     }
 
+    std::vector<unsigned char> vchSig(vchData.begin() + COeruShield::OERU_BYTES.size(), vchData.end());
     std::string strMessage = std::to_string(nHeight);
 
     CSignatureChecker signatureChecker;
