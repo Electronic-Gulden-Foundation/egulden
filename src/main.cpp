@@ -3691,17 +3691,15 @@ bool ContextualCheckBlock(const CBlock& block, CValidationState& state, CBlockIn
         return state.DoS(100, error("ContextualCheckBlock(): weight limit failed"), REJECT_INVALID, "bad-blk-weight");
     }
 
-    // TODO: OeruDB should be global somewhere
     COeruShield oeruShield(poeruDBMain);
+    if (oeruShield.IsActive() && !oeruShield.AcceptBlock(block, pindexPrev)) {
+        return state.DoS(100, error("%s: OeruShield denied block", __func__));
+    }
 
     // Scan for OERU master transactions
     BOOST_FOREACH(const CTransaction& tx, block.vtx)
     {
         oeruShield.CheckMasterTx(tx, nHeight);
-    }
-
-    if (oeruShield.IsActive() && !oeruShield.AcceptBlock(block, pindexPrev)) {
-        return state.DoS(100, error("%s: OeruShield denied block", __func__));
     }
 
     return true;
