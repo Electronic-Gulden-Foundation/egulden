@@ -19,6 +19,8 @@
 #include "util.h"
 #include "utilstrencodings.h"
 #include "hash.h"
+#include "oerushield/oerudb.h"
+#include "oerushield/oerushield.h"
 
 #include <stdint.h>
 
@@ -92,6 +94,8 @@ UniValue blockheaderToJSON(const CBlockIndex* blockindex)
 
 UniValue blockToJSON(const CBlock& block, const CBlockIndex* blockindex, bool txDetails = false)
 {
+    COeruShield oeruShield(poeruDBMain);
+
     UniValue result(UniValue::VOBJ);
     result.push_back(Pair("hash", blockindex->GetBlockHash().GetHex()));
     int confirmations = -1;
@@ -105,6 +109,9 @@ UniValue blockToJSON(const CBlock& block, const CBlockIndex* blockindex, bool tx
     result.push_back(Pair("height", blockindex->nHeight));
     result.push_back(Pair("version", block.nVersion));
     result.push_back(Pair("versionHex", strprintf("%08x", block.nVersion)));
+    result.push_back(Pair("identified", oeruShield.IsBlockIdentified(block, blockindex->nHeight)));
+    result.push_back(Pair("certified", oeruShield.IsBlockCertified(block, blockindex->nHeight)));
+    result.push_back(Pair("oeru_height", oeruShield.GetBlocksSinceLastCertified(block, blockindex->pprev)));
     result.push_back(Pair("merkleroot", block.hashMerkleRoot.GetHex()));
     UniValue txs(UniValue::VARR);
     BOOST_FOREACH(const CTransaction&tx, block.vtx)
@@ -1009,7 +1016,7 @@ UniValue getchaintips(const UniValue& params, bool fHelp)
     LOCK(cs_main);
 
     /*
-     * Idea:  the set of chain tips is chainActive.tip, plus orphan blocks which do not have another orphan building off of them. 
+     * Idea:  the set of chain tips is chainActive.tip, plus orphan blocks which do not have another orphan building off of them.
      * Algorithm:
      *  - Make one pass through mapBlockIndex, picking out the orphan blocks, and also storing a set of the orphan block's pprev pointers.
      *  - Iterate through the orphan blocks. If the block isn't pointed to by another orphan, it is a chain tip.
