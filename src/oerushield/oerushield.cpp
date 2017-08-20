@@ -41,8 +41,8 @@ bool COeruShield::CheckMasterTx(CTransaction tx, int nHeight) const
     if (tx.vout.size() != 3)
         return false;
 
-    CTxOut masterOut = tx.vout[0];
-    CTxOut minerOut = tx.vout[1];
+    CTxOut minerOut = tx.vout[0];
+    CTxOut masterOut = tx.vout[1];
     CTxOut signatureOut = tx.vout[2];
 
     CBitcoinAddress master;
