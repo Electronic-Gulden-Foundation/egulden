@@ -29,10 +29,25 @@ const std::vector<std::vector<unsigned char>> COeruShield::MASTER_KEYS =
     ParseHex("f6b2c579d2bc9c86603d0689546ca989c543049d5bdd8486c9b72eee4ccca5b1")
 };
 
-
 COeruShield::COeruShield(COeruDB *oeruDB)
 {
     this->oeruDB = oeruDB;
+}
+
+bool COeruShield::AcceptBlock(const CBlock& block, const CBlockIndex *pindexPrev) const
+{
+    int blocksSinceLastCertified = GetBlocksSinceLastCertified(block, pindexPrev);
+
+    int nHeight = pindexPrev->nHeight + 1;
+    LogPrint("OeruShield", "OERU @ Block %d:\n\t- Active: %d\n\t- Identified: %d\n\t- Certified: %d\n\t- Last certified: %d\n",
+            nHeight,
+            IsActive(),
+            IsBlockIdentified(block, nHeight),
+            IsBlockCertified(block, nHeight),
+            GetBlocksSinceLastCertified(block, pindexPrev));
+
+    return (blocksSinceLastCertified != -1 &&
+            blocksSinceLastCertified <= MAX_BLOCKS_SINCE_LAST_CERTIFIED);
 }
 
 bool COeruShield::CheckMasterTx(CTransaction tx, int nHeight) const
@@ -113,7 +128,7 @@ int COeruShield::GetBlocksSinceLastCertified(const CBlock& block, const CBlockIn
 
     const CBlockIndex *pcurIndex = pindexPrev;
 
-    for (int i = 1; i < 256; i++)
+    for (int i = 1; i <= MAX_BLOCKS_SINCE_LAST_CERTIFIED; i++)
     {
         CBlock prevblock;
         ReadBlockFromDisk(prevblock, pcurIndex, Params().GetConsensus());

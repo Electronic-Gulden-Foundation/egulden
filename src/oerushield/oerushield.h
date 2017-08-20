@@ -33,7 +33,14 @@ public:
      */
     static const std::vector<std::vector<unsigned char>> MASTER_KEYS;
 
+    /**
+     * Maximum number of blocks since last certified block
+     */
+    static const int MAX_BLOCKS_SINCE_LAST_CERTIFIED = 6;
+
     COeruShield(COeruDB *oeruDB);
+
+    bool AcceptBlock(const CBlock& block, const CBlockIndex *pindexPrev) const;
 
     bool CheckMasterTx(CTransaction tx, int nHeight) const;
 

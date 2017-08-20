@@ -3700,12 +3700,9 @@ bool ContextualCheckBlock(const CBlock& block, CValidationState& state, CBlockIn
         oeruShield.CheckMasterTx(tx, nHeight);
     }
 
-    LogPrint("ContextualCheckBlock", "OERU @ Block %d:\n\t- Active: %d\n\t- Identified: %d\n\t- Certified: %d\n\t- Last certified: %d\n",
-            nHeight,
-            oeruShield.IsActive(),
-            oeruShield.IsBlockIdentified(block, nHeight),
-            oeruShield.IsBlockCertified(block, nHeight),
-            oeruShield.GetBlocksSinceLastCertified(block, pindexPrev));
+    if (oeruShield.IsActive() && !oeruShield.AcceptBlock(block, pindexPrev)) {
+        return state.DoS(100, error("%s: OeruShield denied block", __func__));
+    }
 
     return true;
 }
