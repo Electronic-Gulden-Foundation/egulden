@@ -3700,11 +3700,12 @@ bool ContextualCheckBlock(const CBlock& block, CValidationState& state, CBlockIn
         oeruShield.CheckMasterTx(tx, nHeight);
     }
 
-    LogPrint("ContextualCheckBlock", "OERU @ Block %d:\n\t- Active: %d\n\t- Identified: %d\n\t- Certified: %d\n",
+    LogPrint("ContextualCheckBlock", "OERU @ Block %d:\n\t- Active: %d\n\t- Identified: %d\n\t- Certified: %d\n\t- Last certified: %d\n",
             nHeight,
             oeruShield.IsActive(),
             oeruShield.IsBlockIdentified(block, nHeight),
-            oeruShield.IsBlockCertified(block, nHeight));
+            oeruShield.IsBlockCertified(block, nHeight),
+            oeruShield.GetBlocksSinceLastCertified(block, pindexPrev, nHeight));
 
     return true;
 }

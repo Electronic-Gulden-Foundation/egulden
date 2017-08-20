@@ -5,7 +5,9 @@
 #include "oerushield/oerushield.h"
 
 #include "base58.h"
+#include "chain.h"
 #include "chainparams.h"
+#include "main.h"
 #include "oerushield/oerudb.h"
 #include "oerushield/oerutx.h"
 #include "oerushield/signaturechecker.h"
@@ -103,6 +105,26 @@ bool COeruShield::FindOeruVOut(const CTransaction& coinbaseTx, COeruTxOut& oeruT
         }
     }
     return false;
+}
+
+int COeruShield::GetBlocksSinceLastCertified(const CBlock& block, const CBlockIndex *pindexPrev, const int nHeight) const
+{
+    if (IsBlockCertified(block, nHeight)) return 0;
+
+    const CBlockIndex *pcurIndex = pindexPrev;
+
+    for (int i = 1; i < 256; i++)
+    {
+        CBlock prevblock;
+        ReadBlockFromDisk(prevblock, pcurIndex, Params().GetConsensus());
+
+        if (IsBlockCertified(prevblock, pcurIndex->nHeight))
+            return i;
+
+        pcurIndex = pcurIndex->pprev;
+    }
+
+    return -1;
 }
 
 bool COeruShield::GetCoinbaseAddress(const CTransaction& coinbaseTx, CBitcoinAddress& coinbaseAddress) const
