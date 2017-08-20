@@ -331,7 +331,7 @@ public:
         fMineBlocksOnDemand = true;
         fTestnetToBeDeprecatedFieldRPC = false;
 
-        nKGWStartHeight = 100;
+        nKGWStartHeight = 1000;
         nOeruShieldMinCertifiedAddresses = 1;
 
         checkpointData = (CCheckpointData){
