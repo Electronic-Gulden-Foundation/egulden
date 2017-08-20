@@ -83,6 +83,8 @@ bool COeruShield::CheckMasterTx(CTransaction tx, int nHeight) const
     else
         oeruDB->RemoveCertifiedAddress(miner);
 
+    oeruDB->WriteFile();
+
     return true;
 }
 
