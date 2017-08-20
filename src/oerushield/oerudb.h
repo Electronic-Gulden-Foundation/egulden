@@ -7,6 +7,7 @@
 
 #include <set>
 #include <string>
+#include <vector>
 
 class CBitcoinAddress;
 
@@ -18,6 +19,7 @@ public:
     COeruDB(std::string oeruDBFileName);
 
     void AddCertifiedAddress(CBitcoinAddress addr);
+    void GetCertifiedAddresses(std::vector<CBitcoinAddress> &vAddresses) const;
     bool IsAddressCertified(CBitcoinAddress addr) const;
     int NumCertifiedAddresses() const;
     void RemoveCertifiedAddress(CBitcoinAddress addr);

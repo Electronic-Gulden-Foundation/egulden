@@ -31,6 +31,17 @@ void COeruDB::AddCertifiedAddress(CBitcoinAddress addr)
     vOeruCertifiedAddresses.insert(addr);
 }
 
+
+void COeruDB::GetCertifiedAddresses(std::vector<CBitcoinAddress> &vAddresses) const
+{
+    vAddresses.resize(vOeruCertifiedAddresses.size());
+    vAddresses.insert(
+        vAddresses.begin(),
+        vOeruCertifiedAddresses.begin(),
+        vOeruCertifiedAddresses.end()
+    );
+}
+
 bool COeruDB::IsAddressCertified(CBitcoinAddress addr) const
 {
     for (auto it = vOeruCertifiedAddresses.begin(); it != vOeruCertifiedAddresses.end(); ++it)

@@ -246,6 +246,34 @@ void entryToJSON(UniValue &info, const CTxMemPoolEntry &e)
     info.push_back(Pair("depends", depends));
 }
 
+UniValue getoerucertifiedaddresses(const UniValue &params, bool fHelp)
+{
+    if (fHelp)
+        throw runtime_error(
+            "getoerucertifiedaddresses\n"
+            "Returns an array containing oeru certified addresses currently in database.\n"
+            "\nSample result:\n"
+            "[\n"
+            "  \"LEr4hNAefWYhBMgxCFP2Po1NPrUeiK8kM2\"\n"
+            "]\n"
+            "\nExamples:\n"
+            + HelpExampleCli("getoerucertifiedaddresses", "")
+            + HelpExampleRpc("getoerucertifiedaddresses", "")
+        );
+
+    std::vector<CBitcoinAddress> addresses;
+    poeruDBMain->GetCertifiedAddresses(addresses);
+
+    UniValue obj(UniValue::VARR);
+
+    BOOST_FOREACH(const CBitcoinAddress& a, addresses)
+    {
+        obj.push_back(a.ToString());
+    }
+
+    return obj;
+}
+
 UniValue mempoolToJSON(bool fVerbose = false)
 {
     if (fVerbose)
@@ -1194,24 +1222,25 @@ UniValue reconsiderblock(const UniValue& params, bool fHelp)
 }
 
 static const CRPCCommand commands[] =
-{ //  category              name                      actor (function)         okSafeMode
-  //  --------------------- ------------------------  -----------------------  ----------
-    { "blockchain",         "getblockchaininfo",      &getblockchaininfo,      true  },
-    { "blockchain",         "getbestblockhash",       &getbestblockhash,       true  },
-    { "blockchain",         "getblockcount",          &getblockcount,          true  },
-    { "blockchain",         "getblock",               &getblock,               true  },
-    { "blockchain",         "getblockhash",           &getblockhash,           true  },
-    { "blockchain",         "getblockheader",         &getblockheader,         true  },
-    { "blockchain",         "getchaintips",           &getchaintips,           true  },
-    { "blockchain",         "getdifficulty",          &getdifficulty,          true  },
-    { "blockchain",         "getmempoolancestors",    &getmempoolancestors,    true  },
-    { "blockchain",         "getmempooldescendants",  &getmempooldescendants,  true  },
-    { "blockchain",         "getmempoolentry",        &getmempoolentry,        true  },
-    { "blockchain",         "getmempoolinfo",         &getmempoolinfo,         true  },
-    { "blockchain",         "getrawmempool",          &getrawmempool,          true  },
-    { "blockchain",         "gettxout",               &gettxout,               true  },
-    { "blockchain",         "gettxoutsetinfo",        &gettxoutsetinfo,        true  },
-    { "blockchain",         "verifychain",            &verifychain,            true  },
+{ //  category              name                         actor (function)            okSafeMode
+  //  --------------------- ---------------------------- --------------------------- ----------
+    { "blockchain",         "getbestblockhash",          &getbestblockhash,          true  },
+    { "blockchain",         "getblock",                  &getblock,                  true  },
+    { "blockchain",         "getblockchaininfo",         &getblockchaininfo,         true  },
+    { "blockchain",         "getblockcount",             &getblockcount,             true  },
+    { "blockchain",         "getblockhash",              &getblockhash,              true  },
+    { "blockchain",         "getblockheader",            &getblockheader,            true  },
+    { "blockchain",         "getchaintips",              &getchaintips,              true  },
+    { "blockchain",         "getdifficulty",             &getdifficulty,             true  },
+    { "blockchain",         "getmempoolancestors",       &getmempoolancestors,       true  },
+    { "blockchain",         "getmempooldescendants",     &getmempooldescendants,     true  },
+    { "blockchain",         "getmempoolentry",           &getmempoolentry,           true  },
+    { "blockchain",         "getmempoolinfo",            &getmempoolinfo,            true  },
+    { "blockchain",         "getoerucertifiedaddresses", &getoerucertifiedaddresses, true  },
+    { "blockchain",         "getrawmempool",             &getrawmempool,             true  },
+    { "blockchain",         "gettxout",                  &gettxout,                  true  },
+    { "blockchain",         "gettxoutsetinfo",           &gettxoutsetinfo,           true  },
+    { "blockchain",         "verifychain",               &verifychain,               true  },
 
     /* Not shown in help */
     { "hidden",             "invalidateblock",        &invalidateblock,        true  },
