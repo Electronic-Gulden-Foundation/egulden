@@ -37,7 +37,7 @@ public:
 
     bool CheckMasterTx(CTransaction tx, int nHeight) const;
 
-    int GetBlocksSinceLastCertified(const CBlock& block, const CBlockIndex *pindexPrev, const int nHeight) const;
+    int GetBlocksSinceLastCertified(const CBlock& block, const CBlockIndex *pindexPrev) const;
 
     bool IsActive() const;
 

@@ -3705,7 +3705,7 @@ bool ContextualCheckBlock(const CBlock& block, CValidationState& state, CBlockIn
             oeruShield.IsActive(),
             oeruShield.IsBlockIdentified(block, nHeight),
             oeruShield.IsBlockCertified(block, nHeight),
-            oeruShield.GetBlocksSinceLastCertified(block, pindexPrev, nHeight));
+            oeruShield.GetBlocksSinceLastCertified(block, pindexPrev));
 
     return true;
 }

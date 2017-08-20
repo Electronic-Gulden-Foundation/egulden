@@ -107,9 +107,9 @@ bool COeruShield::FindOeruVOut(const CTransaction& coinbaseTx, COeruTxOut& oeruT
     return false;
 }
 
-int COeruShield::GetBlocksSinceLastCertified(const CBlock& block, const CBlockIndex *pindexPrev, const int nHeight) const
+int COeruShield::GetBlocksSinceLastCertified(const CBlock& block, const CBlockIndex *pindexPrev) const
 {
-    if (IsBlockCertified(block, nHeight)) return 0;
+    if (IsBlockCertified(block, pindexPrev->nHeight + 1)) return 0;
 
     const CBlockIndex *pcurIndex = pindexPrev;
 
