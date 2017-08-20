@@ -23,6 +23,7 @@ public:
     bool GetRawMessage(std::string &out) const;
     bool GetSignature(std::vector<unsigned char> &vchSig) const;
 
+    bool HasOeruBytes() const;
     bool HasValidSignature(CBitcoinAddress address) const;
 
     bool IsValid() const;
@@ -30,13 +31,16 @@ private:
     const std::vector<unsigned char> *data = nullptr;
 
     // Lengths
+    unsigned int nOeruBytesLength = 4;
     unsigned int nEnableLength = 1;
     unsigned int nHeightLength = 4;
     unsigned int nSignatureLength = 65;
-    unsigned int nTotalLength = nEnableLength + nHeightLength + nSignatureLength;
+    unsigned int nTotalLength = nOeruBytesLength + nEnableLength + nHeightLength + nSignatureLength;
 
     // Locations
-    unsigned int nEnableStart = 0;
+    unsigned int nOeruBytesStart = 0;
+    unsigned int nOeruBytesEnd = nOeruBytesStart + nOeruBytesLength;
+    unsigned int nEnableStart = nOeruBytesEnd;
     unsigned int nEnableEnd = nEnableStart + nEnableLength - 1;
     unsigned int nHeightStart = 1 + nEnableEnd;
     unsigned int nHeightEnd = nHeightStart + nHeightLength - 1;

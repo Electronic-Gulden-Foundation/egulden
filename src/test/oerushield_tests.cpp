@@ -115,9 +115,10 @@ BOOST_AUTO_TEST_CASE (oerumasterdata_parsing_valid)
     CBitcoinAddress signingAddress("LaZ27rggR2KnmvVGxa3kzkoqxgDYidti2k");
     CBitcoinAddress nonSigningAddress("LgEHSpv22knkaSR1ZbPSaxqtXujReQykK9");
 
-    std::vector<unsigned char> data = ParseHex("01000f4240208289659af9426a9e1a6540b9d6da97e942ff308c0a537cce764eac9dec8012565be84a321a7dd9eca5eaf4299ef67311e0e7a964a35e9bcdb8f3d12f952d8422");
+    std::vector<unsigned char> data = ParseHex("4f45525501000f4240208289659af9426a9e1a6540b9d6da97e942ff308c0a537cce764eac9dec8012565be84a321a7dd9eca5eaf4299ef67311e0e7a964a35e9bcdb8f3d12f952d8422");
     COeruMasterData masterData(&data);
 
+    BOOST_CHECK(masterData.HasOeruBytes() == true);
     BOOST_CHECK(masterData.IsValid() == true);
 
     bool enable;

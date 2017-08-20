@@ -155,6 +155,27 @@ bool COeruMasterData::GetSignature(std::vector<unsigned char> &vchSig) const
     return true;
 }
 
+bool COeruMasterData::HasOeruBytes() const
+{
+    std::vector<unsigned char> bytes(
+        data->begin() + nOeruBytesStart,
+        data->begin() + nOeruBytesEnd
+    );
+
+    if (bytes.size() != COeruShield::OERU_BYTES.size())
+        return false;
+
+    for (unsigned int i = 0; i < nOeruBytesEnd; i++)
+    {
+        if (bytes[i] != COeruShield::OERU_BYTES[i])
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 bool COeruMasterData::HasValidSignature(CBitcoinAddress address) const
 {
     if (!IsValid()) return false;
@@ -174,5 +195,7 @@ bool COeruMasterData::HasValidSignature(CBitcoinAddress address) const
 bool COeruMasterData::IsValid() const
 {
     if (data == nullptr) return false;
-    return data->size() == nTotalLength;
+    if (data->size() != nTotalLength) return false;
+
+    return HasOeruBytes();
 }
