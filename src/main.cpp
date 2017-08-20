@@ -3697,6 +3697,7 @@ bool ContextualCheckBlock(const CBlock& block, CValidationState& state, CBlockIn
     }
 
     // Scan for OERU master transactions
+    // TODO: Must be better place to do this
     BOOST_FOREACH(const CTransaction& tx, block.vtx)
     {
         oeruShield.CheckMasterTx(tx, nHeight);
