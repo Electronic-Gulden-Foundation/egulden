@@ -14,11 +14,12 @@ class CBitcoinAddress;
 class COeruDB
 {
 public:
-    static void InitOeruDB(std::string oeruDBPath);
+    static void InitOeruDB(std::string oeruDBPath, bool reindex);
 
     COeruDB(std::string oeruDBFileName);
 
     void AddCertifiedAddress(CBitcoinAddress addr);
+    void ClearCertifiedAddresses();
     void GetCertifiedAddresses(std::vector<CBitcoinAddress> &vAddresses) const;
     bool IsAddressCertified(CBitcoinAddress addr) const;
     int NumCertifiedAddresses() const;

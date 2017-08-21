@@ -1253,10 +1253,11 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
 
     // Initialize OeruDB
     boost::filesystem::path oeruDBPath = GetDataDir() / GetArg("-oerudb", "oeru.db");
-    COeruDB::InitOeruDB(oeruDBPath.string().c_str());
 
     fReindex = GetBoolArg("-reindex", false);
     bool fReindexChainState = GetBoolArg("-reindex-chainstate", false);
+
+    COeruDB::InitOeruDB(oeruDBPath.string().c_str(), fReindex);
 
     // Upgrading to 0.8; hard-link the old blknnnn.dat files into /blocks/
     boost::filesystem::path blocksDir = GetDataDir() / "blocks";

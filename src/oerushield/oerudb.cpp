@@ -13,12 +13,17 @@
 
 COeruDB* poeruDBMain = NULL;
 
-void COeruDB::InitOeruDB(std::string oeruPath)
+void COeruDB::InitOeruDB(std::string oeruPath, bool reindex)
 {
     COeruDB* oeruDBInstance = new COeruDB(oeruPath);
     assert(oeruDBInstance->ReadFile());
 
     poeruDBMain = oeruDBInstance;
+
+    if (reindex) {
+        poeruDBMain->ClearCertifiedAddresses();
+        poeruDBMain->WriteFile();
+    }
 }
 
 COeruDB::COeruDB(std::string oeruDBFileName)
@@ -31,6 +36,10 @@ void COeruDB::AddCertifiedAddress(CBitcoinAddress addr)
     vOeruCertifiedAddresses.insert(addr);
 }
 
+void COeruDB::ClearCertifiedAddresses()
+{
+    vOeruCertifiedAddresses.clear();
+}
 
 void COeruDB::GetCertifiedAddresses(std::vector<CBitcoinAddress> &vAddresses) const
 {
