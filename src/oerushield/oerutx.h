@@ -16,7 +16,7 @@ class COeruMasterData
 {
 public:
     COeruMasterData();
-    COeruMasterData(const std::vector<unsigned char> *data);
+    COeruMasterData(std::vector<unsigned char> data);
 
     bool GetEnable(bool &out) const;
     bool GetHeight(uint64_t &out) const;
@@ -24,11 +24,11 @@ public:
     bool GetSignature(std::vector<unsigned char> &vchSig) const;
 
     bool HasOeruBytes() const;
-    bool HasValidSignature(CBitcoinAddress address) const;
+    bool HasValidSignature(CBitcoinAddress master, CBitcoinAddress miner) const;
 
     bool IsValid() const;
 private:
-    const std::vector<unsigned char> *data = nullptr;
+    std::vector<unsigned char> data;
 
     // Lengths
     unsigned int nOeruBytesLength = 4;
@@ -39,8 +39,8 @@ private:
 
     // Locations
     unsigned int nOeruBytesStart = 0;
-    unsigned int nOeruBytesEnd = nOeruBytesStart + nOeruBytesLength;
-    unsigned int nEnableStart = nOeruBytesEnd;
+    unsigned int nOeruBytesEnd = nOeruBytesStart + nOeruBytesLength - 1;
+    unsigned int nEnableStart = 1 + nOeruBytesEnd;
     unsigned int nEnableEnd = nEnableStart + nEnableLength - 1;
     unsigned int nHeightStart = 1 + nEnableEnd;
     unsigned int nHeightEnd = nHeightStart + nHeightLength - 1;
@@ -56,7 +56,7 @@ public:
 
     bool HasOeruBytes() const;
     bool GetOpReturnData(std::vector<unsigned char> &data) const;
-    bool GetOeruMasterData(COeruMasterData &masterData) const;
+    COeruMasterData GetOeruMasterData() const;
 private:
     const CTxOut* vout = nullptr;
 };

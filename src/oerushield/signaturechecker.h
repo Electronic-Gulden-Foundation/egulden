@@ -16,7 +16,6 @@ class CSignatureChecker
 public:
     CSignatureChecker();
 
-    bool VerifySignature(const std::string strMessage, const std::vector<unsigned char> vchSig, const CKeyID keyID) const;
     bool VerifySignature(const std::string strMessage, const std::vector<unsigned char> vchSig, const CBitcoinAddress address) const;
 };
 

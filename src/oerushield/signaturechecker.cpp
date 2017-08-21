@@ -12,8 +12,19 @@ CSignatureChecker::CSignatureChecker()
 {
 }
 
-bool CSignatureChecker::VerifySignature(const std::string strMessage, const std::vector<unsigned char> vchSig, const CKeyID keyID) const
+bool CSignatureChecker::VerifySignature(const std::string strMessage, const std::vector<unsigned char> vchSig, const CBitcoinAddress address) const
 {
+    if (!address.IsValid()) {
+        LogPrint("OeruShield", "%s: Address is invalid\n", __FUNCTION__);
+        return false;
+    }
+
+    CKeyID keyID;
+    if (!address.GetKeyID(keyID)) {
+        LogPrint("OeruShield", "%s: Unable to get KeyID\n", __FUNCTION__);
+        return false;
+    }
+
     CHashWriter ss(SER_GETHASH, 0);
     ss << strMessageMagic;
     ss << strMessage;
@@ -25,15 +36,4 @@ bool CSignatureChecker::VerifySignature(const std::string strMessage, const std:
     }
 
     return pubkey.GetID() == keyID;
-}
-
-bool CSignatureChecker::VerifySignature(const std::string strMessage, const std::vector<unsigned char> vchSig, const CBitcoinAddress address) const
-{
-    CKeyID keyID;
-    if (!address.GetKeyID(keyID)) {
-        LogPrint("OeruShield", "%s: Unable to get KeyID\n", __FUNCTION__);
-        return false;
-    }
-
-    return VerifySignature(strMessage, vchSig, keyID);
 }

@@ -7,6 +7,7 @@
 
 #include "base58.h"
 
+#include <set>
 #include <string>
 #include <vector>
 
@@ -31,7 +32,7 @@ public:
     /**
      * SHA256 hashes of the master keys
      */
-    static const std::vector<std::vector<unsigned char>> MASTER_KEYS;
+    static const std::set<std::vector<unsigned char>> MASTER_KEYS;
 
     /**
      * Maximum number of blocks since last certified block

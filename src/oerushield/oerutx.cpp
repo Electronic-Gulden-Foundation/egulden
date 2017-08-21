@@ -78,34 +78,31 @@ bool COeruTxOut::HasOeruBytes() const
     return false;
 }
 
-bool COeruTxOut::GetOeruMasterData(COeruMasterData &masterData) const
+COeruMasterData COeruTxOut::GetOeruMasterData() const
 {
     std::vector<unsigned char> data;
     if (!GetOpReturnData(data)) {
         LogPrint("OeruShield", "%s: No OP_RETURN data\n", __FUNCTION__);
-        return false;
+        return COeruMasterData();
     }
 
-    masterData = COeruMasterData(&data);
-
-    return true;
+    return COeruMasterData(data);
 }
 
 COeruMasterData::COeruMasterData()
 {
-    this->data = nullptr;
 }
 
-COeruMasterData::COeruMasterData(const std::vector<unsigned char> *data)
+COeruMasterData::COeruMasterData(std::vector<unsigned char> pvchData)
 {
-    this->data = data;
+    data = pvchData;
 }
 
 bool COeruMasterData::GetEnable(bool &out) const
 {
     if (!IsValid()) return false;
 
-    out = *(data->begin() + nEnableStart);
+    out = *(data.begin() + nEnableStart);
     return true;
 }
 
@@ -114,10 +111,10 @@ bool COeruMasterData::GetHeight(uint64_t &out) const
     if (!IsValid()) return false;
 
     out  = 0;
-    out |= (*(data->begin() + nHeightStart + 0) << 24);
-    out |= (*(data->begin() + nHeightStart + 1) << 16);
-    out |= (*(data->begin() + nHeightStart + 2) << 8 );
-    out |= (*(data->begin() + nHeightStart + 3)      );
+    out |= (*(data.begin() + nHeightStart + 0) << 24);
+    out |= (*(data.begin() + nHeightStart + 1) << 16);
+    out |= (*(data.begin() + nHeightStart + 2) << 8 );
+    out |= (*(data.begin() + nHeightStart + 3)      );
 
     return true;
 }
@@ -148,8 +145,8 @@ bool COeruMasterData::GetSignature(std::vector<unsigned char> &vchSig) const
 
     vchSig.insert(
         vchSig.begin(),
-        data->begin() + nSignatureStart,
-        data->begin() + nSignatureEnd
+        data.begin() + nSignatureStart,
+        data.begin() + nSignatureEnd
     );
 
     return true;
@@ -157,26 +154,24 @@ bool COeruMasterData::GetSignature(std::vector<unsigned char> &vchSig) const
 
 bool COeruMasterData::HasOeruBytes() const
 {
-    std::vector<unsigned char> bytes(
-        data->begin() + nOeruBytesStart,
-        data->begin() + nOeruBytesEnd
-    );
-
-    if (bytes.size() != COeruShield::OERU_BYTES.size())
+    if (data.size() < nOeruBytesLength)
         return false;
 
-    for (unsigned int i = 0; i < nOeruBytesEnd; i++)
+    std::vector<unsigned char> oeruBytes(
+        data.begin() + nOeruBytesStart,
+        data.begin() + nOeruBytesLength
+    );
+
+    if (oeruBytes != COeruShield::OERU_BYTES)
     {
-        if (bytes[i] != COeruShield::OERU_BYTES[i])
-        {
-            return false;
-        }
+        LogPrint("OeruShield", "%s: No oeru bytes in oeru master data\n", __FUNCTION__);
+        return false;
     }
 
     return true;
 }
 
-bool COeruMasterData::HasValidSignature(CBitcoinAddress address) const
+bool COeruMasterData::HasValidSignature(CBitcoinAddress master, CBitcoinAddress miner) const
 {
     if (!IsValid()) return false;
 
@@ -188,14 +183,19 @@ bool COeruMasterData::HasValidSignature(CBitcoinAddress address) const
     if (!GetRawMessage(rawMessage))
         return false;
 
+    std::string signedMessage = rawMessage + miner.ToString();
+
     CSignatureChecker sigChecker;
-    return sigChecker.VerifySignature(rawMessage, vchSig, address);
+    return sigChecker.VerifySignature(signedMessage, vchSig, master);
 }
 
 bool COeruMasterData::IsValid() const
 {
-    if (data == nullptr) return false;
-    if (data->size() != nTotalLength) return false;
+    if (data.size() != nTotalLength) {
+        LogPrint("OeruShield", "%s: master data is not of expected length %d (was %d)\n",
+                __FUNCTION__, nTotalLength, data.size());
+        return false;
+    }
 
     return HasOeruBytes();
 }
