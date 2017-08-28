@@ -24,21 +24,6 @@ public:
      */
     static const std::vector<unsigned char> OERU_BYTES;
 
-    /**
-     * Max height difference between current block height and height given in oeru master tx
-     */
-    static const uint64_t MAX_HEIGHT_DIFFERENCE;
-
-    /**
-     * SHA256 hashes of the master keys
-     */
-    static const std::set<std::vector<unsigned char>> MASTER_KEYS;
-
-    /**
-     * Maximum number of blocks since last certified block
-     */
-    static const int MAX_BLOCKS_SINCE_LAST_CERTIFIED = 6;
-
     COeruShield(COeruDB *oeruDB);
 
     bool AcceptBlock(const CBlock *pblock, const CBlockIndex *pindex) const;

@@ -77,11 +77,17 @@ public:
     // e-Gulden: Enforce KGW on height
     int KGWStartHeight() const { return nKGWStartHeight; }
 
-    // OeruShield minimum number of certified addresses
-    int OeruShieldMinCertifiedAddresses() const { return nOeruShieldMinCertifiedAddresses; }
-
     const std::vector<SeedSpec6>& FixedSeeds() const { return vFixedSeeds; }
     const CCheckpointData& Checkpoints() const { return checkpointData; }
+
+    // SHA256 hashes of the master keys
+    std::set<std::vector<unsigned char>> OeruShieldMasterKeys() const { return oeruShieldMasterKeys; }
+    // Min number of certified addresses for oeru shield to activate
+    int OeruShieldMinCertifiedAddresses() const { return nOeruShieldMinCertifiedAddresses; }
+    // Max height difference between current block height and height given in oeru master tx
+    int OeruShieldMaxMasterHeightDifference() const { return nOeruShieldMaxMasterHeightDifference; }
+    // Maximum number of blocks since last certified block
+    int OeruShieldMaxBlocksSinceLastCertified() const { return nOeruShieldMaxBlocksSinceLastCertified; }
 protected:
     CChainParams() {}
 
@@ -104,10 +110,12 @@ protected:
     int nEnforceV2AfterHeight;
     CCheckpointData checkpointData;
 
-    // e-Gulden: Enforce KGW on height
     int nKGWStartHeight;
 
+    std::set<std::vector<unsigned char>> oeruShieldMasterKeys;
     int nOeruShieldMinCertifiedAddresses;
+    int nOeruShieldMaxMasterHeightDifference;
+    int nOeruShieldMaxBlocksSinceLastCertified;
 };
 
 /**

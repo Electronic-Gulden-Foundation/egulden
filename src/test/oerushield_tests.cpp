@@ -95,7 +95,7 @@ BOOST_AUTO_TEST_CASE (oerudb_is_master_key)
 {
     COeruShield oeruShield(nullptr);
 
-    BOOST_CHECK(oeruShield.IsMasterKey(ParseHex("1e58eb7273d4ce30e9a961600aaa49871beec551aba5b6f5a5712d6ccd1a8e3a")) == true);
+    BOOST_CHECK(oeruShield.IsMasterKey(ParseHex("d12cdf264835fb8421734e2f3fe3da623257c993aa094ec2fd0b9645cae1930b")) == true);
     BOOST_CHECK(oeruShield.IsMasterKey(ParseHex("b752e70e9b8343719491edfb524db6599e21d98269c1e720509636a6bb5db7ba")) == true);
 
     BOOST_CHECK(oeruShield.IsMasterKey(CBitcoinAddress("LLUAaniHSW6eH1QQUrJ7ZAEHurkhx857f3")) == false);

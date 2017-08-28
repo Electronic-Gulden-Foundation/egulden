@@ -156,6 +156,13 @@ public:
 
         nKGWStartHeight = 45000;
         nOeruShieldMinCertifiedAddresses = 2;
+        nOeruShieldMaxMasterHeightDifference = 720;
+        nOeruShieldMaxBlocksSinceLastCertified = 6;
+        oeruShieldMasterKeys = {
+            ParseHex("d12cdf264835fb8421734e2f3fe3da623257c993aa094ec2fd0b9645cae1930b"),
+            ParseHex("b752e70e9b8343719491edfb524db6599e21d98269c1e720509636a6bb5db7ba"),
+            ParseHex("f6b2c579d2bc9c86603d0689546ca989c543049d5bdd8486c9b72eee4ccca5b1")
+        };
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
@@ -263,7 +270,12 @@ public:
         fTestnetToBeDeprecatedFieldRPC = true;
 
         nKGWStartHeight = 1;
+
         nOeruShieldMinCertifiedAddresses = 1;
+        nOeruShieldMaxMasterHeightDifference = 720;
+        nOeruShieldMaxBlocksSinceLastCertified = 6;
+        oeruShieldMasterKeys = {
+        };
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
@@ -333,6 +345,11 @@ public:
 
         nKGWStartHeight = 1000;
         nOeruShieldMinCertifiedAddresses = 1;
+        nOeruShieldMaxMasterHeightDifference = 720;
+        nOeruShieldMaxBlocksSinceLastCertified = 6;
+        oeruShieldMasterKeys = {
+            ParseHex("ffa1d249244e513c5a5ad0c27f70322008bc432b3e2e6aa4fd71c11db40ec972")
+        };
 
         checkpointData = (CCheckpointData){
             boost::assign::map_list_of
