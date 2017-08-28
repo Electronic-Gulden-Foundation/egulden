@@ -2853,6 +2853,22 @@ bool static ConnectTip(CValidationState& state, const CChainParams& chainparams,
             return AbortNode(state, "Failed to read block");
         pblock = &block;
     }
+
+    // Check whether block is OERU valid
+    COeruShield oeruShield(poeruDBMain);
+    if (oeruShield.IsActive() && ! oeruShield.AcceptBlock(pblock, pindexNew)) {
+        state.Invalid(false, REJECT_INVALID, "oeru-invalid", "OeruShield denied block");
+        InvalidBlockFound(pindexNew, state);
+        return error("ConnectTip(): OeruShield denied block");
+    }
+
+    // Scan for OERU master transactions
+    // TODO: Must be better place to do this
+    BOOST_FOREACH(const CTransaction& tx, pblock->vtx)
+    {
+        oeruShield.CheckMasterTx(tx, pindexNew->nHeight);
+    }
+
     // Apply the block atomically to the chain state.
     int64_t nTime2 = GetTimeMicros(); nTimeReadFromDisk += nTime2 - nTime1;
     int64_t nTime3;
@@ -3689,18 +3705,6 @@ bool ContextualCheckBlock(const CBlock& block, CValidationState& state, CBlockIn
     // failed).
     if (GetBlockWeight(block) > MAX_BLOCK_WEIGHT) {
         return state.DoS(100, error("ContextualCheckBlock(): weight limit failed"), REJECT_INVALID, "bad-blk-weight");
-    }
-
-    COeruShield oeruShield(poeruDBMain);
-    if (oeruShield.IsActive() && !oeruShield.AcceptBlock(block, pindexPrev)) {
-        return state.DoS(100, error("%s: OeruShield denied block", __func__));
-    }
-
-    // Scan for OERU master transactions
-    // TODO: Must be better place to do this
-    BOOST_FOREACH(const CTransaction& tx, block.vtx)
-    {
-        oeruShield.CheckMasterTx(tx, nHeight);
     }
 
     return true;
