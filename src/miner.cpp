@@ -186,7 +186,9 @@ CBlockTemplate* BlockAssembler::CreateNewBlock(const CScript& scriptPubKeyIn)
 
     CTxOut oeruBaseOut;
     if (createOeruBaseOutput(nHeight, oeruBaseOut)) {
-      coinbaseTx.vout.push_back(oeruBaseOut);
+        coinbaseTx.vout.push_back(oeruBaseOut);
+    } else {
+        LogPrintf("CreateNewBlock(): Unable to sign block");
     }
 
     pblock->vtx[0] = coinbaseTx;

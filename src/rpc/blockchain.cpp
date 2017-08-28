@@ -109,9 +109,9 @@ UniValue blockToJSON(const CBlock& block, const CBlockIndex* blockindex, bool tx
     result.push_back(Pair("height", blockindex->nHeight));
     result.push_back(Pair("version", block.nVersion));
     result.push_back(Pair("versionHex", strprintf("%08x", block.nVersion)));
-    result.push_back(Pair("identified", oeruShield.IsBlockIdentified(block, blockindex->nHeight)));
-    result.push_back(Pair("certified", oeruShield.IsBlockCertified(block, blockindex->nHeight)));
-    result.push_back(Pair("oeru_height", oeruShield.GetBlocksSinceLastCertified(block, blockindex->pprev)));
+    result.push_back(Pair("identified", oeruShield.IsBlockIdentified(&block, blockindex->nHeight)));
+    result.push_back(Pair("certified", oeruShield.IsBlockCertified(&block, blockindex->nHeight)));
+    result.push_back(Pair("oeru_height", oeruShield.GetBlocksSinceLastCertified(&block, blockindex->pprev)));
     result.push_back(Pair("merkleroot", block.hashMerkleRoot.GetHex()));
     UniValue txs(UniValue::VARR);
     BOOST_FOREACH(const CTransaction&tx, block.vtx)

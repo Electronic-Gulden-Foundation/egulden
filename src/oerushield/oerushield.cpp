@@ -25,7 +25,7 @@ const uint64_t COeruShield::MAX_HEIGHT_DIFFERENCE = 720;
 
 const std::set<std::vector<unsigned char>> COeruShield::MASTER_KEYS =
 {
-    ParseHex("1e58eb7273d4ce30e9a961600aaa49871beec551aba5b6f5a5712d6ccd1a8e3a")
+    ParseHex("d12cdf264835fb8421734e2f3fe3da623257c993aa094ec2fd0b9645cae1930b")
     , ParseHex("b752e70e9b8343719491edfb524db6599e21d98269c1e720509636a6bb5db7ba")
     , ParseHex("f6b2c579d2bc9c86603d0689546ca989c543049d5bdd8486c9b72eee4ccca5b1")
 };
@@ -35,23 +35,21 @@ COeruShield::COeruShield(COeruDB *oeruDB)
     this->oeruDB = oeruDB;
 }
 
-bool COeruShield::AcceptBlock(const CBlock& block, const CBlockIndex *pindexPrev) const
+bool COeruShield::AcceptBlock(const CBlock *pblock, const CBlockIndex *pindex) const
 {
     // Genesis block must always be accepted
-    if (pindexPrev == NULL)
+    if (pindex->nHeight == 0)
         return true;
 
-    int blocksSinceLastCertified = GetBlocksSinceLastCertified(block, pindexPrev);
-
-    int nHeight = pindexPrev->nHeight + 1;
+    int blocksSinceLastCertified = GetBlocksSinceLastCertified(pblock, pindex);
     LogPrint("OeruShield", "OERU @ Block %d:\n\t- Active: %d\n\t- Identified: %d\n\t- Certified: %d\n\t- Last certified: %d\n",
-            nHeight,
+            pindex->nHeight,
             IsActive(),
-            IsBlockIdentified(block, nHeight),
-            IsBlockCertified(block, nHeight),
-            GetBlocksSinceLastCertified(block, pindexPrev));
+            IsBlockIdentified(pblock, pindex->nHeight),
+            IsBlockCertified(pblock, pindex->nHeight),
+            blocksSinceLastCertified);
 
-    return (blocksSinceLastCertified != -1 &&
+    return (blocksSinceLastCertified >= 0 &&
             blocksSinceLastCertified <= MAX_BLOCKS_SINCE_LAST_CERTIFIED);
 }
 
@@ -81,22 +79,32 @@ bool COeruShield::CheckMasterTx(CTransaction tx, int nHeight) const
     COeruTxOut masterOeruOut(&signatureOut);
     COeruMasterData masterData = masterOeruOut.GetOeruMasterData();
 
-    if (!masterData.IsValid())
+    if (!masterData.IsValid()) {
+        LogPrint("OeruShield", "%s: No valid master data found\n", __FUNCTION__);
         return false;
-
-    uint64_t masterHeight;
-    if (!masterData.GetHeight(masterHeight))
-        return false;
-
-    if (masterHeight > nHeight + COeruShield::MAX_HEIGHT_DIFFERENCE)
-        return false;
-
-    if (!masterData.HasValidSignature(master, miner))
-        return false;
+    }
 
     bool enable;
-    if (!masterData.GetEnable(enable))
+    if (!masterData.GetEnable(enable)) {
+        LogPrint("OeruShield", "%s: Master TX failed getting enable status\n", __FUNCTION__);
         return false;
+    }
+
+    uint64_t masterHeight;
+    if (!masterData.GetHeight(masterHeight)) {
+        LogPrint("OeruShield", "%s: Master TX failed getting height\n", __FUNCTION__);
+        return false;
+    }
+
+    if (masterHeight > nHeight + COeruShield::MAX_HEIGHT_DIFFERENCE) {
+        LogPrint("OeruShield", "%s: Master TX too old\n", __FUNCTION__);
+        return false;
+    }
+
+    if (!masterData.HasValidSignature(master, miner)) {
+        LogPrint("OeruShield", "%s: Master TX has no valid signature\n", __FUNCTION__);
+        return false;
+    }
 
     if (enable)
         oeruDB->AddCertifiedAddress(miner);
@@ -125,32 +133,22 @@ bool COeruShield::FindOeruVOut(const CTransaction& coinbaseTx, COeruTxOut& oeruT
     return false;
 }
 
-int COeruShield::GetBlocksSinceLastCertified(const CBlock& block, const CBlockIndex *pindexPrev) const
+int COeruShield::GetBlocksSinceLastCertified(const CBlock *pblock, const CBlockIndex *pindex, int i) const
 {
     // Pretend that the genesis block was certified
-    if (pindexPrev == NULL)
-        return 0;
+    if (pindex == NULL || pindex->pprev == NULL)
+        return i;
 
-    if (IsBlockCertified(block, pindexPrev->nHeight + 1)) return 0;
+    if (IsBlockCertified(pblock, pindex->nHeight))
+        return i;
 
-    const CBlockIndex *pcurIndex = pindexPrev;
+    if (i > MAX_BLOCKS_SINCE_LAST_CERTIFIED)
+        return -1;
 
-    for (int i = 1; i <= MAX_BLOCKS_SINCE_LAST_CERTIFIED + 1; i++)
-    {
-        // We arrived at the genesis block, which is 'certified'
-        if (pcurIndex == NULL)
-            return i;
+    CBlock prevblock;
+    ReadBlockFromDisk(prevblock, pindex->pprev, Params().GetConsensus());
 
-        CBlock prevblock;
-        ReadBlockFromDisk(prevblock, pcurIndex, Params().GetConsensus());
-
-        if (IsBlockCertified(prevblock, pcurIndex->nHeight))
-            return i;
-
-        pcurIndex = pcurIndex->pprev;
-    }
-
-    return -1;
+    return GetBlocksSinceLastCertified(&prevblock, pindex->pprev, i + 1);
 }
 
 bool COeruShield::GetCoinbaseAddress(const CTransaction& coinbaseTx, CBitcoinAddress& coinbaseAddress) const
@@ -161,12 +159,12 @@ bool COeruShield::GetCoinbaseAddress(const CTransaction& coinbaseTx, CBitcoinAdd
     return GetDestinationAddress(coinbaseTx.vout[0], coinbaseAddress);
 }
 
-bool COeruShield::GetCoinbaseTx(const CBlock& block, CTransaction& coinbaseTx) const
+bool COeruShield::GetCoinbaseTx(const CBlock *pblock, CTransaction& coinbaseTx) const
 {
-    if (block.vtx.size() < 1)
+    if (pblock->vtx.size() < 1)
         return false;
 
-    coinbaseTx = block.vtx[0];
+    coinbaseTx = pblock->vtx[0];
 
     if (!coinbaseTx.IsCoinBase())
         return false;
@@ -193,10 +191,10 @@ bool COeruShield::IsActive() const
     return oeruDB->NumCertifiedAddresses() >= minAddresses;
 }
 
-bool COeruShield::IsBlockIdentified(const CBlock& block, const int nHeight) const
+bool COeruShield::IsBlockIdentified(const CBlock *pblock, const int nHeight) const
 {
     CTransaction coinbaseTx;
-    if ( ! GetCoinbaseTx(block, coinbaseTx))
+    if ( ! GetCoinbaseTx(pblock, coinbaseTx))
         return false;
 
     CBitcoinAddress coinbaseAddress;
@@ -215,26 +213,31 @@ bool COeruShield::IsBlockIdentified(const CBlock& block, const int nHeight) cons
        return false;
     }
 
-    std::vector<unsigned char> vchSig(vchData.begin() + COeruShield::OERU_BYTES.size(), vchData.end());
+    std::vector<unsigned char> vchSig(
+        vchData.begin() + COeruShield::OERU_BYTES.size(),
+        vchData.end()
+    );
     std::string strMessage = std::to_string(nHeight);
 
     CSignatureChecker signatureChecker;
     if (signatureChecker.VerifySignature(strMessage, vchSig, coinbaseAddress)) {
-        LogPrint("OeruShield", "%s: Valid OERU signature\n", __FUNCTION__);
+        LogPrint("OeruShield", "%s: Valid OERU signature on block %d\n",
+                __FUNCTION__, nHeight);
         return true;
     } else {
-        LogPrint("OeruShield", "%s: No valid OERU signature\n", __FUNCTION__);
+        LogPrint("OeruShield", "%s: No valid OERU signature on block %d\n",
+                __FUNCTION__, nHeight);
         return false;
     }
 }
 
-bool COeruShield::IsBlockCertified(const CBlock& block, const int nHeight) const
+bool COeruShield::IsBlockCertified(const CBlock *pblock, const int nHeight) const
 {
-    if ( ! IsBlockIdentified(block, nHeight))
+    if ( ! IsBlockIdentified(pblock, nHeight))
         return false;
 
     CTransaction coinbaseTx;
-    if ( ! GetCoinbaseTx(block, coinbaseTx) || coinbaseTx.vout.size() < 2)
+    if ( ! GetCoinbaseTx(pblock, coinbaseTx) || coinbaseTx.vout.size() < 2)
         return false;
 
     CBitcoinAddress coinbaseAddress;
