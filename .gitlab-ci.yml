@@ -32,6 +32,8 @@ build:linux-32:
   variables:
     HOST: i686-pc-linux-gnu
   script:
+  - apt-get update
+  - apt-get install -y g++-multilib
   - cd ./depends
   - make HOST=$HOST -j4
   - cd ..
@@ -53,6 +55,8 @@ build:osx:
   variables:
     HOST: x86_64-apple-darwin11
   script:
+  - apt-get update
+  - apt-get install -y python-dev
   - cd ./depends
   - make HOST=$HOST -j4
   - cd ..
