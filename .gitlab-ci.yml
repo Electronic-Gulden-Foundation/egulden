@@ -12,7 +12,7 @@ build:linux-64:
   stage: build
   variables:
     HOST: x86_64-unknown-linux-gnu
-    PACKAGES: $BUILD_DEPS bc python3-pip python3-dev python3-zmq openjdk-8-jre-headless
+    PACKAGES: $BUILD_DEPS bc python-pip python-dev python-zmq openjdk-8-jre-headless
   script:
   - apt-get update
   - apt-get install -y --no-install-recommends -qq $PACKAGES
@@ -37,7 +37,7 @@ build:linux-32:
   stage: build
   variables:
     HOST: i686-pc-linux-gnu
-    PACKAGES: $BUILD_DEPS g++-multilib bc python3-pip python3-dev python3-zmq openjdk-8-jre-headless
+    PACKAGES: $BUILD_DEPS g++-multilib bc python-pip python-dev python3-zmq openjdk-8-jre-headless
   script:
   - apt-get update
   - apt-get install -y --no-install-recommends -qq $PACKAGES
@@ -61,10 +61,11 @@ build:osx:
   stage: build
   variables:
     HOST: x86_64-apple-darwin11
-    PACKAGES: $BUILD_DEPS cmake imagemagick libcap-dev librsvg2-bin libz-dev libbz2-dev libtiff-tools python-dev
+    PACKAGES: $BUILD_DEPS cmake imagemagick libcap-dev librsvg2-bin libz-dev libbz2-dev libtiff-tools python-pip python-dev
   script:
   - apt-get update
   - apt-get install -y --no-install-recommends -qq $PACKAGES
+  - pip install ez_setup
   - cd ./depends
   - make HOST=$HOST -j4
   - cd ..
@@ -85,7 +86,7 @@ build:win-64:
   stage: build
   variables:
     HOST: x86_64-w64-mingw32
-    PACKAGES: $BUILD_DEPS python3 python3-dev python3-pip nsis g++-mingw-w64-x86-64 wine1.6 bc openjdk-8-jre-headless
+    PACKAGES: $BUILD_DEPS python-dev python-pip nsis g++-mingw-w64-x86-64 wine bc openjdk-8-jre-headless
   script:
   - apt-get update
   - apt-get install -y --no-install-recommends -qq $PACKAGES
