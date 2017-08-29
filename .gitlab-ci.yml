@@ -1,7 +1,13 @@
 variables:
-  BDB_PREFIX: /usr/local/lib/db4
-  BOOST_PREFIX: /usr/local/lib/boost
+  BDB_PREFIX: $CI_PROJECT_DIR/lib/db4
+  BOOST_PREFIX: $CI_PROJECT_DIR/lib/boost
   DEBIAN_FRONTEND: noninteractive
+
+cache:
+  key: "$CI_JOB_NAME"
+  paths:
+  - $BDB_PREFIX
+  - $BOOST_PREFIX
 
 build:linux-64:
   image: ubuntu:16.04
