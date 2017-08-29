@@ -45,7 +45,7 @@ bool COeruShield::AcceptBlock(const CBlock *pblock, const CBlockIndex *pindex) c
             blocksSinceLastCertified <  Params().OeruShieldMaxBlocksSinceLastCertified());
 }
 
-bool COeruShield::CheckMasterTx(CTransaction tx, int nHeight) const
+bool COeruShield::CheckMasterTx(const CTransaction tx, const int nHeight, const bool revert = false) const
 {
     if (tx.IsCoinBase())
         return false;
@@ -97,6 +97,11 @@ bool COeruShield::CheckMasterTx(CTransaction tx, int nHeight) const
         LogPrint("OeruShield", "%s: Master TX has no valid signature\n", __FUNCTION__);
         return false;
     }
+
+    // If this is a 'revert check' (ie called from DisconnectTip)
+    // we need to invert the action
+    if (revert)
+        enable = !enable;
 
     if (enable)
         oeruDB->AddCertifiedAddress(miner);

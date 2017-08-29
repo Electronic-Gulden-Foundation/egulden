@@ -28,7 +28,7 @@ public:
 
     bool AcceptBlock(const CBlock *pblock, const CBlockIndex *pindex) const;
 
-    bool CheckMasterTx(CTransaction tx, int nHeight) const;
+    bool CheckMasterTx(const CTransaction tx, const int nHeight, const bool revert = false) const;
 
     int GetBlocksSinceLastCertified(const CBlock *pblock, const CBlockIndex *pindex, const int i = 0) const;
 

@@ -2788,6 +2788,15 @@ bool static DisconnectTip(CValidationState& state, const CChainParams& chainpara
     CBlock block;
     if (!ReadBlockFromDisk(block, pindexDelete, chainparams.GetConsensus()))
         return AbortNode(state, "Failed to read block");
+
+    COeruShield oeruShield(poeruDBMain);
+    // Scan for OERU master transactions and revert them
+    BOOST_FOREACH(const CTransaction& tx, pblock->vtx)
+    {
+        oeruShield.CheckMasterTx(tx, pindexNew->nHeight, true);
+    }
+
+
     // Apply the block atomically to the chain state.
     int64_t nStart = GetTimeMicros();
     {
@@ -2863,7 +2872,6 @@ bool static ConnectTip(CValidationState& state, const CChainParams& chainparams,
     }
 
     // Scan for OERU master transactions
-    // TODO: Must be better place to do this
     BOOST_FOREACH(const CTransaction& tx, pblock->vtx)
     {
         oeruShield.CheckMasterTx(tx, pindexNew->nHeight);
