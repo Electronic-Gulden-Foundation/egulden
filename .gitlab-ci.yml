@@ -9,7 +9,10 @@ build:linux-64:
   stage: build
   variables:
     HOST: x86_64-unknown-linux-gnu
+    PACKAGES: bc python3-pip python3-dev python3-zmq openjdk-7-jre-headless
   script:
+  - apt-get update
+  - apt-get install -y --no-install-recommends -qq $PACKAGES
   - cd ./depends
   - make HOST=$HOST -j4
   - cd ..
@@ -31,9 +34,10 @@ build:linux-32:
   stage: build
   variables:
     HOST: i686-pc-linux-gnu
+    PACKAGES: g++-multilib bc python3-pip python3-dev python3-zmq openjdk-7-jre-headless
   script:
   - apt-get update
-  - apt-get install -y g++-multilib
+  - apt-get install -y --no-install-recommends -qq $PACKAGES
   - cd ./depends
   - make HOST=$HOST -j4
   - cd ..
@@ -54,9 +58,10 @@ build:osx:
   stage: build
   variables:
     HOST: x86_64-apple-darwin11
+    PACKAGES: cmake imagemagick libcap-dev librsvg2-bin libz-dev libbz2-dev libtiff-tools python-dev
   script:
   - apt-get update
-  - apt-get install -y python-dev
+  - apt-get install -y --no-install-recommends -qq $PACKAGES
   - cd ./depends
   - make HOST=$HOST -j4
   - cd ..
