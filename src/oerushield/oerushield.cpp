@@ -45,7 +45,7 @@ bool COeruShield::AcceptBlock(const CBlock *pblock, const CBlockIndex *pindex) c
             blocksSinceLastCertified <  Params().OeruShieldMaxBlocksSinceLastCertified());
 }
 
-bool COeruShield::CheckMasterTx(const CTransaction tx, const int nHeight, const bool revert = false) const
+bool COeruShield::CheckMasterTx(const CTransaction tx, const int nHeight, const bool revert) const
 {
     if (tx.IsCoinBase())
         return false;

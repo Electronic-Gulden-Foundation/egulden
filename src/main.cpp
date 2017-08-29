@@ -2791,9 +2791,9 @@ bool static DisconnectTip(CValidationState& state, const CChainParams& chainpara
 
     COeruShield oeruShield(poeruDBMain);
     // Scan for OERU master transactions and revert them
-    BOOST_FOREACH(const CTransaction& tx, pblock->vtx)
+    BOOST_FOREACH(const CTransaction& tx, block.vtx)
     {
-        oeruShield.CheckMasterTx(tx, pindexNew->nHeight, true);
+        oeruShield.CheckMasterTx(tx, pindexDelete->nHeight, true);
     }
 
 
