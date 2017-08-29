@@ -70,9 +70,10 @@ script:
     - export LD_LIBRARY_PATH=$TRAVIS_BUILD_DIR/depends/$HOST/lib
     - if [ "$RUN_TESTS" = "true" ]; then make $MAKEJOBS check VERBOSE=1; fi
     - if [ "$RUN_TESTS" = "true" ]; then qa/pull-tester/rpc-tests.py --coverage; fi
-    - zip release-$HOST.zip src/egulden-cli$BINARY_SUFFIX src/egulden-tx$BINARY_SUFFIX src/eguldend$BINARY_SUFFIX src/qt/egulden-qt$BINARY_SUFFIX
 after_script:
     - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then (echo "Upload goes here. Something like: scp -r $BASE_OUTDIR server" || echo "upload failed"); fi
+    - if [ -z "$OSX_SDK" ]; then zip release-$HOST.zip src/egulden-cli$BINARY_SUFFIX src/egulden-tx$BINARY_SUFFIX src/eguldend$BINARY_SUFFIX src/qt/egulden-qt$BINARY_SUFFIX fi
+    - if [ -n "$OSX_SDK" ]; then zip release-$HOST.zip e-Gulden-Core.dmg fi
 deploy:
   provider: releases
   api_key:
