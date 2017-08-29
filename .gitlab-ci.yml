@@ -1,7 +1,7 @@
 image: debian:stretch
 
 variables:
-  BUILD_DEPS: build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
+  BUILD_DEPS: curl build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
 
 cache:
   key: "$CI_JOB_NAME"
