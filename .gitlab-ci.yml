@@ -3,6 +3,7 @@ build:linux-64:
   stage: build
   script:
   - apt-get update
+  - apt-get dist-upgrade -y
   - apt-get install -y build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
   - apt-get install -y libboost-all-dev
   - apt-get install -y libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler
@@ -20,14 +21,15 @@ build:linux-64:
     - src/egulden-cli
     - src/egulden-tx
     - src/qt/egulden-qt
-    - src/test_egulden
-    - src/qt/test_egulden-qt
+    - src/test/test_egulden
+    - src/qt/test/test_egulden-qt
 
 build:linux-32:
   image: 32bit/ubuntu:16.04
   stage: build
   script:
   - apt-get update
+  - apt-get dist-upgrade -y
   - apt-get install -y build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
   - apt-get install -y libboost-all-dev
   - apt-get install -y libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler
@@ -45,8 +47,8 @@ build:linux-32:
     - src/egulden-cli
     - src/egulden-tx
     - src/qt/egulden-qt
-    - src/test_egulden
-    - src/qt/test_egulden-qt
+    - src/test/test_egulden
+    - src/qt/test/test_egulden-qt
 
 test:linux-64:
   image: ubuntu:16.04
@@ -54,8 +56,8 @@ test:linux-64:
   dependencies:
   - build:linux-64
   script:
-  - ./src/test_egulden
-  - ./src/qt/test_egulden-qt
+  - ./src/test/test_egulden
+  - ./src/qt/test/test_egulden-qt
 
 test:linux-32:
   image: 32bit/ubuntu:16.04
@@ -63,5 +65,5 @@ test:linux-32:
   dependencies:
   - build:linux-32
   script:
-  - ./src/test_egulden
-  - ./src/qt/test_egulden-qt
+  - ./src/test/test_egulden
+  - ./src/qt/test/test_egulden-qt
