@@ -2,17 +2,18 @@ image: debian:stretch
 
 variables:
   BUILD_DEPS: curl ca-certificates build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
+  COMMON_DEPS: python python-pip python-dev python-setuptools python-zmq
 
 cache:
   key: "$CI_JOB_NAME"
   paths:
-  - depends
+  - depends/
 
 build:linux-64:
   stage: build
   variables:
     HOST: x86_64-unknown-linux-gnu
-    PACKAGES: $BUILD_DEPS bc python-pip python-dev python-zmq openjdk-8-jre-headless
+    PACKAGES: $BUILD_DEPS $COMMON_DEPS bc openjdk-8-jre-headless
   script:
   - apt-get update
   - apt-get install -y --no-install-recommends -qq $PACKAGES
@@ -37,7 +38,7 @@ build:linux-32:
   stage: build
   variables:
     HOST: i686-pc-linux-gnu
-    PACKAGES: $BUILD_DEPS g++-multilib bc python-pip python-dev python3-zmq openjdk-8-jre-headless
+    PACKAGES: $BUILD_DEPS $COMMON_DEPS g++-multilib bc openjdk-8-jre-headless
   script:
   - apt-get update
   - apt-get install -y --no-install-recommends -qq $PACKAGES
@@ -61,7 +62,7 @@ build:osx:
   stage: build
   variables:
     HOST: x86_64-apple-darwin11
-    PACKAGES: $BUILD_DEPS cmake imagemagick libcap-dev librsvg2-bin libz-dev libbz2-dev libtiff-tools python-pip python-dev
+    PACKAGES: $BUILD_DEPS $COMMON_DEPS cmake imagemagick libcap-dev librsvg2-bin libz-dev libbz2-dev libtiff-tools
   script:
   - apt-get update
   - apt-get install -y --no-install-recommends -qq $PACKAGES
@@ -86,7 +87,7 @@ build:win-64:
   stage: build
   variables:
     HOST: x86_64-w64-mingw32
-    PACKAGES: $BUILD_DEPS python-dev python-pip nsis g++-mingw-w64-x86-64 wine bc openjdk-8-jre-headless
+    PACKAGES: $BUILD_DEPS $COMMON_DEPS nsis g++-mingw-w64-x86-64 wine bc openjdk-8-jre-headless
   script:
   - apt-get update
   - apt-get install -y --no-install-recommends -qq $PACKAGES
