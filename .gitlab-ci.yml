@@ -69,7 +69,7 @@ build:osx:
   - apt-get update
   - apt-get install -y --no-install-recommends -qq $PACKAGES
   - pip install ez_setup
-  - if [ ! -f "$OSX_SDK_TAR" ]; then curl --location --fail $OSX_SDK_URL -o $OSX_SDK_TAR; fi
+  - if [ ! -f "$OSX_SDK_TAR" ]; then mkdir -p depends/sdk-sources && curl --location --fail $OSX_SDK_URL -o $OSX_SDK_TAR; fi
   - tar -C depends/SDKs -xf $OSX_SDK_TAR
   - cd ./depends
   - make HOST=$HOST -j4
