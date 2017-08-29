@@ -42,7 +42,7 @@ bool COeruShield::AcceptBlock(const CBlock *pblock, const CBlockIndex *pindex) c
             blocksSinceLastCertified);
 
     return (blocksSinceLastCertified >= 0 &&
-            blocksSinceLastCertified <= Params().OeruShieldMaxBlocksSinceLastCertified());
+            blocksSinceLastCertified <  Params().OeruShieldMaxBlocksSinceLastCertified());
 }
 
 bool COeruShield::CheckMasterTx(CTransaction tx, int nHeight) const
@@ -180,6 +180,9 @@ bool COeruShield::GetDestinationAddress(const CTxOut txOut, CBitcoinAddress &des
 
 bool COeruShield::IsActive() const
 {
+    if (oeruDB == nullptr)
+        return false;
+
     int minAddresses = Params().OeruShieldMinCertifiedAddresses();
     return oeruDB->NumCertifiedAddresses() >= minAddresses;
 }
