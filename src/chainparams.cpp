@@ -155,7 +155,7 @@ public:
         nEnforceV2AfterHeight = 0;
 
         nKGWStartHeight = 45000;
-        nOeruShieldMinCertifiedAddresses = 2;
+        nOeruShieldMinCertifiedAddresses = 5;
         nOeruShieldMaxMasterHeightDifference = 720;
         nOeruShieldMaxBlocksSinceLastCertified = 6;
         oeruShieldMasterKeys = {
