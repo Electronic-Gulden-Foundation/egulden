@@ -11,6 +11,7 @@ build:linux-64:
   - ./autogen.sh
   - ./configure LDFLAGS="-L${BDB_PREFIX}/lib/ -L${BOOST_PREFIX}/lib/" CPPFLAGS="-I${BDB_PREFIX}/include/ -I${BOOST_PREFIX}/include/"
   - make -j4
+  - strip src/eguldend src/egulden-cli src/egulden-tx src/qt/egulden-qt
   artifacts:
     expire_in: 1 week
     paths:
@@ -29,6 +30,7 @@ build:linux-32:
   - ./autogen.sh
   - ./configure LDFLAGS="-L${BDB_PREFIX}/lib/" CPPFLAGS="-I${BDB_PREFIX}/include/"
   - make -j2
+  - strip src/eguldend src/egulden-cli src/egulden-tx src/qt/egulden-qt
   artifacts:
     expire_in: 1 week
     paths:
