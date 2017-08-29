@@ -81,6 +81,30 @@ build:osx:
     - src/test/test_egulden
     - src/qt/test/test_egulden-qt
 
+build:win-64:
+  stage: build
+  variables:
+    HOST: x86_64-w64-mingw32
+    PACKAGES: $BUILD_DEPS python3 python3-dev python3-pip nsis g++-mingw-w64-x86-64 wine1.6 bc openjdk-8-jre-headless
+  script:
+  - apt-get update
+  - apt-get install -y --no-install-recommends -qq $PACKAGES
+  - cd ./depends
+  - make HOST=$HOST -j4
+  - cd ..
+  - ./autogen.sh
+  - ./configure --prefix=`pwd`/depends/$HOST
+  - make -j4
+  artifacts:
+    expire_in: 1 week
+    paths:
+    - src/eguldend
+    - src/egulden-cli
+    - src/egulden-tx
+    - src/qt/egulden-qt
+    - src/test/test_egulden
+    - src/qt/test/test_egulden-qt
+
 test:linux-64:
   stage: test
   dependencies:
