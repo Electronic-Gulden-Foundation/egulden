@@ -1,6 +1,7 @@
 variables:
-  DEBIAN_FRONTEND: noninteractive
   BDB_PREFIX: /usr/local/lib/db4
+  BOOST_PREFIX: /usr/local/lib/boost
+  DEBIAN_FRONTEND: noninteractive
 
 build:linux-64:
   image: ubuntu:16.04
@@ -8,7 +9,7 @@ build:linux-64:
   script:
   - ./contrib/gitlab-ci/install-builddeps.sh
   - ./autogen.sh
-  - ./configure LDFLAGS="-L${BDB_PREFIX}/lib/" CPPFLAGS="-I${BDB_PREFIX}/include/"
+  - ./configure LDFLAGS="-L${BDB_PREFIX}/lib/ -L${BOOST_PREFIX}/lib/" CPPFLAGS="-I${BDB_PREFIX}/include/ -I${BOOST_PREFIX}/include/"
   - make -j4
   artifacts:
     expire_in: 1 week
