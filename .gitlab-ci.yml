@@ -62,9 +62,8 @@ build:osx:
   stage: build
   variables:
     HOST: x86_64-apple-darwin11
-    OSX_SDK: "10.11"
-    OSX_SDK_URL: https://bitcoincore.org/depends-sources/sdks/MacOSX$OSX_SDK.sdk.tar.gz
-    OSX_SDK_TAR: depends/sdk-sources/MacOSX$OSX_SDK.sdk.tar.gz
+    OSX_SDK_URL: https://bitcoincore.org/depends-sources/sdks/MacOSX10.11.sdk.tar.gz
+    OSX_SDK_TAR: depends/sdk-sources/MacOSX10.11.sdk.tar.gz
     PACKAGES: $BUILD_DEPS $COMMON_DEPS cmake imagemagick libcap-dev librsvg2-bin libz-dev libbz2-dev libtiff-tools
   script:
   - apt-get update
