@@ -10,12 +10,6 @@ apt-get install -y \
     autotools-dev \
     bsdmainutils \
     build-essential \
-    libboost-chrono-dev \
-    libboost-filesystem-dev \
-    libboost-program-options-dev \
-    libboost-system-dev \
-    libboost-test-dev \
-    libboost-thread-dev \
     libevent-dev \
     libminiupnpc-dev \
     libprotobuf-dev \
