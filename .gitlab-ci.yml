@@ -12,5 +12,5 @@ build:
   - apt-get install -y libdb4.8-dev libdb4.8++-dev
   - ./autogen.sh
   - ./configure
-  - make build
+  - make -j2
 
