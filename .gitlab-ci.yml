@@ -12,7 +12,7 @@ build:linux-64:
   stage: build
   variables:
     HOST: x86_64-unknown-linux-gnu
-    PACKAGES: $BUILD_DEPS bc python3-pip python3-dev python3-zmq openjdk-7-jre-headless
+    PACKAGES: $BUILD_DEPS bc python3-pip python3-dev python3-zmq openjdk-8-jre-headless
   script:
   - apt-get update
   - apt-get install -y --no-install-recommends -qq $PACKAGES
@@ -37,7 +37,7 @@ build:linux-32:
   stage: build
   variables:
     HOST: i686-pc-linux-gnu
-    PACKAGES: $BUILD_DEPS g++-multilib bc python3-pip python3-dev python3-zmq openjdk-7-jre-headless
+    PACKAGES: $BUILD_DEPS g++-multilib bc python3-pip python3-dev python3-zmq openjdk-8-jre-headless
   script:
   - apt-get update
   - apt-get install -y --no-install-recommends -qq $PACKAGES
