@@ -1,4 +1,4 @@
-image: debian:stretch
+image: ubuntu:trusty
 
 variables:
   BUILD_DEPS: curl ca-certificates build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
