@@ -91,7 +91,7 @@ build:win-64:
   stage: build
   variables:
     HOST: x86_64-w64-mingw32
-    PACKAGES: $BUILD_DEPS $COMMON_DEPS nsis g++-mingw-w64-x86-64 wine bc openjdk-8-jre-headless
+    PACKAGES: $BUILD_DEPS $COMMON_DEPS nsis wine bc openjdk-8-jre-headless g++-mingw-w64-i686 mingw-w64-i686-dev g++-mingw-w64-x86-64 mingw-w64-x86-64-dev
   script:
   - dpkg --add-architecture i386
   - apt-get update
