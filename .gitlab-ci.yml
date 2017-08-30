@@ -3,8 +3,8 @@ image: debian:stretch
 variables:
   BUILD_DEPS: curl ca-certificates build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
   COMMON_DEPS: python python-pip python-dev python-setuptools python-zmq
-  LOGDIR: $CI_PROJECT_DIR/logs/
-  OUTDIR: $CI_PROJECT_DIR/out/
+  LOGDIR: $CI_PROJECT_DIR/logs
+  OUTDIR: $CI_PROJECT_DIR/out
 
 cache:
   key: "$CI_JOB_NAME"
@@ -24,7 +24,7 @@ build:linux-64:
   - apt-get update
   - apt-get install -y --no-install-recommends -qq $PACKAGES
   - cd ./depends
-  - make HOST=$HOST -j4 &> ./$LOGDIR/depends.log
+  - make HOST=$HOST -j4 &> $LOGDIR/depends.log
   - cd ..
   - ./autogen.sh
   - ./configure --prefix=`pwd`/depends/$HOST --bindir=$OUTDIR
@@ -48,7 +48,7 @@ build:linux-32:
   - apt-get update
   - apt-get install -y --no-install-recommends -qq $PACKAGES
   - cd ./depends
-  - make HOST=$HOST -j4 &> ./$LOGDIR/depends.log
+  - make HOST=$HOST -j4 &> $LOGDIR/depends.log
   - cd ..
   - ./autogen.sh
   - ./configure --prefix=`pwd`/depends/$HOST --bindir=$OUTDIR
@@ -76,7 +76,7 @@ build:osx:
   - if [ ! -f "$OSX_SDK_TAR" ]; then mkdir -p depends/sdk-sources && curl --location --fail $OSX_SDK_URL -o $OSX_SDK_TAR; fi
   - mkdir -p depends/SDKs && tar -C depends/SDKs -xf $OSX_SDK_TAR
   - cd ./depends
-  - make HOST=$HOST -j4 &> ./$LOGDIR/depends.log
+  - make HOST=$HOST -j4 &> $LOGDIR/depends.log
   - cd ..
   - ./autogen.sh
   - ./configure --prefix=`pwd`/depends/$HOST --bindir=$OUTDIR
@@ -99,7 +99,7 @@ build:win-64:
   - apt-get update
   - apt-get install -y --no-install-recommends -qq $PACKAGES
   - cd ./depends
-  - make HOST=$HOST -j4 &> ./$LOGDIR/depends.log
+  - make HOST=$HOST -j4 &> $LOGDIR/depends.log
   - cd ..
   - ./autogen.sh
   - ./configure --prefix=`pwd`/depends/$HOST --bindir=$OUTDIR
