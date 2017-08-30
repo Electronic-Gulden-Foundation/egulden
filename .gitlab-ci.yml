@@ -4,7 +4,7 @@ variables:
   BUILD_DEPS: curl ca-certificates build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
   COMMON_DEPS: python python-pip python-dev python-setuptools python-zmq openjdk-7-jre-headless
   OUTDIR: $CI_PROJECT_DIR/out
-  LOGDIR: $OUTDIR/logs
+  LOGDIR: $CI_PROJECT_DIR/out/logs
 
 cache:
   key: "$CI_JOB_NAME"
