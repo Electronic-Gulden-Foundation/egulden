@@ -2,7 +2,7 @@ image: ubuntu:trusty
 
 variables:
   BUILD_DEPS: curl ca-certificates build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
-  COMMON_DEPS: python python-pip python-dev python-setuptools python-zmq
+  COMMON_DEPS: python python-pip python-dev python-setuptools python-zmq openjdk-7-jre-headless
   LOGDIR: $CI_PROJECT_DIR/logs
   OUTDIR: $CI_PROJECT_DIR/out
 
@@ -19,7 +19,7 @@ build:linux-64:
   stage: build
   variables:
     HOST: x86_64-unknown-linux-gnu
-    PACKAGES: $BUILD_DEPS $COMMON_DEPS bc openjdk-8-jre-headless
+    PACKAGES: $BUILD_DEPS $COMMON_DEPS bc
   script:
   - apt-get update
   - apt-get install -y --no-install-recommends -qq $PACKAGES
@@ -41,7 +41,7 @@ build:linux-32:
   stage: build
   variables:
     HOST: i686-pc-linux-gnu
-    PACKAGES: $BUILD_DEPS $COMMON_DEPS g++-multilib libc6-dev-i386 bc openjdk-8-jre-headless libx11-6:i386 libfontconfig1-dev:i386 libfreetype6-dev:i386 libx11-dev:i386 libxcursor-dev:i386 libxext-dev:i386 libxfixes-dev:i386 libxft-dev:i386 libxi-dev:i386 libxrandr-dev:i386 libxrender-dev:i386
+    PACKAGES: $BUILD_DEPS $COMMON_DEPS g++-multilib libc6-dev-i386 bc libx11-6:i386 libfontconfig1-dev:i386 libfreetype6-dev:i386 libx11-dev:i386 libxcursor-dev:i386 libxext-dev:i386 libxfixes-dev:i386 libxft-dev:i386 libxi-dev:i386 libxrandr-dev:i386 libxrender-dev:i386
   script:
   - dpkg --add-architecture i386
   - apt-get update
@@ -91,7 +91,7 @@ build:win-64:
   stage: build
   variables:
     HOST: x86_64-w64-mingw32
-    PACKAGES: $BUILD_DEPS $COMMON_DEPS nsis wine bc openjdk-8-jre-headless g++-mingw-w64-i686 mingw-w64-i686-dev g++-mingw-w64-x86-64 mingw-w64-x86-64-dev
+    PACKAGES: $BUILD_DEPS $COMMON_DEPS nsis wine bc g++-mingw-w64-i686 mingw-w64-i686-dev g++-mingw-w64-x86-64 mingw-w64-x86-64-dev
   script:
   - dpkg --add-architecture i386
   - apt-get update
