@@ -12,7 +12,8 @@ cache:
   - depends/
 
 before_script:
-  - mkdir -p $OUTDIR $LOGDIR
+  - mkdir -p $OUTDIR
+  - mkdir -p $LOGDIR
 
 build:linux-64:
   stage: build
