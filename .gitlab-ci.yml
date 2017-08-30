@@ -41,7 +41,7 @@ build:linux-32:
   stage: build
   variables:
     HOST: i686-pc-linux-gnu
-    PACKAGES: $BUILD_DEPS $COMMON_DEPS g++-multilib libc6-dev-i386 bc openjdk-8-jre-headless libx11-6:i386 libfontconfig1-dev:i386 libfreetype6-dev:i386 libx11-dev:i386 libxcursor-dev:i386 libxext-dev:i386 libxfixes-dev:i386 libxft-dev:386 libxi-dev:l386 libxrandr-dev:i386 libxrender-dev:i386
+    PACKAGES: $BUILD_DEPS $COMMON_DEPS g++-multilib libc6-dev-i386 bc openjdk-8-jre-headless libx11-6:i386 libfontconfig1-dev:i386 libfreetype6-dev:i386 libx11-dev:i386 libxcursor-dev:i386 libxext-dev:i386 libxfixes-dev:i386 libxft-dev:i386 libxi-dev:i386 libxrandr-dev:i386 libxrender-dev:i386
   script:
   - dpkg --add-architecture i386
   - apt-get update
