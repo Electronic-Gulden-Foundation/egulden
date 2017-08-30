@@ -42,7 +42,7 @@ build:linux-32:
   stage: build
   variables:
     HOST: i686-pc-linux-gnu
-    PACKAGES: $BUILD_DEPS $COMMON_DEPS g++-multilib bc openjdk-8-jre-headless ia32-libs
+    PACKAGES: $BUILD_DEPS $COMMON_DEPS g++-multilib bc openjdk-8-jre-headless
   script:
   - dpkg --add-architecture i386
   - apt-get update
