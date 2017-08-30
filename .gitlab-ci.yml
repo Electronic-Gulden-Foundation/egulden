@@ -28,7 +28,7 @@ build:linux-64:
   - cd ..
   - ./autogen.sh
   - ./configure --prefix=`pwd`/depends/$HOST --bindir=$OUTDIR
-  - make -j4
+  - make -j4 install
   - strip $OUTDIR/*
   artifacts:
     expire_in: 1 week
@@ -52,7 +52,7 @@ build:linux-32:
   - cd ..
   - ./autogen.sh
   - ./configure --prefix=`pwd`/depends/$HOST --bindir=$OUTDIR
-  - make -j4
+  - make -j4 install
   - strip $OUTDIR/*
   artifacts:
     expire_in: 1 week
@@ -80,7 +80,7 @@ build:osx:
   - cd ..
   - ./autogen.sh
   - ./configure --prefix=`pwd`/depends/$HOST --bindir=$OUTDIR
-  - make -j4
+  - make -j4 install
   - strip $OUTDIR/*
   artifacts:
     expire_in: 1 week
@@ -103,7 +103,7 @@ build:win-64:
   - cd ..
   - ./autogen.sh
   - ./configure --prefix=`pwd`/depends/$HOST --bindir=$OUTDIR
-  - make -j4
+  - make -j4 install
   - strip $OUTDIR/*
   artifacts:
     expire_in: 1 week
