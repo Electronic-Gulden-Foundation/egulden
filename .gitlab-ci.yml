@@ -40,6 +40,7 @@ build:linux-32:
     HOST: i686-pc-linux-gnu
     PACKAGES: $BUILD_DEPS $COMMON_DEPS g++-multilib bc openjdk-8-jre-headless
   script:
+  - dpkg --add-architecture i386
   - apt-get update
   - apt-get install -y --no-install-recommends -qq $PACKAGES
   - cd ./depends
@@ -48,6 +49,7 @@ build:linux-32:
   - ./autogen.sh
   - ./configure --prefix=`pwd`/depends/$HOST
   - make -j4
+  - strip src/eguldend src/egulden-cli src/egulden-tx src/qt/egulden-qt
   artifacts:
     expire_in: 1 week
     paths:
@@ -70,13 +72,14 @@ build:osx:
   - apt-get install -y --no-install-recommends -qq $PACKAGES
   - pip install ez_setup
   - if [ ! -f "$OSX_SDK_TAR" ]; then mkdir -p depends/sdk-sources && curl --location --fail $OSX_SDK_URL -o $OSX_SDK_TAR; fi
-  - tar -C depends/SDKs -xf $OSX_SDK_TAR
+  - mkdir -p depends/SDKs && tar -C depends/SDKs -xf $OSX_SDK_TAR
   - cd ./depends
   - make HOST=$HOST -j4
   - cd ..
   - ./autogen.sh
   - ./configure --prefix=`pwd`/depends/$HOST
   - make -j4
+  - strip src/eguldend src/egulden-cli src/egulden-tx src/qt/egulden-qt
   artifacts:
     expire_in: 1 week
     paths:
@@ -101,15 +104,16 @@ build:win-64:
   - ./autogen.sh
   - ./configure --prefix=`pwd`/depends/$HOST
   - make -j4
+  - strip src/eguldend.exe src/egulden-cli.exe src/egulden-tx.exe src/qt/egulden-qt.exe
   artifacts:
     expire_in: 1 week
     paths:
-    - src/eguldend
-    - src/egulden-cli
-    - src/egulden-tx
-    - src/qt/egulden-qt
-    - src/test/test_egulden
-    - src/qt/test/test_egulden-qt
+    - src/eguldend.exe
+    - src/egulden-cli.exe
+    - src/egulden-tx.exe
+    - src/qt/egulden-qt.exe
+    - src/test/test_egulden.exe
+    - src/qt/test/test_egulden-qt.exe
 
 test:linux-64:
   stage: test
