@@ -96,6 +96,7 @@ build:win-64:
     HOST: x86_64-w64-mingw32
     PACKAGES: $BUILD_DEPS $COMMON_DEPS nsis g++-mingw-w64-x86-64 wine bc openjdk-8-jre-headless
   script:
+  - dpkg --add-architecture i386
   - apt-get update
   - apt-get install -y --no-install-recommends -qq $PACKAGES
   - cd ./depends
