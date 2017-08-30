@@ -19,6 +19,7 @@ build:linux-64:
   stage: build
   variables:
     HOST: x86_64-unknown-linux-gnu
+    LD_LIBRARY_PATH: $CI_PROJECT_DIR/depends/$HOST/lib
     PACKAGES: $BUILD_DEPS $COMMON_DEPS bc
   script:
   - apt-get update
@@ -27,7 +28,7 @@ build:linux-64:
   - make HOST=$HOST -j4 | tee $LOGDIR/depends.log
   - cd ..
   - ./autogen.sh
-  - ./configure --prefix=`pwd`/depends/$HOST --bindir=$OUTDIR | tee $LOGDIR/configure.log
+  - ./configure --prefix=`pwd`/depends/$HOST --bindir=$OUTDIR/bin --libdir=$OUTDIR/lib | tee $LOGDIR/configure.log
   - make -j4 install | tee $LOGDIR/build.log
   - strip $OUTDIR/*
   artifacts:
@@ -41,6 +42,7 @@ build:linux-32:
   stage: build
   variables:
     HOST: i686-pc-linux-gnu
+    LD_LIBRARY_PATH: $CI_PROJECT_DIR/depends/$HOST/lib
     PACKAGES: $BUILD_DEPS $COMMON_DEPS g++-multilib libc6-dev-i386 bc libx11-6:i386 libfontconfig1-dev:i386 libfreetype6-dev:i386 libx11-dev:i386 libxcursor-dev:i386 libxext-dev:i386 libxfixes-dev:i386 libxft-dev:i386 libxi-dev:i386 libxrandr-dev:i386 libxrender-dev:i386
   script:
   - dpkg --add-architecture i386
@@ -50,7 +52,7 @@ build:linux-32:
   - make HOST=$HOST -j4 | tee $LOGDIR/depends.log
   - cd ..
   - ./autogen.sh
-  - ./configure --prefix=`pwd`/depends/$HOST --bindir=$OUTDIR | tee $LOGDIR/configure.log
+  - ./configure --prefix=`pwd`/depends/$HOST --bindir=$OUTDIR/bin --libdir=$OUTDIR/lib | tee $LOGDIR/configure.log
   - make -j4 install | tee $LOGDIR/build.log
   - strip $OUTDIR/*
   artifacts:
@@ -64,6 +66,7 @@ build:osx:
   stage: build
   variables:
     HOST: x86_64-apple-darwin11
+    LD_LIBRARY_PATH: $CI_PROJECT_DIR/depends/$HOST/lib
     OSX_SDK_URL: https://bitcoincore.org/depends-sources/sdks/MacOSX10.11.sdk.tar.gz
     OSX_SDK_TAR: depends/sdk-sources/MacOSX10.11.sdk.tar.gz
     PACKAGES: $BUILD_DEPS $COMMON_DEPS cmake imagemagick libcap-dev librsvg2-bin libz-dev libbz2-dev libtiff-tools
@@ -77,7 +80,7 @@ build:osx:
   - make HOST=$HOST -j4 | tee $LOGDIR/depends.log
   - cd ..
   - ./autogen.sh
-  - ./configure --prefix=`pwd`/depends/$HOST --bindir=$OUTDIR | tee $LOGDIR/configure.log
+  - ./configure --prefix=`pwd`/depends/$HOST --bindir=$OUTDIR/bin --libdir=$OUTDIR/lib | tee $LOGDIR/configure.log
   - make -j4 install | tee $LOGDIR/build.log
   - strip $OUTDIR/*
   artifacts:
@@ -91,6 +94,7 @@ build:win-64:
   stage: build
   variables:
     HOST: x86_64-w64-mingw32
+    LD_LIBRARY_PATH: $CI_PROJECT_DIR/depends/$HOST/lib
     PACKAGES: $BUILD_DEPS $COMMON_DEPS nsis wine bc g++-mingw-w64-i686 mingw-w64-i686-dev g++-mingw-w64-x86-64 mingw-w64-x86-64-dev
   script:
   - dpkg --add-architecture i386
@@ -100,7 +104,7 @@ build:win-64:
   - make HOST=$HOST -j4 | tee $LOGDIR/depends.log
   - cd ..
   - ./autogen.sh
-  - ./configure --prefix=`pwd`/depends/$HOST --bindir=$OUTDIR | tee $LOGDIR/configure.log
+  - ./configure --prefix=`pwd`/depends/$HOST --bindir=$OUTDIR/bin --libdir=$OUTDIR/lib | tee $LOGDIR/configure.log
   - make -j4 install | tee $LOGDIR/build.log
   - strip $OUTDIR/*
   artifacts:
