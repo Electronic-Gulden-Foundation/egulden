@@ -3,10 +3,10 @@ image: ubuntu:trusty
 variables:
   BUILD_DEPS: curl ca-certificates build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
   COMMON_DEPS: python python-pip python-dev python-setuptools python-zmq openjdk-7-jre-headless
-  BINDIR: "$CI_PROJECT_DIR/out/bin"
-  LIBDIR: "$CI_PROJECT_DIR/out/libs"
-  LOGDIR: "$CI_PROJECT_DIR/out/logs"
-  OUTDIR: "$CI_PROJECT_DIR/out"
+  BINDIR: $CI_PROJECT_DIR/out/bin
+  LIBDIR: $CI_PROJECT_DIR/out/libs
+  LOGDIR: $CI_PROJECT_DIR/out/logs
+  OUTDIR: $CI_PROJECT_DIR/out
   BITCOIN_CONFIGURE_OPTS_GLOBAL: "--enable-reduce-exports"
 
 cache:
