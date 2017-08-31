@@ -32,6 +32,7 @@ build:linux-64:
   - cd ./depends
   - make HOST=$HOST -j4 | tee $LOGDIR/depends.log
   - cd ..
+  - echo $BITCOIN_CONFIGURE_OPTS
   - export LD_LIBRARY_PATH=$CI_PROJECT_DIR/depends/$HOST/lib
   - ./autogen.sh
   - ./configure $BITCOIN_CONFIGURE_OPTS | tee $LOGDIR/configure.log
@@ -57,6 +58,7 @@ build:linux-32:
   - make HOST=$HOST -j4 | tee $LOGDIR/depends.log
   - cd ..
   - export LD_LIBRARY_PATH=$CI_PROJECT_DIR/depends/$HOST/lib
+  - echo $BITCOIN_CONFIGURE_OPTS
   - ./autogen.sh
   - ./configure $BITCOIN_CONFIGURE_OPTS | tee $LOGDIR/configure.log
   - make -j4 install | tee $LOGDIR/build.log
