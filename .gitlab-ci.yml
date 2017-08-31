@@ -7,7 +7,7 @@ variables:
   LIBDIR: "$CI_PROJECT_DIR/out/libs"
   LOGDIR: "$CI_PROJECT_DIR/out/logs"
   OUTDIR: "$CI_PROJECT_DIR/out"
-  BITCOIN_CONFIGURE_OPTS_GLOBAL: "--bindir=$BINDIR --libdir=$LIBDIR --enable-reduce-exports"
+  BITCOIN_CONFIGURE_OPTS_GLOBAL: "--enable-reduce-exports"
 
 cache:
   key: "$CI_JOB_NAME"
@@ -25,7 +25,7 @@ build:linux-64:
   variables:
     HOST: x86_64-unknown-linux-gnu
     PACKAGES: "$BUILD_DEPS $COMMON_DEPS bc"
-    BITCOIN_CONFIGURE_OPTS: "$BITCOIN_CONFIGURE_OPTS_GLOBAL --prefix=$CI_PROJECT_DIR/depends/$HOST"
+    BITCOIN_CONFIGURE_OPTS: "$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST"
   script:
   - apt-get update
   - apt-get install -y --no-install-recommends -qq $PACKAGES
@@ -49,7 +49,7 @@ build:linux-32:
   variables:
     HOST: i686-pc-linux-gnu
     PACKAGES: "$BUILD_DEPS $COMMON_DEPS g++-multilib libc6-dev-i386 bc libx11-6:i386 libfontconfig1-dev:i386 libfreetype6-dev:i386 libx11-dev:i386 libxcursor-dev:i386 libxext-dev:i386 libxfixes-dev:i386 libxft-dev:i386 libxi-dev:i386 libxrandr-dev:i386 libxrender-dev:i386"
-    BITCOIN_CONFIGURE_OPTS: "$BITCOIN_CONFIGURE_OPTS_GLOBAL --prefix=$CI_PROJECT_DIR/depends/$HOST"
+    BITCOIN_CONFIGURE_OPTS: "$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST"
   script:
   - dpkg --add-architecture i386
   - apt-get update
@@ -76,7 +76,7 @@ build:osx:
     OSX_SDK_URL: https://bitcoincore.org/depends-sources/sdks/MacOSX10.11.sdk.tar.gz
     OSX_SDK_TAR: depends/sdk-sources/MacOSX10.11.sdk.tar.gz
     PACKAGES: "$BUILD_DEPS $COMMON_DEPS cmake imagemagick libcap-dev librsvg2-bin libz-dev libbz2-dev libtiff-tools"
-    BITCOIN_CONFIGURE_OPTS: "$BITCOIN_CONFIGURE_OPTS_GLOBAL --prefix=$CI_PROJECT_DIR/depends/$HOST"
+    BITCOIN_CONFIGURE_OPTS: "$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST"
   script:
   - apt-get update
   - apt-get install -y --no-install-recommends -qq $PACKAGES
@@ -103,7 +103,7 @@ build:win-64:
   variables:
     HOST: x86_64-w64-mingw32
     PACKAGES: "$BUILD_DEPS $COMMON_DEPS nsis wine bc g++-mingw-w64-i686 mingw-w64-i686-dev g++-mingw-w64-x86-64 mingw-w64-x86-64-dev"
-    BITCOIN_CONFIGURE_OPTS: "$BITCOIN_CONFIGURE_OPTS_GLOBAL --prefix=$CI_PROJECT_DIR/depends/$HOST"
+    BITCOIN_CONFIGURE_OPTS: "$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST"
   script:
   - dpkg --add-architecture i386
   - apt-get update
