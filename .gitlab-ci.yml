@@ -117,6 +117,29 @@ build:win-64:
     paths:
     - $OUTDIR
 
+build:win-32:
+  stage: build
+  variables:
+    HOST: i686-w64-mingw32
+  script:
+  - dpkg --add-architecture i386
+  - apt-get update
+  - apt-get install -y --no-install-recommends -qq $BUILD_DEPS $COMMON_DEPS nsis wine bc g++-mingw-w64-i686 mingw-w64-i686-dev g++-mingw-w64-x86-64 mingw-w64-x86-64-dev
+  - cd ./depends
+  - make HOST=$HOST -j4 | tee $LOGDIR/depends.log
+  - cd ..
+  - export BITCOIN_CONFIGURE_OPTS="$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST --with-libs=no --disable-zmq"
+  - export LD_LIBRARY_PATH="$CI_PROJECT_DIR/depends/$HOST/lib"
+  - ./autogen.sh
+  - ./configure $BITCOIN_CONFIGURE_OPTS | tee $LOGDIR/configure.log
+  - make -j4 install | tee $LOGDIR/build.log
+  - strip $BINDIR/*
+  artifacts:
+    expire_in: 1 week
+    when: always
+    paths:
+    - $OUTDIR
+
 test:linux-64:
   stage: test
   dependencies:
