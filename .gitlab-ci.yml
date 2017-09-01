@@ -9,10 +9,10 @@ variables:
   OUTDIR: $CI_PROJECT_DIR/out
   BITCOIN_CONFIGURE_OPTS_GLOBAL: "--enable-reduce-exports"
 
-cache:
-  key: "$CI_JOB_NAME"
-  paths:
-  - depends/
+#cache:
+#  key: "$CI_JOB_NAME"
+#  paths:
+#  - depends/
 
 before_script:
   - mkdir -p $BINDIR
