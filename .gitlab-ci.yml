@@ -147,11 +147,3 @@ test:linux-64:
   script:
   - $BINDIR/test_egulden
   - $BINDIR/test_egulden-qt
-
-test:linux-32:
-  stage: test
-  dependencies:
-  - build:linux-32
-  script:
-  - $BINDIR/test_egulden
-  - $BINDIR/test_egulden-qt
