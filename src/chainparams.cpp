@@ -279,12 +279,12 @@ public:
             ParseHex("f6b2c579d2bc9c86603d0689546ca989c543049d5bdd8486c9b72eee4ccca5b1")
         };
 
-        checkpointData = (CCheckpointData) {
+        checkpointData = (CCheckpointData){
             boost::assign::map_list_of
-            ( 546, uint256S("0xa0fea99a6897f531600c8ae53367b126824fd6a847b2b2b73817a95b8e27e602")),
-            1365458829,
-            547,
-            576
+                ( 0, uint256S("c30cbdc40e8bfcec054d3938a4def4ef70b358fc0e2ed0e85d02b2e492149ac1")),
+                0,
+                0,
+                0
         };
     }
 };
