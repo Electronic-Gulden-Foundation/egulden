@@ -262,18 +262,21 @@ public:
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
 
-        fMiningRequiresPeers = true;
+        fMiningRequiresPeers = false;
         fDefaultConsistencyChecks = false;
         fRequireStandard = false;
         fMineBlocksOnDemand = false;
         fTestnetToBeDeprecatedFieldRPC = true;
 
-        nKGWStartHeight = 1;
+        nKGWStartHeight = 45000;
 
-        nOeruShieldMinCertifiedAddresses = 1;
+        nOeruShieldMinCertifiedAddresses = 2;
         nOeruShieldMaxMasterHeightDifference = 720;
         nOeruShieldMaxBlocksSinceLastCertified = 6;
         oeruShieldMasterKeys = {
+            ParseHex("d12cdf264835fb8421734e2f3fe3da623257c993aa094ec2fd0b9645cae1930b"),
+            ParseHex("b752e70e9b8343719491edfb524db6599e21d98269c1e720509636a6bb5db7ba"),
+            ParseHex("f6b2c579d2bc9c86603d0689546ca989c543049d5bdd8486c9b72eee4ccca5b1")
         };
 
         checkpointData = (CCheckpointData) {
