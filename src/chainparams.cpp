@@ -2,7 +2,6 @@
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-
 #include "chainparams.h"
 #include "consensus/merkle.h"
 
@@ -244,11 +243,11 @@ public:
         nDefaultPort = 5744;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1439194000, 385270584, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1504445602, 174526, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 
-        assert(consensus.hashGenesisBlock == uint256S("0xcaf3a57da0fe763a2fdb99132ec1f8791019dc3b439078d9490cf890c40e9b92"));
-        assert(genesis.hashMerkleRoot == uint256S("0xdf5d4cddc97c45da161f81032af08c18a6b7caecf0fb13d416108d61872cb618zsh"));
+        assert(consensus.hashGenesisBlock == uint256S("0xba8b6aaef13887bc2a69680596a905289992c897a647a1523019572892e4870a"));
+        assert(genesis.hashMerkleRoot == uint256S("0xdf5d4cddc97c45da161f81032af08c18a6b7caecf0fb13d416108d61872cb618"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
