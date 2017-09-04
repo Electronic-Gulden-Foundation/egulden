@@ -1,143 +1,254 @@
 Release Process
 ====================
 
-###update (commit) version in sources
+Before every release candidate:
 
-	contrib/verifysfbinaries/verify.sh
-	doc/README*
-	share/setup.nsi
-	src/clientversion.h (change CLIENT_VERSION_IS_RELEASE to true)
+* Update translations (ping wumpus on IRC) see [translation_process.md](https://github.com/bitcoin/bitcoin/blob/master/doc/translation_process.md#synchronising-translations).
 
-###tag version in git
+Before every minor and major release:
 
-	git tag -s v(new version, e.g. 0.8.0)
+* Update [bips.md](bips.md) to account for changes since the last release.
+* Update version in sources (see below)
+* Write release notes (see below)
+* Update `src/chainparams.cpp` nMinimumChainWork with information from the getblockchaininfo rpc.
 
-###write release notes. git shortlog helps a lot, for example:
+Before every major release:
 
-	git shortlog --no-merges v(current version, e.g. 0.7.2)..v(new version, e.g. 0.8.0)
+* Update hardcoded [seeds](/contrib/seeds/README.md), see [this pull request](https://github.com/bitcoin/bitcoin/pull/7415) for an example.
 
-* * *
+### First time / New builders
 
-###update Gitian
+Check out the source code in the following directory hierarchy.
 
- In order to take advantage of the new caching features in Gitian, be sure to update to a recent version (e9741525c or higher is recommended)
+    cd /path/to/your/toplevel/build
+    git clone https://github.com/litecoin-project/gitian.sigs.ltc.git
+    git clone https://github.com/litecoin-project/litecoin-detached-sigs.git
+    git clone https://github.com/devrandom/gitian-builder.git
+    git clone https://github.com/litecoin-project/litecoin.git
 
-###perform Gitian builds
+### Litecoin maintainers/release engineers, update version in sources
 
- From a directory containing the litecoin source, gitian-builder and gitian.sigs.ltc
+Update the following:
 
-    export SIGNER=(your Gitian key, ie wtogami, coblee, etc)
-	export VERSION=(new version, e.g. 0.8.0)
-	pushd ./litecoin
-	git checkout v${VERSION}
-	popd
-	pushd ./gitian-builder
+- `configure.ac`:
+    - `_CLIENT_VERSION_MAJOR`
+    - `_CLIENT_VERSION_MINOR`
+    - `_CLIENT_VERSION_REVISION`
+    - Don't forget to set `_CLIENT_VERSION_IS_RELEASE` to `true`
+- `src/clientversion.h`: (this mirrors `configure.ac` - see issue #3539)
+    - `CLIENT_VERSION_MAJOR`
+    - `CLIENT_VERSION_MINOR`
+    - `CLIENT_VERSION_REVISION`
+    - Don't forget to set `CLIENT_VERSION_IS_RELEASE` to `true`
+- `doc/README.md` and `doc/README_windows.txt`
+- `doc/Doxyfile`: `PROJECT_NUMBER` contains the full version
+- `contrib/gitian-descriptors/*.yml`: usually one'd want to do this on master after branching off the release - but be sure to at least do it before a new major release
 
-###fetch and build inputs: (first time, or when dependency versions change)
+Write release notes. git shortlog helps a lot, for example:
 
-	mkdir -p inputs
+    git shortlog --no-merges v(current version, e.g. 0.7.2)..v(new version, e.g. 0.8.0)
 
- Register and download the Apple SDK: (see OS X Readme for details)
+(or ping @wumpus on IRC, he has specific tooling to generate the list of merged pulls
+and sort them into categories based on labels)
 
- https://developer.apple.com/downloads/download.action?path=Developer_Tools/xcode_6.1.1/xcode_6.1.1.dmg
+Generate list of authors:
 
- Using a Mac, create a tarball for the 10.9 SDK and copy it to the inputs directory:
+    git log --format='%aN' "$*" | sort -ui | sed -e 's/^/- /'
 
-	tar -C /Volumes/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/ -czf MacOSX10.9.sdk.tar.gz MacOSX10.9.sdk
+Tag version (or release candidate) in git
 
-###Optional: Seed the Gitian sources cache
+    git tag -s v(new version, e.g. 0.8.0)
 
-  By default, Gitian will fetch source files as needed. For offline builds, they can be fetched ahead of time:
+### Setup and perform Gitian builds
 
-	make -C ../litecoin/depends download SOURCES_PATH=`pwd`/cache/common
+Setup Gitian descriptors:
 
-  Only missing files will be fetched, so this is safe to re-run for each build.
+    pushd ./litecoin
+    export SIGNER=(your Gitian key, ie bluematt, sipa, etc)
+    export VERSION=(new version, e.g. 0.8.0)
+    git fetch
+    git checkout v${VERSION}
+    popd
 
-###Build Litecoin Core for Linux, Windows, and OS X:
+Ensure your gitian.sigs.ltc are up-to-date if you wish to gverify your builds against other Gitian signatures.
 
-	./bin/gbuild --commit litecoin=v${VERSION} ../litecoin/contrib/gitian-descriptors/gitian-linux.yml
-	./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs.ltc/ ../litecoin/contrib/gitian-descriptors/gitian-linux.yml
-	mv build/out/litecoin-*.tar.gz build/out/src/litecoin-*.tar.gz ../
-	./bin/gbuild --commit litecoin=v${VERSION} ../litecoin/contrib/gitian-descriptors/gitian-win.yml
-	./bin/gsign --signer $SIGNER --release ${VERSION}-win --destination ../gitian.sigs.ltc/ ../litecoin/contrib/gitian-descriptors/gitian-win.yml
-	mv build/out/litecoin-*.zip build/out/litecoin-*.exe ../
-	./bin/gbuild --commit litecoin=v${VERSION} ../litecoin/contrib/gitian-descriptors/gitian-osx.yml
-	./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs.ltc/ ../litecoin/contrib/gitian-descriptors/gitian-osx.yml
-	mv build/out/litecoin-*-unsigned.tar.gz inputs/litecoin-osx-unsigned.tar.gz
-	mv build/out/litecoin-*.tar.gz build/out/litecoin-*.dmg ../
-	popd
-  Build output expected:
+    pushd ./gitian.sigs.ltc
+    git pull
+    popd
 
-  1. source tarball (litecoin-${VERSION}.tar.gz)
-  2. linux 32-bit and 64-bit binaries dist tarballs (litecoin-${VERSION}-linux[32|64].tar.gz)
-  3. windows 32-bit and 64-bit installers and dist zips (litecoin-${VERSION}-win[32|64]-setup.exe, litecoin-${VERSION}-win[32|64].zip)
-  4. OS X unsigned installer (litecoin-${VERSION}-osx-unsigned.dmg)
-  5. Gitian signatures (in gitian.sigs/${VERSION}-<linux|win|osx-unsigned>/(your Gitian key)/
+Ensure gitian-builder is up-to-date:
 
-###Next steps:
+    pushd ./gitian-builder
+    git pull
+    popd
 
-Commit your signature to gitian.sigs:
+### Fetch and create inputs: (first time, or when dependency versions change)
 
-	pushd gitian.sigs
-	git add ${VERSION}-linux/${SIGNER}
-	git add ${VERSION}-win/${SIGNER}
-	git add ${VERSION}-osx-unsigned/${SIGNER}
-	git commit -a
-	git push  # Assuming you can push to the gitian.sigs tree
-	popd
+    pushd ./gitian-builder
+    mkdir -p inputs
+    wget -P inputs https://bitcoincore.org/cfields/osslsigncode-Backports-to-1.7.1.patch
+    wget -P inputs http://downloads.sourceforge.net/project/osslsigncode/osslsigncode/osslsigncode-1.7.1.tar.gz
+    popd
 
-  Wait for OS X detached signature:
-	Once the OS X build has 3 matching signatures, Warren/Coblee will sign it with the apple App-Store key.
-	He will then upload a detached signature to be combined with the unsigned app to create a signed binary.
+Create the OS X SDK tarball, see the [OS X readme](README_osx.md) for details, and copy it into the inputs directory.
 
-  Create the signed OS X binary:
+### Optional: Seed the Gitian sources cache and offline git repositories
 
-	pushd ./gitian-builder
-	# Fetch the signature as instructed by Warren/Coblee
-	cp signature.tar.gz inputs/
-	./bin/gbuild -i ../litecoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-	./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../litecoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-	mv build/out/litecoin-osx-signed.dmg ../litecoin-${VERSION}-osx.dmg
-	popd
+By default, Gitian will fetch source files as needed. To cache them ahead of time:
 
-Commit your signature for the signed OS X binary:
+    pushd ./gitian-builder
+    make -C ../litecoin/depends download SOURCES_PATH=`pwd`/cache/common
+    popd
 
-	pushd gitian.sigs
-	git add ${VERSION}-osx-signed/${SIGNER}
-	git commit -a
-	git push  # Assuming you can push to the gitian.sigs tree
-	popd
+Only missing files will be fetched, so this is safe to re-run for each build.
 
--------------------------------------------------------------------------
+NOTE: Offline builds must use the --url flag to ensure Gitian fetches only from local URLs. For example:
+
+    pushd ./gitian-builder
+    ./bin/gbuild --url litecoin=/path/to/litecoin,signature=/path/to/sigs {rest of arguments}
+    popd
+
+The gbuild invocations below <b>DO NOT DO THIS</b> by default.
+
+### Build and sign Litecoin Core for Linux, Windows, and OS X:
+
+    pushd ./gitian-builder
+    ./bin/gbuild --memory 3000 --commit litecoin=v${VERSION} ../litecoin/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs.ltc/ ../litecoin/contrib/gitian-descriptors/gitian-linux.yml
+    mv build/out/litecoin-*.tar.gz build/out/src/litecoin-*.tar.gz ../
+
+    ./bin/gbuild --memory 3000 --commit litecoin=v${VERSION} ../litecoin/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs.ltc/ ../litecoin/contrib/gitian-descriptors/gitian-win.yml
+    mv build/out/litecoin-*-win-unsigned.tar.gz inputs/litecoin-win-unsigned.tar.gz
+    mv build/out/litecoin-*.zip build/out/litecoin-*.exe ../
+
+    ./bin/gbuild --memory 3000 --commit litecoin=v${VERSION} ../litecoin/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs.ltc/ ../litecoin/contrib/gitian-descriptors/gitian-osx.yml
+    mv build/out/litecoin-*-osx-unsigned.tar.gz inputs/litecoin-osx-unsigned.tar.gz
+    mv build/out/litecoin-*.tar.gz build/out/litecoin-*.dmg ../
+    popd
+
+Build output expected:
+
+  1. source tarball (`litecoin-${VERSION}.tar.gz`)
+  2. linux 32-bit and 64-bit dist tarballs (`litecoin-${VERSION}-linux[32|64].tar.gz`)
+  3. windows 32-bit and 64-bit unsigned installers and dist zips (`litecoin-${VERSION}-win[32|64]-setup-unsigned.exe`, `litecoin-${VERSION}-win[32|64].zip`)
+  4. OS X unsigned installer and dist tarball (`litecoin-${VERSION}-osx-unsigned.dmg`, `litecoin-${VERSION}-osx64.tar.gz`)
+  5. Gitian signatures (in `gitian.sigs.ltc/${VERSION}-<linux|{win,osx}-unsigned>/(your Gitian key)/`)
+
+### Verify other gitian builders signatures to your own. (Optional)
+
+Add other gitian builders keys to your gpg keyring
+
+    gpg --import litecoin/contrib/gitian-keys/*.pgp
+
+Verify the signatures
+
+    pushd ./gitian-builder
+    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-linux ../litecoin/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-win-unsigned ../litecoin/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-osx-unsigned ../litecoin/contrib/gitian-descriptors/gitian-osx.yml
+    popd
+
+### Next steps:
+
+Commit your signature to gitian.sigs.ltc:
+
+    pushd gitian.sigs.ltc
+    git add ${VERSION}-linux/${SIGNER}
+    git add ${VERSION}-win-unsigned/${SIGNER}
+    git add ${VERSION}-osx-unsigned/${SIGNER}
+    git commit -a
+    git push  # Assuming you can push to the gitian.sigs.ltc tree
+    popd
+
+Wait for Windows/OS X detached signatures:
+
+- Once the Windows/OS X builds each have 3 matching signatures, they will be signed with their respective release keys.
+- Detached signatures will then be committed to the [litecoin-detached-sigs](https://github.com/litecoin-project/litecoin-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
+
+Create (and optionally verify) the signed OS X binary:
+
+    pushd ./gitian-builder
+    ./bin/gbuild -i --commit signature=v${VERSION} ../litecoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs.ltc/ ../litecoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-osx-signed ../litecoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+    mv build/out/litecoin-osx-signed.dmg ../litecoin-${VERSION}-osx.dmg
+    popd
+
+Create (and optionally verify) the signed Windows binaries:
+
+    pushd ./gitian-builder
+    ./bin/gbuild -i --commit signature=v${VERSION} ../litecoin/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs.ltc/ ../litecoin/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-win-signed ../litecoin/contrib/gitian-descriptors/gitian-win-signer.yml
+    mv build/out/litecoin-*win64-setup.exe ../litecoin-${VERSION}-win64-setup.exe
+    mv build/out/litecoin-*win32-setup.exe ../litecoin-${VERSION}-win32-setup.exe
+    popd
+
+Commit your signature for the signed OS X/Windows binaries:
+
+    pushd gitian.sigs.ltc
+    git add ${VERSION}-osx-signed/${SIGNER}
+    git add ${VERSION}-win-signed/${SIGNER}
+    git commit -a
+    git push  # Assuming you can push to the gitian.sigs.ltc tree
+    popd
 
 ### After 3 or more people have gitian-built and their results match:
 
-- Perform code-signing.
-
-    - Code-sign Windows -setup.exe (in a Windows virtual machine using signtool)
-
-  Note: only Warren/Coblee has the code-signing keys currently.
-
 - Create `SHA256SUMS.asc` for the builds, and GPG-sign it:
+
 ```bash
 sha256sum * > SHA256SUMS
+```
+
+The list of files should be:
+```
+litecoin-${VERSION}-aarch64-linux-gnu.tar.gz
+litecoin-${VERSION}-arm-linux-gnueabihf.tar.gz
+litecoin-${VERSION}-i686-pc-linux-gnu.tar.gz
+litecoin-${VERSION}-x86_64-linux-gnu.tar.gz
+litecoin-${VERSION}-osx64.tar.gz
+litecoin-${VERSION}-osx.dmg
+litecoin-${VERSION}.tar.gz
+litecoin-${VERSION}-win32-setup.exe
+litecoin-${VERSION}-win32.zip
+litecoin-${VERSION}-win64-setup.exe
+litecoin-${VERSION}-win64.zip
+```
+The `*-debug*` files generated by the gitian build contain debug symbols
+for troubleshooting by developers. It is assumed that anyone that is interested
+in debugging can run gitian to generate the files for themselves. To avoid
+end-user confusion about which file to pick, as well as save storage
+space *do not upload these to the litecoin.org server, nor put them in the torrent*.
+
+- GPG-sign it, delete the unsigned file:
+```
 gpg --digest-algo sha256 --clearsign SHA256SUMS # outputs SHA256SUMS.asc
 rm SHA256SUMS
 ```
 (the digest algorithm is forced to sha256 to avoid confusion of the `Hash:` header that GPG adds with the SHA256 used for the files)
+Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spurious/nonsensical entry.
+
+- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the litecoin.org server.
 
 - Update litecoin.org version
 
 - Announce the release:
 
-  - Release sticky on litecointalk: https://litecointalk.org/index.php?board=1.0
+  - litecoin-dev mailing list
 
-  - litecoin-development mailing list
+  - Litecoin Core announcements list https://groups.google.com/forum/#!forum/litecoin-dev
+
+  - blog.litecoin.org blog post
+
+  - litecointalk.io forum announcement
 
   - Update title of #litecoin on Freenode IRC
 
-  - Optionally reddit /r/litecoin, ... but this will usually sort out itself
+  - Optionally twitter, reddit /r/Litecoin, ... but this will usually sort out itself
 
-- Add release notes for the new version to the directory `doc/release-notes` in git master
+  - Add release notes for the new version to the directory `doc/release-notes` in git master
 
-- Celebrate
+  - Celebrate

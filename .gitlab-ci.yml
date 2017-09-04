@@ -1,0 +1,149 @@
+image: ubuntu:trusty
+
+variables:
+  BUILD_DEPS: curl ca-certificates build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
+  COMMON_DEPS: python python-pip python-dev python-setuptools python-zmq openjdk-7-jre-headless
+  BINDIR: $CI_PROJECT_DIR/out/bin
+  LIBDIR: $CI_PROJECT_DIR/out/libs
+  LOGDIR: $CI_PROJECT_DIR/out/logs
+  OUTDIR: $CI_PROJECT_DIR/out
+  BITCOIN_CONFIGURE_OPTS_GLOBAL: "--enable-reduce-exports"
+
+cache:
+  key: "$CI_JOB_NAME"
+  paths:
+  - depends/
+
+before_script:
+  - mkdir -p $BINDIR
+  - mkdir -p $OUTDIR
+  - mkdir -p $LOGDIR
+  - mkdir -p $OUTDIR
+
+build:linux-64:
+  stage: build
+  variables:
+    HOST: x86_64-unknown-linux-gnu
+  script:
+  - apt-get update
+  - apt-get install -y --no-install-recommends -qq $BUILD_DEPS $COMMON_DEPS bc
+  - cd ./depends
+  - make HOST=$HOST -j4 | tee $LOGDIR/depends.log
+  - cd ..
+  - export BITCOIN_CONFIGURE_OPTS="$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST"
+  - export LD_LIBRARY_PATH="$CI_PROJECT_DIR/depends/$HOST/lib"
+  - echo $BITCOIN_CONFIGURE_OPTS
+  - ./autogen.sh
+  - ./configure $BITCOIN_CONFIGURE_OPTS | tee $LOGDIR/configure.log
+  - make -j4 install | tee $LOGDIR/build.log
+  - strip $BINDIR/*
+  artifacts:
+    expire_in: 1 week
+    when: always
+    paths:
+    - $OUTDIR
+
+build:linux-32:
+  stage: build
+  variables:
+    HOST: i686-pc-linux-gnu
+  script:
+  - dpkg --add-architecture i386
+  - apt-get update
+  - apt-get install -y --no-install-recommends -qq $BUILD_DEPS $COMMON_DEPS g++-multilib libc6-dev-i386 bc libx11-6:i386 libfontconfig1-dev:i386 libfreetype6-dev:i386 libx11-dev:i386 libxcursor-dev:i386 libxext-dev:i386 libxfixes-dev:i386 libxft-dev:i386 libxi-dev:i386 libxrandr-dev:i386 libxrender-dev:i386
+  - cd ./depends
+  - make HOST=$HOST -j4 | tee $LOGDIR/depends.log
+  - cd ..
+  - export BITCOIN_CONFIGURE_OPTS="$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST"
+  - export LD_LIBRARY_PATH="$CI_PROJECT_DIR/depends/$HOST/lib"
+  - echo $BITCOIN_CONFIGURE_OPTS
+  - ./autogen.sh
+  - ./configure $BITCOIN_CONFIGURE_OPTS | tee $LOGDIR/configure.log
+  - make -j4 install | tee $LOGDIR/build.log
+  - strip $BINDIR/*
+  artifacts:
+    expire_in: 1 week
+    when: always
+    paths:
+    - $OUTDIR
+
+build:osx:
+  stage: build
+  variables:
+    HOST: x86_64-apple-darwin11
+    OSX_SDK_URL: https://bitcoincore.org/depends-sources/sdks/MacOSX10.11.sdk.tar.gz
+    OSX_SDK_TAR: depends/sdk-sources/MacOSX10.11.sdk.tar.gz
+  script:
+  - apt-get update
+  - apt-get install -y --no-install-recommends -qq $BUILD_DEPS $COMMON_DEPS cmake imagemagick libcap-dev librsvg2-bin libz-dev libbz2-dev libtiff-tools
+  - pip install ez_setup
+  - if [ ! -f "$OSX_SDK_TAR" ]; then mkdir -p depends/sdk-sources && curl --location --fail $OSX_SDK_URL -o $OSX_SDK_TAR; fi
+  - mkdir -p depends/SDKs && tar -C depends/SDKs -xf $OSX_SDK_TAR
+  - cd ./depends
+  - make HOST=$HOST -j4 | tee $LOGDIR/depends.log
+  - cd ..
+  - export BITCOIN_CONFIGURE_OPTS="$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST --with-libs=no"
+  - export LD_LIBRARY_PATH="$CI_PROJECT_DIR/depends/$HOST/lib"
+  - ./autogen.sh
+  - ./configure $BITCOIN_CONFIGURE_OPTS | tee $LOGDIR/configure.log
+  - make -j4 deploy | tee $LOGDIR/build.log
+  artifacts:
+    expire_in: 1 week
+    when: always
+    paths:
+    - $OUTDIR
+    - e-Gulden-Core.dmg
+
+build:win-64:
+  stage: build
+  variables:
+    HOST: x86_64-w64-mingw32
+  script:
+  - dpkg --add-architecture i386
+  - apt-get update
+  - apt-get install -y --no-install-recommends -qq $BUILD_DEPS $COMMON_DEPS nsis wine bc g++-mingw-w64-i686 mingw-w64-i686-dev g++-mingw-w64-x86-64 mingw-w64-x86-64-dev
+  - cd ./depends
+  - make HOST=$HOST -j4 | tee $LOGDIR/depends.log
+  - cd ..
+  - export BITCOIN_CONFIGURE_OPTS="$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST --with-libs=no --disable-zmq"
+  - export LD_LIBRARY_PATH="$CI_PROJECT_DIR/depends/$HOST/lib"
+  - ./autogen.sh
+  - ./configure $BITCOIN_CONFIGURE_OPTS | tee $LOGDIR/configure.log
+  - make -j4 install | tee $LOGDIR/build.log
+  - strip $BINDIR/*
+  artifacts:
+    expire_in: 1 week
+    when: always
+    paths:
+    - $OUTDIR
+
+build:win-32:
+  stage: build
+  variables:
+    HOST: i686-w64-mingw32
+  script:
+  - dpkg --add-architecture i386
+  - apt-get update
+  - apt-get install -y --no-install-recommends -qq $BUILD_DEPS $COMMON_DEPS nsis wine bc g++-mingw-w64-i686 mingw-w64-i686-dev g++-mingw-w64-x86-64 mingw-w64-x86-64-dev
+  - cd ./depends
+  - make HOST=$HOST -j4 | tee $LOGDIR/depends.log
+  - cd ..
+  - export BITCOIN_CONFIGURE_OPTS="$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST --with-libs=no --disable-zmq"
+  - export LD_LIBRARY_PATH="$CI_PROJECT_DIR/depends/$HOST/lib"
+  - ./autogen.sh
+  - ./configure $BITCOIN_CONFIGURE_OPTS | tee $LOGDIR/configure.log
+  - make -j4 install | tee $LOGDIR/build.log
+  - strip $BINDIR/*
+  artifacts:
+    expire_in: 1 week
+    when: always
+    paths:
+    - $OUTDIR
+
+test:linux-64:
+  stage: test
+  dependencies:
+  - build:linux-64
+  script:
+  - $BINDIR/test_egulden
+  - $BINDIR/test_egulden-qt

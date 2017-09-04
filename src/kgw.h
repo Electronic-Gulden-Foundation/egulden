@@ -9,6 +9,6 @@
 
 class CBlockIndex;
 
-unsigned int KimotoGravityWell(const CBlockIndex* pindexLast, uint64_t TargetBlockSpacingSeconds, uint64_t PastBlocksMin, uint64_t PastBlocksMax);
+unsigned int KimotoGravityWell(const CBlockIndex* pindexLast, uint64_t TargetBlockSpacingSeconds, uint64_t PastBlocksMin, uint64_t PastBlocksMax, const Consensus::Params& params);
 
 #endif
