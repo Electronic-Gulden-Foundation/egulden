@@ -7,7 +7,7 @@ variables:
   LIBDIR: $CI_PROJECT_DIR/out/libs
   LOGDIR: $CI_PROJECT_DIR/out/logs
   OUTDIR: $CI_PROJECT_DIR/out
-  BITCOIN_CONFIGURE_OPTS_GLOBAL: "--enable-reduce-exports --enable-glibc-back-compat"
+  BITCOIN_CONFIGURE_OPTS_GLOBAL: "--enable-reduce-exports"
 
 cache:
   key: "$CI_JOB_NAME"
@@ -30,7 +30,7 @@ build:linux-64:
   - cd ./depends
   - make HOST=$HOST -j4 | tee $LOGDIR/depends.log
   - cd ..
-  - export BITCOIN_CONFIGURE_OPTS="$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST"
+  - export BITCOIN_CONFIGURE_OPTS="$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST --enable-glibc-back-compat"
   - export LD_LIBRARY_PATH="$CI_PROJECT_DIR/depends/$HOST/lib"
   - echo $BITCOIN_CONFIGURE_OPTS
   - ./autogen.sh
@@ -54,7 +54,7 @@ build:linux-32:
   - cd ./depends
   - make HOST=$HOST -j4 | tee $LOGDIR/depends.log
   - cd ..
-  - export BITCOIN_CONFIGURE_OPTS="$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST --disable-tests --disable-bench"
+  - export BITCOIN_CONFIGURE_OPTS="$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST --disable-tests --disable-bench --enable-glibc-back-compat"
   - export LD_LIBRARY_PATH="$CI_PROJECT_DIR/depends/$HOST/lib"
   - export LDFLAGS="-static-libstdc++"
   - echo $BITCOIN_CONFIGURE_OPTS
