@@ -274,9 +274,7 @@ public:
         nOeruShieldMaxMasterHeightDifference = 720;
         nOeruShieldMaxBlocksSinceLastCertified = 6;
         oeruShieldMasterKeys = {
-            ParseHex("d12cdf264835fb8421734e2f3fe3da623257c993aa094ec2fd0b9645cae1930b"),
-            ParseHex("b752e70e9b8343719491edfb524db6599e21d98269c1e720509636a6bb5db7ba"),
-            ParseHex("f6b2c579d2bc9c86603d0689546ca989c543049d5bdd8486c9b72eee4ccca5b1")
+            ParseHex("d0686aa786f469720d681f81e7442bd99c13b58c9545973f2a7d7e24d0cdb634")
         };
 
         checkpointData = (CCheckpointData){
