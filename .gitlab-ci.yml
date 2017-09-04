@@ -56,7 +56,7 @@ build:linux-32:
   - cd ..
   - export BITCOIN_CONFIGURE_OPTS="$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST --disable-tests --disable-bench"
   - export LD_LIBRARY_PATH="$CI_PROJECT_DIR/depends/$HOST/lib"
-  - export LDFLAGS=-static-libstdc++"
+  - export LDFLAGS="-static-libstdc++"
   - echo $BITCOIN_CONFIGURE_OPTS
   - ./autogen.sh
   - ./configure $BITCOIN_CONFIGURE_OPTS | tee $LOGDIR/configure.log
