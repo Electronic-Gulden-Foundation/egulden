@@ -54,7 +54,7 @@ build:linux-32:
   - cd ./depends
   - make HOST=$HOST -j4 | tee $LOGDIR/depends.log
   - cd ..
-  - export BITCOIN_CONFIGURE_OPTS="$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST"
+  - export BITCOIN_CONFIGURE_OPTS="$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST --disable-tests --disable-bench"
   - export LD_LIBRARY_PATH="$CI_PROJECT_DIR/depends/$HOST/lib"
   - echo $BITCOIN_CONFIGURE_OPTS
   - ./autogen.sh
@@ -82,7 +82,7 @@ build:osx:
   - cd ./depends
   - make HOST=$HOST -j4 | tee $LOGDIR/depends.log
   - cd ..
-  - export BITCOIN_CONFIGURE_OPTS="$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST --with-libs=no"
+  - export BITCOIN_CONFIGURE_OPTS="$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST --with-libs=no --disable-tests --disable-bench"
   - export LD_LIBRARY_PATH="$CI_PROJECT_DIR/depends/$HOST/lib"
   - ./autogen.sh
   - ./configure $BITCOIN_CONFIGURE_OPTS | tee $LOGDIR/configure.log
@@ -105,7 +105,7 @@ build:win-64:
   - cd ./depends
   - make HOST=$HOST -j4 | tee $LOGDIR/depends.log
   - cd ..
-  - export BITCOIN_CONFIGURE_OPTS="$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST --with-libs=no --disable-zmq"
+  - export BITCOIN_CONFIGURE_OPTS="$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST --with-libs=no --disable-zmq --disable-tests --disable-bench"
   - export LD_LIBRARY_PATH="$CI_PROJECT_DIR/depends/$HOST/lib"
   - ./autogen.sh
   - ./configure $BITCOIN_CONFIGURE_OPTS | tee $LOGDIR/configure.log
@@ -128,7 +128,7 @@ build:win-32:
   - cd ./depends
   - make HOST=$HOST -j4 | tee $LOGDIR/depends.log
   - cd ..
-  - export BITCOIN_CONFIGURE_OPTS="$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST --with-libs=no --disable-zmq"
+  - export BITCOIN_CONFIGURE_OPTS="$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST --with-libs=no --disable-zmq --disable-tests --disable-bench"
   - export LD_LIBRARY_PATH="$CI_PROJECT_DIR/depends/$HOST/lib"
   - ./autogen.sh
   - ./configure $BITCOIN_CONFIGURE_OPTS | tee $LOGDIR/configure.log
