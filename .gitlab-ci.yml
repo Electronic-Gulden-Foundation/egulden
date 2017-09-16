@@ -147,5 +147,5 @@ test:linux-64:
   - build:linux-64
   script:
   - $BINDIR/test_egulden || true # This is allowed to fail (Needs to be fixed see issue #1)
+  - $BINDIR/test_egulden-qt || true # Allowed to fail as well
   - $BINDIR/test_egulden --run_test=oerushield_tests # This isn't
-  - $BINDIR/test_egulden-qt
