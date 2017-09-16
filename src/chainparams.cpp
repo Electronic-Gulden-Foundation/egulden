@@ -157,6 +157,7 @@ public:
         nOeruShieldMinCertifiedAddresses = 5;
         nOeruShieldMaxMasterHeightDifference = 720;
         nOeruShieldMaxBlocksSinceLastCertified = 6;
+        nOeruShieldFirstMasterTXHeight = 941905;
         oeruShieldMasterKeys = {
             ParseHex("d12cdf264835fb8421734e2f3fe3da623257c993aa094ec2fd0b9645cae1930b"),
             ParseHex("b752e70e9b8343719491edfb524db6599e21d98269c1e720509636a6bb5db7ba"),
@@ -273,6 +274,7 @@ public:
         nOeruShieldMinCertifiedAddresses = 2;
         nOeruShieldMaxMasterHeightDifference = 720;
         nOeruShieldMaxBlocksSinceLastCertified = 6;
+        nOeruShieldFirstMasterTXHeight = 100;
         oeruShieldMasterKeys = {
             ParseHex("d0686aa786f469720d681f81e7442bd99c13b58c9545973f2a7d7e24d0cdb634")
         };
@@ -347,6 +349,7 @@ public:
         nOeruShieldMinCertifiedAddresses = 1;
         nOeruShieldMaxMasterHeightDifference = 720;
         nOeruShieldMaxBlocksSinceLastCertified = 6;
+        nOeruShieldFirstMasterTXHeight = 100;
         oeruShieldMasterKeys = {
             ParseHex("ffa1d249244e513c5a5ad0c27f70322008bc432b3e2e6aa4fd71c11db40ec972")
         };

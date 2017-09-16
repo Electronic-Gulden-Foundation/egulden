@@ -18,6 +18,7 @@ public:
 
     COeruDB(std::string oeruDBFileName);
 
+    bool ShouldReindex(int ChainHeight);
     void AddCertifiedAddress(CBitcoinAddress addr);
     void ClearCertifiedAddresses();
     void GetCertifiedAddresses(std::vector<CBitcoinAddress> &vAddresses) const;
