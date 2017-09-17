@@ -126,7 +126,7 @@ const char* vvalidClients[] = {
     "/Satoshi:1.1.0.1/",
     "/Satoshi:1.1.0.2/",
     "/Satoshi:1.1.0.3/",
-    "/eguldencoinJ:0.11SNAPSHOT/eguldencoin Wallet:1.9/",
+    "/egulden-coinJ:0.11-SNAPSHOT/egulden-coin Wallet:1.9/",
     NULL
 };
 const char* vvalidClientName = "Christiaan Huygens:";
