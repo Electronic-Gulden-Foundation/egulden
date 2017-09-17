@@ -31,6 +31,15 @@ COeruDB::COeruDB(std::string oeruDBFileName)
     strOeruDBFileName = oeruDBFileName;
 }
 
+bool COeruDB::ShouldReindex(int ChainHeight)
+{
+    int OeruStartHeight = Params().OeruShieldFirstMasterTXHeight();
+    bool OeruIsEmpty = (NumCertifiedAddresses() == 0);
+    bool IsAfterStartHeight = ChainHeight > OeruStartHeight;
+
+    return IsAfterStartHeight && OeruIsEmpty;
+}
+
 void COeruDB::AddCertifiedAddress(CBitcoinAddress addr)
 {
     vOeruCertifiedAddresses.insert(addr);
