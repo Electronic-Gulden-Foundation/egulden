@@ -88,6 +88,8 @@ public:
     int OeruShieldMaxMasterHeightDifference() const { return nOeruShieldMaxMasterHeightDifference; }
     // Maximum number of blocks since last certified block
     int OeruShieldMaxBlocksSinceLastCertified() const { return nOeruShieldMaxBlocksSinceLastCertified; }
+    // When the first OERU Shield master TX was included in a block
+    int OeruShieldFirstMasterTXHeight() const { return nOeruShieldFirstMasterTXHeight; }
 protected:
     CChainParams() {}
 
@@ -116,6 +118,7 @@ protected:
     int nOeruShieldMinCertifiedAddresses;
     int nOeruShieldMaxMasterHeightDifference;
     int nOeruShieldMaxBlocksSinceLastCertified;
+    int nOeruShieldFirstMasterTXHeight;
 };
 
 /**

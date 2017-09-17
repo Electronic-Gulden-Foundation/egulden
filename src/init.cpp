@@ -1257,8 +1257,6 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
     fReindex = GetBoolArg("-reindex", false);
     bool fReindexChainState = GetBoolArg("-reindex-chainstate", false);
 
-    COeruDB::InitOeruDB(oeruDBPath.string().c_str(), fReindex);
-
     // Upgrading to 0.8; hard-link the old blknnnn.dat files into /blocks/
     boost::filesystem::path blocksDir = GetDataDir() / "blocks";
     if (!boost::filesystem::exists(blocksDir))
@@ -1416,6 +1414,13 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
                 return InitError(strLoadError);
             }
         }
+    }
+
+    COeruDB::InitOeruDB(oeruDBPath.string().c_str(), fReindex);
+
+    if (poeruDBMain->ShouldReindex(chainActive.Height())) {
+        LogPrint("OeruShield", "OeruShield requested reindex\n");
+        fReindex = true;
     }
 
     // As LoadBlockIndex can take several minutes, it's possible the user

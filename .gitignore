@@ -5,6 +5,7 @@ src/egulden
 src/eguldend
 src/egulden-cli
 src/egulden-tx
+src/bench/bench_egulden
 src/test/test_egulden
 src/qt/test/test_egulden-qt
 

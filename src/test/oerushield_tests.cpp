@@ -15,9 +15,15 @@
 
 BOOST_FIXTURE_TEST_SUITE(oerushield_tests, BasicTestingSetup)
 
+std::string GetTempFilePath()
+{
+    boost::filesystem::path tmpfile = boost::filesystem::temp_directory_path() / boost::filesystem::unique_path();
+    return tmpfile.string().c_str();
+}
+
 BOOST_AUTO_TEST_CASE (oerudb_certified_addresses)
 {
-    COeruDB oeruDB("not-used-filename.db");
+    COeruDB oeruDB(GetTempFilePath());
 
     std::string addresses[] = {
         "LdwLvykqj2nUH3MWcut6mtjHxVxVFC7st5",
@@ -91,7 +97,23 @@ BOOST_AUTO_TEST_CASE (oerudb_read_write_dbfile)
     BOOST_CHECK(readOeruDB.IsAddressCertified(CBitcoinAddress(addresses[2])) == true);
 }
 
-BOOST_AUTO_TEST_CASE (oerudb_is_master_key)
+BOOST_AUTO_TEST_CASE (oerudb_reindex)
+{
+    COeruDB oeruDB(GetTempFilePath());
+
+    // OeruShieldFirstMasterTXHeight: 941905 on mainnet
+    BOOST_CHECK(oeruDB.ShouldReindex(940000) == false);
+    BOOST_CHECK(oeruDB.ShouldReindex(950000) == true);
+
+    // Add one certified address, expect no reindex necessary as
+    // OERUDB was presumably initialized before the first master TX
+    oeruDB.AddCertifiedAddress(CBitcoinAddress("LLUAaniHSW6eH1QQUrJ7ZAEHurkhx857f3"));
+
+    BOOST_CHECK(oeruDB.ShouldReindex(940000) == false);
+    BOOST_CHECK(oeruDB.ShouldReindex(950000) == false);
+}
+
+BOOST_AUTO_TEST_CASE (oerushield_is_master_key)
 {
     COeruShield oeruShield(nullptr);
 
