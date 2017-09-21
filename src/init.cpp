@@ -1251,11 +1251,12 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
 
     // ********************************************************* Step 7: load block chain
 
-    // Initialize OeruDB
-    boost::filesystem::path oeruDBPath = GetDataDir() / GetArg("-oerudb", "oeru.db");
-
     fReindex = GetBoolArg("-reindex", false);
     bool fReindexChainState = GetBoolArg("-reindex-chainstate", false);
+
+    // Initialize OeruDB
+    boost::filesystem::path oeruDBPath = GetDataDir() / GetArg("-oerudb", "oeru.db");
+    COeruDB::InitOeruDB(oeruDBPath.string().c_str(), fReindex);
 
     // Upgrading to 0.8; hard-link the old blknnnn.dat files into /blocks/
     boost::filesystem::path blocksDir = GetDataDir() / "blocks";
@@ -1387,6 +1388,11 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
                     strLoadError = _("Corrupted block database detected");
                     break;
                 }
+
+                if (poeruDBMain->ShouldReindex(chainActive.Height())) {
+                    strLoadError = _("Invalid OERUShield database detected. You need to rebuild the database using -reindex.");
+                    break;
+                }
             } catch (const std::exception& e) {
                 if (fDebug) LogPrintf("%s\n", e.what());
                 strLoadError = _("Error opening block database");
@@ -1414,13 +1420,6 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
                 return InitError(strLoadError);
             }
         }
-    }
-
-    COeruDB::InitOeruDB(oeruDBPath.string().c_str(), fReindex);
-
-    if (poeruDBMain->ShouldReindex(chainActive.Height())) {
-        LogPrint("OeruShield", "OeruShield requested reindex\n");
-        fReindex = true;
     }
 
     // As LoadBlockIndex can take several minutes, it's possible the user
