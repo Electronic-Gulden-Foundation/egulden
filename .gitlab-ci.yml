@@ -68,6 +68,29 @@ build:linux-32:
     paths:
     - $OUTDIR
 
+build:arm:
+  stage: build
+  variables:
+    HOST: arm-linux-gnueabihf
+  script:
+  - apt-get update
+  - apt-get install -y --no-install-recommends -qq $BUILD_DEPS $COMMON_DEPS g++-arm-linux-gnueabihf
+  - cd ./depends
+  - make HOST=$HOST -j4 | tee $LOGDIR/depends.log
+  - cd ..
+  - export BITCOIN_CONFIGURE_OPTS="$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST --enable-glibc-back-compat --enable-reduce-exports"
+  - export LD_LIBRARY_PATH="$CI_PROJECT_DIR/depends/$HOST/lib"
+  - echo $BITCOIN_CONFIGURE_OPTS
+  - ./autogen.sh
+  - ./configure $BITCOIN_CONFIGURE_OPTS | tee $LOGDIR/configure.log
+  - make -j4 install | tee $LOGDIR/build.log
+  - strip $BINDIR/*
+  artifacts:
+    expire_in: 1 week
+    when: always
+    paths:
+    - $OUTDIR
+
 build:osx:
   stage: build
   variables:
