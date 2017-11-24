@@ -157,6 +157,7 @@ build:win-32:
   - ./autogen.sh
   - ./configure $BITCOIN_CONFIGURE_OPTS | tee $LOGDIR/configure.log
   - make -j4 install | tee $LOGDIR/build.log
+  - strip $BINDIR/*
   artifacts:
     expire_in: 1 week
     when: always
