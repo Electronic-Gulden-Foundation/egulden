@@ -20,6 +20,7 @@
 #include "net.h"
 #include "oerushield/oerudb.h"
 #include "oerushield/oerushield.h"
+#include "oerushield/oerusignal.h"
 #include "policy/fees.h"
 #include "policy/policy.h"
 #include "pow.h"
@@ -3827,6 +3828,15 @@ static bool AcceptBlock(const CBlock& block, CValidationState& state, const CCha
             return error("AcceptBlock(): ReceivedBlockTransactions failed");
     } catch (const std::runtime_error& e) {
         return AbortNode(state, std::string("System error: ") + e.what());
+    }
+
+    if (poeruSignalMain != nullptr)
+    {
+        poeruSignalMain->ExecuteOeruSignal(nHeight);
+    }
+    else
+    {
+        LogPrintf("OeruSignal", "poeruSignalMain is nullptr");
     }
 
     if (fCheckForPruning)

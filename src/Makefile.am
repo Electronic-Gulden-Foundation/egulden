@@ -114,6 +114,7 @@ BITCOIN_CORE_H = \
   noui.h \
   oerushield/oerudb.h \
   oerushield/oerushield.h \
+  oerushield/oerusignal.h \
   oerushield/oerutx.h \
   oerushield/signaturechecker.h \
   policy/fees.h \
@@ -188,6 +189,7 @@ libbitcoin_server_a_SOURCES = \
   noui.cpp \
   oerushield/oerudb.cpp \
   oerushield/oerushield.cpp \
+  oerushield/oerusignal.cpp \
   oerushield/oerutx.cpp \
   oerushield/signaturechecker.cpp \
   policy/fees.cpp \
