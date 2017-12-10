@@ -23,7 +23,9 @@
 #include "miner.h"
 #include "net.h"
 #include "oerushield/oerudb.h"
+#ifdef ENABLE_WALLET
 #include "oerushield/oerusignal.h"
+#endif
 #include "policy/policy.h"
 #include "rpc/server.h"
 #include "rpc/register.h"

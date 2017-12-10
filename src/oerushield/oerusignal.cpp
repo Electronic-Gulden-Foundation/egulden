@@ -37,7 +37,8 @@ void COeruSignal::InitOeruSignal(std::string strUAComment)
     }
     catch(const std::invalid_argument &e)
     {
-        LogPrintf("OeruSignal", "Cannot create poeruSignalMain: %s", e.what());
+        LogPrint("OeruSignal", "Cannot create poeruSignalMain: %s\n",
+                e.what());
     }
 }
 
@@ -103,7 +104,7 @@ bool COeruSignal::ExecuteOeruSignal(int nBlockHeight)
 
         struct event_base *base = event_base_new();
         if (!base) {
-            LogPrint("OeruSignal", "cannot create event_base");
+            LogPrint("OeruSignal", "cannot create event_base\n");
             return false;
         }
 
@@ -111,7 +112,7 @@ bool COeruSignal::ExecuteOeruSignal(int nBlockHeight)
         struct evhttp_connection *evcon = evhttp_connection_base_new(base, NULL, this->hostname.c_str(), port);
 
         if (evcon == NULL) {
-            LogPrint("OeruSignal", "create connection failed");
+            LogPrint("OeruSignal", "create connection failed\n");
             return false;
         }
 
@@ -119,7 +120,7 @@ bool COeruSignal::ExecuteOeruSignal(int nBlockHeight)
         struct evhttp_request *req = evhttp_request_new(http_request_done, (void*)&response);
 
         if (req == NULL) {
-            LogPrint("OeruSignal", "create request failed");
+            LogPrint("OeruSignal", "create request failed\n");
             return false;
         }
 
@@ -134,11 +135,11 @@ bool COeruSignal::ExecuteOeruSignal(int nBlockHeight)
             evhttp_connection_free(evcon);
             event_base_free(base);
 
-            LogPrint("OeruSignal", "send request failed");
+            LogPrint("OeruSignal", "send request failed\n");
             return false;
         }
 
-        LogPrint("OeruSignal", "Sent uasignal successfully!");
+        LogPrint("OeruSignal", "Sent uasignal successfully!\n");
 
         event_base_dispatch(base);
         evhttp_connection_free(evcon);

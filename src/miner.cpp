@@ -184,12 +184,14 @@ CBlockTemplate* BlockAssembler::CreateNewBlock(const CScript& scriptPubKeyIn)
     coinbaseTx.vout[0].nValue = nFees + GetBlockSubsidy(nHeight, chainparams.GetConsensus());
     coinbaseTx.vin[0].scriptSig = CScript() << nHeight << OP_0;
 
+#ifdef ENABLE_WALLET
     CTxOut oeruBaseOut;
     if (createOeruBaseOutput(nHeight, oeruBaseOut)) {
         coinbaseTx.vout.push_back(oeruBaseOut);
     } else {
         LogPrintf("CreateNewBlock(): Unable to sign block");
     }
+#endif
 
     pblock->vtx[0] = coinbaseTx;
     pblocktemplate->vchCoinbaseCommitment = GenerateCoinbaseCommitment(*pblock, pindexPrev, chainparams.GetConsensus());
@@ -603,6 +605,7 @@ void BlockAssembler::addPriorityTxs()
     fNeedSizeAccounting = fSizeAccounting;
 }
 
+#ifdef ENABLE_WALLET
 bool BlockAssembler::createOeruBaseOutput(const int nHeight, CTxOut &oeruBaseOut)
 {
     if (!pwalletMain)
@@ -644,6 +647,7 @@ bool BlockAssembler::createOeruBaseOutput(const int nHeight, CTxOut &oeruBaseOut
 
     return true;
 }
+#endif
 
 void IncrementExtraNonce(CBlock* pblock, const CBlockIndex* pindexPrev, unsigned int& nExtraNonce)
 {
