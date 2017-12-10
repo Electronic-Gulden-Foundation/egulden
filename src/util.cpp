@@ -531,7 +531,17 @@ boost::filesystem::path GetConfigFile()
 void ReadConfigFile(map<string, string>& mapSettingsRet,
                     map<string, vector<string> >& mapMultiSettingsRet)
 {
-    boost::filesystem::ifstream streamConfig(GetConfigFile());
+    boost::filesystem::path pathConfigFile = GetConfigFile();
+    if (!boost::filesystem::exists(pathConfigFile))
+    {
+        // Create empty file to prevent user confusion
+        boost::filesystem::ofstream file(pathConfigFile);
+        file << "" << std::endl;
+        file.close();
+    }
+
+    boost::filesystem::ifstream streamConfig(pathConfigFile);
+
     if (!streamConfig.good())
         return; // No egulden.conf file is OK
 
