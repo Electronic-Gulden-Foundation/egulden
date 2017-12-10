@@ -426,6 +426,15 @@ void openDebugLogfile()
         QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathDebug)));
 }
 
+void openConfigfile()
+{
+    boost::filesystem::path configFilePath = GetConfigFile();
+
+    /* Open debug.log with the associated application */
+    if (boost::filesystem::exists(configFilePath))
+        QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(configFilePath)));
+}
+
 void SubstituteFonts(const QString& language)
 {
 #if defined(Q_OS_MAC)

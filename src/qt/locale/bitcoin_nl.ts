@@ -1559,6 +1559,10 @@
         <translation>Open het %1 debug-logbestand van de huidige datamap. Dit kan een aantal seconden duren voor grote logbestanden.</translation>
     </message>
     <message>
+        <source>Open the %1 config file from the current data directory.</source>
+        <translation>Open het %1 configuratiebestand in de huidige data directory.</translation>
+    </message>
+    <message>
         <source>Decrease font size</source>
         <translation>Verklein lettergrootte</translation>
     </message>
@@ -1637,6 +1641,10 @@
     <message>
         <source>Debug log file</source>
         <translation>Debuglogbestand</translation>
+    </message>
+    <message>
+        <source>Config file</source>
+        <translation>Configuratiebestand</translation>
     </message>
     <message>
         <source>Clear console</source>

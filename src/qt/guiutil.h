@@ -114,6 +114,9 @@ namespace GUIUtil
     // Open debug.log
     void openDebugLogfile();
 
+    // Open config file
+    void openConfigfile();
+
     // Replace invalid default fonts with known good ones
     void SubstituteFonts(const QString& language);
 
