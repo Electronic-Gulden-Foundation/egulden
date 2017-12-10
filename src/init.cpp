@@ -23,6 +23,9 @@
 #include "miner.h"
 #include "net.h"
 #include "oerushield/oerudb.h"
+#ifdef ENABLE_WALLET
+#include "oerushield/oerusignal.h"
+#endif
 #include "policy/policy.h"
 #include "rpc/server.h"
 #include "rpc/register.h"
@@ -1448,6 +1451,12 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
         CWallet::InitLoadWallet();
         if (!pwalletMain)
             return false;
+
+        std::string strUAComment = GetArg("-uacomment", "");
+        if (strUAComment != "")
+        {
+            COeruSignal::InitOeruSignal(strUAComment);
+        }
     }
 #else // ENABLE_WALLET
     LogPrintf("No wallet support compiled in!\n");

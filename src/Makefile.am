@@ -114,6 +114,7 @@ BITCOIN_CORE_H = \
   noui.h \
   oerushield/oerudb.h \
   oerushield/oerushield.h \
+  oerushield/oerusignal.h \
   oerushield/oerutx.h \
   oerushield/signaturechecker.h \
   policy/fees.h \
@@ -226,6 +227,7 @@ endif
 libbitcoin_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_wallet_a_SOURCES = \
+  oerushield/oerusignal.cpp \
   wallet/crypter.cpp \
   wallet/db.cpp \
   wallet/rpcdump.cpp \
