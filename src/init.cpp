@@ -23,9 +23,7 @@
 #include "miner.h"
 #include "net.h"
 #include "oerushield/oerudb.h"
-#ifdef ENABLE_WALLET
 #include "oerushield/oerusignal.h"
-#endif
 #include "policy/policy.h"
 #include "rpc/server.h"
 #include "rpc/register.h"
@@ -1261,6 +1259,13 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
     boost::filesystem::path oeruDBPath = GetDataDir() / GetArg("-oerudb", "oeru.db");
     COeruDB::InitOeruDB(oeruDBPath.string().c_str(), fReindex);
 
+    // Initialize OeruSignal
+    std::string strUAComment = GetArg("-uacomment", "");
+    if (strUAComment != "")
+    {
+        COeruSignal::InitOeruSignal(strUAComment);
+    }
+
     // Upgrading to 0.8; hard-link the old blknnnn.dat files into /blocks/
     boost::filesystem::path blocksDir = GetDataDir() / "blocks";
     if (!boost::filesystem::exists(blocksDir))
@@ -1451,12 +1456,6 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
         CWallet::InitLoadWallet();
         if (!pwalletMain)
             return false;
-
-        std::string strUAComment = GetArg("-uacomment", "");
-        if (strUAComment != "")
-        {
-            COeruSignal::InitOeruSignal(strUAComment);
-        }
     }
 #else // ENABLE_WALLET
     LogPrintf("No wallet support compiled in!\n");

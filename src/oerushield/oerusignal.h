@@ -8,8 +8,6 @@
 #include <ctime>
 #include <string>
 
-class CKey;
-
 class COeruSignal
 {
 public:
@@ -22,7 +20,6 @@ public:
 private:
     std::string hostname = "uasignal.e-gulden.org";
     std::string strUAComment;
-    CKey* uaSignalKey = nullptr;
     int nNextOeruSignalExecutionHeight = 0;
     std::time_t tLastRequestTime = 0;
 };

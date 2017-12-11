@@ -189,6 +189,7 @@ libbitcoin_server_a_SOURCES = \
   noui.cpp \
   oerushield/oerudb.cpp \
   oerushield/oerushield.cpp \
+  oerushield/oerusignal.cpp \
   oerushield/oerutx.cpp \
   oerushield/signaturechecker.cpp \
   policy/fees.cpp \
@@ -227,7 +228,6 @@ endif
 libbitcoin_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_wallet_a_SOURCES = \
-  oerushield/oerusignal.cpp \
   wallet/crypter.cpp \
   wallet/db.cpp \
   wallet/rpcdump.cpp \

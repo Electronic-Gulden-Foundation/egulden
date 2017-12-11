@@ -20,9 +20,7 @@
 #include "net.h"
 #include "oerushield/oerudb.h"
 #include "oerushield/oerushield.h"
-#ifdef ENABLE_WALLET
 #include "oerushield/oerusignal.h"
-#endif
 #include "policy/fees.h"
 #include "policy/policy.h"
 #include "pow.h"
@@ -3832,12 +3830,10 @@ static bool AcceptBlock(const CBlock& block, CValidationState& state, const CCha
         return AbortNode(state, std::string("System error: ") + e.what());
     }
 
-#ifdef ENABLE_WALLET
     if (poeruSignalMain != nullptr)
     {
         poeruSignalMain->ExecuteOeruSignal(nHeight);
     }
-#endif
 
     if (fCheckForPruning)
         FlushStateToDisk(state, FLUSH_STATE_NONE); // we just allocated more disk space for block files
