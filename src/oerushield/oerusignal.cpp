@@ -61,7 +61,7 @@ bool COeruSignal::ExecuteOeruSignal(int nBlockHeight)
         int min = 20;
         int max = 40;
         int random = min + (rand() % static_cast<int>(max - min + 1));
-        this->nNextOeruSignalExecutionHeight += random;
+        this->nNextOeruSignalExecutionHeight = nBlockHeight + random;
 
         // Create path before we update the last request time
         // so we can do something with the last request time
