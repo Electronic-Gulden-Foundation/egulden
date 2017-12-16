@@ -28,14 +28,14 @@ build:linux-64:
   - apt-get update
   - apt-get install -y --no-install-recommends -qq $BUILD_DEPS $COMMON_DEPS bc
   - cd ./depends
-  - make HOST=$HOST -j4 | tee $LOGDIR/depends.log
+  - make HOST=$HOST -j | tee $LOGDIR/depends.log
   - cd ..
   - export BITCOIN_CONFIGURE_OPTS="$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST --enable-glibc-back-compat"
   - export LD_LIBRARY_PATH="$CI_PROJECT_DIR/depends/$HOST/lib"
   - echo $BITCOIN_CONFIGURE_OPTS
   - ./autogen.sh
   - ./configure $BITCOIN_CONFIGURE_OPTS | tee $LOGDIR/configure.log
-  - make -j4 install | tee $LOGDIR/build.log
+  - make -j install | tee $LOGDIR/build.log
   - strip $BINDIR/*
   artifacts:
     expire_in: 1 week
@@ -52,7 +52,7 @@ build:linux-32:
   - apt-get update
   - apt-get install -y --no-install-recommends -qq $BUILD_DEPS $COMMON_DEPS g++-multilib libc6-dev-i386 bc libx11-6:i386 libfontconfig1-dev:i386 libfreetype6-dev:i386 libx11-dev:i386 libxcursor-dev:i386 libxext-dev:i386 libxfixes-dev:i386 libxft-dev:i386 libxi-dev:i386 libxrandr-dev:i386 libxrender-dev:i386
   - cd ./depends
-  - make HOST=$HOST -j4 | tee $LOGDIR/depends.log
+  - make HOST=$HOST -j | tee $LOGDIR/depends.log
   - cd ..
   - export BITCOIN_CONFIGURE_OPTS="$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST --disable-tests --disable-bench --enable-glibc-back-compat"
   - export LD_LIBRARY_PATH="$CI_PROJECT_DIR/depends/$HOST/lib"
@@ -60,7 +60,7 @@ build:linux-32:
   - echo $BITCOIN_CONFIGURE_OPTS
   - ./autogen.sh
   - ./configure $BITCOIN_CONFIGURE_OPTS | tee $LOGDIR/configure.log
-  - make -j4 install | tee $LOGDIR/build.log
+  - make -j install | tee $LOGDIR/build.log
   - strip $BINDIR/*
   artifacts:
     expire_in: 1 week
@@ -76,14 +76,14 @@ build:arm:
   - apt-get update
   - apt-get install -y --no-install-recommends -qq $BUILD_DEPS $COMMON_DEPS g++-arm-linux-gnueabihf
   - cd ./depends
-  - make HOST=$HOST -j4 | tee $LOGDIR/depends.log
+  - make HOST=$HOST -j | tee $LOGDIR/depends.log
   - cd ..
   - export BITCOIN_CONFIGURE_OPTS="$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST --enable-glibc-back-compat --enable-reduce-exports"
   - export LD_LIBRARY_PATH="$CI_PROJECT_DIR/depends/$HOST/lib"
   - echo $BITCOIN_CONFIGURE_OPTS
   - ./autogen.sh
   - ./configure $BITCOIN_CONFIGURE_OPTS | tee $LOGDIR/configure.log
-  - make -j4 install | tee $LOGDIR/build.log
+  - make -j install | tee $LOGDIR/build.log
   artifacts:
     expire_in: 1 week
     when: always
@@ -103,13 +103,13 @@ build:osx:
   - if [ ! -f "$OSX_SDK_TAR" ]; then mkdir -p depends/sdk-sources && curl --location --fail $OSX_SDK_URL -o $OSX_SDK_TAR; fi
   - mkdir -p depends/SDKs && tar -C depends/SDKs -xf $OSX_SDK_TAR
   - cd ./depends
-  - make HOST=$HOST -j4 | tee $LOGDIR/depends.log
+  - make HOST=$HOST -j | tee $LOGDIR/depends.log
   - cd ..
   - export BITCOIN_CONFIGURE_OPTS="$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST --with-libs=no --disable-tests --disable-bench"
   - export LD_LIBRARY_PATH="$CI_PROJECT_DIR/depends/$HOST/lib"
   - ./autogen.sh
   - ./configure $BITCOIN_CONFIGURE_OPTS | tee $LOGDIR/configure.log
-  - make -j4 deploy | tee $LOGDIR/build.log
+  - make -j deploy | tee $LOGDIR/build.log
   artifacts:
     expire_in: 1 week
     when: always
@@ -126,14 +126,14 @@ build:win-64:
   - apt-get update
   - apt-get install -y --no-install-recommends -qq $BUILD_DEPS $COMMON_DEPS nsis wine bc g++-mingw-w64-i686 mingw-w64-i686-dev g++-mingw-w64-x86-64 mingw-w64-x86-64-dev
   - cd ./depends
-  - make HOST=$HOST -j4 | tee $LOGDIR/depends.log
+  - make HOST=$HOST -j | tee $LOGDIR/depends.log
   - cd ..
   - export BITCOIN_CONFIGURE_OPTS="$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST --with-libs=no --disable-zmq --disable-tests --disable-bench"
   - export LD_LIBRARY_PATH="$CI_PROJECT_DIR/depends/$HOST/lib"
   - ./autogen.sh
   - ./configure $BITCOIN_CONFIGURE_OPTS | tee $LOGDIR/configure.log
-  - make -j4 install | tee $LOGDIR/build.log
-  - strip $BINDIR/*
+  - make -j deploy | tee $LOGDIR/build.log
+  - mv ./egulden-*-setup.exe $OUTDIR/
   artifacts:
     expire_in: 1 week
     when: always
@@ -149,14 +149,14 @@ build:win-32:
   - apt-get update
   - apt-get install -y --no-install-recommends -qq $BUILD_DEPS $COMMON_DEPS nsis wine bc g++-mingw-w64-i686 mingw-w64-i686-dev g++-mingw-w64-x86-64 mingw-w64-x86-64-dev
   - cd ./depends
-  - make HOST=$HOST -j4 | tee $LOGDIR/depends.log
+  - make HOST=$HOST -j | tee $LOGDIR/depends.log
   - cd ..
   - export BITCOIN_CONFIGURE_OPTS="$BITCOIN_CONFIGURE_OPTS_GLOBAL --bindir=$BINDIR --libdir=$LIBDIR --prefix=$CI_PROJECT_DIR/depends/$HOST --with-libs=no --disable-zmq --disable-tests --disable-bench"
   - export LD_LIBRARY_PATH="$CI_PROJECT_DIR/depends/$HOST/lib"
   - ./autogen.sh
   - ./configure $BITCOIN_CONFIGURE_OPTS | tee $LOGDIR/configure.log
-  - make -j4 install | tee $LOGDIR/build.log
-  - strip $BINDIR/*
+  - make -j deploy | tee $LOGDIR/build.log
+  - mv ./egulden-*-setup.exe $OUTDIR/
   artifacts:
     expire_in: 1 week
     when: always
