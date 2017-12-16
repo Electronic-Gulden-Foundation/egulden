@@ -3136,6 +3136,10 @@
         <translation>Corrupte blokkendatabase gedetecteerd</translation>
     </message>
     <message>
+        <source>Invalid OERUShield database detected. You need to rebuild the database using -reindex.</source>
+        <translation>Ongeldige OERUShield database gedetecteerd. U moet -reindex gebruiken om de database opnieuw op te bouwen.</translation>
+    </message>
+    <message>
         <source>Debugging/Testing options:</source>
         <translation>Foutopsporing/Testopties:</translation>
     </message>
