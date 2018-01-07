@@ -8,3 +8,5 @@ i686*
 mips*
 arm*
 aarch64*
+
+!fix_qt_linux_arm_gnueabihf.patch
