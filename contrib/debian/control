@@ -1,4 +1,4 @@
-Source: bitcoin
+Source: egulden
 Section: utils
 Priority: optional
 Maintainer: Jonas Smedegaard <dr@jones.dk>
@@ -27,41 +27,41 @@ Homepage: https://bitcoincore.org/
 Vcs-Git: git://github.com/bitcoin/bitcoin.git
 Vcs-Browser: https://github.com/bitcoin/bitcoin
 
-Package: bitcoind
+Package: eguldend
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - daemon
- Bitcoin is an experimental new digital currency that enables instant
- payments to anyone, anywhere in the world. Bitcoin uses peer-to-peer
+ e-Gulden is an experimental new digital currency that enables instant
+ payments to anyone, anywhere in the world. e-Gulden uses peer-to-peer
  technology to operate with no central authority: managing transactions
- and issuing money are carried out collectively by the network. Bitcoin Core
+ and issuing money are carried out collectively by the network. e-Gulden Core
  is the name of the open source software which enables the use of this currency.
  .
- This package provides the daemon, bitcoind, and the CLI tool
- bitcoin-cli to interact with the daemon.
+ This package provides the daemon, eguldend, and the CLI tool
+ egulden-cli to interact with the daemon.
 
-Package: bitcoin-qt
+Package: egulden-qt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - Qt GUI
- Bitcoin is an experimental new digital currency that enables instant
- payments to anyone, anywhere in the world. Bitcoin uses peer-to-peer
+ e-Gulden is an experimental new digital currency that enables instant
+ payments to anyone, anywhere in the world. e-Gulden uses peer-to-peer
  technology to operate with no central authority: managing transactions
- and issuing money are carried out collectively by the network. Bitcoin Core
+ and issuing money are carried out collectively by the network. e-Gulden Core
  is the name of the open source software which enables the use of this currency.
  .
- This package provides Bitcoin-Qt, a GUI for Bitcoin based on Qt.
+ This package provides e-Gulden-Qt, a GUI for e-Gulden based on Qt.
 
-Package: bitcoin-tx
+Package: egulden-tx
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer digital currency - standalone transaction tool
- Bitcoin is an experimental new digital currency that enables instant
- payments to anyone, anywhere in the world. Bitcoin uses peer-to-peer
+ e-Gulden is an experimental new digital currency that enables instant
+ payments to anyone, anywhere in the world. e-Gulden uses peer-to-peer
  technology to operate with no central authority: managing transactions
- and issuing money are carried out collectively by the network. Bitcoin Core
+ and issuing money are carried out collectively by the network. e-Gulden Core
  is the name of the open source software which enables the use of this currency.
  .
- This package provides bitcoin-tx, a command-line transaction creation
- tool which can be used without a bitcoin daemon.  Some means of
+ This package provides egulden-tx, a command-line transaction creation
+ tool which can be used without a egulden daemon.  Some means of
  exchanging minimal transaction data with peers is still required.
