@@ -16,7 +16,7 @@
 #include "main.h" // For DEFAULT_SCRIPTCHECK_THREADS
 #include "net.h"
 #include "txdb.h" // for -dbcache defaults
-#include "intro.h" 
+#include "intro.h"
 
 #ifdef ENABLE_WALLET
 #include "wallet/wallet.h"
@@ -58,7 +58,7 @@ void OptionsModel::Init(bool resetSettings)
         settings.setValue("fHideTrayIcon", false);
     fHideTrayIcon = settings.value("fHideTrayIcon").toBool();
     Q_EMIT hideTrayIconChanged(fHideTrayIcon);
-    
+
     if (!settings.contains("fMinimizeToTray"))
         settings.setValue("fMinimizeToTray", false);
     fMinimizeToTray = settings.value("fMinimizeToTray").toBool() && !fHideTrayIcon;
@@ -98,6 +98,9 @@ void OptionsModel::Init(bool resetSettings)
         settings.setValue("nThreadsScriptVerif", DEFAULT_SCRIPTCHECK_THREADS);
     if (!SoftSetArg("-par", settings.value("nThreadsScriptVerif").toString().toStdString()))
         addOverriddenOption("-par");
+
+    if (!SoftSetArg("-oerusignal", settings.value("strOeruSignalAddress").toString().toStdString()))
+        addOverriddenOption("-oerusignal");
 
     if (!settings.contains("strDataDir"))
         settings.setValue("strDataDir", Intro::getDefaultDataDirectory());
@@ -246,6 +249,8 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
             return settings.value("nThreadsScriptVerif");
         case Listen:
             return settings.value("fListen");
+        case OeruSignalAddress:
+            return settings.value("strOeruSignalAddress");
         default:
             return QVariant();
         }
@@ -394,6 +399,11 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
                 setRestartRequired(true);
             }
             break;
+        case OeruSignalAddress:
+            if (settings.value("strOeruSignalAddress") != value) {
+                settings.setValue("strOeruSignalAddress", value);
+                setRestartRequired(true);
+            }
         default:
             break;
         }

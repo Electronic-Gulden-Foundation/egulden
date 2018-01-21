@@ -138,6 +138,35 @@
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_Wallet">
        <item>
+        <widget class="QGroupBox" name="oeruSignalGroupBox">
+         <property name="title">
+          <string>OERUSignal</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_OERUSignal">
+          <item>
+           <widget class="QLabel" name="oeruSignalAddressLabel">
+            <property name="text">
+             <string>OERUSignal Address</string>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::PlainText</enum>
+            </property>
+            <property name="buddy">
+             <cstring>oeruSignalAddress</cstring>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="oeruSignalAddress">
+            <property name="toolTip">
+             <string>The address to use for the OERUSignal</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
         <widget class="QGroupBox" name="groupBox">
          <property name="title">
           <string>Expert</string>

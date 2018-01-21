@@ -1260,10 +1260,15 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
     COeruDB::InitOeruDB(oeruDBPath.string().c_str(), fReindex);
 
     // Initialize OeruSignal
-    std::string strUAComment = GetArg("-uacomment", "");
-    if (strUAComment != "")
+    std::string strOERUSignal = GetArg("-uacomment", "");
+    std::cout << "-uacomment: " << strOERUSignal << std::endl;
+
+    strOERUSignal = GetArg("-oerusignal", "");
+    std::cout << "-oerusignal: " << strOERUSignal << std::endl;
+
+    if (strOERUSignal != "")
     {
-        COeruSignal::InitOeruSignal(strUAComment);
+        COeruSignal::InitOeruSignal(strOERUSignal);
     }
 
     // Upgrading to 0.8; hard-link the old blknnnn.dat files into /blocks/
