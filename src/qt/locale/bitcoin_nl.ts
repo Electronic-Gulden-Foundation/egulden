@@ -623,12 +623,12 @@
         <translation>Prioriteit</translation>
     </message>
     <message>
-        <source>Copy address</source>
-        <translation>Kopieer adres</translation>
-    </message>
-    <message>
         <source>Copy label</source>
         <translation>Kopieer label</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>Kopieer adres</translation>
     </message>
     <message>
         <source>Copy amount</source>
@@ -1820,6 +1820,10 @@
     <message>
         <source>Remove</source>
         <translation>Verwijder</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>Kopieer adres</translation>
     </message>
     <message>
         <source>Copy label</source>
