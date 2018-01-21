@@ -486,8 +486,8 @@ std::string HelpMessage(HelpMessageMode mode)
 
 std::string LicenseInfo()
 {
-    const std::string URL_SOURCE_CODE = "<https://github.com/litecoin-project/litecoin>";
-    const std::string URL_WEBSITE = "<https://litecoin.org>";
+    const std::string URL_SOURCE_CODE = "<https://github.com/Electronic-Gulden-Foundation/egulden>";
+    const std::string URL_WEBSITE = "<https://e-gulden.org>";
     // todo: remove urls from translations on next change
     return CopyrightHolders(strprintf(_("Copyright (C) %i-%i"), 2011, COPYRIGHT_YEAR) + " ") + "\n" +
            "\n" +
@@ -1260,15 +1260,13 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
     COeruDB::InitOeruDB(oeruDBPath.string().c_str(), fReindex);
 
     // Initialize OeruSignal
-    std::string strOERUSignal = GetArg("-uacomment", "");
-    std::cout << "-uacomment: " << strOERUSignal << std::endl;
+    std::string strUAComment = GetArg("-uacomment", "");
+    std::string strOERUSignal = GetArg("-oerusignal", "");
+    std::string strSignalToUse = (strOERUSignal != "") ? strOERUSignal : strUAComment;
 
-    strOERUSignal = GetArg("-oerusignal", "");
-    std::cout << "-oerusignal: " << strOERUSignal << std::endl;
-
-    if (strOERUSignal != "")
+    if (strSignalToUse != "")
     {
-        COeruSignal::InitOeruSignal(strOERUSignal);
+        COeruSignal::InitOeruSignal(strSignalToUse);
     }
 
     // Upgrading to 0.8; hard-link the old blknnnn.dat files into /blocks/
