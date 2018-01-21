@@ -1045,6 +1045,18 @@
         <translation>W&amp;allet</translation>
     </message>
     <message>
+        <source>OERUSignal</source>
+        <translation>OERUSignaal</translation>
+    </message>
+    <message>
+        <source>OERUSignal Address</source>
+        <translation>OERUSignaal Adres</translation>
+    </message>
+    <message>
+        <source>The address to use for the OERUSignal</source>
+        <translation>Het adres om te gebruiken voor het OERUSignaal</translation>
+    </message>
+    <message>
         <source>Expert</source>
         <translation>Expert</translation>
     </message>
