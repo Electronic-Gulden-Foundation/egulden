@@ -27,6 +27,8 @@
 #include <QSettings>
 #include <QStringList>
 
+#include <boost/assign/list_of.hpp>
+
 OptionsModel::OptionsModel(QObject *parent, bool resetSettings) :
     QAbstractListModel(parent)
 {
@@ -99,9 +101,6 @@ void OptionsModel::Init(bool resetSettings)
     if (!SoftSetArg("-par", settings.value("nThreadsScriptVerif").toString().toStdString()))
         addOverriddenOption("-par");
 
-    if (!SoftSetArg("-oerusignal", settings.value("strOeruSignalAddress").toString().toStdString()))
-        addOverriddenOption("-oerusignal");
-
     if (!settings.contains("strDataDir"))
         settings.setValue("strDataDir", Intro::getDefaultDataDirectory());
 
@@ -114,6 +113,13 @@ void OptionsModel::Init(bool resetSettings)
 #endif
 
     // Network
+    if (!settings.contains("strUAComment"))
+        settings.setValue("strUAComment", QString::fromStdString(GetArg("-uacomment", "")));
+
+    std::vector<std::string> vUACommentArgs = boost::assign::list_of(settings.value("strUAComment").toString().toStdString());
+    if (!SoftSetMultiArg("-uacomment", vUACommentArgs))
+        addOverriddenOption("-uacomment");
+
     if (!settings.contains("fUseUPnP"))
         settings.setValue("fUseUPnP", DEFAULT_UPNP);
     if (!SoftSetBoolArg("-upnp", settings.value("fUseUPnP").toBool()))
@@ -249,8 +255,8 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
             return settings.value("nThreadsScriptVerif");
         case Listen:
             return settings.value("fListen");
-        case OeruSignalAddress:
-            return settings.value("strOeruSignalAddress");
+        case UAComment:
+            return settings.value("strUAComment");
         default:
             return QVariant();
         }
@@ -399,9 +405,9 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
                 setRestartRequired(true);
             }
             break;
-        case OeruSignalAddress:
-            if (settings.value("strOeruSignalAddress") != value) {
-                settings.setValue("strOeruSignalAddress", value);
+        case UAComment:
+            if (settings.value("strUAComment") != value) {
+                settings.setValue("strUAComment", value);
                 setRestartRequired(true);
             }
         default:

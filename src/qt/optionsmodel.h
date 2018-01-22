@@ -46,7 +46,7 @@ public:
         DatabaseCache,          // int
         SpendZeroConfChange,    // bool
         Listen,                 // bool
-        OeruSignalAddress,      // QString
+        UAComment,              // QString
         OptionIDRowCount,
     };
 

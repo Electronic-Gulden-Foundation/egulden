@@ -1037,24 +1037,20 @@
         <translation>&amp;Netwerk</translation>
     </message>
     <message>
+        <source>User Agent comment</source>
+        <translation>User Agent toevoeging</translation>
+    </message>
+    <message>
+        <source>The user agent comment is appended to the user agent version message</source>
+        <translation>De User Agent toevoeging wordt toegevoegd aan het versie bericht</translation>
+    </message>
+    <message>
         <source>(0 = auto, &lt;0 = leave that many cores free)</source>
         <translation>(0 = auto, &lt;0 = laat dit aantal kernen vrij)</translation>
     </message>
     <message>
         <source>W&amp;allet</source>
         <translation>W&amp;allet</translation>
-    </message>
-    <message>
-        <source>OERUSignal</source>
-        <translation>OERUSignaal</translation>
-    </message>
-    <message>
-        <source>OERUSignal Address</source>
-        <translation>OERUSignaal Adres</translation>
-    </message>
-    <message>
-        <source>The address to use for the OERUSignal</source>
-        <translation>Het adres om te gebruiken voor het OERUSignaal</translation>
     </message>
     <message>
         <source>Expert</source>

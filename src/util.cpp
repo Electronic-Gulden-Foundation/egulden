@@ -381,6 +381,8 @@ std::string GetArg(const std::string& strArg, const std::string& strDefault)
 {
     if (mapArgs.count(strArg))
         return mapArgs[strArg];
+    if (mapMultiArgs.count(strArg) && mapMultiArgs[strArg].size() == 1)
+        return mapMultiArgs[strArg][0];
     return strDefault;
 }
 
@@ -388,6 +390,8 @@ int64_t GetArg(const std::string& strArg, int64_t nDefault)
 {
     if (mapArgs.count(strArg))
         return atoi64(mapArgs[strArg]);
+    if (mapMultiArgs.count(strArg) && mapMultiArgs[strArg].size() == 1)
+        return atoi64(mapMultiArgs[strArg][0]);
     return nDefault;
 }
 
@@ -403,6 +407,14 @@ bool SoftSetArg(const std::string& strArg, const std::string& strValue)
     if (mapArgs.count(strArg))
         return false;
     mapArgs[strArg] = strValue;
+    return true;
+}
+
+bool SoftSetMultiArg(const std::string& strArg, const std::vector<std::string>& vstrValues)
+{
+    if (mapMultiArgs.count(strArg))
+        return false;
+    mapMultiArgs[strArg] = vstrValues;
     return true;
 }
 

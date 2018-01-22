@@ -177,6 +177,15 @@ bool GetBoolArg(const std::string& strArg, bool fDefault);
 bool SoftSetArg(const std::string& strArg, const std::string& strValue);
 
 /**
+ * Set an argument if it doesn't already have a value
+ *
+ * @param strArg Argument to set (e.g. "-foo")
+ * @param vstrValues Values (e.g. "1", "2")
+ * @return true if argument gets set, false if it already had a value
+ */
+bool SoftSetMultiArg(const std::string& strArg, const std::vector<std::string>& vstrValues);
+
+/**
  * Set a boolean argument if it doesn't already have a value
  *
  * @param strArg Argument to set (e.g. "-foo")
