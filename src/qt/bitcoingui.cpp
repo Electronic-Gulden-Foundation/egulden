@@ -1138,7 +1138,7 @@ void BitcoinGUI::checkBackupWallet()
 
     QString settingsKey("dLastBackupTime");
     QSettings settings;
-    QDateTime dLastBackupTime = QDateTime::fromSecsSinceEpoch(0);
+    QDateTime dLastBackupTime = QDateTime::fromTime_t(0);
 
     if (settings.contains(settingsKey))
     {
