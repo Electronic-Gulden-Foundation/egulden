@@ -932,6 +932,11 @@ void BitcoinGUI::showEvent(QShowEvent *event)
     openRPCConsoleAction->setEnabled(true);
     aboutAction->setEnabled(true);
     optionsAction->setEnabled(true);
+
+#ifdef ENABLE_WALLET
+    // Trigger check backup
+    checkBackupWallet();
+#endif
 }
 
 #ifdef ENABLE_WALLET
@@ -1125,6 +1130,43 @@ void BitcoinGUI::unsubscribeFromCoreSignals()
     uiInterface.ThreadSafeMessageBox.disconnect(boost::bind(ThreadSafeMessageBox, this, _1, _2, _3));
     uiInterface.ThreadSafeQuestion.disconnect(boost::bind(ThreadSafeMessageBox, this, _1, _3, _4));
 }
+
+#ifdef ENABLE_WALLET
+void BitcoinGUI::checkBackupWallet()
+{
+    if (walletFrame == nullptr) return;
+
+    QString settingsKey("dLastBackupTime");
+    QSettings settings;
+    QDateTime dLastBackupTime = QDateTime::fromSecsSinceEpoch(0);
+
+    if (settings.contains(settingsKey))
+    {
+        dLastBackupTime = settings.value(settingsKey).toDateTime();
+    }
+
+    QDateTime dNow = QDateTime::currentDateTime();
+    QDateTime dOneMonthAgo = dNow.addMonths(-1);
+
+    std::cout << dLastBackupTime.toString().toStdString() << " < " << dOneMonthAgo.toString().toStdString() << " = " << (dLastBackupTime < dOneMonthAgo) << std::endl;
+
+    if (dLastBackupTime < dOneMonthAgo)
+    {
+        QMessageBox askBackup;
+        askBackup.setText(tr("It has been a while since you last backed up your wallet. We recommend backing up now"));
+        askBackup.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+        askBackup.setDefaultButton(QMessageBox::Save);
+
+        int result = askBackup.exec();
+
+        if (result == QMessageBox::Yes)
+        {
+            walletFrame->backupWallet();
+            settings.setValue(settingsKey, dNow);
+        }
+    }
+}
+#endif
 
 UnitDisplayStatusBarControl::UnitDisplayStatusBarControl(const PlatformStyle *platformStyle) :
     optionsModel(0),
